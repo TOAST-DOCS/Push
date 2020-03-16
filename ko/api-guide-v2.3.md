@@ -6,7 +6,7 @@
 
 #### 수정
 - 푸시 타입으로 'GCM' 대신 'FCM'을 사용해야 합니다.
-- API 인증시 사용하는 값이 변경되었습니다. Secret Key를 사용합니다.
+- API 인증시 사용하는 값이 Secret Key로 변경되었습니다.
 
 ### 기본 정보
 #### Endpoint
@@ -21,14 +21,14 @@ API Endpoint: https://api-push.cloud.toast.com
 Header
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
-[CONSOLE] > [Notification] > [Push] > [URL & AppKey] 에서 확인/생성할 수 있습니다.
+**CONSOLE > Notification > Push > URL & AppKey** 에서 확인/생성할 수 있습니다.
 
 #### Response
 
 ##### Response HTTP Status Code
 200 OK.  
 모든 API 요청에 대해 200 OK로 응답합니다.  
-자세한 응답 결과는 Response Body의 Header를 통해 알 수 있습니다.  
+자세한 응답 결과는 Response Body의 Header에서 알 수 있습니다.
 
 ##### Response Header
 
@@ -131,7 +131,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Field | Usage | Description |
 | - | - | - |
-| appkey | Required, String | Path Variable, 상품 이용시 발급 받은 앱키 |
+| appkey | Required, String | Path Variable, 상품 이용 시 발급받은 앱키 |
 | pushType | Required, String | 'FCM', 'APNS', 'APNS_SANDBOX', 'TENCENT', 'APNS_VOIP', 'APNS_SANDBOXVOIP', 'ADM' |
 
 ##### Response Body
@@ -236,8 +236,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | appkey | Required, String | Path Variable, 상품 이용시 발급 받은 앱키 |
 | pageIndex | Optional, Number | 기본 값 0 |
 | pageSize | Optional, Number | 기본 값 25, 최대 값 100 |
-| from | Optional, DateTime String | 최근 30일 까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
-| to | Optional, DateTime String | 최근 30일 까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
+| from | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
+| to | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
 | messageId | Optional, Number | 유효하지 않는 토큰이 발생한 메시지 아이디 |
 
 ##### Request Body
@@ -280,8 +280,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | Field | Usage | Description |
 | - | - | - |
 | appkey | Required, String | Path Variable, 상품 이용시 발급 받은 앱키 |
-| from | Optional, DateTime String | 최근 30일 까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
-| to | Optional, DateTime String | 최근 30일 까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
+| from | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
+| to | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
 | tokenProperties | Optional, String Array | 'agreement', 'country', 'language', 'timezoneId'<br/>','로 구분, e.g. tokenProperties=country,language |
 
 ##### Request Body
@@ -362,8 +362,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | Field | Usage | Description |
 | - | - | - |
 | appkey | Required, String | Path Variable, 상품 이용시 발급 받은 앱키 |
-| from | Optional, DateTime String | 최근 30일 까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
-| to | Optional, DateTime String | 최근 30일 까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
+| from | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
+| to | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
 
 ##### Request Body
 ```
@@ -998,8 +998,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | appkey | Required, String | Path Variable, 상품 이용시 발급 받은 앱키 |
 | pageIndex | Optional, Number | 기본 값 0 |
 | pageSize | Optional, Number | 기본 값 25, 최대 값 100 |
-| from | Optional, DateTime String | 최근 30일 까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
-| to | Optional, DateTime String | 최근 30일 까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
+| from | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
+| to | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
 | deliveryType | Optional, String | 'INSTANT'(즉시 발송), 'RESERVATION'(예약 발송) |
 | messageStatus | Optional, String | 'READY', 'PROCESSING', 'COMPLETE', 'CANCEL_NO_TARGET', 'CANCEL_INVALID_CERTIFICATE', 'CANCEL_INVALID_MESSAGE', 'CANCEL_UNSUPPORTED_MESSAGE_TYPE', 'CANCEL_UNAUTHORIZED', 'CANCEL_UNKNOWN' |
 
@@ -1144,8 +1144,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | messageId | Optional, Number | 메시지 아이디 |
 | messageErrorType | Optional, String | 'CLIENT_ERROR', 'EXTERNAL_ERROR', 'INTERNAL_ERROR' |
 | messageErrorCause | Optional, String | 'UNSUPPORTED_MESSAGE_TYPE', 'INVALID_MESSAGE', 'INVALID_CERTIFICATE', 'UNAUTHORIZED', 'EXPIRED_TIME_OUT', 'APNS_ERROR', 'FCM_ERROR', 'TENCENT_ERROR', 'AGENT_ERROR', 'ADM_ERROR', 'DUPLICATED_MESSAGE_TOKEN'  |
-| from | Optional, DateTime String | 최근 30일 까지, 기본 값은 최근 7일 전 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
-| to | Optional, DateTime String | 최근 30일 까지, 기본 값은 현재 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
+| from | Optional, DateTime String | 최근 30일까지, 기본 값은 최근 7일 전 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
+| to | Optional, DateTime String | 최근 30일까지, 기본 값은 현재 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
 | limit | Optional, Number | 한 번에 조회할 목록 크기, 기본 값과 최대 값은 1,000 |
 
 ##### Description
@@ -1228,7 +1228,7 @@ curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-
 
 #### 메시지 수신, 확인 통계 조회
 메시지 수신, 확인 수집(Message Delivery Receipt) 기능을 화성화하고, v1.4 이상 SDK를 적용하면 발송한 메시지에 대해 수신, 확인 정보를 확인할 수 있습니다.
-수집된 정보를 통계 API로 조회할 수 있습니다. 기능은 [Console] > [Settings] 탭에서 활성화할 수 있습니다.
+수집된 정보를 통계 API로 조회할 수 있습니다. 기능은 **Console > Settings** 탭에서 활성화할 수 있습니다.
 
 ##### Method, URL, Headers
 ```
@@ -1241,8 +1241,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | Field | Usage | Description |
 | - | - | - |
 | appkey | Required, String | Path Variable, 상품 이용시 발급 받은 앱키 |
-| from | Optional, DateTime String | 최근 30일 까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
-| to | Optional, DateTime String | 최근 30일 까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
+| from | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
+| to | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
 | event | Optional, String | 'SENT', 'SENT_FAILED', 'RECEIVED', 'OPENED' |
 | timeUnit | Optional, String | 'MINUTES', 'HOURS', 'DAYS'<br>값이 없다면 조회기간에 따라 임의로 통계가 제공됩니다.<br>조회기간이 1일 이상은 일 단위, 1시간에서 24시간 사이는 시간 단위, 1시간 이하는 분 단위로 표시됩니다. |
 | messageId | Optional, Number | 메시지 아이디 |
@@ -1287,7 +1287,7 @@ curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-
 
 ### 로그 조회
 - 로그 조회 API는 Logging 기능을 활성화한 상태에서만 호출가능 하다.
-- Logging 기능은 [Console] > [Notification] > [Push] > [Setting] 탭에서 활성화 시킬 수 있습니다.
+- Logging 기능은 **Console > Notification > Push > Setting** 탭에서 활성화 시킬 수 있습니다.
 
 #### 일반 로그 조회
 - 최대 100개까지 조회 가능합니다.
@@ -1306,8 +1306,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | uid | Optional, String | 사용자 아이디 |
 | token | Optional, String | 사용자 토큰 |
 | pushType | Optional, String | 푸시 타입 |
-| from | Optional, DateTime String | 최근 30일 까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
-| to | Optional, DateTime String | 최근 30일 까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
+| from | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
+| to | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
 | limit | Optional, Number | 최대 조회 개수, 기본 값 100 |
 
 ##### Request Body
@@ -1359,7 +1359,7 @@ curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-
 #### 대량 로그 카운트 조회
 - 검색 조건으로 검색된 로그의 수를 확인할 수 있습니다.
 - 다른 v2.3 API와 다르게 'User Access Key ID'를 사용해야 합니다.
-[회원정보] > [API 보안 설정] 에서 생성할 수 있습니다.
+**회원정보** > **API 보안 설정** 에서 생성할 수 있습니다.
 
 ##### Method, URL, Headers
 ```
@@ -1407,8 +1407,8 @@ X-Secret-Access-Key: [a-zA-Z0-9]{16}
 
 | Field | Usage | Description |
 | - | - | - |
-| from | Required, DateTime String | 최근 30일 까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
-| to | Required, DateTime String | 최근 30일 까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
+| from | Required, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
+| to | Required, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
 | messageId | Optional, String | 조회할 메시지 아이디 |
 | pushType | Optional, String | 조회할 푸시 타입 |
 | sendResult | Optional, String | 발송 결과입니다. 'SENT', 'SENT_FAILED' |
@@ -1610,8 +1610,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | appkey | Required, String | Path Variable, 상품 이용시 발급 받은 앱키 |
 | pageIndex | Optional, Number | 기본 값 0 |
 | pageSize | Optional, Number | 기본 값 25, 최대 값 100 |
-| from | Optional, DateTime String | 최근 30일 까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
-| to | Optional, DateTime String | 최근 30일 까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
+| from | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
+| to | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
 | reservationStatus | Optional, String | 'RESERVED', 'COMPLETE' |
 
 ##### Request Body
