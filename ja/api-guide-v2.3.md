@@ -1,10 +1,13 @@
-## Notification > Push > API v2.4ガイド
+## Notification > Push > API v2.3ガイド
 
-### v2.4 API紹介
+### v2.3 API紹介
 
 #### 追加
-- '통계' API가 추가되었습니다.
+- 'トークン削除'APIが追加されました。
 
+#### 修正
+- プッシュタイプは'GCM'の代わりに'FCM'を使用する必要があります。
+- API認証時に使用する値が変更されました。 Secret Keyを使用します。
 
 ### 基本情報
 #### Endpoint
@@ -46,7 +49,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Method、URL
 ```
-POST /push/v2.4/appkeys/{appkey}/tokens
+POST /push/v2.3/appkeys/{appkey}/tokens
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -101,7 +104,7 @@ Content-Type: application/json;charset=UTF-8
 
 ##### Example
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tokens -d '{"oldToken":"oldToken","token":"token","isNotificationAgreement":true,"isAdAgreement":true,"isNightAdAgreement":true,"pushType":"FCM","timezoneId":"Asia/Seoul","uid":"uid","country":"KR","language":"ko","deviceId": "deviceId"}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/tokens -d '{"oldToken":"oldToken","token":"token","isNotificationAgreement":true,"isAdAgreement":true,"isNightAdAgreement":true,"pushType":"FCM","timezoneId":"Asia/Seoul","uid":"uid","country":"KR","language":"ko","deviceId": "deviceId"}'
 ```
 
 ##### Description
@@ -123,7 +126,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-push.
 ##### Method、URL
 
 ```
-GET /push/v2.4/appkeys/{appkey}/tokens/{token}?pushType={pushType}
+GET /push/v2.3/appkeys/{appkey}/tokens/{token}?pushType={pushType}
 Content-Type: application/json;charset=UTF-8
 ```
 
@@ -170,7 +173,7 @@ Content-Type: application/json;charset=UTF-8
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tokens/token?pushType={pushType}
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/tokens/token?pushType={pushType}
 ```
 
 #### ユーザーIDでトークン照会
@@ -178,7 +181,7 @@ curl -X GET -H "Content-Type: application/json;charset=UTF-8" https://api-push.c
 ##### Method、URL
 
 ```
-GET /push/v2.4/appkeys/{appkey}/tokens?uid={uid}
+GET /push/v2.3/appkeys/{appkey}/tokens?uid={uid}
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -218,13 +221,13 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tokens?uid=uid
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/tokens?uid=uid
 ```
 
 #### 有効ではないトークン照会
 ##### Method, URL, Headers
 ```
-GET /push/v2.4/appkeys/{appkey}/invalid-tokens?pageIndex={pageIndex}&pageSize={pageSize}&from={from}&to={to}&messageId={messageId}
+GET /push/v2.3/appkeys/{appkey}/invalid-tokens?pageIndex={pageIndex}&pageSize={pageSize}&from={from}&to={to}&messageId={messageId}
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -263,14 +266,147 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/invalid-tokens
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/invalid-tokens
 ```
 
+
+#### トークンプロパティ統計照会API
+##### Method, URL, Headers
+```
+GET /push/v2.3/appkeys/{appkey}/statistics/token-properties?from={from}&to={to}&tokenProperties={tokenProperties}
+Content-Type: application/json;charset=UTF-8
+X-Secret-Key: [a-zA-Z0-9]{8}
+```
+
+| Field | Usage | Description |
+| - | - | - |
+| appkey | Required, String | Path Variable, サービス利用時に発行されたアプリケーションキー |
+| from | Optional, DateTime String | 過去30日まで(ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
+| to | Optional, DateTime String | 過去30日まで(ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
+| tokenProperties | Optional, String Array | 'agreement', 'country', 'language', 'timezoneId'<br/>','で区切る、 e.g. tokenProperties=country,language |
+
+##### Request Body
+```
+なし
+```
+
+##### Response Body
+```json
+{
+	"tokenPropertiesStatistics" : [{
+			"dateTime" : "2016-07-11 17:50:00.00+9:00",
+			"countries" : {
+				"KR" : 100,
+				"JP" : 60,
+				"CN" : 100
+			},
+			"languages" : {
+				"ko" : 90,
+				"ja" : 60,
+				"zh" : 100
+			},
+			"timezoneIds": {
+				"Asia/Seoul": 260
+			},
+			"agreements": {
+				"ON": 260
+			}
+		}, {
+			"dateTime" : "2016-07-11 17:51:00.00+9:00",
+			"countries" : {
+				"KR" : 100,
+				"JP" : 60,
+				"CN" : 100
+			},
+			"languages" : {
+				"ko" : 90,
+				"ja" : 60,
+				"zh" : 100
+			},
+			"timezoneIds": {
+				"Asia/Seoul": 260
+			},
+			"agreements": {
+				"ON": 260
+			}
+		}
+	],
+	"header" : {
+		"isSuccessful" : true,
+		"resultCode" : 0,
+		"resultMessage" : "SUCCESS"
+	}
+}
+```
+
+| Field | Usage | Description |
+| - | - | - |
+| dateTime | String | データが収集された日時 |
+| agreements | String | 'ON'(すべて受信)、'NIGHT_AD_OFF'(夜間広告受信拒否)、'AD_OFF'(広告受信拒否)、'OFF'(すべて受信拒否) |
+| countries.XX | String | ISO 3166-1 alpha-2、ISO 3166-1 alpha-3、3文字 |
+| languages.XX | String | ISO 639-1、ISO 639-2、iOS(language code + script code)、8文字 |
+| timezoneIds.XX | String | Area/Name. IANA time zone database |
+
+##### Example
+```
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/statistics/token-properties
+```
+
+#### トークン登録統計照会
+##### Method, URL, Headers
+```
+GET /push/v2.3/appkeys/{appkey}/statistics/token-registrations?from={from}&to={to}
+Content-Type: application/json;charset=UTF-8
+X-Secret-Key: [a-zA-Z0-9]{8}
+```
+
+| Field | Usage | Description |
+| - | - | - |
+| appkey | Required, String | Path Variable, サービス利用時に発行されたアプリケーションキー |
+| from | Optional, DateTime String | 過去30日まで(ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
+| to | Optional, DateTime String | 過去30日まで(ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
+
+##### Request Body
+```
+なし
+```
+
+##### Response Body
+```json
+{
+	"tokenRegistrationStatistics" : [{
+			"dateTime" : "2016-07-11 17:50:00.00+9:00",
+			"registered" : 90,
+			"deleted" : 20
+		}, {
+			"dateTime" : "2016-07-11 17:51:00.00+9:00",
+			"registered" : 45,
+			"deleted" : 10
+		}
+	],
+	"header" : {
+		"isSuccessful" : true,
+		"resultCode" : 0,
+		"resultMessage" : "SUCCESS"
+	}
+}
+```
+
+| Field | Usage | Description |
+| - | - | - |
+| dateTime | String | データが収集された日時 |
+| registered | Number | 登録されたトークン数 |
+| deleted | Number | 削除されたトークン数 |
+
+##### Example
+```
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/statistics/token-registrations
+```
 
 ### 削除
 ##### Method, URL, Headers
 ```
-DELETE /push/v2.4/appkeys/{appkey}/tokens/{token}?pushType={pushType}
+DELETE /push/v2.3/appkeys/{appkey}/tokens/{token}?pushType={pushType}
 Content-Type: application/json;charset=UTF-8
 ```
 | Field | Usage | Description |
@@ -296,14 +432,14 @@ Content-Type: application/json;charset=UTF-8
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com//push/v2.4/appkeys/{appkey}/tokens/{token}?pushType={pushType}
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com//push/v2.3/appkeys/{appkey}/tokens/{token}?pushType={pushType}
 ```
 
 ## メッセージ
 ### 送信
 ##### Method, URL, Headers
 ```
-POST /push/v2.4/appkeys/{appkey}/messages
+POST /push/v2.3/appkeys/{appkey}/messages
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -379,7 +515,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/messages -d '{"target":{"type":"UID","to":["uid"]},"content":{"default":{"title":"title","body":"body","customKey1":"It is default"},"ko":{"title":"タイトル","body":"内容","customKey2":"韓国語です。"}},"messageType":"AD","contact":"1588-1588","removeGuide":"メニュー > 設定","timeToLiveMinute":1}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/messages -d '{"target":{"type":"UID","to":["uid"]},"content":{"default":{"title":"title","body":"body","customKey1":"It is default"},"ko":{"title":"タイトル","body":"内容","customKey2":"韓国語です。"}},"messageType":"AD","contact":"1588-1588","removeGuide":"メニュー > 設定","timeToLiveMinute":1}'
 ```
 
 ### 共通メッセージ
@@ -851,7 +987,7 @@ v1.7以上のSDKが適用された場所でのみ使用できます。
 #### リスト照会
 ##### Method, URL, Headers
 ```
-GET /push/v2.4/appkeys/{appkey}/messages?pageIndex={pageIndex}&pageSize={pageSize}&from={from}&to={to}&deliveryType={deliveryType}&messageStatus={messageStatus}
+GET /push/v2.3/appkeys/{appkey}/messages?pageIndex={pageIndex}&pageSize={pageSize}&from={from}&to={to}&deliveryType={deliveryType}&messageStatus={messageStatus}
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -907,7 +1043,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/messages
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/messages
 ```
 
 | Field | Usage | Description |
@@ -937,7 +1073,7 @@ curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-
 #### 単件照会
 ##### Method, URL, Headers
 ```
-GET /push/v2.4/appkeys/{appkey}/messages/{message-id}
+GET /push/v2.3/appkeys/{appkey}/messages/{message-id}
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -986,7 +1122,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/messages/{messageId}
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/messages/{messageId}
 ```
 
 #### 失敗したメッセージリスト照会
@@ -995,7 +1131,7 @@ curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-
 
 ##### Method, URL, Headers
 ```
-GET /push/v2.4/appkeys/{appkey}/message-errors?messageId={messageId}&messageErrorType={messageErrorType}&messagErrorCause={messageErrorCause}&from={from}&to={to}&limit={limit}
+GET /push/v2.3/appkeys/{appkey}/message-errors?messageId={messageId}&messageErrorType={messageErrorType}&messagErrorCause={messageErrorCause}&from={from}&to={to}&limit={limit}
 Header
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
@@ -1086,9 +1222,67 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/message-errors
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/message-errors
 ```
 
+#### メッセージ受信、確認統計照会
+メッセージ受信、確認収集(message delivery receipt)機能を有効化して、v1.4以上のSDKを適用すると、送信したメッセージの受信、確認情報を照会できます。
+収集された情報を統計APIで照会できます。機能は[Console] > [Settings]タブで有効にできます。
+
+##### Method, URL, Headers
+```
+GET /push/v2.3/appkeys/{appkey}/statistics/message-delivery-receipts?from={from}&to={to}&event={event}&timeUnit={timeUnit}&messageId={messageId}
+Header
+Content-Type: application/json;charset=UTF-8
+X-Secret-Key: [a-zA-Z0-9]{8}
+```
+
+| Field | Usage | Description |
+| - | - | - |
+| appkey | Required, String | Path Variable, サービス利用時に発行されたアプリケーションキー |
+| from | Optional, DateTime String | 過去30日まで(ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
+| to | Optional, DateTime String | 過去30日まで(ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
+| event | Optional, String | 'SENT', 'SENT_FAILED', 'RECEIVED', 'OPENED' |
+| timeUnit | Optional, String | 'MINUTES'、'HOURS'、'DAYS'<br>値がない場合は、照会期間に応じて任意で統計が提供されます。<br>照会期間が1日以上は日単位、 1時間から24時間の間は時間単位、 1時間以下は分単位で表示されます。 |
+| messageId | Optional, Number | メッセージID |
+
+##### Request Body
+```
+なし
+```
+
+##### Response Body
+
+```
+{
+	"messageDeliveryReceiptStatistics" : [{
+			"dateTime" : "2016-07-11 17:50:00.00+9:00",
+			"sent" : 13,
+			"sentFailed": 0,
+			"received" : 12,
+			"opened" : 10
+		}
+	],
+	"header" : {
+		"isSuccessful" : true,
+		"resultCode" : 0,
+		"resultMessage" : "SUCCESS"
+	}
+}
+```
+
+| Field | Usage | Description |
+| - | - | - |
+| dateTime | Optional, DateTime String | ISO 8601 |
+| sent | Optional, Number | サーバーから送信した数 |
+| sentFailed | Optional, Number | サーバーから送信に失敗した数 |
+| received | Optional, Number | 端末で受信した数 |
+| opened | Optional, Number | 端末でユーザーがクリックしてオープンした数 |
+
+##### Example
+```
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/statistics/message-delivery-receipts
+```
 
 ### ログ照会
 - ログ照会APIは、Logging機能を有効にした状態でのみ呼び出せます。
@@ -1099,7 +1293,7 @@ curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-
 
 ##### Method, URL, Headers
 ```
-GET /push/v2.4/appkeys/{appkey}/logs/message?messageId={messageId}&uid={uid}&token={token}&pushType={pusyType}&from={from}&to={to}&limit={limit}
+GET /push/v2.3/appkeys/{appkey}/logs/message?messageId={messageId}&uid={uid}&token={token}&pushType={pusyType}&from={from}&to={to}&limit={limit}
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -1158,17 +1352,17 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/logs/message?messageId=1&limit=10
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/logs/message?messageId=1&limit=10
 ```
 
 #### 大量ログカウント照会
 - 検索条件で検索されたログの数を確認できます。
-- 他のv2.4 APIと異なり、'User Access Key ID'を使用する必要があります。
+- 他のv2.3 APIと異なり、'User Access Key ID'を使用する必要があります。
 [会員情報] > [APIセキュリティ設定]で作成できます。
 
 ##### Method, URL, Headers
 ```
-GET /push/v2.4/appkeys/{appKey}/bulk-logs/message/count?from={from}&to={to}&messageId={messageId}&pushType={pushType}&sendResult={sendReesult}
+GET /push/v2.3/appkeys/{appKey}/bulk-logs/message/count?from={from}&to={to}&messageId={messageId}&pushType={pushType}&sendResult={sendReesult}
 Content-Type: application/json;charset=UTF-8
 X-User-Access-Key-ID: [a-zA-Z0-9]{20}
 X-Secret-Access-Key: [a-zA-Z0-9]{16}
@@ -1195,7 +1389,7 @@ X-Secret-Access-Key: [a-zA-Z0-9]{16}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/bulk-logs/message/count
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/bulk-logs/message/count
 ```
 
 #### 大量ログ照会
@@ -1203,7 +1397,7 @@ curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-
 - application/stream+jsonでレスポンスを返します。
 
 ```
-GET /push/v2.4/appkeys/{appKey}/bulk-logs/message?from={from}&to={to}&messageId={messageId}&pushType={pushType}&sendResult={sendReesult}
+GET /push/v2.3/appkeys/{appKey}/bulk-logs/message?from={from}&to={to}&messageId={messageId}&pushType={pushType}&sendResult={sendReesult}
 Content-Type: application/json;charset=UTF-8
 Accept: application/stream+json
 X-User-Access-Key-ID: [a-zA-Z0-9]{20}
@@ -1248,7 +1442,7 @@ X-Secret-Access-Key: [a-zA-Z0-9]{16}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/bulk-logs/message?messageId=1
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/bulk-logs/message?messageId=1
 ```
 
 ## 予約メッセージ
@@ -1257,7 +1451,7 @@ curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-
 #### 予約メッセージ送信スケジュールの作成
 ##### Method, URL, Headers
 ```
-POST /push/v2.4/appkeys/{appkey}/schedules
+POST /push/v2.3/appkeys/{appkey}/schedules
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -1329,13 +1523,13 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/schedules -d '{"type":"EVERY_MONTH","fromDate":"2016-12-30","toDate":"2017-01-02","times":["12:00","17:00"],"days":[1,15],"daysOfWeek":["SUNDAY","MONDAY"]}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/schedules -d '{"type":"EVERY_MONTH","fromDate":"2016-12-30","toDate":"2017-01-02","times":["12:00","17:00"],"days":[1,15],"daysOfWeek":["SUNDAY","MONDAY"]}'
 ```
 
 #### 予約メッセージ作成
 ##### Method, URL, Headers
 ```
-POST /push/v2.4/appkeys/{appkey}/reservations
+POST /push/v2.3/appkeys/{appkey}/reservations
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -1398,14 +1592,14 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/reservations -d '{"schedules":["2016-12-30T12:40","2016-12-31T12:40"],"isLocalTime":false,"target":{"type":"UID","to":["uid"]},"content":{"default":{"title":"title","body":"body"}},"messageType":"AD","contact":"1588-1588","removeGuide":"メニュー > 設定","timeToLiveMinute":1}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/reservations -d '{"schedules":["2016-12-30T12:40","2016-12-31T12:40"],"isLocalTime":false,"target":{"type":"UID","to":["uid"]},"content":{"default":{"title":"title","body":"body"}},"messageType":"AD","contact":"1588-1588","removeGuide":"メニュー > 設定","timeToLiveMinute":1}'
 ```
 
 ### 照会
 #### リスト照会
 ##### Method, URL, Headers
 ```
-GET /push/v2.4/appkeys/{appkey}/reservations?pageIndex={pageIndex}&pageSize={pageSize}&reservationStatus={reservationsStatus}
+GET /push/v2.3/appkeys/{appkey}/reservations?pageIndex={pageIndex}&pageSize={pageSize}&reservationStatus={reservationsStatus}
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -1493,13 +1687,13 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/reservations
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/reservations
 ```
 
 #### 単件照会
 ##### Method, URL, Headers
 ```
-GET /push/v2.4/appkeys/{appkey}/reservations/{reservation-id}
+GET /push/v2.3/appkeys/{appkey}/reservations/{reservation-id}
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -1563,13 +1757,13 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/reservations/{reservationId}
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/reservations/{reservationId}
 ```
 
 #### 送信された予約メッセージ照会
 ##### Method, URL, Headers
 ```
-GET /push/v2.4/appkeys/{appkey}/reservations/{reservation-id}/messages?pageIndex={pageIndex}&pageSize={pageSize}
+GET /push/v2.3/appkeys/{appkey}/reservations/{reservation-id}/messages?pageIndex={pageIndex}&pageSize={pageSize}
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -1625,14 +1819,14 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/reservations/{reservationId}/messages
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/reservations/{reservationId}/messages
 ```
 
 ### 修正
 #### 予約メッセージの修正
 ##### Method, URL, Headers
 ```
-PUT /push/v2.4/appkeys/{appkey}/reservations/{reservationId}
+PUT /push/v2.3/appkeys/{appkey}/reservations/{reservationId}
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -1678,14 +1872,14 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X PUT -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/reservations/{reservationId} -d '{"schedules":["2018-12-30T12:40","2018-12-31T12:40"],"isLocalTime":false,"target":{"type":"UID","to":["uid"]},"content":{"default":{"title":"title","body":"body"}},"messageType":"AD","contact":"1588-1588","removeGuide":"メニュー > 設定","timeToLiveMinute":1}'
+curl -X PUT -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/reservations/{reservationId} -d '{"schedules":["2018-12-30T12:40","2018-12-31T12:40"],"isLocalTime":false,"target":{"type":"UID","to":["uid"]},"content":{"default":{"title":"title","body":"body"}},"messageType":"AD","contact":"1588-1588","removeGuide":"メニュー > 設定","timeToLiveMinute":1}'
 ```
 
 ### 削除
 #### 予約メッセージの削除
 ##### Method, URL, Headers
 ```
-DELETE /push/v2.4/appkeys/{appkey}/reservations?reservationIds={reservationId,}
+DELETE /push/v2.3/appkeys/{appkey}/reservations?reservationIds={reservationId,}
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -1713,7 +1907,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/reservations?reservationIds={reservationId,}
+curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/reservations?reservationIds={reservationId,}
 ```
 
 ## タグ
@@ -1722,7 +1916,7 @@ curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Acce
 #### タグの作成
 ##### Method, URL, Headers
 ```
-POST /push/v2.4/appkeys/{appkey}/tags
+POST /push/v2.3/appkeys/{appkey}/tags
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -1758,7 +1952,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tags -d '{"tagName":"30"}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/tags -d '{"tagName":"30"}'
 ```
 
 #### タグにUID追加作成
@@ -1766,7 +1960,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access
 - 1つのUidの最大タグ数は16個。
 ##### Method, URL, Headers
 ```
-POST /push/v2.4/appkeys/{appkey}/tags/{tag-id}/uids
+POST /push/v2.3/appkeys/{appkey}/tags/{tag-id}/uids
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -1796,14 +1990,14 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tags/{tagId}/uids -d '{"uids":["uid"]}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/tags/{tagId}/uids -d '{"uids":["uid"]}'
 ```
 
 #### UIDにタグリスト設定
 - UIDのタグを交換(replace)することです。既に設定されているタグは削除され、新しいタグに設定されます。
 ##### Method, URL, Headers
 ```
-POST /push/v2.4/appkeys/{appkey}/uids
+POST /push/v2.3/appkeys/{appkey}/uids
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -1831,14 +2025,14 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/uids -d '{"uid":"uid","tagIds":["TAG_ID"]}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/uids -d '{"uid":"uid","tagIds":["TAG_ID"]}'
 ```
 
 ### 照会
 #### タグリスト照会
 ##### Method, URL, Headers
 ```
-GET /push/v2.4/appkeys/{appkey}/tags?tagName={tagName}
+GET /push/v2.3/appkeys/{appkey}/tags?tagName={tagName}
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -1878,13 +2072,13 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tags
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/tags
 ```
 
 #### タグ単件照会
 ##### Method, URL, Headers
 ```
-GET /push/v2.4/appkeys/{appkey}/tags/{tag-id}
+GET /push/v2.3/appkeys/{appkey}/tags/{tag-id}
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -1912,7 +2106,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tags/{tagId}
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/tags/{tagId}
 ```
 
 #### タグのUIDリスト照会
@@ -1920,7 +2114,7 @@ curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-
 
 ##### Method, URL, Headers
 ```
-GET /push/v2.4/appkeys/{appkey}/tags/{tag-id}/uids?offsetUid={uid}&limit={limit}
+GET /push/v2.3/appkeys/{appkey}/tags/{tag-id}/uids?offsetUid={uid}&limit={limit}
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -1975,7 +2169,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tags/{tagId}/uids
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/tags/{tagId}/uids
 ```
 
 #### UID照会
@@ -1983,7 +2177,7 @@ curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-
 - トークン登録時、Contact(連絡先)が登録されます。
 ##### Method, URL, Headers
 ```
-GET /push/v2.4/appkeys/{appkey}/uids/{uid}
+GET /push/v2.3/appkeys/{appkey}/uids/{uid}
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -2023,14 +2217,14 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/uids/uid
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/uids/uid
 ```
 
 ### 修正
 #### タグの修正
 ##### Method, URL, Headers
 ```
-PUT /push/v2.4/appkeys/{appkey}/tags/{tag-id}
+PUT /push/v2.3/appkeys/{appkey}/tags/{tag-id}
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -2054,14 +2248,14 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X PUT -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tags/{tagId} -d '{"tagName":"33"}'
+curl -X PUT -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/tags/{tagId} -d '{"tagName":"33"}'
 ```
 
 ### 削除
 #### タグの削除
 ##### Method, URL, Headers
 ```
-DELETE /push/v2.4/appkeys/{appkey}/tags/{tag-id}
+DELETE /push/v2.3/appkeys/{appkey}/tags/{tag-id}
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -2083,14 +2277,14 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tags/{tagId}
+curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/tags/{tagId}
 ```
 
 #### UID削除
 - Uidを削除するとContact、Tokenも一緒に削除されます。
 ##### Method, URL, Headers
 ```
-DELETE /push/v2.4/appkeys/{appkey}/uids?uids={uid,}
+DELETE /push/v2.3/appkeys/{appkey}/uids?uids={uid,}
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -2117,7 +2311,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/uids?uids=uid
+curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/uids?uids=uid
 ```
 
 #### タグのUID削除
@@ -2125,7 +2319,7 @@ curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Acce
 - Contact、Tokenは削除されません。
 ##### Method, URL, Headers
 ```
-DELETE /push/v2.4/appkeys/{appkey}/tags/{tagId}/uids?uids={uid,}
+DELETE /push/v2.3/appkeys/{appkey}/tags/{tagId}/uids?uids={uid,}
 Content-Type: application/json;charset=UTF-8
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
@@ -2147,7 +2341,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tags/{tagId}/uids?uids=uid
+curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/tags/{tagId}/uids?uids=uid
 ```
 
 ## UID
@@ -2159,7 +2353,7 @@ curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Acce
 - Secret Keyが必要ない。アプリで呼び出し可能です。
 ##### Method, URL, Headers
 ```
-POST /push/v2.4/appkeys/{appkey}/uids/{uid}/tag-ids
+POST /push/v2.3/appkeys/{appkey}/uids/{uid}/tag-ids
 Content-Type: application/json;charset=UTF-8
 ```
 ##### Request Body
@@ -2181,7 +2375,7 @@ Content-Type: application/json;charset=UTF-8
 
 ##### Example
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/uids/uid/tag-ids -d '{"tagIds":["TAG_ID"]}'
+curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/uids/uid/tag-ids -d '{"tagIds":["TAG_ID"]}'
 ```
 
 ### 照会
@@ -2191,7 +2385,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-push.
 - Secret Keyが必要ない。アプリで呼び出し可能です。
 ##### Method, URL, Headers
 ```
-GET /push/v2.4/appkeys/{appkey}/uids/{uid}/tag-ids
+GET /push/v2.3/appkeys/{appkey}/uids/{uid}/tag-ids
 Content-Type: application/json;charset=UTF-8
 ```
 ##### Request Body
@@ -2212,7 +2406,7 @@ Content-Type: application/json;charset=UTF-8
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/uids/uid/tag-ids
+curl -X GET -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/uids/uid/tag-ids
 ```
 
 ### 修正
@@ -2221,7 +2415,7 @@ curl -X GET -H "Content-Type: application/json;charset=UTF-8" https://api-push.c
 - Secret Keyが必要ない。アプリで呼び出し可能です。
 ##### Method, URL, Headers
 ```
-PUT /push/v2.4/appkeys/{appkey}/uids/{uid}/tag-ids
+PUT /push/v2.3/appkeys/{appkey}/uids/{uid}/tag-ids
 Content-Type: application/json;charset=UTF-8
 ```
 ##### Request Body
@@ -2243,7 +2437,7 @@ Content-Type: application/json;charset=UTF-8
 
 ##### Example
 ```
-curl -X PUT -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/uids/uid/tag-ids -d '{"tagIds":["TAG_ID"]}'
+curl -X PUT -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/uids/uid/tag-ids -d '{"tagIds":["TAG_ID"]}'
 ```
 
 ### タグの削除
@@ -2251,7 +2445,7 @@ curl -X PUT -H "Content-Type: application/json;charset=UTF-8" https://api-push.c
 - Secret Keyが必要ない。アプリで呼び出し可能です。
 ##### Method, URL, Headers
 ```
-DELETE /push/v2.4/appkeys/{appkey}/uids/{uid}/tag-ids?tagIds={tagId,}
+DELETE /push/v2.3/appkeys/{appkey}/uids/{uid}/tag-ids?tagIds={tagId,}
 Content-Type: application/json;charset=UTF-8
 ```
 ##### Request Body
@@ -2275,27 +2469,8 @@ Content-Type: application/json;charset=UTF-8
 
 ##### Example
 ```
-curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/uids/uid/tag-ids?tagIds=TAG_ID_01,TAG_ID_02
+curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com/push/v2.3/appkeys/{appkey}/uids/uid/tag-ids?tagIds=TAG_ID_01,TAG_ID_02
 ```
-
-<span id="stats-api"></span>
-## 통계
-### 통계 조회
-- 통계 이벤트 키를 기준으로 통계를 조회할 수 있습니다.
-
-##### Method, URL, Headers
-```
-GET /push/v2.4/appkeys/{appkey}/stats?eventCategory={eventCategory}&statisticsType={statisticsType}&timeUnit={timeUnit}&from={from}&to={to}&extra1s={extra1,}&messageId={messageId}
-Content-Type: application/json;charset=UTF-8
-```
-| Field | Usage | Description |
-| - | - | - |
-| eventCategory | Required, String | 이벤트의 카테고리. MESSAGE, TOKEN_REGISTRATION, TOKEN_LANGUAGE, TOKEN_COUNTRY, TOKEN_AGREEMENT |
-| statisticsType | Optional, String | 검색된 통계 데이터의 표현 형식. NORMAL(기본값), MINUTELY, HOURLY, DAILY, BY_DAY |
-| timeUnit | Optional, String | 통계 데이터의 시간 단위. 기본값은 조회 기간에 따라 결정, MINUTES, HOURS, DAYS |
-| from | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
-| to | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
-| extra1s | Optional, String Array | eventCategory가 MESSAGE인 경우 푸시 타입으로 필터링 가능. FCM, APNS, APNS_SANDBOX, APNS_VOIP, APNS_SANDBOXVOIP, ADM, TENCENT |
 
 * *文書修正履歴*
-    * *(2020.03.24) 통계 API 추가*
+    * *(2019.02.26) v2.3 APIアップデート、トークン削除API追加、 FCM notificationフィールド説明追加*
