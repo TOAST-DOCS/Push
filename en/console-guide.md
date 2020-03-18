@@ -410,17 +410,21 @@ To add UIDs on to the tag:
 2. Type in the UIDs with new line as a delimiter.  
 	- Up to 1,000 UIDs can be added.
 
-## Statistics
+<span id="stats-event-key"></span>
 
-You can visualize push notification data collected within 30 days.
-Go to **Consoel > Notification > Push** and click **Statistics** tab.
+## 통계 이벤트 키 관리
+**통계 이벤트 키 관리** 탭에서 통계 이벤트 키를 관리할 수 있습니다. 생성 시 이름, 설명, 이벤트 수집 기간을 설정할 수 있습니다. 이벤트 수집 기간을 설정하지 않으면 수집 기간은 무기한으로 설정됩니다. 생성된 통계 이벤트 키는 메시지 발송 시 설정할 수 있습니다. 통계 이벤트 키가 설정된 메시지들의 발송 결과는 **통계** 탭에서 통계 이벤트 키로 검색할 수 있습니다.
 
-![push_21_201812_en](https://static.toastoven.net/prod_push/12-10/push_21_201812_en.png)
+<span id="stats"></span>
 
-- You can set date range.
-    - You can manually set the date with a minimun range of one minute and maximum of 30 days.
-- You can change the type of graph
-    - Default will show you the graph with appropriate horizontal-axis.
+## 통계
+최근 30일 내 수집된 메시지 수신/확인 데이터를 검색할 수 있습니다. 콘솔에서 **통계**를 선택합니다. 메시지, 토큰 등록이나 삭제에 대한 통계를 검색할 수 있습니다.
+
+1. 기간을 검색 조건으로 설정 할 수 있습니다.
+    - 간편 기간 설정 버튼 외 수동 설정 시 1분을 최소 기간, 30일을 최대 기간으로 설정할 수 있습니다.
+2. 유형으로 그래프가 표시되는 방식을 설정 할 수 있습니다.
+    - 기본은 설정된 기간에 따라 자동으로 최적화된 유형으로 그래프를 표시합니다.
+3. 메시지 통계에서는 통계 이벤트 키, 푸시 타입으로 검색할 수 있습니다.
 
 ## Token Setting
 
