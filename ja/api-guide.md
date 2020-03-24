@@ -3,7 +3,7 @@
 ### v2.4 API紹介
 
 #### 追加
-- '통계' API가 추가되었습니다.
+- ｢統計｣APIを追加しました。
 
 
 ### 基本情報
@@ -14,7 +14,7 @@ API Endpoint: https://api-push.cloud.toast.com
 ```
 ### Secret Key
 - コンソールで確認可能です。
-- Secret Keyが必要なAPIを呼び出す時、ヘッダに下記のように設定して呼び出す必要があります。
+- Secret Keyが必要なAPIを呼び出す時、ヘッダへ下記のように設定して呼び出す必要があります。
 ```
 Header
 X-Secret-Key: [a-zA-Z0-9]{8}
@@ -52,7 +52,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Field | Usage | Description |
 | - | - | - |
-| appkey | Required, String | Path Variable, サービス利用時に発行されたアプリケーションキー |
+| appkey | Required, String | Path Variable、サービス利用時に発行されたアプリケーションキー |
 
 ##### Request Body
 
@@ -83,7 +83,7 @@ Content-Type: application/json;charset=UTF-8
 |timezoneId|	Required, String|	Area/Name. IANA time zone database.|
 |country|	Required, String|	ISO 3166-1 alpha-2, ISO 3166-1 alpha-3, 3文字|
 |language|	Required, String|	ISO 639-1, ISO 639-2, iOS(language code + script code), 8文字|
-|uid|	Required, String|	ユーザーID、emoji不可、最大64文字|
+|uid|	Required, String|	ユーザーID、絵文字不可、最大64文字|
 |deviceId|	Required, String|	デバイスID、最大36文字|
 
 
@@ -106,7 +106,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-push.
 
 ##### Description
 
-- トークンがすでに登録されている場合に再度登録すると、既存情報をアップデートします。
+- トークンがすでに登録されている場合、再度登録すると,既存情報をアップデートします。
 - もしトークンが変更されたら、oldTokenに既存トークンを、tokenに新しいトークンを設定して登録すると、新しいトークンにアップデートします。
 - "isNotificationAgreement"はプッシュメッセージの受信に同意するかどうか、"isAdAgreement"は広告性プッシュメッセージを受信するかどうか、isNightAdAgreement"は夜間広告性プッシュメッセージを受信するかどうかを表します。
 例えば、すべてのプッシュメッセージの受信を希望する場合は、フィールド3個をすべてtrueに設定してください。プッシュメッセージのみ受信する場合は、 "isNotificationAgreement"のみtrueに設定してください。
@@ -129,7 +129,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Field | Usage | Description |
 | - | - | - |
-| appkey | Required, String | Path Variable, サービス利用時に発行されたアプリケーションキー |
+| appkey | Required, String | Path Variable、サービス利用時に発行されたアプリケーションキー |
 | pushType | Required, String | 'FCM', 'APNS', 'APNS_SANDBOX', 'TENCENT', 'APNS_VOIP', 'APNS_SANDBOXVOIP', 'ADM' |
 
 ##### Response Body
@@ -185,7 +185,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 | Field | Usage | Description |
 | - | - | - |
-| appkey | Required, String | Path Variable, サービス利用時に発行されたアプリケーションキー |
+| appkey | Required, String | Path Variable、サービス利用時に発行されたアプリケーションキー |
 | uid | Required, String | 照会するユーザーID |
 
 ##### Response Body
@@ -231,7 +231,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 | Field | Usage | Description |
 | - | - | - |
-| appkey | Required, String | Path Variable, サービス利用時に発行されたアプリケーションキー |
+| appkey | Required, String | Path Variable、サービス利用時に発行されたアプリケーションキー |
 | pageIndex | Optional, Number | 基本値0 |
 | pageSize | Optional, Number | 基本値25、最大値100 |
 | from | Optional, DateTime String | 過去30日まで(ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
@@ -346,7 +346,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 | Field | Usage | Description |
 | - | - | - |
-| appkey | Required, String | Path Variable, サービス利用時に発行されたアプリケーションキー |
+| appkey | Required, String | Path Variable、サービス利用時に発行されたアプリケーションキー |
 | target.type | Required、String | 'ALL'、'UID'、'TAG'受信ターゲットタイプ |
 | target.to | Optional, String Array | target.typeが受信者UIDリスト(最大10,000個)またはTAG条件 |
 | target.pushTypes | Optional, String Array | 'FCM', 'APNS', 'APNS_SANDBOX', 'TENCENT', 'APNS_VOIP', 'APNS_SANDBOXVOIP', 'ADM' |
@@ -368,7 +368,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 - "target.type"に'UID'を設定した時、"target.to"に最大10,000個までUIDを設定できます。
 - "target.type"に'TAG'を設定した時、"target.to"にタグIDと3個の条件と1個の括弧('()')を入れた条件を設定できます。
     - 例、男性、30代タグがついているか、女性タグがついている対象にメッセージを送信するなら、
-    "target.to=(,男性_ID,AND,30代_ID,),OR,女性_ID"に設定できます。
+    "target.to=(、男性_ID,AND,30代_ID,),OR、女性_ID"に設定できます。
 - "target.pushTypes"フィールドに特定プッシュタイプでのみメッセージを送信できます。
 定義しなければすべてのプッシュタイプ、 FCM、APNS、APNS_SANDBOX、TENCENT、ADMで送信します。
 - "target.countries"フィールドが"['KR', 'JP']"の場合、トークン国コードが"KR"または"JP"のTokenに送信します。
@@ -438,7 +438,7 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
 }
 ```
 ##### Description
-- target.typeを'ALL'に設定すると、すべてのトークンにメッセージを送信します。
+- target.typeを'ALL'に設定すると、すべてのトークンへメッセージを送信します。
 
 #### 2. 特定ユーザーに送信
 ユーザーIDを入力して特定ユーザーにメッセージを送信する例です。
@@ -460,7 +460,7 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
 }
 ```
 ##### Description
-- target.typeを'UID'に設定し、target.toにユーザーIDを設定して特定ユーザーにメッセージを送信します。
+- target.typeを'UID'に設定し、target.toにユーザーIDを設定して特定ユーザーへメッセージを送信します。
 
 #### 3. 一部の国やプッシュタイプのユーザーに送信
 特定の国や端末(Android、iOS…)を使用するユーザーにのみメッセージを送信する例です。
@@ -506,7 +506,7 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
 }
 ```
 
-##### FCM(Android)に受信するメッセージ
+##### FCM(Android)で受信するメッセージ
 ```json
 {
 	"data": {
@@ -516,7 +516,7 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
 	}
 }
 ```
-##### APNS(iOS)に受信するメッセージ
+##### APNS(iOS)で受信するメッセージ
 ```json
 {
     "aps": {
@@ -530,7 +530,7 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
 
 }
 ```
-##### TENCENT(Android)に受信するメッセージ
+##### TENCENT(Android)で受信するメッセージ
 ```json
  {
     "title": "title",
@@ -541,7 +541,7 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
 }
 ```
 
-##### ADM(Fire OS)に受信するメッセージ
+##### ADM(Fire OS)で受信するメッセージ
 ```json
 {
 	"data": {
@@ -554,13 +554,13 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
 
 ##### Description
 - contentに入力したメッセージ内容は、各プッシュタイプに合わせて変換され、送信されます。
-- title、bodyなどの予約語は、プッシュタイプに合ったメッセージに変換する時、指定された位置に設定され、送信されます。
+- title、bodyなどの予約語は、プッシュタイプに合ったメッセージへ変換される時、指定された位置に設定され、送信されます。
  その他、ユーザーが定義したフィールドは、各プッシュタイプのCustom Keyの位置に設定されます。
 - badge、consolidationKeyなどの特定プッシュタイプにのみ定義されている予約語は、他のプッシュタイプからは除外されます。
  例えばbadgeはAPNS(iOS)メッセージにのみ設定され、FCM、TENCENT、ADMには除外されます。
 
 #### 5. 広告性メッセージ
-広告性メッセージで送信時にメッセージに追加される広告文言例です。
+広告性メッセージの送信時にメッセージへ追加される広告文言例です。
 
 ##### Request Body
 ```json
@@ -580,7 +580,7 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
 }
 ```
 
-##### FCM(Android)、ko(韓国語)に受信するメッセージ
+##### FCM(Android)、ko(韓国語)で受信するメッセージ
 ```json
  {
     "data": {
@@ -589,7 +589,7 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
     }
 }
 ```
-##### APNS(iOS)、ko(韓国語)に受信するメッセージ
+##### APNS(iOS)、ko(韓国語)で受信するメッセージ
 ```json
 {
     "aps": {
@@ -600,7 +600,7 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
     }
 }
 ```
-##### FCM(Android)、ja(日本語)に受信するメッセージ
+##### FCM(Android)、ja(日本語)で受信するメッセージ
 ```json
  {
     "data": {
@@ -609,7 +609,7 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
     }
 }
 ```
-##### APNS(iOS), ja(日本語)に受信するメッセージ
+##### APNS(iOS), ja(日本語)で受信するメッセージ
 ```json
 {
     "aps": {
@@ -654,7 +654,7 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
 }
 ```
 
-##### FCM(Android)、ko(韓国語)に受信するメッセージ
+##### FCM(Android)、ko(韓国語)で受信するメッセージ
 ```json
 {
     "data": {
@@ -664,7 +664,7 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
     }
 }
 ```
-##### FCM(Android)、ko-KR(韓国語)に受信するメッセージ
+##### FCM(Android)、ko-KR(韓国語)で受信するメッセージ
 ```json
 {
     "data": {
@@ -674,7 +674,7 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
     }
 }
 ```
-##### FCM(Android)、ja(日本語)に受信するメッセージ
+##### FCM(Android)、ja(日本語)で受信するメッセージ
 ```json
 {
     "data": {
@@ -684,7 +684,7 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
     }
 }
 ```
-##### FCM(Android)、en(英語)に受信するメッセージ
+##### FCM(Android)、en(英語)で受信するメッセージ
 ```json
 {
     "data": {
@@ -818,7 +818,7 @@ v1.7以上のSDKが適用された場所でのみ使用できます。
 | notification.tag | Android | Optiontal, String | notification.tag | 同じタグのメッセージを受信すると、既存メッセージを代替します。 |
 | notification.badge | Android, iOS | Optiontal, Number | notification.badge | 確認していない、新しい通知の数です。 |
 
-##### FCM(Android)に受信するメッセージ
+##### FCM(Android)で受信するメッセージ
 ```json
 {
     "registration_ids" : [
@@ -858,7 +858,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 | Field | Usage | Description |
 | - | - | - |
-| appkey | Required, String | Path Variable, サービス利用時に発行されたアプリケーションキー |
+| appkey | Required, String | Path Variable、サービス利用時に発行されたアプリケーションキー |
 | pageIndex | Optional, Number | 基本値0 |
 | pageSize | Optional, Number | 基本値25、最大値100 |
 | from | Optional, DateTime String | 過去30日まで(ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
@@ -944,7 +944,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 | Field | Usage | Description |
 | - | - | - |
-| appkey | Required, String | Path Variable, サービス利用時に発行されたアプリケーションキー |
+| appkey | Required, String | Path Variable、サービス利用時に発行されたアプリケーションキー |
 | messageId | Required, Number | メッセージID |
 
 ##### Request Body
@@ -1003,7 +1003,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 | Field | Usage | Description |
 | - | - | - |
-| appkey | Required, String | Path Variable, サービス利用時に発行されたアプリケーションキー |
+| appkey | Required, String | Path Variable、サービス利用時に発行されたアプリケーションキー |
 | messageId | Optional, Number | メッセージID |
 | messageErrorType | Optional, String | 'CLIENT_ERROR', 'EXTERNAL_ERROR', 'INTERNAL_ERROR' |
 | messageErrorCause | Optional, String | 'UNSUPPORTED_MESSAGE_TYPE', 'INVALID_MESSAGE', 'INVALID_CERTIFICATE', 'UNAUTHORIZED', 'EXPIRED_TIME_OUT', 'APNS_ERROR', 'FCM_ERROR', 'TENCENT_ERROR', 'AGENT_ERROR', 'ADM_ERROR', 'DUPLICATED_MESSAGE_TOKEN'  |
@@ -1106,7 +1106,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 | Field | Usage | Description |
 | - | - | - |
-| appkey | Required, String | Path Variable, サービス利用時に発行されたアプリケーションキー |
+| appkey | Required, String | Path Variable、サービス利用時に発行されたアプリケーションキー |
 | messageId | Optional, Number | メッセージID |
 | uid | Optional, String | ユーザーID |
 | token | Optional, String | ユーザートークン |
@@ -1264,7 +1264,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 | Field | Usage | Description |
 | - | - | - |
-| appkey | Required, String | Path Variable, サービス利用時に発行されたアプリケーションキー |
+| appkey | Required, String | Path Variable、サービス利用時に発行されたアプリケーションキー |
 
 
 ##### Request Body
@@ -1342,7 +1342,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 | Field | Usage | Description |
 | - | - | - |
-| appkey | Required, String | Path Variable, サービス利用時に発行されたアプリケーションキー |
+| appkey | Required, String | Path Variable、サービス利用時に発行されたアプリケーションキー |
 
 ##### Request Body
 ```json
@@ -1412,7 +1412,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 | Field | Usage | Description |
 | - | - | - |
-| appkey | Required, String | Path Variable, サービス利用時に発行されたアプリケーションキー |
+| appkey | Required, String | Path Variable、サービス利用時に発行されたアプリケーションキー |
 | pageIndex | Optional, Number | 基本値0 |
 | pageSize | Optional, Number | 基本値25、最大値100 |
 | from | Optional, DateTime String | 過去30日まで(ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
@@ -1576,7 +1576,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 | Field | Usage | Description |
 | - | - | - |
-| appkey | Required, String | Path Variable, サービス利用時に発行されたアプリケーションキー |
+| appkey | Required, String | Path Variable、サービス利用時に発行されたアプリケーションキー |
 | reservationId | Required, Number | 予約メッセージID |
 | pageIndex | Optional, Number | 基本値0 |
 | pageSize | Optional, Number | 基本値25、最大値100 |
@@ -1692,7 +1692,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 | Field | Usage | Description |
 | - | - | - |
-| appkey | Required, String | Path Variable, サービス利用時に発行されたアプリケーションキー |
+| appkey | Required, String | Path Variable、サービス利用時に発行されたアプリケーションキー |
 | reservationIds | Required, Number Array | ','で区切る、 e.g. reservationIds=1,2 |
 
 ##### Request Body
@@ -2279,9 +2279,9 @@ curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" https://api-pus
 ```
 
 <span id="stats-api"></span>
-## 통계
-### 통계 조회
-- 통계 이벤트 키를 기준으로 통계를 조회할 수 있습니다.
+## 統計
+### 統計照会
+- 統計イベントキーを基準に統計を照会できます。
 
 ##### Method, URL, Headers
 ```
@@ -2290,12 +2290,12 @@ Content-Type: application/json;charset=UTF-8
 ```
 | Field | Usage | Description |
 | - | - | - |
-| eventCategory | Required, String | 이벤트의 카테고리. MESSAGE, TOKEN_REGISTRATION, TOKEN_LANGUAGE, TOKEN_COUNTRY, TOKEN_AGREEMENT |
-| statisticsType | Optional, String | 검색된 통계 데이터의 표현 형식. NORMAL(기본값), MINUTELY, HOURLY, DAILY, BY_DAY |
-| timeUnit | Optional, String | 통계 데이터의 시간 단위. 기본값은 조회 기간에 따라 결정, MINUTES, HOURS, DAYS |
-| from | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
-| to | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
-| extra1s | Optional, String Array | eventCategory가 MESSAGE인 경우 푸시 타입으로 필터링 가능. FCM, APNS, APNS_SANDBOX, APNS_VOIP, APNS_SANDBOXVOIP, ADM, TENCENT |
+| eventCategory | Required、String | イベントのカテゴリー。MESSAGE、TOKEN_REGISTRATION、TOKEN_LANGUAGE、TOKEN_COUNTRY、TOKEN_AGREEMENT |
+| statisticsType | Optional、String | 検索された統計データの表現形式。 NORMAL(デフォルト値)、MINUTELY、HOURLY、DAILY、BY_DAY |
+| timeUnit | Optional、String | 統計データの時間単位。デフォルト値は照会期間に応じて決定、 MINUTES、HOURS、DAYS |
+| from | Optional、DateTime String | 過去30日まで(ISO 8601、e.g. YYYY-MM-DDThh:mm:ss.SSSTZD、2018-04-24T06:00:00.000%2B09:00) |
+| to | Optional、DateTime String | 過去30日まで(ISO 8601、e.g. YYYY-MM-DDThh:mm:ss.SSSTZD、2018-04-24T06:00:00.000%2B09:00) |
+| extra1s | Optional、String Array | eventCategoryがMESSAGEの場合、プッシュタイプでフィルタリング可能。 FCM、APNS、APNS_SANDBOX、APNS_VOIP、APNS_SANDBOXVOIP、ADM、TENCENT |
 
 * *文書修正履歴*
-    * *(2020.03.24) 통계 API 추가*
+    * *(2020.03.24)統計API追加*
