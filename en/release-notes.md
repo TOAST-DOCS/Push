@@ -1,21 +1,21 @@
 ## Notification> Push > Release Notes
 
-### 2020. 03. 24
+### March 24, 2020
 ### [Console]
-#### 기능 추가
-* 통계가 개편되었습니다.
-    * **통계 이벤트 키 관리** 탭이 추가되었습니다. 콘솔에서 새로운 통계 이벤트 키를 추가하고, 메시지 발송 시 설정할 수 있습니다. 메시지가 발송되면 설정한 통계 이벤트 키 기준으로 통계 데이터가 쌓이고, 새로운 통계 탭에서 검색할 수 있습니다.
-        * <a href="https://docs.toast.com/en/Notification/Push/en/console-guide/#stats-event-key" target="_blank">바로 가기</a>
+#### More Features
+* Updated Statistics
+    * Added the **Statistics Event Key Management** tab. You can add a new statistics event key on console and set it up for message delivery. With messages sent, statistical data are collected as of configured statistics event key, and then you can search from the new statistics tab. 
+        * <a href="https://docs.toast.com/en/Notification/Push/en/console-guide/#stats-event-key" target="_blank">Direct Link</a>
 
 ### [API]
-* v2.4 API 추가
-    * 통계 이벤트 키로 조회할 수 있는 통계 API가 추가되었습니다. v2.3의 통계 관련 API는 더 이상 제공하지 않습니다.
-        * <a href="https://docs.toast.com/en/Notification/Push/en/api-guide/#stats-api" target="_blank">바로 가기</a>
-* 토큰 멀티 테넌트 기능 추가
-   * 토큰을 여러 UID가 소유할 수 있게 해주는 멀티 테넌트 기능이 추가되었습니다. 토큰 등록 시 토큰 끝에 '#tenant=테넌트_정보'를 붙일 수 있습니다. 여러 UID가 같은 토큰을 사용하더라도 테넌트 정보가 다르면 토큰이 유지됩니다.
+* Added v2.4 API
+    * Added a statistics API to query with statistics event key. Statistics APIs of v2.3 are no longer provided. 
+        * <a href="https://docs.toast.com/en/Notification/Push/en/api-guide/#stats-api" target="_blank">Direct Link</a>
+* Added Multi-tenant Tokens 
+   * Added the multi-tenant feature allowing a token to be shared by many UIDs. You may attach '#tenant=Tenant_Information' at the end of a token for a token registration. Even if many UIDs share a same token, the token can be maintained if it has different tenant information.  
 
 
-### Oct. 29, 2019
+### October 29, 2019
 #### [API]
 ##### More Features 
 * Added Badge Attribute for Android  
@@ -34,7 +34,7 @@
     * Actions (e.g. URL or Scheme) to be executed by the click of a push message can be defined at 'content.default.clickAction'. 
     With TOAST SDK, action is executed automatically.  
 
-### Sept.24, 2019 
+### September 24, 2019 
 #### [API]
 ##### Bug Fixes 
 * Fixed delivery error of iOS rich messages 
@@ -70,7 +70,7 @@
     * Duplicate criterion is message type, content (content), outgoing contact, reception agreement setting guide, advertisement display position, token.
     * Settings tab "Duplicate message prevention settings" can be set.
 
-### Feb. 26, 2019 
+### February 26, 2019 
 #### [API]
 ##### More Features
 * Added v2.3 API
@@ -87,13 +87,13 @@ Fix broken, typo, link errors
 ##### More Features
 * User console added.
 
-### Dec. 18, 2018
+### December 18, 2018
 #### [API]
 ##### Bug Fixes
 * Fixed an error that invalid VoIP token was not deleted normally.
     * Fixed an error that prevents APNS_VOIP, APNS_SANDBOXVOIP token from being deleted when sending a message.
 
-### Oct. 30, 2018 
+### October 30, 2018 
 #### [Console]
 ##### More Features
 * Rich message feature added to message sending page
@@ -110,7 +110,7 @@ Fix broken, typo, link errors
 
 
 #### [API]
-##### Add Features
+##### More Features
 * Rich message feature added to message dispatch API
     * Added the ability to display buttons, media (images, movies, sounds) in push messages.
          * <a href="https://docs.toast.com/en/Notification/Push/en/api-guide/#7" target="_blank">Go to API Guide </a>
@@ -141,7 +141,7 @@ Fix broken, typo, link errors
     * As an example, if you look up data by 10:11, there is an error that the data of 11 minutes 59 seconds is missing.
     In this case, we improved to include 59 seconds.
 
-### Aug. 28, 2018 
+### August 28, 2018 
 #### [API]
 ##### More Features
 * Added Logging API
