@@ -3,7 +3,7 @@
 ### Overview of v2.4 API
 
 #### Add
-- '통계' API가 추가되었습니다.
+- Added 'Statistics' API. 
 
 ### Basic Information 
 #### Endpoint
@@ -2282,9 +2282,9 @@ curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" https://api-pus
 ```
 
 <span id="stats-api"></span>
-## 통계
-### 통계 조회
-- 통계 이벤트 키를 기준으로 통계를 조회할 수 있습니다.
+## Statistics
+### Query Statistics
+- You can query statistics by statistics event key. 
 
 ##### Method, URL, Headers
 ```
@@ -2293,12 +2293,12 @@ Content-Type: application/json;charset=UTF-8
 ```
 | Field | Usage | Description |
 | - | - | - |
-| eventCategory | Required, String | 이벤트의 카테고리. MESSAGE, TOKEN_REGISTRATION, TOKEN_LANGUAGE, TOKEN_COUNTRY, TOKEN_AGREEMENT |
-| statisticsType | Optional, String | 검색된 통계 데이터의 표현 형식. NORMAL(기본값), MINUTELY, HOURLY, DAILY, BY_DAY |
-| timeUnit | Optional, String | 통계 데이터의 시간 단위. 기본값은 조회 기간에 따라 결정, MINUTES, HOURS, DAYS |
-| from | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
-| to | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
-| extra1s | Optional, String Array | eventCategory가 MESSAGE인 경우 푸시 타입으로 필터링 가능. FCM, APNS, APNS_SANDBOX, APNS_VOIP, APNS_SANDBOXVOIP, ADM, TENCENT |
+| eventCategory | Required, String | Event category. MESSAGE, TOKEN_REGISTRATION, TOKEN_LANGUAGE, TOKEN_COUNTRY, TOKEN_AGREEMENT |
+| statisticsType | Optional, String | Representation type of searched statistical data. NORMAL(default), MINUTELY, HOURLY, DAILY, BY_DAY |
+| timeUnit | Optional, String | Time unit of statistical data. Default value depends on query period, MINUTES, HOURS, DAYS |
+| from | Optional, DateTime String | Up to the latest 30 days (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
+| to | Optional, DateTime String | Up to the latest 30 days (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
+| extra1s | Optional, String Array | When the eventCategory is MESSAGE, filter by push type is available. FCM, APNS, APNS_SANDBOX, APNS_VOIP, APNS_SANDBOXVOIP, ADM, TENCENT |
 
 * *Document Updates*
-    * *(2020.03.24) 통계 API 추가*
+    * *(March 24, 2020) Added Statistics API *
