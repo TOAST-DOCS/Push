@@ -412,19 +412,19 @@ To add UIDs on to the tag:
 
 <span id="stats-event-key"></span>
 
-## Statistics Event Key Management 통계 이벤트 키 관리
-**통계 이벤트 키 관리** 탭에서 통계 이벤트 키를 관리할 수 있습니다. 생성 시 이름, 설명, 이벤트 수집 기간을 설정할 수 있습니다. 이벤트 수집 기간을 설정하지 않으면 수집 기간은 무기한으로 설정됩니다. 생성된 통계 이벤트 키는 메시지 발송 시 설정할 수 있습니다. 통계 이벤트 키가 설정된 메시지들의 발송 결과는 **통계** 탭에서 통계 이벤트 키로 검색할 수 있습니다.
+## Statistics Event Key Management 
+Statistics event keys can be managed from the **Statistics Event Key Management** tab. You may set the name, description, and event collection period. Without configuring event collection period, the collection period is set as indefinite. Once created, a statistics event key can be setup for message delivery. Delivery results of messages to which a statistics event key is configured can be searched with the statistics event key from the **Statistics** tab. 
 
 <span id="stats"></span>
 
 ## Statistics
-You may search data on messages receipt/checked that are collected for the last 30 days. Select **Statistics** from the console, and you can search statistics on registration or deletion of a message or a token.   최근 30일 내 수집된 메시지 수신/확인 데이터를 검색할 수 있습니다. 콘솔에서 **통계**를 선택합니다. 메시지, 토큰 등록이나 삭제에 대한 통계를 검색할 수 있습니다.
+You may search data on received/checked messages that are collected for the last 30 days. Select **Statistics** from the console, and you can search statistics on registration or deletion of a message or a token.   
 
-1. 기간을 검색 조건으로 설정 할 수 있습니다. Set period as a search condition. 
-    - 간편 기간 설정 버튼 외 수동 설정 시 1분을 최소 기간, 30일을 최대 기간으로 설정할 수 있습니다. Manual setting is available other than simple period setting, between 1 minute and 30 days. 
-2. 유형으로 그래프가 표시되는 방식을 설정 할 수 있습니다. Set a display method of graphs in each type. 
-    - 기본은 설정된 기간에 따라 자동으로 최적화된 유형으로 그래프를 표시합니다. By default, graph is displayed in automatically optimized type for each period setting. 
-3. 메시지 통계에서는 통계 이벤트 키, 푸시 타입으로 검색할 수 있습니다. From message statistics, you can search by statistics event key or push type. 
+1. Set period as part of a search condition. 
+    - Manual setting is available other than simple period setting, between 1 minute and 30 days. 
+2. Set a display method of graphs in each type. 
+    - By default, graph is displayed in automatically optimized type for each period setting. 
+3. From message statistics, you can search by statistics event key or push type. 
 
 ## Token Setting
 
