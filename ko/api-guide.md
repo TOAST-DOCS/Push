@@ -99,7 +99,14 @@ Content-Type: application/json;charset=UTF-8
 
 ##### Example
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tokens -d '{"oldToken":"oldToken","token":"token","isNotificationAgreement":true,"isAdAgreement":true,"isNightAdAgreement":true,"pushType":"FCM","timezoneId":"Asia/Seoul","uid":"uid","country":"KR","language":"ko","deviceId": "deviceId"}'
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+DATA='{"oldToken":"oldToken","token":"token","isNotificationAgreement":true,"isAdAgreement":true,"isNightAdAgreement":true,"pushType":"FCM","timezoneId":"Asia/Seoul","uid":"uid","country":"KR","language":"ko","deviceId": "deviceId"}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-d "${DATA}" \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/tokens' 
 ```
 
 ##### Description
@@ -168,7 +175,14 @@ Content-Type: application/json;charset=UTF-8
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tokens/TOKEN?pushType=FCM
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+TOKEN=token
+PUSH_TYPE=FCM
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/tokens/'"${TOKEN}"'?pushType='"${PUSH_TYPE}"
 ```
 
 #### 사용자 아이디로 토큰 조회
@@ -216,7 +230,15 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tokens?uid=uid
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+USER_ID=uid
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/tokens?uid='"${USER_ID}"
 ```
 
 #### 유효하지 않는 토큰 조회
@@ -261,7 +283,14 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/invalid-tokens
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/invalid-tokens'
 ```
 
 ### 삭제
@@ -293,7 +322,16 @@ Content-Type: application/json;charset=UTF-8
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com//push/v2.4/appkeys/{appkey}/tokens/{token}?pushType={pushType}
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+TOKEN=token
+PUSH_TYPE=FCM
+
+curl -X DELETE \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/tokens/'"${TOKEN}"'?pushType='"${PUSH_TYPE}"
 ```
 
 ## 메시지
@@ -377,7 +415,16 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/messages -d '{"target":{"type":"UID","to":["uid"]},"content":{"default":{"title":"title","body":"body","customKey1":"It is default"},"ko":{"title":"제목","body":"내용","customKey2":"한국어 입니다."}},"messageType":"AD","contact":"1588-1588","removeGuide":"매뉴 > 설정","timeToLiveMinute":1}'
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+DATA='{"target":{"type":"UID","to":["uid"]},"content":{"default":{"title":"title","body":"body","customKey1":"It is default"},"ko":{"title":"제목","body":"내용","customKey2":"한국어 입니다."}},"messageType":"AD","contact":"1588-1588","removeGuide":"매뉴 > 설정","timeToLiveMinute":1}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+-d "${DATA}" \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/messages'
 ```
 
 ### 공통 메시지
@@ -907,7 +954,14 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/messages
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/messages'
 ```
 
 | Field | Usage | Description |
@@ -986,7 +1040,15 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/messages/{messageId}
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+MESSAGE_ID=3807213651002756
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/messages/'"${MESSAGE_ID}"
 ```
 
 #### 실패한 메시지 목록 조회
@@ -1086,7 +1148,14 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/message-errors
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/message-errors'
 ```
 
 ### 로그 조회
@@ -1157,7 +1226,14 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/logs/message?messageId=1&limit=10
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/logs/message?limit=10'
 ```
 
 #### 대량 로그 카운트 조회
@@ -1195,6 +1271,19 @@ X-Secret-Access-Key: [a-zA-Z0-9]{16}
 ##### Example
 ```
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/bulk-logs/message/count
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+USER_ACCESS_KEY_ID=dk6Fbbk0FwwkhtBqlHGC
+SECRET_ACCESS_KEY=4IxfuZhIbGudW7PV
+FROM='2020-08-04T00:00:00'
+TO='2020-08-05T00:00:00'
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-User-Access-Key-ID: '"${USER_ACCESS_KEY_ID}" \
+-H 'X-Secret-Access-Key: '"${SECRET_ACCESS_KEY}" \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/bulk-logs/message/count?from='"${FROM}"'&to='"${to}"
 ```
 
 #### 대량 로그 조회
@@ -1248,6 +1337,19 @@ X-Secret-Access-Key: [a-zA-Z0-9]{16}
 ##### Example
 ```
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/bulk-logs/message?messageId=1
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+USER_ACCESS_KEY_ID=dk6Fbbk0FwwkhtBqlHGC
+SECRET_ACCESS_KEY=4IxfuZhIbGudW7PV
+FROM='2020-08-04T00:00:00'
+TO='2020-08-05T00:00:00'
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-User-Access-Key-ID: '"${USER_ACCESS_KEY_ID}" \
+-H 'X-Secret-Access-Key: '"${SECRET_ACCESS_KEY}" \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/bulk-logs/message?from='"${FROM}"'&to='"${TO}"
 ```
 
 ## 예약 메시지
@@ -1328,7 +1430,16 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/schedules -d '{"type":"EVERY_MONTH","fromDate":"2016-12-30","toDate":"2017-01-02","times":["12:00","17:00"],"days":[1,15],"daysOfWeek":["SUNDAY","MONDAY"]}'
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+DATA='{"type":"EVERY_MONTH","fromDate":"2016-12-30","toDate":"2017-01-02","times":["12:00","17:00"],"days":[1,15],"daysOfWeek":["SUNDAY","MONDAY"]}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+-d "${DATA}" \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/schedules'
 ```
 
 #### 예약 메시지 생성
@@ -1397,7 +1508,16 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Example
 ```
-curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/reservations -d '{"schedules":["2016-12-30T12:40","2016-12-31T12:40"],"isLocalTime":false,"target":{"type":"UID","to":["uid"]},"content":{"default":{"title":"title","body":"body"}},"messageType":"AD","contact":"1588-1588","removeGuide":"매뉴 > 설정","timeToLiveMinute":1}'
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+DATA='{"schedules":["2020-12-30T12:40","2020-12-31T12:40"],"isLocalTime":false,"target":{"type":"UID","to":["uid"]},"content":{"default":{"title":"title","body":"body"}},"messageType":"NOTIFICATION"}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+-d "${DATA}" \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/reservations'
 ```
 
 ### 조회
@@ -1493,6 +1613,15 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ##### Example
 ```
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/reservations
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/reservations'
 ```
 
 #### 단건 조회
@@ -1563,6 +1692,16 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ##### Example
 ```
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/reservations/{reservationId}
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+RESERVATION_ID=3778893002835941
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/reservations/'"${RESERVATION_ID}"
 ```
 
 #### 발송된 예약 메시지 조회
@@ -1625,6 +1764,16 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ##### Example
 ```
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/reservations/{reservationId}/messages
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+RESERVATION_ID=3778893002835941
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/reservations/'"${RESERVATION_ID}"'/messages'
 ```
 
 ### 수정
@@ -1678,6 +1827,18 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ##### Example
 ```
 curl -X PUT -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/reservations/{reservationId} -d '{"schedules":["2018-12-30T12:40","2018-12-31T12:40"],"isLocalTime":false,"target":{"type":"UID","to":["uid"]},"content":{"default":{"title":"title","body":"body"}},"messageType":"AD","contact":"1588-1588","removeGuide":"매뉴 > 설정","timeToLiveMinute":1}'
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+RESERVATION_ID=3778893002835941
+DATA='{"schedules":["2019-12-30T12:40","2019-12-31T12:40"],"isLocalTime":false,"target":{"type":"UID","to":["uid"]},"content":{"default":{"title":"title","body":"body"}},"messageType":"AD","contact":"1588-1588","removeGuide":"매뉴 > 설정","timeToLiveMinute":1}'
+
+curl -X PUT \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+-d "${DATA}" \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/reservations/'"${RESERVATION_ID}"
 ```
 
 ### 삭제
@@ -1713,6 +1874,17 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ##### Example
 ```
 curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/reservations?reservationIds={reservationId,}
+
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+RESERVATION_ID=3778893002835941
+
+curl -X DELETE \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/reservations?reservationIds='"${RESERVATION_ID}"
 ```
 
 ## 태그
@@ -1758,6 +1930,17 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ##### Example
 ```
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tags -d '{"tagName":"서른"}'
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+DATA='{"tagName":"서른"}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+-d "${DATA}" \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/tags'
 ```
 
 #### 태그에 Uid 추가 생성
@@ -1796,6 +1979,18 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ##### Example
 ```
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tags/{tagId}/uids -d '{"uids":["uid"]}'
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+TAG_ID=S4vcEN7L
+DATA='{"uids":["uid"]}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+-d "${DATA}" \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/tags/'"${TAG_ID}"'/uids'
 ```
 
 #### Uid에 태그 목록 설정
@@ -1831,6 +2026,18 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ##### Example
 ```
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/uids -d '{"uid":"uid","tagIds":["TAG_ID"]}'
+
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+DATA='{"uid":"uid","tagIds":["S4vcEN7L"]}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+-d "${DATA}" \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/uids'
 ```
 
 ### 조회
@@ -1878,6 +2085,16 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ##### Example
 ```
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tags
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+DATA='{"uid":"uid","tagIds":["S4vcEN7L"]}'
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/tags'
 ```
 
 #### 태그 단건 조회
@@ -1912,6 +2129,16 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ##### Example
 ```
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tags/{tagId}
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+TAG_ID=vpWLImxF
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/tags/'"${TAG_ID}"
 ```
 
 #### 태그의 Uid 목록 조회
@@ -1975,6 +2202,16 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ##### Example
 ```
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tags/{tagId}/uids
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+TAG_ID=vpWLImxF
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/tags/'"${TAG_ID}"
 ```
 
 #### Uid 조회
@@ -2023,6 +2260,16 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ##### Example
 ```
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/uids/uid
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+USER_ID=uid
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/uids/'"${USER_ID}"
 ```
 
 ### 수정
@@ -2054,6 +2301,19 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ##### Example
 ```
 curl -X PUT -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tags/{tagId} -d '{"tagName":"서른셋"}'
+
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+TAG_ID=S4vcEN7L
+DATA='{"tagName":"서른다섯"}'
+
+curl -X PUT \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+-d "${DATA}" \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/tags/'"${TAG_ID}"
 ```
 
 ### 삭제
@@ -2083,6 +2343,17 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ##### Example
 ```
 curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tags/{tagId}
+
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+TAG_ID=S4vcEN7L
+
+curl -X DELETE \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/tags/'"${TAG_ID}"
 ```
 
 #### Uid 삭제
@@ -2117,6 +2388,17 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ##### Example
 ```
 curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/uids?uids=uid
+
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+USER_ID=uid
+
+curl -X DELETE \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/uids?uids='"${USER_ID}"
 ```
 
 #### 태그의 Uid 삭제
@@ -2147,6 +2429,18 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ##### Example
 ```
 curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-User-Access-Key-ID: USER_ACCESS_KEY_ID" -H "X-Secret-Access-Key: SECRET_ACCESS_KEY" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/tags/{tagId}/uids?uids=uid
+
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+TAG_ID=S4vcEN7L
+USER_ID=uid
+
+curl -X DELETE \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/tags/'"${TAG_ID}"'/uids?uids='"${USER_ID}"
 ```
 
 ## Uid
@@ -2181,6 +2475,18 @@ Content-Type: application/json;charset=UTF-8
 ##### Example
 ```
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/uids/uid/tag-ids -d '{"tagIds":["TAG_ID"]}'
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+USER_ID=uid
+DATA='{"tagIds":["QtCERMMQ"]}'
+
+curl -X POST \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+-d "${DATA}" \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/uids/'"${USER_ID}"'/tag-ids'
 ```
 
 ### 조회
@@ -2212,6 +2518,17 @@ Content-Type: application/json;charset=UTF-8
 ##### Example
 ```
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/uids/uid/tag-ids
+
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+USER_ID=uid
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/uids/'"${USER_ID}"'/tag-ids'
 ```
 
 ### 수정
@@ -2243,6 +2560,19 @@ Content-Type: application/json;charset=UTF-8
 ##### Example
 ```
 curl -X PUT -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/uids/uid/tag-ids -d '{"tagIds":["TAG_ID"]}'
+
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+USER_ID=uid
+DATA='{"tagIds":["12345678"]}'
+
+curl -X PUT \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+-d "${DATA}" \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/uids/'"${USER_ID}"'/tag-ids'
 ```
 
 ### 태그 삭제
@@ -2275,6 +2605,18 @@ Content-Type: application/json;charset=UTF-8
 ##### Example
 ```
 curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" https://api-push.cloud.toast.com/push/v2.4/appkeys/{appkey}/uids/uid/tag-ids?tagIds=TAG_ID_01,TAG_ID_02
+
+
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+USER_ID=uid
+TAG_ID=QtCERMMQ
+
+curl -X DELETE \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/uids/'"${USER_ID}"'/tag-ids?tagIds='"${TAG_ID}"
 ```
 
 <span id="stats-api"></span>
@@ -2296,6 +2638,18 @@ Content-Type: application/json;charset=UTF-8
 | to | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
 | extra1s | Optional, String Array | eventCategory가 MESSAGE인 경우 푸시 타입으로 필터링 가능. FCM, APNS, APNS_SANDBOX, APNS_VOIP, APNS_SANDBOXVOIP, ADM, TENCENT |
 
+##### Example
+```
+ENDPOINT=https://api-push.cloud.toast.com
+APP_KEY=HXRDtlLOpAqd32oz
+SECERET_KEY=MYFuDyat
+EVENT_CATEGORY=TOKEN_COUNTRY
+
+curl -X GET \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECERET_KEY}"'' \
+"${ENDPOINT}"'/push/v2.4/appkeys/'"${APP_KEY}"'/stats?eventCategory='"${EVENT_CATEGORY}"
+```
 
 * *문서 수정 내역*
     * *(2020.03.24) 통계 API 추가*
