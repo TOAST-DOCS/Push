@@ -488,7 +488,7 @@ UID、トークンごとに検索できます。
 
 - 機能を設定すると、実際の反映まで数分かかることがあります。
 
-<span id="message-delivery-receipient">ㅇㅇㅇㄴㅇㄹㄴㅇㄹㄴㅇㄹㅇ</span>
+<span id="message-delivery-receipient"></span>
 ### メッセージ受信/確認
 
 - メッセージの受信および確認、データ収集(Message Delivery Receipt)機能を有効にできます。
