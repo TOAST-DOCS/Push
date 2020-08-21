@@ -50,29 +50,29 @@ To send push notification to Android devices, you need valid GCM project's API K
 
 <span id="get-apns-jwt"></span>
 
-### APNS JWT 인증 정보 얻기
-iOS 기기에 푸시 알림 메시지를 전송하기 위해서는 Apple Developer 사이트에서 발급 받은 암호 키와 키 ID(Key ID), 팀 ID(Team ID, App ID Prefix), 토픽(Topic)이 필요합니다.
+### Get Authentication Information for APNS JWT
+To send push notification messages to an iOS device, you need encryption key, Key ID, Team ID (App ID Prefix) and Topic available from the Apple Developer's website. 
 
-#### APNS 암호 키 얻기
-1. **Apple Developer 콘솔**에서 **Certificates, IDs & Profiles**로 이동합니다.
-2. **Keys** 선택합니다.
-3. **Create a key** 선택합니다.
-4. **Register a New Key**에서 키 이름 입력, **ENABLE** 항목에서 **Apple Push Notifictions service (APNs)** 선택 후 **Continue**로 계속 진행합니다.
-5. 내용 확인 후 **Register** 선택합니다.
-6. **Download** 선택해 암호 키 파일을 받습니다.
+#### Getting APNS Encryption Key
+1. Visit **Apple Developer's Console** and go to **Certificates, IDs & Profiles**.
+2. Select **Keys**.
+3. Select **Create a key**.
+4. Go to **Register a New Key** and enter key name, and then go to **ENABLE** to select  **Apple Push Notifictions service (APNs)**, and click **Continue** to proceed.
+5. Confirm and then select **Register**.
+6. Select **Download** to download encryption key files. 
 
-#### 키 ID 얻기
-1. **Apple Developer 콘솔**에서 **Certificates, IDs & Profiles**로 이동합니다.
-2. 발급 받은 키(Key)를 선택합니다.
-3. **View Key Details** 항목에서 확인할 수 있습니다.
+#### Getting Key ID
+1. Visit **Apple Developer's Console** and go to **Certificates, IDs & Profiles**.
+2. Select the issued key. 
+3. Confirm it from **View Key Details**.
 
-#### 팀 ID 얻기
-1. **Apple Developer 콘솔**에서 **Certificates, IDs & Profiles**로 이동합니다.
-2. **Identifiers** 선택합니다.
-3. **Edit your App ID Configuration** 항목에서 확인할 수 있습니다.
+#### Getting Team ID
+1. Visit **Apple Developer's Console** and go to **Certificates, IDs & Profiles**.
+2. Select **Identifiers**.
+3. Confirm it from **Edit your App ID Configuration**.
 
-#### 토픽
-JWT를 이용한 인증을 위해서는 토픽(Topic)이 필요한데, 토픽은 앱의 번들 아이디(Bundle ID)입니다.
+#### Topic
+To authentication using JWT, you need a topic which refers to app's bundle ID. 
 
 ### APNS Certificate
 
