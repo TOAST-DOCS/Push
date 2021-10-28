@@ -1,6 +1,6 @@
 ## Notification> Push > Release Notes
 
-### 2021. 10. 26.
+### October 26, 2021
 #### [Console]
 ##### Added Features
 * Added a pop-up for modifying token date and time
@@ -17,7 +17,7 @@
 * Fixed a query condition processing error in v2.4 scheduled message query API
     * Fixed an error where the from and to query conditions were not processed in the v2.4 scheduled message query API.
 
-### 2021. 07. 27.
+### July 27, 2021
 ### [Console]
 #### Added Features
 * Added the feature of reserving a guide message for the ad opt-in acceptance
