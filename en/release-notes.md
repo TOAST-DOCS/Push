@@ -9,13 +9,13 @@
 
 #### [API]
 ##### Added Features
-* Added a cause of failure to the extra2 field of the statistics query API delivery failure event.
+* Added a cause of failure to the 'extra2' field of the statistics query API delivery failure event.
 * Added a query condition to v2.4 scheduled message query API
-    * Added `deliveryFrom` and `deliveryTo` conditions that let you query messages based on the scheduled delivery date and time.
-    * Scheduled messages with schedules that fall between `deliveryFrom` and `deliveryTo` are retrieved.
+    * Added 'deliveryFrom' and 'deliveryTo' conditions that let you query messages based on the scheduled delivery date and time.
+    * Scheduled messages with schedules that fall between 'deliveryFrom' and 'deliveryTo' are retrieved.
 ##### Bug Fixes
 * Fixed a query condition processing error in v2.4 scheduled message query API
-    * Fixed an error where the from and to query conditions were not processed in the v2.4 scheduled message query API.
+    * Fixed an error where the 'from' and 'to' query conditions were not processed in the v2.4 scheduled message query API.
 
 ### July 27, 2021
 ### [Console]
