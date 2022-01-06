@@ -4,9 +4,9 @@
 #### [API]
 ##### Added Features
 * Added a receipt/confirmation feature to the Amazon Device Messaging (ADM) push type
-    * Added a feature that enables you to receive/confirm when sending ADM.
+    * Added a feature that enables receipt/confirmation when sending ADM.
 ##### Bug Fixes
-* Fixed an error where, when sending an iOS message with FCM fails, it was handled as a success
+* Fixed an error where a failure to send an iOS message with FCM was handled as a success
     * Fixed an error where, when sending a message after setting an incorrect APNS certificate to Firebase, it was handled as a success.
 
 ### October 26, 2021
