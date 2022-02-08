@@ -1,15 +1,15 @@
 ## Notification> Push > Release Notes
 
-### 2022. 02. 15.
+### February 15, 2022
 #### [Console]
-##### 기능 추가
-* 토큰 파일 다운로드 기능 추가
-    * **토큰** 탭에서 **토큰 파일 다운로드** 기능을 이용해 저장된 토큰들을 파일로 다운로드할 수 있는 기능이 추가되었습니다.
-##### 오류 수정
-* 발송 내역 저장 시 UID가 'UNKNOWN'으로 저장되는 오류 수정
-    * **설정** 탭에서 **발송 내역 저장** 기능 사용 시 만료된 토큰 내역에서 UID가 'UNKOWN'으로 저장되는 오류를 수정했습니다.
-* 인증 실패 안내 메일 중복 발송 오류 수정
-    * 푸시 메시지 발송 시 인증에 실패하는 경우, 안내 메일이 중복으로 발송되는 오류를 수정했습니다
+##### Added Features
+* Added a token file download feature
+    * Added a feature to download stored tokens as a file using the **Token File Download** feature in the **Token** tab.
+##### Bug Fixes
+* Fixed an error where a UID was saved as 'UNKNOWN' while saving the delivery history
+    * Fixed an error where a UID was saved as 'UNKNOWN' in the expired token history when using the **Logging** feature in the **Setting** tab.
+* Fixed an error where duplicate authentication failure notification emails were sent
+    * Fixed an error where, when authentication failed when sending a push message, duplicate notification emails were sent
 
 ### January 11, 2022
 #### [API]
