@@ -1079,9 +1079,10 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | messageId | Optional, Number | 메시지 아이디 |
 | messageErrorType | Optional, String | 'CLIENT_ERROR', 'EXTERNAL_ERROR', 'INTERNAL_ERROR' |
 | messageErrorCause | Optional, String | 'UNSUPPORTED_MESSAGE_TYPE', 'INVALID_MESSAGE', 'INVALID_CERTIFICATE', 'UNAUTHORIZED', 'EXPIRED_TIME_OUT', 'APNS_ERROR', 'FCM_ERROR', 'TENCENT_ERROR', 'AGENT_ERROR', 'ADM_ERROR', 'DUPLICATED_MESSAGE_TOKEN'  |
-| from | Optional, DateTime String | 최근 30일까지, 기본 값은 최근 7일 전 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
-| to | Optional, DateTime String | 최근 30일까지, 기본 값은 현재 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
-| limit | Optional, Number | 한 번에 조회할 목록 크기, 기본 값과 최대 값은 1,000 |
+| from | Optional, DateTime String | 최근 30일까지, 기본 값은 최근 7일 전(ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
+| to | Optional, DateTime String | 최근 30일까지, 기본 값은 현재(ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
+| limit | Optional, Number | 한 번에 조회할 목록 크기, 기본 값과 최대 값은 100 |
+| pageNumber | Optional, Number | 페이지 번호, 기본 값 1 |
 
 ##### Description
 - messageErrorType와 messageErrorCause는 다음과 같은 뜻을 의미합니다.
@@ -1186,9 +1187,10 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | uid | Optional, String | 사용자 아이디 |
 | token | Optional, String | 사용자 토큰 |
 | pushType | Optional, String | 푸시 타입 |
-| from | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
-| to | Optional, DateTime String | 최근 30일까지 (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
+| from | Optional, DateTime String | 최근 30일까지(ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
+| to | Optional, DateTime String | 최근 30일까지(ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
 | limit | Optional, Number | 최대 조회 개수, 기본 값 100 |
+| pageNumber | Optional, Number | 페이지 번호, 기본 값 1 |
 
 ##### Request Body
 ```

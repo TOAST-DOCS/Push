@@ -1159,7 +1159,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | messageErrorCause | Optional, String | 'UNSUPPORTED_MESSAGE_TYPE', 'INVALID_MESSAGE', 'INVALID_CERTIFICATE', 'UNAUTHORIZED', 'EXPIRED_TIME_OUT', 'APNS_ERROR', 'FCM_ERROR', 'TENCENT_ERROR', 'AGENT_ERROR', 'ADM_ERROR', 'DUPLICATED_MESSAGE_TOKEN'  |
 | from | Optional, DateTime String | Up to the latest 30 days, or before 7 days for default (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
 | to | Optional, DateTime String | Up to the latest 30 days, or now for default (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
-| limit | Optional, Number | Size to list at once: 1,000 for default and max |
+| limit | Optional, Number | Size to list at once: 100 for default and max |
+| pageNumber | Optional, Number | 페이지 번호, 기본 값 1 |
 
 ##### Description
 - messageErrorType and messageErrorCause have the following meaning: 
