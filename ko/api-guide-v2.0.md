@@ -1078,7 +1078,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | from              | Optional, DateTime String | 최근 30일까지, 기본값은 최근 7일 전(ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
 | to                | Optional, DateTime String | 최근 30일까지, 기본값은 현재(ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
 | limit             | Optional, Number          | 한 번에 조회할 목록 크기, 기본값과 최댓값은 100          |
-| pageNumber        | Optional, Number          | 페이지 번호, 기본 값 1 |
+| pageNumber        | Optional, Number          | 페이지 번호, 기본값 1 |
 
 ##### Description
 - messageErrorType와 messageErrorCause는 다음을 의미합니다.
