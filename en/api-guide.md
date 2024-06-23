@@ -1396,7 +1396,7 @@ curl -X POST \
 
 | Field | Usage | Description |
 | - | - | - |
-| schedules | - | Date and time (ISO 8601, e.g. YYYY-MM-DDThh:mm) |
+| schedules | - | 일시(ISO 8601, e.g. YYYY-MM-DDThh:mm), 최댓값: 현재로부터 60일(예: 현재 2024년 6월 1일인 경우 2024년 7월 31일 23시 59분) |
 
 
 #### Create Scheduled Messages 
