@@ -235,7 +235,7 @@ API v1.3 Reference
 
 \[Method, URL\]
 
-    POST https://api-push.cloud.toast.com/push/v1.3/appkey/{appkey}/tokens
+    POST https://push.api.nhncloudservice.com/push/v1.3/appkey/{appkey}/tokens
     Content-Type: application/json;charset=UTF-8
 
 \[Request Body\]
@@ -302,7 +302,7 @@ API v1.3 Reference
 
 \[Method, URL\]
 
-    GET https://api-push.cloud.toast.com/push/v1.3/appkey/{appkey}/tokens?token={token}&pushType={pushType}
+    GET https://push.api.nhncloudservice.com/push/v1.3/appkey/{appkey}/tokens?token={token}&pushType={pushType}
     Content-Type: application/json;charset=UTF-8
 
 \[Response Body\]
@@ -331,7 +331,7 @@ API v1.3 Reference
 
 \[Method, URL\]
 
-    GET https://api-push.cloud.toast.com/push/v1.3/appkey/{appkey}/uids/{uid}/tokens
+    GET https://push.api.nhncloudservice.com/push/v1.3/appkey/{appkey}/uids/{uid}/tokens
     Content-Type: application/json;charset=UTF-8
     X-Secret-Key: [a-zA-Z0-9]{8}
 
@@ -365,7 +365,7 @@ API v1.3 Reference
 
 \[Method, URL\]
 
-    POST https://api-push.cloud.toast.com/push/v1.3/appkey/{appkey}/messages
+    POST https://push.api.nhncloudservice.com/push/v1.3/appkey/{appkey}/messages
     Content-Type: application/json;charset=UTF-8
     X-Secret-Key: [a-zA-Z0-9]{8}
 
@@ -602,7 +602,7 @@ Other user-customized Word will go into Custom Key/Value field as follows.
 
 \[Method, URL\]
 
-    GET https://api-push.cloud.toast.com/push/v1.3/appkey/{appkey}/messages/{message-id}
+    GET https://push.api.nhncloudservice.com/push/v1.3/appkey/{appkey}/messages/{message-id}
     Content-Type: application/json;charset=UTF-8
     X-Secret-Key: [a-zA-Z0-9]{8}
 
@@ -663,7 +663,7 @@ Other user-customized Word will go into Custom Key/Value field as follows.
 
 \[Method, URL\]
 
-    GET https://api-push.cloud.toast.com/push/v1.3/appkey/{appkey}/feedback
+    GET https://push.api.nhncloudservice.com/push/v1.3/appkey/{appkey}/feedback
     Content-Type: application/json;charset=UTF-8
     X-Secret-Key: [a-zA-Z0-9]{8}
 
