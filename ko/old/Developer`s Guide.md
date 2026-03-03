@@ -39,7 +39,7 @@
 ### 기본 정보
 #### Endpoint
 ```
-API Endpoint: https://api-push.cloud.toast.com
+API Endpoint: https://push.api.nhncloudservice.com
 메시지 수신/확인 여부 수집 Endpoint: https://collector-push.cloud.toast.com
 ```
 
