@@ -26,7 +26,7 @@ TENCENT 푸시 SDK와 통합하는 방법에 대해 설명한다.
 @implementation YourAppDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSDictionary* options = @{
-                              kTCPushKeyServerUrl : @"https://api-push.cloud.toast.com",
+                              kTCPushKeyServerUrl : @"https://push.api.nhncloudservice.com",
                               kTCPushKeyPushType : kTCPushTypeAPNS,
                               kTCPushKeyAgreeNotification : @YES,
                               kTCPushKeyCountry : @"KR",
@@ -113,8 +113,8 @@ public class YourActivity extends Activity {
         if (PushSdk.PUSH_TYPE_GCM.equals(YOUR_PUSH_TYPE)) {
         	options.put(PushSdk.KEY_SENDER_ID, YOUR_SENDER_ID); // Required.
         }
-        options.put(PushSdk.KEY_SERVER_URL, "https://api-push.cloud.toast.com");
-        // Optional. Default: https://api-push.cloud.toast.com
+        options.put(PushSdk.KEY_SERVER_URL, "https://push.api.nhncloudservice.com");
+        // Optional. Default: https://push.api.nhncloudservice.com
         options.put(PushSdk.KEY_CHANNEL, "default"); // Optional(v1.3)
         options.put(PushSdk.KEY_PUSH_TYPE, YOUR_PUSH_TYPE);
         // Optional.  PushSdk.PUSH_TYPE_GCM or PushSdk.PUSH_TYPE_TENCENT. Default: PushSdk.PUSH_TYPE_GCM.
@@ -379,7 +379,7 @@ APPKEY, UID, options로 등록된 Token을 조회할 수 있다.
 ```
 void HandleQuery(int error, NSDictionary* options);
 ......
-NSDictionary* options = @{kTCPushKeyServerUrl : @"https://api-push.cloud.toast.com", // Optional, Default : https://api-push.cloud.toast.com
+NSDictionary* options = @{kTCPushKeyServerUrl : @"https://push.api.nhncloudservice.com", // Optional, Default : https://push.api.nhncloudservice.com
                             kTCPushKeyPushType : kTCPushTypeAPNS, // Optional, Default : kTCPushTypeAPNS
                             kTCPushKeyTimeout : @(30)}; // Optional, Default : 30
 [TCPushSdk queryForAppKey:appKey userId:userId onQuery:^(int error, NSDictionary* options) { // options 매개변수는 nil이면 안됨
