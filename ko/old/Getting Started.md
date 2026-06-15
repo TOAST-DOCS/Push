@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=7d991ffc7597 -->
+
 ## Notification > Push > Getting Started
 
 TOAST Cloud Push 서비스를 사용하려면 먼저 서비스를 활성화해야 합니다.
@@ -5,18 +7,28 @@ TOAST Cloud Push 서비스를 사용하려면 먼저 서비스를 활성화해�
 
 ![](http://static.toastoven.net/prod_push/21-05-03/overview_ko.png)
 
+<a id="console"></a>
+
 ### Console
 
 인증서 관리, API 테스트, 메시지 발송 등 모든 기능을 사용할 수 있다.
+
+<a id="rest-apis"></a>
 
 ### REST APIs
 
 토큰 등록/조회, 메시지 전송, 피드백 확인 등 Public API를 호출할 수 있다.
 
+<a id="client-sdk"></a>
+
 ### client SDK
 토큰 등록/조회 및 푸시 메시지 수신을 편하게 사용할 수 있다.
 
+<a id="section-1"></a>
+
 ## 기능
+
+<a id="section-1-1"></a>
 
 ### 알림/홍보성 푸시 메시지 수신 동의 정보 저장 및 자동 필터링
 
@@ -26,29 +38,41 @@ TOAST Cloud Push 서비스를 사용하려면 먼저 서비스를 활성화해�
 
 [법령 바로 가기](http://www.law.go.kr/lsEfInfoP.do?lsiSeq=123210#)
 
+<a id="section-1-2"></a>
+
 ### 국가 필터링
 
 토큰 등록 시 국가 코드를 입력받고, 메시지 발송 시 발송 국가를 지정할 수 있다.
+
+<a id="section-1-3"></a>
 
 ### 공통 메시지 포맷
 
 공통 메시지 포맷에 맞게 메시지를 작성하면, 기기 종류에 맞게 메시지가 생성되어 발송된다.  
 공통 메시지 포맷에 맞게 입력 받은 언어 코드 기준으로 메시지를 작성하면, 해당 언어와 기기 종류에 맞게 생성되어 발송된다.
 
+<a id="section-1-4"></a>
+
 ### 광고성 메시지 발송
 
 광고성 푸시 메시지 표시 의무화를 따르고 있다.  
 광고성 메시지 타입으로 메시지를 발송할 경우, (광고), 연락처, 수신 철회 방법을 메시지에 삽입해 발송한다.  
+
+<a id="section-1-5"></a>
 
 ### 예약 메시지 발송
 
 한 번, 매일, 매주, 매월 등 다양한 예약 발송 타입을 제공한다.  
 현지 시간에 맞춰 발송할 수 있다.
 
+<a id="section-1-6"></a>
+
 ### 메시지 유효기간 설정
 
 메시지에 유효기간(TTL)을 설정할 수 있다. 메시지가 유효기간을 넘길 경우, 실패 처리된다.
 단, 0은 유효기간이 없는 것으로 발송 지연에 의해 실패 처리되지 않는다.
+
+<a id="section-1-7"></a>
 
 ### 실시간 모니터링
 
@@ -56,25 +80,39 @@ TOAST Cloud Push 서비스를 사용하려면 먼저 서비스를 활성화해�
 
 [Messages] 탭에서 메시지 발송 상태를 실시간으로 확인할 수 있다.
 
+<a id="section-1-8"></a>
+
 ### 피드백 제공
 
 삭제되거나 잘못된 토큰은 메시지 발송 시 자동 삭제되며, 피드백 API로 삭제된 토큰을 조회할 수 있다.
 
+<a id="section-1-9"></a>
+
 ### 인증서 관리
 
 푸시 타입별 인증서 또는 API Key를 관리할 수 있다.
+
+<a id="public-apis"></a>
 
 ### Public APIs
 
 토큰 등록/조회, 메시지 전송, 피드백 확인 API를 제공 한다.  
 [APIs] 탭에서 Public APIs를 테스트할 수 있다.
 
+<a id="section-2"></a>
+
 ## 서비스 활성화
 [Console] > [Notification] > [Push] > [상품이용] 버튼 클릭
 
+<a id="console-2"></a>
+
 ## Console 가이드
 
+<a id="console-2-1"></a>
+
 ### 인증서 관리
+
+<a id="fcm-api-key"></a>
 
 #### FCM API Key 생성, 가져오기
 
@@ -86,10 +124,14 @@ TOAST Cloud Push 서비스를 사용하려면 먼저 서비스를 활성화해�
 - Settings 페이지에서 CLOUD MESSAGING 탭 클릭
 - Server key(API Key), Sender ID 확인
 
+<a id="fcm-api-key-2"></a>
+
 #### FCM API Key 등록
 
 - [Console] > [Notification] > [Push] > [Certificates] 탭 클릭
 - 위에서 생성한 FCM API Key를 복사해서 [GCM API Key]에 붙여넣기 > [REGISTER] 클릭하면, 등록 완료
+
+<a id="apns"></a>
 
 #### APNS 인증서 생성, 가져오기
 
@@ -106,12 +148,16 @@ TOAST Cloud Push 서비스를 사용하려면 먼저 서비스를 활성화해�
 - 저장 위치 설정 후 [저장] 클릭
 - 보낸 항목을 보호하는 데 사용할 암호 입력, APNS 인증서 생성 완료
 
+<a id="apns-2"></a>
+
 #### APNS 인증서 등록
 
 - [Console] > [Notification] > [Push] > [Certificates] 탭 클릭
 - [Apple Push Certificates] > [Certificates] 파일 선택 > APNS 인증서 선택
 - [Password]에 인증서 비밀번호 입력
 - [REGISTER] 클릭, 등록 완료
+
+<a id="apns-3"></a>
 
 #### APNS 주의 사항
 ##### APNS(Production), APNS_SANDBOX(Development) 차이
@@ -130,6 +176,8 @@ TOAST Cloud Push 서비스를 사용하려면 먼저 서비스를 활성화해�
 - 앱에서 푸시 메시지 수신을 거부했을 때  
 - 디바이스가 인터넷에 연결되어 있지 않을 때
 
+<a id="tencent"></a>
+
 #### Tencent 회원가입
 
 - [[Tencent 푸시 서비스 홈페이지](http://xg.qq.com/)]에 접속한다.
@@ -141,6 +189,8 @@ TOAST Cloud Push 서비스를 사용하려면 먼저 서비스를 활성화해�
 - 인증 코드를 입력하고 다음 단계로 넘어간다.
 - 가입 시 입력한 Email에서 'Activation Email'를 확인하고, 활성화시킨다.
 
+<a id="tencent-2"></a>
+
 #### Tencent 애플리케이션 등록
 
 - 로그인 후, [[Tencent 푸시 서비스 대시보드](http://xg.qq.com/xg/ctr_index/login?go_to_url=http%3A%2F%2Fxg.qq.com%2Fxg%2Fapps%2Fctr_app%2Findex)]에 접속한다.
@@ -150,6 +200,8 @@ TOAST Cloud Push 서비스를 사용하려면 먼저 서비스를 활성화해�
 - 应用平台(애플리케이션 플랫폼)에서 안드로이드를 선택하고, 패키지 네임을 입력한다.
 - 接入应用(애플리케이션 생성)을 클릭한다.
 
+<a id="tencent-access-id-secret-key"></a>
+
 #### Tencent ACCESS ID, SECRET KEY 등록
 
 - 로그인 후, [[Tencent 푸시 서비스 대시보드](http://xg.qq.com/xg/ctr_index/login?go_to_url=http%3A%2F%2Fxg.qq.com%2Fxg%2Fapps%2Fctr_app%2Findex)]에 접속한다.
@@ -157,6 +209,8 @@ TOAST Cloud Push 서비스를 사용하려면 먼저 서비스를 활성화해�
 - 좌측 메뉴 중 配置管理(설정) > 应用配置(애플리케이션 설정) 클릭한다. ACCESS ID, ACCESS KEY, SECRET KEY를 확인한다.
 - TOAST Cloud로 돌아와 [Console] > [Notification] > [Push] > [Certificates] 탭 까지 이동한다.
 - 확인한 [Tencent Credential]에 ACCESS ID, SECRET KEY를 입력한다.
+
+<a id="console-2-2"></a>
 
 ### 즉시 전송
 
@@ -179,6 +233,8 @@ TOAST Cloud Push 서비스를 사용하려면 먼저 서비스를 활성화해�
 |Message > Message Type |NOTIFICATION, AD 두 가지 Type이 있다. AD 경우, 광고성 푸시 메시지 수신 동의한 사용자들에게만 메시지가 발송된다.|
 
 
+<a id="console-2-3"></a>
+
 ### 예약 전송
 
 [Console] > [Notification] > [Push] > [Reservation] 탭 클릭, [ADD], [EDIT], [DELETE] 버튼을 통해 예약 전송을 관리할 수 있다.
@@ -195,27 +251,39 @@ TOAST Cloud Push 서비스를 사용하려면 먼저 서비스를 활성화해�
 |End Date|메시지를 전송하는 마지막 날짜를 입력한다. 달력을 이용해 날짜를 선택할 수 있다. 형식은 'YYYY-MM-DD' 이다.|
 |Local time|true로 설정하면 현지 시간 기준으로 메시지를 전송한다.|
 
+<a id="console-2-4"></a>
+
 ### 토큰 관리
 
 [Console] > [Notification] > [Push] > [Token] 탭 클릭, [ADD], [DELETE] 버튼을 통해 토큰을 추가 삭제할 수 있다.
 
+<a id="console-2-4-1"></a>
+
 #### 토큰 검색
 
 - Search Type을 'TOKEN'으로 선택하고, 적절한 푸시 타입을 선택하고 토큰을 검색할 수 있다.
+
+<a id="uid"></a>
 
 #### UID 검색
 
 - Search Type을 'UID'로 선택하고, UID를 검색할 수 있다.
 - 일부만 일치되더라도 검색 결과에 포함된다.
 
+<a id="console-2-5"></a>
+
 ### 태그 관리
 
 [Console] > [Notification] > [Push] > [Tag] 탭 클릭, [ADD], [EDIT], [DELETE] 버튼을 통해 태그를 관리할 수 있다.
+
+<a id="uid-2"></a>
 
 #### 태그가 붙은 UID 관리
 - 태그를 클릭하면, 태그가 붙은 UID 목록을 확인할 수 있다.
 - [ADD], [DELETE] 버튼을 통해 UID를 추가, 삭제할 수 있다.
 - UID 추가시 한 번에 1,000개까지 가능하다.
+
+<a id="console-2-6"></a>
 
 ### 메시지 수신/확인 데이터 수집
 
@@ -223,9 +291,13 @@ TOAST Cloud Push 서비스를 사용하려면 먼저 서비스를 활성화해�
 활성화된 기능 동작을 위해 v1.4 이상 SDK가 적용되어야 한다.
 수집된 데이터는 [Statistics] 탭에서 확인할 수 있다.
 
+<a id="console-2-6-1"></a>
+
 #### 통계 조회
 - 수집된 데이터는 [Statistics] 탭에서 확인할 수 있다.
 - 최근 30일 내 수집된 데이터를 조회할 수 있으며, 기간과 시간 단위를 설정할 수 있다.
+
+<a id="console-2-7"></a>
 
 ### 메시지 발송 내역 저장
 - 메시지 발송 내역을 지정한 Log & Crash Search에 전송하는 기능이다.
@@ -239,6 +311,8 @@ TOAST Cloud Push 서비스를 사용하려면 먼저 서비스를 활성화해�
 - 연동 후 메시지 발송 내역은 [Console] > [Analytics] > [Log & Crash Search] > [Log Search] 메뉴에서 확인할 수 있다.
 - 전송되는 메시지 발송 내역은 Log & Crash Search의 과금 정책을 따른다.
      - https://cloud.toast.com/pricing/analytics
+
+<a id="console-2-7-1"></a>
 
 #### 발송 내역 로그 형식
 ##### Body
@@ -295,6 +369,8 @@ TOAST Cloud Push 서비스를 사용하려면 먼저 서비스를 활성화해�
 	- TENCENT_ERROR: TENCENT에서 비정상 응답
 	- AGENT_ERROR: Google, Apple, Tencent 서버로 통신이 비정상
     - UNKOWN: 내부에서 알 수 없는 오류 발생
+
+<a id="section-3"></a>
 
 ## 개인정보 수탁사 고지 안내
 
