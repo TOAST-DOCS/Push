@@ -1,24 +1,38 @@
+<!-- pre-align:aligned sig=0422dd75b198 -->
+
 ## Notification > Push > iOS SDK Guide
 With Push SDK, mobile applications and Push can be easily integrated.
+
+<a id="main-features"></a>
 
 ## Main Features
 * Register notification tokens to OS
 * Receive and display notification messages
 * Receive messages and collect application execution indicators through them
 
+<a id="downloads"></a>
+
 ## Downloads
 Download file to click **iOS SDK** under **Notification > Push** from [TOAST Document](http://docs.toast.com/ko/Download/).
+
+<a id="supporting-environment"></a>
 
 ## Supporting Environment
 * iOS 8.0 or higher
 
+<a id="project-setting"></a>
+
 ## Project Setting
+<a id="common"></a>
+
 ### Common
 * Set Capabilities <br/>
   ![Remote Notifications](http://static.toastoven.net/toastcloud/sdk/push/ios/settings_capabilities_1.png)<br/>
   ![Push Notifications](http://static.toastoven.net/toastcloud/sdk/push/ios/settings_capabilities_2.png)
 * Set Linked Framework and Libraries <br/>
   ![Linked Frameworks](http://static.toastoven.net/toastcloud/sdk/push/ios/settings_libraries.png)
+
+<a id="voip"></a>
 
 ### VoIP
 * Set info.plist
@@ -36,7 +50,11 @@ Download file to click **iOS SDK** under **Notification > Push** from [TOAST Doc
 
 
 
+<a id="sdk-guide"></a>
+
 ## SDK Guide
+
+<a id="initialize"></a>
 
 ### Initialize
 
@@ -53,6 +71,8 @@ configuration.isAgreeNightAdvertisement = YES;      // Consent to night-time adv
 
 [TCPushSdk initWithConfiguration:configuration];
 ```
+
+<a id="set-categories"></a>
 
 ### Set Categories
 
@@ -74,6 +94,8 @@ NSSet *categories = [NSSet setWithObject:category];
                       categories:categories];
 ```
 
+<a id="configuration"></a>
+
 #### Configuration
 
 | Property                  | Description                                    | Required | Default |
@@ -84,6 +106,8 @@ NSSet *categories = [NSSet setWithObject:category];
 | isAgreeNotification       | Consent to display notifications               | Optional | YES     |
 | isAgreeAdvertisement      | Consent to display ad notifications            | Optional | NO      |
 | isAgreeNightAdvertisement | Consent to display night-time ad notifications | Optional | NO      |
+
+<a id="register-tokens"></a>
 
 ### Register Tokens
 
@@ -106,6 +130,8 @@ NSSet *categories = [NSSet setWithObject:category];
 }];
 ```
 
+<a id="pushtype"></a>
+
 #### PushType
 
 | Type                  | Description                           |
@@ -114,6 +140,8 @@ NSSet *categories = [NSSet setWithObject:category];
 | TCPushTypeAPNsSandbox | General push messages for development |
 | TCPushTypeVoIP        | VoIP push messages                    |
 | TCPushTypeVoIPSandbox | VoIP push messages for development    |
+
+<a id="query-token-information"></a>
 
 ### Query Token Information
 
@@ -131,6 +159,8 @@ NSSet *categories = [NSSet setWithObject:category];
 }];
 ```
 
+<a id="tokeninfo"></a>
+
 #### TokenInfo
 
 > Properties relevant to consent to display ad nofitications (such as isAgreeAdvertisement or isAgreeNightAdvertisement) return configured values, only when the user language code is Korean (ko), and return YES for other language codes.
@@ -147,6 +177,8 @@ NSSet *categories = [NSSet setWithObject:category];
 | isAgreeNightAdvertisement | BOOL      | Consent to display night-time ad notifications |
 | timezone                  | NSString  | Standard time zone                             |
 | updateDate                | NSDate    | Date of the latest update                      |
+
+<a id="receive-push-messages"></a>
 
 ### Receive Push Messages
 
@@ -181,6 +213,8 @@ NSSet *categories = [NSSet setWithObject:category];
 }
 ```
 
+<a id="receive-push-action"></a>
+
 ### Receive Push Action
 
 > When an action of a message received in a user-defined category occurs, it is passed to the delegate.
@@ -204,6 +238,8 @@ NSSet *categories = [NSSet setWithObject:category];
 }
 ```
 
+<a id="receive-rich-push-message"></a>
+
 ### Receive Rich Push Message
 > To collect receive righ push message, add Notification Service Extension (iOS 10.0+) and extends TCPushServiceExtension to your application. <br>
 > **File New > Target > iOS > Notification Service Extension** <br>
@@ -218,6 +254,8 @@ NSSet *categories = [NSSet setWithObject:category];
 
 @end
 ```
+
+<a id="receive-righ-push-message-action"></a>
 
 #### Receive Righ Push Message Action
  > Receive actions and messages through the delegate.
@@ -241,9 +279,13 @@ NSSet *categories = [NSSet setWithObject:category];
 }
 ```
 
+<a id="collect-indicators"></a>
+
 ### Collect Indicators
 
 > Client sends whether to execute application on receiving and notifying push messages, to a server. Check more on the **Statistics** tab of the console.  
+
+<a id="received"></a>
 
 #### Received
 
@@ -285,6 +327,8 @@ NSSet *categories = [NSSet setWithObject:category];
 @end
 ```
 
+<a id="opened"></a>
+
 #### Opened
 
 > Collecting and sending Opened Indicators are automatically done within SDK.
@@ -308,6 +352,8 @@ NSSet *categories = [NSSet setWithObject:category];
 </dict>
 </plist>
 ```
+
+<a id="error-codes"></a>
 
 ### Error Codes
 
