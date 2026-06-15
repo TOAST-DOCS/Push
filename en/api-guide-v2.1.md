@@ -1,17 +1,29 @@
+<!-- pre-align:aligned sig=27e31e25144a -->
+
 ## Notification > Push > API v2.1 Guide
 
+<a id="overview-of-v21-api"></a>
+
 ### Overview of v2.1 API 
+
+<a id="add"></a>
 
 #### Add 
 - Added 'Get tokens with token' API. 
 - Added 'ADM' push type. 
 
+<a id="basic-information"></a>
+
 ### Basic Information 
+<a id="endpoint"></a>
+
 #### Endpoint
 ```
 API Endpoint: https://push.api.nhncloudservice.com
 Endpoint for Collecting Message Delivery Receipt: https://collector-push.cloud.toast.com
 ```
+
+<a id="secret-key"></a>
 
 #### Secret Key
 - Available on console. 
@@ -22,6 +34,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ```
 
 Go to [Console] > [Notification] > [Push] > [URL & AppKey] to create one. 
+
+<a id="response"></a>
 
 #### Response
 
@@ -61,7 +75,11 @@ See Header at the response body for response details.
 | false | 400 | Client Error. Client error occurred at tag API. |
 | false | 500 | Internal Error. Internal error occurred at tag API. |
 
+<a id="tokens"></a>
+
 ## Tokens 
+<a id="create"></a>
+
 ### Create 
 - Can be queried from client. 
 
@@ -138,7 +156,11 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://push.api.
 - Tokens may be re-issued, on many accounts, including security issues, or app updates or deletion. Although they may not be frequently changed, it is recommended to register the most updated tokens whenever they are operated, so as to raise the receiving rate. 
 - Even if a token is expired due to app deletion, it is not immediately applied to GCM or APNS server, so push message delivery can be successful after app is deleted. 
 
+<a id="query"></a>
+
 ### Query 
+<a id="query-tokens-by-token-or-push-type"></a>
+
 #### Query Tokens by Token or Push Type 
 - Can be queried from client. 
 ##### Method, URL
@@ -194,6 +216,8 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/tokens/TOKEN?pushType=GCM
 ```
 
+<a id="query-tokens-by-user-id"></a>
+
 #### Query Tokens by User ID 
 - The API requires a secret key and must be called from a server. 
 ##### Method, URL
@@ -240,6 +264,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/tokens?uid=uid
 ```
 
+<a id="query-invalid-tokens"></a>
+
 #### Query Invalid Tokens 
 ##### Method, URL, Headers
 ```
@@ -285,6 +311,8 @@ N/A
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/invalid-tokens
 ```
 
+
+<a id="query-statistics-for-token-attributes-api"></a>
 
 #### Query Statistics for Token Attributes API 
 
@@ -371,6 +399,8 @@ N/A
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/statistics/token-properties
 ```
 
+<a id="query-statistics-for-token-registration"></a>
+
 #### Query Statistics for Token Registration 
 
 **This API has been deprecated. Please use API v2.4 or higher.**
@@ -425,7 +455,11 @@ N/A
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/statistics/token-registrations
 ```
 
+<a id="messages"></a>
+
 ## Messages 
+<a id="send"></a>
+
 ### Send  
 ※ Push messages sent by API cannot be retrieved in the console or by the Get or List API.
 ##### Method, URL, Headers
@@ -507,6 +541,8 @@ Enter contact information in "contact", and how to withdraw receiving in "remove
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/messages -d '{"target":{"type":"UID","to":["uid"]},"content":{"default":{"title":"title","body":"body","customKey1":"It is default"},"ko":{"title":"Title","body":"Body","customKey2":"It is Korean."}},"messageType":"AD","contact":"1588-1588","removeGuide":"Menu > Setting","timeToLiveMinute":1}'
 ```
 
+<a id="common-messages"></a>
+
 ### Common Messages 
 When messages are written for "content" as described in the below table, messages are created and delivered to suit for each push type. 
 
@@ -537,9 +573,13 @@ Other user-defined words are included to Custom Key/Value as follows:
 |---|---|---|---|---|---|---|
 |customKey|	Android, <br/> iOS, <br/> Tencent|	Optional, <br/> Object, <br/> Array, <br/> String, <br/> Number|	data.customKey|	customKey|	custom_content.customKey| data.customKey|
 
+<a id="example-of-sending-messages"></a>
+
 ### Example of Sending Messages  
 
 - content.default must be included at the request body of Send Messages API. 
+
+<a id="send-to-all"></a>
 
 #### 1. Send to All 
 The example shows how to send messages to all registered targets. 
@@ -561,6 +601,8 @@ The example shows how to send messages to all registered targets.
 ```
 ##### Description
 - If the target.type is 'ALL', messages are sent to all tokens. 
+
+<a id="send-to-particular-users"></a>
 
 #### 2. Send to Particular Users 
 The example shows how to send messages to particular users by entering user IDs. 
@@ -584,6 +626,8 @@ The example shows how to send messages to particular users by entering user IDs.
 ##### Description
 - Set 'UID' for target.type and user ID for target.to, and send messages to such particular users. 
 
+<a id="send-to-users-of-particular-nation-or-push-type"></a>
+
 #### 3. Send to Users of Particular Nation or Push Type 
 The example shows how to send messages to users of particular nation or device (e.g. Android or iOS) only. 
 
@@ -606,6 +650,8 @@ The example shows how to send messages to users of particular nation or device (
 ```
 ##### Description
 - Set country code for target.countries, and push type for target.pushTypes, and send messages to users who satisfy such conditions. 
+
+<a id="convert-messages-for-each-push-type"></a>
 
 #### 4. Convert Messages for Each Push Type 
 The example describes the conversion rule which is applied for each push type of messages to send. 
@@ -681,6 +727,8 @@ Other user-defined fields are set where custom key is located of each push type.
 - Reserved words, such as badge and consolidationKey, which are specified for particular push types only, are excluded from other push types. 
 For instance, badge is set for APNS (iOS) messages, while GCM, TENCENT, and ADM are excluded. 
 
+<a id="ad-messages"></a>
+
 #### 5. Ad Messages 
 The example regards to the ad phrase which is added to a message, for the delivery of ad messages. 
 
@@ -746,6 +794,8 @@ The example regards to the ad phrase which is added to a message, for the delive
 - To send ad messages, set AD for messageType, as well as contact and how to withdraw consent of receiving, each for contact and removeGuide. 
 - When a message is delivered for each push time, title and body are added: ad phrase and contact for Title, and how to withdraw consent of receiving for Body. 
 - Ad messages display Ad Phrase for those users whose language code is Korean (ko, ko-) only. Other language users (e.g. Japanese) shall not find ad phrases. 
+
+<a id="multiple-language-messages"></a>
 
 #### 6. Multiple-Language Messages  
 The example describes how to send messages in multiple languages. 
@@ -822,6 +872,8 @@ If no match is available, default shall be delivered. For those users whose lang
 - If not a perfect match for a token language code, the best closest language shall be selected at the comparison of language codes. Although the request body contains content.ko only, those users whose language code is Korean (ko-KR), content. ko shall be delivered.  
 - Since customKey is not defined at content.ja, it shall be replaced by content.default. Common messages are available at content.default. 
 
+<a id="rich-messages"></a>
+
 #### 7. Rich Messages 
 When the 'richMessage' field is defined at 'content', rich messages can be delivered. 
 Such messages can be sent along with Common, Ad, or Multi-Language Messages.  
@@ -890,7 +942,11 @@ v1.7 or higher SDKs are required.
 | richMessage.group.key | Required, String | Key of a group |
 | richMessage.group | Required, String | Description of a group |
 
+<a id="query-2"></a>
+
 ### Query
+<a id="list"></a>
+
 #### List
 ※ Only the push messages sent using the console can be retrieved by the List API.
 ##### Method, URL, Headers
@@ -978,6 +1034,8 @@ curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: 
     - CANCEL_UNAUTHORIZED: Failed while authenticating certificate. Check certificate status. 
     - CANCEL_UNKNOWN: Error has occurred internally. 
 
+<a id="get"></a>
+
 #### Get 
 ※ Only the push messages sent using the console can be retrieved by the Get API.
 ##### Method, URL, Headers
@@ -1033,6 +1091,8 @@ N/A
 ```
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/messages/{messageId}
 ```
+
+<a id="list-failed-messages"></a>
 
 #### List Failed Messages 
 List messages that are failed in delivery. 
@@ -1134,6 +1194,8 @@ N/A
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/message-errors
 ```
 
+<a id="query-statistics-for-message-delivery-receipt"></a>
+
 #### Query Statistics for Message Delivery Receipt 
 
 **This API has been deprecated. Please use API v2.4 or higher.**
@@ -1195,9 +1257,15 @@ N/A
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/statistics/message-delivery-receipts
 ```
 
+<a id="scheduled-messages"></a>
+
 ## Scheduled Messages  
 
+<a id="create-2"></a>
+
 ### Create 
+<a id="create-delivery-schedule-for-scheduled-messages"></a>
+
 #### Create Delivery Schedule for Scheduled Messages 
 ##### Method, URL, Headers
 ```
@@ -1276,6 +1344,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/schedules -d '{"type":"EVERY_MONTH","fromDate":"2016-12-30","toDate":"2017-01-02","times":["12:00","17:00"],"days":[1,15],"daysOfWeek":["SUNDAY","MONDAY"]}'
 ```
 
+<a id="create-scheduled-messages"></a>
+
 #### Create Scheduled Messages
 ##### Method, URL, Headers
 ```
@@ -1345,7 +1415,11 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/reservations -d '{"schedules":["2016-12-30T12:40","2016-12-31T12:40"],"isLocalTime":false,"target":{"type":"UID","to":["uid"]},"content":{"default":{"title":"title","body":"body"}},"messageType":"AD","contact":"1588-1588","removeGuide":"Menu > Settings","timeToLiveMinute":1}'
 ```
 
+<a id="query-3"></a>
+
 ### Query
+<a id="list-2"></a>
+
 #### List 
 ##### Method, URL, Headers
 ```
@@ -1440,6 +1514,8 @@ N/A
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/reservations
 ```
 
+<a id="get-2"></a>
+
 #### Get 
 ##### Method, URL, Headers
 ```
@@ -1452,6 +1528,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ```
 N/A
 ```
+
+<a id="response-body"></a>
 
 #### Response Body
 ```json
@@ -1509,6 +1587,8 @@ N/A
 ```
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/reservations/{reservationId}
 ```
+
+<a id="query-scheduled-messages"></a>
 
 #### Query Scheduled Messages  
 ##### Method, URL, Headers
@@ -1572,7 +1652,11 @@ N/A
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/reservations/{reservationId}/messages
 ```
 
+<a id="modify"></a>
+
 ### Modify 
+<a id="modify-scheduled-messages"></a>
+
 #### Modify Scheduled Messages 
 ##### Method, URL, Headers
 ```
@@ -1625,7 +1709,11 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X PUT -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/reservations/{reservationId} -d '{"schedules":["2018-12-30T12:40","2018-12-31T12:40"],"isLocalTime":false,"target":{"type":"UID","to":["uid"]},"content":{"default":{"title":"title","body":"body"}},"messageType":"AD","contact":"1588-1588","removeGuide":"Menu > Settings","timeToLiveMinute":1}'
 ```
 
+<a id="delete"></a>
+
 ### Delete 
+<a id="delete-scheduled-messages"></a>
+
 #### Delete Scheduled Messages
 ##### Method, URL, Headers
 ```
@@ -1660,9 +1748,15 @@ N/A
 curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/reservations?reservationIds={reservationId,}
 ```
 
+<a id="tags"></a>
+
 ## Tags
 
+<a id="create-3"></a>
+
 ### Create
+<a id="create-tags"></a>
+
 #### Create Tags
 ##### Method, URL, Headers
 ```
@@ -1705,6 +1799,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/tags -d '{"tagName":"Thirty"}'
 ```
 
+<a id="append-uids-to-tag"></a>
+
 #### Append UIDs to Tag 
 - Append UID to a tag: adding existing UIDs ends up with more tags of UID 
 - The maximum number of tags for a UID is 16. 
@@ -1743,6 +1839,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/tags/{tagId}/uids -d '{"uids":["uid"]}'
 ```
 
+<a id="set-tag-list-on-uid"></a>
+
 #### Set Tag List on Uid
 - By replacing tags of UID, existing tags are deleted and replaced by new tags.  
 ##### Method, URL, Headers
@@ -1778,7 +1876,11 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/uids -d '{"uid":"uid","tagIds":["TAG_ID"]}'
 ```
 
+<a id="query-4"></a>
+
 ### Query 
+<a id="list-tags"></a>
+
 #### List Tags
 ##### Method, URL, Headers
 ```
@@ -1825,6 +1927,8 @@ N/A
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/tags
 ```
 
+<a id="get-tags"></a>
+
 #### Get Tags
 ##### Method, URL, Headers
 ```
@@ -1858,6 +1962,8 @@ N/A
 ```
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/tags/{tagId}
 ```
+
+<a id="list-uids-of-tag"></a>
 
 #### List UIDs of Tag
 - List tagged UIDs. 
@@ -1922,6 +2028,8 @@ N/A
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/tags/{tagId}/uids
 ```
 
+<a id="query-uids"></a>
+
 #### Query UIDs
 - Query UID.
 - Token is registered, along with contact. 
@@ -1970,7 +2078,11 @@ N/A
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/uids/uid
 ```
 
+<a id="modify-2"></a>
+
 ### Modify
+<a id="modify-tags"></a>
+
 #### Modify Tags 
 ##### Method, URL, Headers
 ```
@@ -2001,7 +2113,11 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X PUT -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/tags/{tagId} -d '{"tagName":"Thirty three"}'
 ```
 
+<a id="delete-2"></a>
+
 ### Delete
+<a id="delete-tags"></a>
+
 #### Delete Tags
 ##### Method, URL, Headers
 ```
@@ -2029,6 +2145,8 @@ N/A
 ```
 curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/tags/{tagId}
 ```
+
+<a id="delete-uids"></a>
 
 #### Delete UIds
 - UIDs are deleted, along with contact and token. 
@@ -2064,6 +2182,8 @@ N/A
 curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/uids?uids=uid
 ```
 
+<a id="delete-uids-of-tag"></a>
+
 #### Delete UIDs of Tag
 - Delete tag-UID relation only. 
 - Contact or token is not deleted. 
@@ -2094,9 +2214,15 @@ N/A
 curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/tags/{tagId}/uids?uids=uid
 ```
 
+<a id="uids"></a>
+
 ## UIDs
 
+<a id="create-4"></a>
+
 ### Create
+
+<a id="add-tags"></a>
 
 #### Add Tags
 - Add tags to UID with tag ID. 
@@ -2128,7 +2254,11 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/uids/uid/tag-ids -d '{"tagIds":["TAG_ID"]}'
 ```
 
+<a id="query-5"></a>
+
 ### Query
+
+<a id="query-tag-ids-of-uid"></a>
 
 #### Query Tag IDs of UID
 - Query tag IDs of UID. 
@@ -2159,7 +2289,11 @@ N/A
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/uids/uid/tag-ids
 ```
 
+<a id="modify-3"></a>
+
 ### Modify
+<a id="modify-tags-of-uid"></a>
+
 #### Modify Tags of UID 
 - Modify tags of UID with tag ID. 
 - No secret key is required: call is available from app. 
@@ -2189,6 +2323,8 @@ Content-Type: application/json;charset=UTF-8
 ```
 curl -X PUT -H "Content-Type: application/json;charset=UTF-8" https://push.api.nhncloudservice.com/push/v2.1/appkeys/{appkey}/uids/uid/tag-ids -d '{"tagIds":["TAG_ID"]}'
 ```
+
+<a id="delete-tags-2"></a>
 
 ### Delete Tags
 - Query tag IDs of UID. 
