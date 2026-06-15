@@ -1,24 +1,38 @@
+<!-- pre-align:aligned sig=0422dd75b198 -->
+
 ## Notification > Push > iOS SDK 가이드
 Push SDK를 적용하면 모바일 애플리케이션과 Push를 쉽게 연동할 수 있습니다.
+
+<a id="main-features"></a>
 
 ## 주요 기능
 * OS에 알림 토큰 등록
 * 알림 메시지 수신 및 표시
 * 메시지 수신 및 수신된 메시지를 통한 애플리케이션 실행 지표 수집
 
+<a id="downloads"></a>
+
 ## 다운로드
 [TOAST Document](http://docs.toast.com/ko/Download/)에서 **Notification > Push** 아래의 **iOS SDK**를 클릭해 파일을 다운로드합니다.
+
+<a id="supporting-environment"></a>
 
 ## 지원 환경
 * iOS 8.0 이상
 
+<a id="project-setting"></a>
+
 ## 프로젝트 설정
+<a id="common"></a>
+
 ### 공통
 * Capabilities 설정<br/>
   ![Remote Notifications](http://static.toastoven.net/toastcloud/sdk/push/ios/settings_capabilities_1.png)<br/>
   ![Push Notifications](http://static.toastoven.net/toastcloud/sdk/push/ios/settings_capabilities_2.png)
 * Linked Framework and Libraries 설정<br/>
   ![Linked Frameworks](http://static.toastoven.net/toastcloud/sdk/push/ios/settings_libraries.png)
+
+<a id="voip"></a>
 
 ### VoIP
 * info.plist 설정
@@ -36,7 +50,11 @@ Push SDK를 적용하면 모바일 애플리케이션과 Push를 쉽게 연동�
 
 
 
+<a id="sdk-guide"></a>
+
 ## SDK 사용 가이드
+
+<a id="initialize"></a>
 
 ### 초기화
 
@@ -54,6 +72,8 @@ configuration.isAgreeNightAdvertisement = YES;      // 야간 광고성 정보 �
 // 토큰 설정 초기화
 [TCPushSdk initWithConfiguration:configuration];
 ```
+
+<a id="set-categories"></a>
 
 ### 카테고리 설정
 
@@ -76,6 +96,8 @@ NSSet *categories = [NSSet setWithObject:category];
                       categories:categories];
 ```
 
+<a id="configuration"></a>
+
 #### Configuration
 
 | 프로퍼티                  | 설명                                 | 필수 여부 | 기본값  |
@@ -86,6 +108,8 @@ NSSet *categories = [NSSet setWithObject:category];
 | isAgreeNotification       | 알림 표시 동의 여부                  | 선택      | YES     |
 | isAgreeAdvertisement      | 광고성 정보 알림 표시 동의 여부      | 선택      | NO      |
 | isAgreeNightAdvertisement | 야간 광고성 정보 알림 표시 동의 여부 | 선택      | NO      |
+
+<a id="register-tokens"></a>
 
 ### 토큰 등록
 
@@ -109,6 +133,8 @@ NSSet *categories = [NSSet setWithObject:category];
 }];
 ```
 
+<a id="pushtype"></a>
+
 #### PushType
 
 | 타입                  | 설명                    |
@@ -117,6 +143,8 @@ NSSet *categories = [NSSet setWithObject:category];
 | TCPushTypeAPNsSandbox | 개발용 일반 푸시 메시지 |
 | TCPushTypeVoIP        | VoIP 푸시 메시지        |
 | TCPushTypeVoIPSandbox | 개발용 VoIP 푸시 메시지 |
+
+<a id="query-token-information"></a>
 
 ### 토큰 정보 조회
 
@@ -137,6 +165,8 @@ NSSet *categories = [NSSet setWithObject:category];
 NSString *token = [TCPushSdk deviceTokenForPushType:TCPushTypeAPNs];
 ```
 
+<a id="tokeninfo"></a>
+
 #### TokenInfo
 
 > 광고성 정보 알림 동의 관련 프로퍼티(isAgreeAdvertisement, isAgreeNightAdvertisement)는<br>
@@ -155,6 +185,8 @@ NSString *token = [TCPushSdk deviceTokenForPushType:TCPushTypeAPNs];
 | isAgreeNightAdvertisement | BOOL     | 야간 광고성 정보 알림 표시 동의 여부 |
 | timezone                  | NSString | 시각대                               |
 | updateDate                | NSDate   | 최종 업데이트 날짜                   |
+
+<a id="receive-push-messages"></a>
 
 ### 푸시 수신
 
@@ -189,6 +221,8 @@ NSString *token = [TCPushSdk deviceTokenForPushType:TCPushTypeAPNs];
 }
 ```
 
+<a id="receive-push-action"></a>
+
 ### 푸쉬 액션(Action) 수신
 
 >  사용자 정의 카테고리로 수신한 메세지의 액션을 수신합니다.
@@ -212,6 +246,8 @@ NSString *token = [TCPushSdk deviceTokenForPushType:TCPushTypeAPNs];
 }
 ```
 
+<a id="receive-rich-push-message"></a>
+
 ### 리치 메세지 수신
 > 수신 지표를 수집하려면 애플리케이션에 Notification Service Extension(iOS 10.0+)을 추가해야 합니다. <br>
 > Notification Service Extension을 생성하고 TCPushServiceExtension을 확장 구현해야 리치 메세지가 자동으로 생성됩니다. <br>
@@ -230,6 +266,8 @@ NSString *token = [TCPushSdk deviceTokenForPushType:TCPushTypeAPNs];
 
 @end
 ```
+
+<a id="receive-righ-push-message-action"></a>
 
 #### 리치 메세지 버튼 액션 수신
  > 사용자 추가 카테고리 액션 수신과 동일하게 Delegate를 통해 액션과 메세지를 전달받을 수 있습니다.
@@ -253,10 +291,14 @@ NSString *token = [TCPushSdk deviceTokenForPushType:TCPushTypeAPNs];
 }
 ```
 
+<a id="collect-indicators"></a>
+
 ### 지표 수집
 
 > 클라이언트에서 푸시 메시지 수신 및 알림에 의한 애플리케이션 실행 여부가 서버에 전송됩니다.
 > 이 내용은 **통계** 탭에서 확인할 수 있습니다.
+
+<a id="received"></a>
 
 #### 수신(Received) 지표
 
@@ -302,6 +344,8 @@ NSString *token = [TCPushSdk deviceTokenForPushType:TCPushTypeAPNs];
 @end
 ```
 
+<a id="opened"></a>
+
 #### 확인(Opened) 지표
 
 > 확인 지표 수집과 전송은 SDK 내부에서 자동으로 진행됩니다. <br>
@@ -325,6 +369,8 @@ NSString *token = [TCPushSdk deviceTokenForPushType:TCPushTypeAPNs];
 </dict>
 </plist>
 ```
+
+<a id="error-codes"></a>
 
 ### 오류 코드
 
