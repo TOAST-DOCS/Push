@@ -1,6 +1,12 @@
+<!-- pre-align:aligned sig=f8ef7bf209b4 -->
+
 ## Notification > Push > 릴리스 노트
 
+<a id="0626"></a>
+
 ### 2018.06.26
+<a id="0626-1"></a>
+
 #### 버그 수정
 * [API] 광고성 푸시 메시지 발송시 일부 대상이 누락되는 오류 수정
     * 2018년 05월 30일 핫픽스로 수정되었습니다.
@@ -8,9 +14,13 @@
 * [API] 예약 메시지 발송시 현지 시간 기능을 사용할 경우, 중복 수신이 되는 오류 수정
     * 현지 시간 기능을 사용한 경우, 존재하지 않는 시간대로 예약 메시지를 발송하는 오류를 수정했습니다.
 
+<a id="0626-2"></a>
+
 #### 기능 개선
 * [Android SDK] 지원하는 Tencent SDK 버전 업데이트 (3.2.3)
 * [iOS SDK] 지표 수집 및 전송 기능 개선
+
+<a id="0626-3"></a>
 
 #### 기능 추가
 * [API, Console] ADM(Amazon Device Messaging) 푸시 타입 추가
@@ -21,14 +31,22 @@
 * [iOS SDK] 실행(Opened) 지표 수집 및 전송 자동화
 
 
+<a id="0529"></a>
+
 ### 2018.05.29
+<a id="0529-1"></a>
+
 #### 배포
 * [Android SDK] v1.4.4 배포
 * [iOS SDK] v1.5.0 배포
 
+<a id="0529-2"></a>
+
 #### 버그 수정
 * [API] 수신/확인 통계 API 조회 기간이 무시되는 오류 수정
     * 메시지 아이디와 조회 기간을 같이 입력할 경우, 조회 기간이 무시되는 오류를 수정했습니다.
+
+<a id="0529-3"></a>
 
 #### 기능 개선
 * [Console] 메시지 아이디 추가
@@ -52,19 +70,29 @@
     * PushAnalytics.initialize 는 Deprecated 될 예정입니다.
 * [Android SDK] 기본 리시버를 사용할 경우, 안드로이드 8.0 이상에서 Notification Channel을 사용합니다.
 
+<a id="0529-4"></a>
+
 #### 기능 추가
 * [API] v2.1 토큰 조회 API 추가
     * 토큰 등록시 같이 수집하는 디바이스 아이디를 확인할 수 있습니다.
     * 해당 토큰의 최근 등록 요청 일시를 확인할 수 있습니다.
 
+<a id="0502"></a>
+
 ### 2018.05.02
+<a id="0502-1"></a>
+
 #### 배포
 * [SDK] v1.4.3 배포
+
+<a id="0502-2"></a>
 
 #### 버그 수정
 * [Android SDK] GCM, Tencent를 동시에 사용할 경우, Tencent 토큰이 GCM 토큰을 덮어쓰는 문제를 해결했습니다.
 * [iOS SDK] Background Thread에서 Register 요청 시 Warnning 메시지 뜨던 현상을 제거했습니다
     * Main Thread에서 요청하도록 수정
+
+<a id="0502-3"></a>
 
 #### 기능 개선
 * [SDK] 서버 API를 v1.3에서 v2.0으로 업데이트했습니다.
@@ -73,14 +101,22 @@
     * [iOS SDK] 기존 최소 버전 iOS 7.0 에서 iOS 8.0으로 변경
 * [iOS SDK] .a 에서 .framework 로 SDK 제공방식을 변경했습니다.
 
+<a id="0424"></a>
+
 ### 2018.04.24
+<a id="0424-1"></a>
+
 #### 버그 수정
 * [Mail] 인증서 만료 안내 메일 내 HTML 오류
     * 인증서 만료 안내 메일 내 HTML이 잘 못되어 하단 영역의 배경색이 표시되지않는 오류를 수정했습니다.
 
+<a id="0424-2"></a>
+
 #### 기능 개선
 * [Console] 오류 메시지 한글화
     * 푸시 Console 내 오류 발생시 표시되는 메시지를 한글화했습니다.
+
+<a id="0424-3"></a>
 
 #### 기능 추가
 * [Console] 토큰 관리 설정 기능 추가
@@ -101,10 +137,16 @@
     * iOS는 IDFV(identifierForVendor), Android는 Android ID를 설정하는 것을 권장합니다.
     * Device ID를 수집하는 기능이 추가된 SDK는 5월 2일에 배포 예정입니다.
 
+<a id="0322"></a>
+
 ### 2018.03.22
+<a id="0322-1"></a>
+
 #### 버그 수정
 * [API] 태그 이름에 공백 입력이 가능한 오류 수정
     * 태그 생성 API에서 tagName 필드에 공백 입력이 가능한 오류를 수정했습니다.
+
+<a id="0322-2"></a>
 
 #### 기능 개선
 * [Console] 상품 페이지 내에 있던 탭 메뉴, 콘솔로 이동
@@ -112,13 +154,19 @@
 * [Console] Uid 조회시 토큰을 최근 등록순으로 정렬
     * 콘솔에서 Token 탭에서 Uid 조회시 표시되는 토큰들의 순서를 최근 등록순으로 변경했습니다.
 
+<a id="0322-3"></a>
+
 #### 기능 추가
 * [API] Uid API 추가
     * Uid에 Tag를 추가/조회/수정/삭제할 수 있는 API를 추가했습니다.
     * 이 API는 Secret Key가 필요 없습니다. 앱에서 호출가능한 API 입니다.
 (호출시 Secret Key가 필요한 API를 앱에서 호출할 경우, Secret Key가 외부에 공개될 수 있기때문에 권장하지 않음)
 
+<a id="0222"></a>
+
 ### 2018.02.22
+<a id="0222-1"></a>
+
 #### 버그 수정
 * [API] 예약 메시지 조회시 응답 시간이 길어져 목록을 가져오지 못하는 오류 수정
     * 등록한 예약 메시지가 많을 경우, 응답 시간이 길어져 목록을 가져오지 못하는 오류를 수정했습니다.
@@ -131,6 +179,8 @@
     event에 설정할 수 있는 값은 다음과 같습니다.
     'SENT', 'SENT_FAILED', 'RECEIVED', 'OPENED'
 
+<a id="0222-2"></a>
+
 #### 기능 개선
 * [Console] 메시지 발송 페이지 'RemoveGuide' 설명 개선
     * 광고성 메시지 발송시 광고성 푸시 수신 동의 철회 방법 입력란에 예시를 추가했습니다.
@@ -142,6 +192,8 @@
     * 기존 공통 메시지 발송시 컨텐츠의 언어 코드와 토큰의 언어 코드가 완전히 같아야 해당 언어 코드로 발송이 되었습니다.
     이번에 언어 코드의 유사성을 측정해 가장 유사한 언어 코드로 발송이 되도록 기능이 개선되었습니다.
     예, 컨텐츠의 언어 코드가 'zh'이고 토큰들의 언어코드가 'zh-Hans', 'zh-Hans-CN'이어도 'zh'로 발송됩니다.
+
+<a id="0222-3"></a>
 
 #### 기능 추가
 * [API] 메시지 조회 API 조회조건에 deliveryType 추가
@@ -156,23 +208,35 @@
         <a href="https://developer.apple.com/library/content/documentation/Performance/Conceptual/EnergyGuide-iOS/OptimizeVoIP.html" target="_blank">Apple iOS Pushkit 가이드 바로가기</a>
         3. 메시지 발송시 푸시 타입 'APNS_VOIP' 또는 'APNS_SANDBOXVOIP'를 선택
 
+<a id="1212"></a>
+
 ### 2017.12.12
+<a id="1212-1"></a>
+
 #### 버그 수정
 * [API] 현지 시간 예약 발송시 발송 시간이 잘 못 계산되는 오류 수정
     * 예약 발송에서 현지 시간 발송(isLocalTime = true)을 사용할 때,
     시간대별 발송 시간 계산 로직 오류를 수정했습니다.
 
+<a id="1212-2"></a>
+
 #### 기능 개선
 * [ETC] 보안 취약 라이브러리 업데이트
     * 보안 취약점이 발견된 라이브러리를 수정된 버전으로 업데이트했습니다.
 
+<a id="1123"></a>
+
 ### 2017.11.23
+<a id="1123-1"></a>
+
 #### 기능 추가
 * [CONSOLE] Logging 기능 추가
     * 메시지 발송 내역을 Log & Crash Search에 저장할 수 있는 기능을 추가했습니다.
     사용하고 있는 Log & Crash Search의 앱키(Appkey)를 Setting 탭 Logging에 등록해 기능을 활성화 시킬 수 있습니다.
     * 저장된 메시지 발송 내역은 Log & Crash Search 페이지에서 확인할 수 있습니다.
     * <a href="/ko/Notification/Push/ko/console-guide/#_9" target="_blank">메시지 발송 내역 저장 설명 바로 가기</a>
+
+<a id="1123-2"></a>
 
 #### 버그 수정
 * [CONSOLE] 저해상도에서 팝업이 상품 사용법에 가려지는 오류 수정
@@ -182,6 +246,8 @@
 * [CONSOLE] Reservation 탭에서 Edit, Delete 버튼 오류 수정
     * Reservation 탭에서 Edit, Delete 버튼이 클릭할 수 없는 상태에서 클릭되는 오류를 수정했습니다.
 
+<a id="1123-3"></a>
+
 #### 기능 개선
 * [API] v2.0 실패한 메지시 조회 API Limit 추가
     * 기존에는 실패한 메시지 조회시 결과 전체를 응답했습니다.
@@ -190,17 +256,27 @@
     * <a href="/ko/Notification/Push/ko/api-guide/#_15" target="_blank">API Reference 바로 가기</a>
         * 메시지 > 조회 > 실패한 메시지 목록 조회
 
+<a id="0921"></a>
+
 ### 2017.09.21
+<a id="0921-1"></a>
+
 #### 버그 수정
 * [CONSOLE] Tag 조회시 정렬 기준이 없는 오류 수정
     * Tag 조회시 생성 일자 기준 내림 차순으로 정렬되도록 수정했습니다.
 * [CONSOLE] 예약 메시지 등록시 요일이 3개 이상 선택안되는 오류 수정
     * 예약 타입을 'EVERY_WEEK'으로 설정했을 때, 요일이 3 개 이상 선택안되는 오류를 수정했습니다.
 
+<a id="0921-2"></a>
+
 #### 기능 개선
 * [API] Tag 등록시 이름에 빈칸 허용하지 않도록 수정
 
+<a id="0824"></a>
+
 ### 2017.08.24
+<a id="0824-1"></a>
+
 #### 기능 추가
 * [CONSOLE] Tag 메시지 발송 추가
     * 메시지 발송, 예약 메시지 발송 탭에서 Tag를 선택해 메시지를 발송할 수 있습니다.
@@ -217,6 +293,8 @@
     * Tag가 붙은 Uid들을 조회할 수 있습니다.
     * Uid에 Tag를 붙이거나 제거할 수 있습니다.
 
+<a id="0824-2"></a>
+
 #### 버그 수정
 * [API] 예약 메시지 상태 변경이 안되는 버그 수정
     * 예약 메시지 발송이 완료되었지만, v2.0 예약 API에서 추가된 reservationStatus가 COMPLETED(완료)로 업데이트되지 않는 오류를 수정했습니다.
@@ -229,6 +307,8 @@
     * [Android,iOS] 토큰 등록시 잘못된 요청으로 인해 토큰이 삭제될 수 있는 로직에 대한 방어 로직이 추가되었습니다.
     * [Android] PushAnaytics의 초기화 여부를 확인하는 **PushAnalytics.isInitialize** 메소드가 추가되었습니다.
 
+<a id="0824-3"></a>
+
 #### 기능 개선
 * [API] 알림/홍보성/야간홍보성 푸시 메시지 수신 대상 기준 개선
     * 정보통신망법 규정((제50조부터 제50조의 8)에 따라 대한민국 사용자들의 토큰들은 수신동의 여부에 따라 메시지 발송시 자동 필터링 됩니다.
@@ -239,7 +319,11 @@
     * Tag 메시지 발송 기능이 추가되면서 CONSOLE에서 Channel 메시지 발송 기능이 제외되었습니다.
     * 기존 Channel 메시지 발송 기능은 v1.3 메시지 발송 API로 이용할 수 있습니다.
 
+<a id="0720"></a>
+
 ### 2017.07.20
+<a id="0720-1"></a>
+
 #### 기능 추가
 * [API] 태그(Tag) API 추가     
     * Uid에 태그를 붙여 관리할 수 있습니다.
@@ -253,6 +337,8 @@
     이 API를 이용해 발송이 실패 원인에 대한 내용을 확인할 수 있습니다.     
     <a href="/ko/Notification/Push/ko/api-guide/#_15" target="_blank">API Reference 바로 가기</a>
 
+<a id="0720-2"></a>
+
 #### 버그 수정
 * [API] 토큰 수정시 새로운 토큰이 존재할 때, 기존 토큰은 삭제 안되는 오류 수정
     * 토큰 등록 API에서 oldToken을 token으로 변경할 때, token이 존재할 경우 oldToken이 삭제 안되던 오류를 수정했습니다.
@@ -261,7 +347,11 @@
 * [API] 예약 메시지 수정시 createdDateTime이 잘못 설정되는 오류 수정
     * 예약 메시지 수정시 updatedDateTime(수정 일시)뿐만 아니라 createdDateTime(생성 일시)까지 updatedDateTime 값으로 업데이트되는 오류를 수정했습니다.
 
+<a id="0525"></a>
+
 ### 2017.05.25
+<a id="0525-1"></a>
+
 #### 기능 추가
 * [SDK] SDK 버전 확인을 위한 API 추가
     * SDK 버전 확인을 위한 API가 추가되었습니다.
@@ -270,7 +360,11 @@
     * 해당 기능을 사용하기 위해서 반드시 **PushAnalytics.initialize** 메소드를 호출해줘야 합니다.
 
 
+<a id="0425"></a>
+
 ### 2017.04.25
+<a id="0425-1"></a>
+
 #### 기능 추가
 * [API] 메시지 수신, 확인 데이터 수집(Message Delivery Receipt), 통계 조회 기능 추가
     * 메시지 발송 후, 기기에 수신, 사용자의 메시지 확인 데이터를 수집해 통계로 조회할 수 있는 기능을 추가되었습니다.
@@ -292,7 +386,11 @@
     * 현재 GCM, iOS만 지원하며, Tencent는 추후 지원 예정입니다.
     * iOS는 Notification Service Extension를 사용하기 때문에 iOS 10이상에서만 동작합니다.
 
+<a id="0223"></a>
+
 ### 2017.02.23
+<a id="0223-1"></a>
+
 #### 버그 수정
 * [API] 발송 기간이 한 달 이상인 예약 메시지 발송 안되는 오류 수정
     * 2017년 1월까지 등록된 예약 메시지 중, 발송 종료일이 2월 이상인 예약 메시지가 발송안되는 오류를 수정했습니다.
@@ -301,59 +399,99 @@
 * [iOS SDK] 토큰 리프레쉬 과정에서 크래시나는 현상 수정
     * 앱 알림 설정을 껐다가 다시 켰을 경우 발생하는 오류로 토큰을 재생성하는 코드를 수정했습니다.
 
+<a id="0223-2"></a>
+
 #### 기능 개선
 * [Android SDK] 안드로이드 Gradle의 play-services 의존을 play-services-gcm로 수정
     * SDK 빌드시 필요한 컴포넌트만 의존하도록 개선했습니다.
 
+<a id="0119"></a>
+
 ### 2017.01.19
+
+<a id="0119-1"></a>
 
 #### 기능 개선/변경
 * [API] 메시지 조회 API Response Body에 createdDateTime(메시지 생성 시간) 필드 추가
 * [Etc] 인증서 만료 안내 메일 계정 변경 (support@cloud.toast.com -> noreply@cloud.toast.com)
 
+<a id="1222"></a>
+
 ### 2016.12.22
+<a id="1222-1"></a>
+
 #### 버그 수정
 * [API] 예약 메시지 등록이 한 달이 지났을 경우 발송 안되는 오류 수정
 * [API] 매월 1일 발송될 예약 메시지가 발송 안되는 오류 수정
 * [API] 새 버전 FCM API Key가 등록 안되던 오류 수정
 * [API] 발송 결과가 'MismatchSenderId', 'NotRegistered'인 경우 토큰이 삭제되지 않던 오류 수정
 
+<a id="1222-2"></a>
+
 #### 개발자 가이드 수정
 * [Client SDK Developer's Guide] 본문 내 'GCM Push Credentials', 'GCM API Key'로 변경
 
+<a id="1124"></a>
+
 ### 2016.11.24
+<a id="1124-1"></a>
+
 #### 기능 개선/변경
 * [Android SDK] 지원하는 GCM 라이브러리 버전 업데이트(com.google.android.gms:play-services:9.6.0)
 * [Android SDK] 오류 로그 세분화
+
+<a id="1124-2"></a>
 
 #### 버그 수정
 * [Android, iOS SDK] 채널 기본값 null로 변경
 * [Android SDK] Appkey가 설정되지 않았을 때 동작안하는 버그 수정
 * [Android SDK] AAR 패키징시 텐센트 푸시 설정 제거
 
+<a id="1124-3"></a>
+
 #### 개발자 가이드 수정
 * [Client SDK Developer's Guide] 토큰 등록시 채널 설정 설명 변경 (SDK v1.3 이하 채널 설정 필수)
 
+<a id="1006"></a>
+
 ### 2016.10.06
+<a id="1006-1"></a>
+
 #### 기능 개선/변경
 * [API, CONSOLE] MPS 단위 1,000개/초에서 100개/초로 변경
 
+<a id="0930"></a>
+
 ### 2016.09.30
+<a id="0930-1"></a>
+
 #### 개발자 가이드 수정
 * [Client SDK Developer's Guide] '토큰 등록 > Android, GCM' 부분, 채널 설정시 'Optional'에서 'Required'로 수정
 
+<a id="0929"></a>
+
 ### 2016.09.29
+<a id="0929-1"></a>
+
 #### 정책 변경
 * 데이터 보관 기간 정책 변경, 최근 30 일까지 저장 (메시지, 예약 메시지, 피드백)
 
+<a id="0929-2"></a>
+
 #### 기능 개선/변경
 * [CONSOLE] 인증서 삭제 없이 바로 교체할 수 있도록 수정
+
+<a id="0929-3"></a>
 
 #### 버그 수정
 * [API, CONSOLE] APNS Universal Certificate APNS_SANDBOX(Development)에 등록 안되는 오류 수정
 * [API] UID 기준 토큰 조회 API에서 APNS_SANDBOX 토큰이 제외되는 오류 수정
 * [API] 토큰 등록 API에서 Empty String("")이 등록 되는 오류 수정
 
+<a id="0818"></a>
+
 ### 2016.08.18
+<a id="0818-1"></a>
+
 #### 버그 수정
 * [CONSOLE] 예약 메시지 수정시 요일이 저장한 내용과 다르게 표시되는 오류 수정
