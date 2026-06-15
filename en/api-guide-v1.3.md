@@ -1,8 +1,14 @@
+<!-- pre-align:aligned sig=3b84e6e956f0 -->
+
 ## Notification > Push > API v1.3 Guide
+
+<a id="api-test"></a>
 
 ### API Test
 
 Available on [CONSOLE] > [Notification] > [Push] > [APIs].
+
+<a id="secret-key"></a>
 
 ### Secret Key
 
@@ -12,6 +18,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ```
 
 Go to [CONSOLE] > [Notification] > [Push] > [URL & AppKey] to create one. 
+
+<a id="response"></a>
 
 ### Response
 
@@ -64,6 +72,8 @@ See Header at the response body for response details.
 | false | 40014 | Client Error. Wrong message type. Check contact or removeGuide. |
 | false | 40015 | Client Error. Wrong reservationDays. |
 | false | 50001 ~ 50501 | Internal Error. Please report this. 'http://cloud.toast.com/support/qaa'. |
+
+<a id="tokens"></a>
 
 ### Tokens
 
@@ -132,6 +142,8 @@ Content-Type: application/json;charset=UTF-8
 - Response may be delayed due to many reasons, including bad network connection. To minimize effects on mobile application operations, it is recommended to set shorter timeout, and register tokens every time they are operated.
 - Tokens may be re-issued, on many accounts, including security issues, or app updates or deletion. Although they may not be frequently changed, it is recommended to register the most updated tokens whenever they are operated, so as to raise the receiving rate.
 - Even if a token is expired due to app deletion, it is not immediately applied to GCM or APNS server, so push message delivery can be successful after app is deleted.
+
+<a id="query"></a>
 
 #### Query
 
@@ -204,7 +216,11 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 - The API requires a secret key and must be called from a server.
 
+<a id="messages"></a>
+
 ### Messages
+
+<a id="send"></a>
 
 #### Send 
 ※ Push messages sent using the API cannot be retrieved in the console or by the message query API.
@@ -341,6 +357,8 @@ Request Body
 }
 ```
 
+<a id="common-messages"></a>
+
 #### Common Messages 
 
 Common message type is supported from API v1.3. When messages are written for "content" as described in the below table, messages are created and sent to suit for each push type.
@@ -475,6 +493,8 @@ Request Body
 }
 ```
 
+<a id="query-2"></a>
+
 #### Query 
 ※ Only push messages sent using the console can be retrieved by the Query API.
 
@@ -541,7 +561,11 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 - CANCEL_UNAUTHORIZED: Failed while authenticating certificate. Check certificate status.
 - CANCEL_UNKNOWN: Error has occurred internally.
 
+<a id="feedbacks"></a>
+
 ### Feedbacks
+
+<a id="check"></a>
 
 #### Check 
 
