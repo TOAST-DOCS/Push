@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=ec416b7f4d48 -->
+
 ## Notification > Push > 오류 코드
 
 | isSuccessful | resultCode    | resultMessage                                                |
