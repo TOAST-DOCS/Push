@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=fa8fdc6f285d -->
+
 ## Notification > Push > コンソール使用ガイド
 
 Pushサービスを活用するには、先に他社プッシュ通知サービスの証明書を登録する必要があります。
@@ -7,6 +9,8 @@ Pushサービスを活用するには、先に他社プッシュ通知サービ�
 - APNS - Apple Push Notification Service
 - ADM - Amazon Device Messaging
 
+<a id="certificate-management"></a>
+
 ## 証明書管理
 
 証明書を管理するためにコンソールで**Notification > Push > 証明書**をクリックします。
@@ -14,9 +18,13 @@ Pushサービスを活用するには、先に他社プッシュ通知サービ�
 
 <span id="get-fcm-service-account-credential"></span>
 
+<a id="fcm-service-account-credential"></a>
+
 ### FCM Service Account Credential
 Android端末にプッシュ通知メッセージを送信するためには**Service Account Credential**が必要です。
 **Service Account**(サービスアカウント)は、一般的にGoogle CloudとA2A(Application to Application)通信する時に使用する特別なタイプのアカウントです。
+
+<a id="import-the-fcm-service-account-credential-json-file"></a>
 
 #### FCM Service Account Credential JSONファイルを取得する
 
@@ -27,6 +35,8 @@ Android端末にプッシュ通知メッセージを送信するためには**Se
 5. **サービスアカウント**を選択します。
 6.  Firbase Admin SDK項目で**新しい秘密鍵の作成**をクリックして、新しい**Service Account Credential** JSONファイルをダウンロードします。
 
+<a id="register-fcm-service-account-credential-json-file"></a>
+
 #### FCM Service Account Credential JSONファイルの登録
 1. コンソールで**Notification > Push > 証明書**をクリックします。
 2. ダウンロードしたJSONファイルを開いて内容をコピーします。
@@ -34,8 +44,12 @@ Android端末にプッシュ通知メッセージを送信するためには**Se
 
 <span id="get-apns-jwt"></span>
 
+<a id="get-authentication-information-for-apns-jwt"></a>
+
 ### APNS JWT認証情報の取得
 iOS端末にプッシュ通知メッセージを送るにはApple Developerサイトで発行された暗号キーとキーID(Key ID)、チームID(Team ID、App ID Prefix)、トピック(Topic)が必要です。
+
+<a id="getting-apns-encryption-key"></a>
 
 #### APNS暗号キーの取得
 1. **Apple Developerコンソール**から**Certificates, IDs & Profiles**へ移動します。
@@ -45,22 +59,32 @@ iOS端末にプッシュ通知メッセージを送るにはApple Developerサ�
 5. 内容を確認し、**Register**を選択します。
 6. **Download**を選択して暗号キーファイルをダウンロードします。
 
+<a id="getting-key-id"></a>
+
 #### キーIDの取得
 1. **Apple Developerコンソール**から**Certificates, IDs & Profiles**へ移動します。
 2. 発行されたキー(Key)を選択します。
 3. **View Key Details**項目で確認できます。
+
+<a id="getting-team-id"></a>
 
 #### チームIDの取得
 1. **Apple Developerコンソール**から**Certificates, IDs & Profiles**へ移動します。
 2. **Identifiers**を選択します。
 3. **Edit your App ID Configuration**項目で確認できます。
 
+<a id="topic"></a>
+
 #### トピック
 JWTを利用して認証を行うにはトピック(Topic)が必要です。トピックはアプリのバンドルID(Bundle ID)です。
+
+<a id="apns-certificate"></a>
 
 ### APNS証明書
 
 iOS端末にプッシュ通知メッセージを送信するには、Apple Developerサイトで発行したAPNS証明書が必要です。
+
+<a id="create-and-import-apns-certificate"></a>
 
 #### APNS証明書の作成、インポート
 
@@ -77,12 +101,16 @@ iOS端末にプッシュ通知メッセージを送信するには、Apple Devel
 11. 保存位置を設定し、**保存**をクリックします(ファイル形式：.p12)。
 12. 送信した項目を保護するのに使用するパスワードを入力すると、APNS証明書の作成が完了します。
 
+<a id="register-apns-certificate"></a>
+
 #### APNS証明書登録
 
 1. コンソールで**Notification > Push > 証明書**をクリックします。
 2. **APNS証明書**の下にある**証明書**で**ファイル選択**をクリックします。
 3. **パスワード**に証明書パスワードを入力します。
 4. **登録**をクリックします。
+
+<a id="caution-for-apns"></a>
 
 #### APNS注意事項
 
@@ -102,9 +130,13 @@ iOS端末にプッシュ通知メッセージを送信するには、Apple Devel
 - アプリでプッシュメッセージの受信を拒否した時
 - デバイスがインターネットに接続されていない時
 
+<a id="adm-credentials"></a>
+
 ### ADMの資格証明
 
 Kindle Fireアプリにプッシュ通知メッセージを送信するには、アプリのClient IDとClient Secretが必要です。
+
+<a id="register-adm-application-and-profiles-acquire-client-id-and-client-secret"></a>
 
 #### ADMアプリケーションおよびプロファイル登録(Client Id, Client Secret獲得)
 1. [ADM開発者コンソール](https://developer.amazon.com/home.html)にアクセスします。
@@ -112,6 +144,8 @@ Kindle Fireアプリにプッシュ通知メッセージを送信するには、
 3. アプリが作成されたら、中間タブにある**Device Messaging**をクリックし、**Create a New Security Profile**ボタンをクリックします。
 4. プロフィール作成完了後、中間タブにある**Security Profiles**をクリックし、**View Security Profile** ボタンをクリックします。
 5. **General**タブでClient IDとClient Secret値を確認できます。
+
+<a id="register-setting-information-for-adm-kindle-acquire-api-key"></a>
 
 #### ADM Kindle設定情報の登録(API keyの取得)
 1. **Security Profiles**タブをクリックし、中間にある**Android/Kindle Setting**タブをクリックします。
@@ -146,11 +180,15 @@ Kindle Fireアプリにプッシュ通知メッセージを送信するには、
 - 登録完了後、**Show**ボタンをクリックするとAPI key情報を照会できます。
 
 
+<a id="message-delivery"></a>
+
 ## メッセージ送信
 
 証明書とトークンを正常に登録した後、コンソールで**Notification > Push > メッセージ**をクリックし、**追加**ボタンをクリックします。フォーマットを作成して、メッセージを即時に送信できます。
 
 即時送信のフォーマット構成は次のとおりです。
+
+<a id="target"></a>
 
 ### 対象
 
@@ -164,11 +202,15 @@ Kindle Fireアプリにプッシュ通知メッセージを送信するには、
 | 国コード   | 国コードを入力できます。カンマ(',')をセパレータにして複数入力できます。 |
 | プッシュタイプ   | GCM、APNS、APNS Sandbox、ADM複数選択できます。 |
 
+<a id="option"></a>
+
 ### オプション
 
 | 名前           | 内容                             |
 | ---------------------- | ---------------------------------------- |
 | TTL(Time To Live) | メッセージの送信有効時間です。設定した時間中に送信が遅延する場合、自動的に失敗処理されます。単位は分です。0の場合、送信遅延で失敗処理されません。 |
+
+<a id="message"></a>
 
 ### メッセージ
 
@@ -177,12 +219,16 @@ Kindle Fireアプリにプッシュ通知メッセージを送信するには、
 | エディタのタイプ | SIMPLE、JSONの2つのタイプがあります。JSONを選択すると、直接メッセージを作成できます。 |
 | メッセージタイプ | NOTIFICATION、ADの2つのタイプがあります。ADの場合は、広告性プッシュメッセージ受信に同意したユーザーにのみメッセージが送信されます。 |
 
+<a id="rich-message"></a>
+
 ### リッチメッセージ作成
 プッシュメッセージにボタン、イメージなどを入れて多様な形式でプッシュメッセージを送信できます。
 入力したメッセージがAndroidとiOSスマートフォンでどのように表示されるかを確認できます。
 v1.7以上のSDKが適用された場所でのみ使用できる機能です。
 
 ![push_04_201812](https://static.toastoven.net/prod_push/12-10/push_04_201812_en.png)
+
+<a id="button"></a>
 
 #### 1. ボタン
 
@@ -208,6 +254,8 @@ v1.7以上のSDKが適用された場所でのみ使用できる機能です。
     - スキーム(Scheme)を入力すると、アプリにあらかじめ定義しておいたスキームを実行します。
 - 閉じる
     - 通知を閉じます。
+
+<a id="media"></a>
 
 #### 2. メディア
 
@@ -266,6 +314,8 @@ v1.7以上のSDKが適用された場所でのみ使用できる機能です。
 | サポート形式 | サポートしない | WaveAudio、MP3、MPEG4Audio |
 | ファイルサイズ | サポートしない | 5MB |
 
+<a id="large-icon"></a>
+
 #### 3. 大アイコン
 
 Androidでのみ提供する機能です。
@@ -275,6 +325,8 @@ Androidでのみ提供する機能です。
 | 位置 | 存在する場所。'REMOTE'または'LOCAL' |
 | アドレス | イメージが存在するアドレス。URL、URIなど。 |
 
+<a id="group"></a>
+
 #### 4. グループ
 
 Androidでのみ提供する機能です。
@@ -283,6 +335,8 @@ Androidでのみ提供する機能です。
 |---|---|
 | キー | グループのキー |
 | 説明 | グループについての説明 |
+
+<a id="alert-sounds"></a>
 
 #### 5. 通知音
 | | Android | iOS |
@@ -300,6 +354,8 @@ Androidでのみ提供する機能です。
     - リソースは、アプリプロジェクトのバンドルリソースにあらかじめ追加する必要があります。
     - バンドルリソースを通してアクセスするため、拡張子を含めたファイル名が必要です。
 
+<a id="scheduled-delivery"></a>
+
 ## 予約送信
 
 Pushの予約送信機能を使用すると、希望する時間にメッセージを送信できます。メッセージを予約送信するには、コンソールで**Notification > Push > 予約**をクリックします。
@@ -316,10 +372,14 @@ Pushの予約送信機能を使用すると、希望する時間にメッセー�
 | 終了日       | メッセージを送信する最後の日付を入力します。カレンダーで日付を選択できます。形式は'YYYY-MM-DD'です。 |
 | 現地時間      | trueに設定すると、現地時間基準でメッセージを送信します。        |
 
+<a id="check-token"></a>
+
 ### トークン照会
 
 プッシュタイプを選択し、トークンを入力して照会および削除ができます。
 トークン削除機能は、現在コンソールAPIタブとトークンタブでのみサポートされます。
+
+<a id="public-apis"></a>
 
 ### Public APIs
 
@@ -328,12 +388,16 @@ Public APIで提供されるAPI呼び出しです。
 APIのバージョンを選択して、バージョンごとにリクエストできます。
 APIの詳細は、[APIガイド](./api-guide/)で確認できます。
 
+<a id="tokens"></a>
+
 ## トークン
 
 トークンを特定UIDに追加できます。
 UID、トークンごとに検索できます。
 
 コンソールで**Notification > Push > トークン**をクリックします。
+
+<a id="add-token"></a>
 
 ### トークンの追加
 
@@ -343,6 +407,8 @@ UID、トークンごとに検索できます。
 2. 追加モーダルウィンドウでUIDとトークンを入力します。
 3. プッシュタイプおよび残りのオプションを確認し、**確認**ボタンを押してトークンを追加します。
 
+<a id="search-tokens"></a>
+
 ### トークンの検索
 
 **検索タイプ**を**TOKEN**に選択すると現れるリストから、希望するプッシュタイプを選択してトークンを検索できます。
@@ -350,6 +416,8 @@ UID、トークンごとに検索できます。
 ![push_12_201812](https://static.toastoven.net/prod_push/12-10/push_12_201812_en.png)
 
 - **Details**ボタンをクリックすると、詳細項目を確認できます。
+
+<a id="search-uids"></a>
 
 ### UID検索
 
@@ -360,11 +428,15 @@ UID、トークンごとに検索できます。
 - 一部のみ一致しても検索結果に表示されます。
 - **Details**ボタンをクリックすると、詳細項目を確認できます。
 
+<a id="tags"></a>
+
 ## タグ
 
 UIDにタグを追加してUIDを管理できます。メッセージ送信時、タグを選択して送信対象を指定できます。タグはNotificationサービス全域で使用されます。タグは最大2,048個まで作成できます。1つのUIDにタグを16個まで追加できます。
 
 コンソールで**Notification > Push > タグ**をクリックします。
+
+<a id="add-tag"></a>
 
 ### タグの追加
 
@@ -372,6 +444,8 @@ UIDにタグを追加してUIDを管理できます。メッセージ送信時�
 
 1. **追加**ボタンをクリックしてタグ名を入力します。
 2. **確認** ボタンをクリックしてタグを追加します。
+
+<a id="manage-uids-attached-on-tags"></a>
 
 ### タグがついたUIDの管理
 タグをクリックすると、タグがついたUIDのリストを確認できます。
@@ -384,10 +458,14 @@ UIDにタグを追加してUIDを管理できます。メッセージ送信時�
 
 <span id="stats-event-key"></span>
 
+<a id="statistics-event-key-management"></a>
+
 ## 統計イベントキー管理
 **統計イベントキー管理**タブで統計イベントキーを管理できます。作成時に名前、説明、イベント収集期間を設定できます。イベント収集期間を設定しなかった場合、収集期間は無期限に設定されます。作成された統計イベントキーはメッセージ送信時に設定できます。統計イベントキーが設定されたメッセージの送信結果は、**統計**タブにおいて統計イベントキーで検索できます。
 
 <span id="stats"></span>
+
+<a id="statistics"></a>
 
 ## 統計
 過去30日間に収集されたメッセージ受信/確認データを検索できます。コンソールで**統計**を選択します。メッセージ、トークンの登録や削除に対する統計を検索できます。
@@ -398,11 +476,15 @@ UIDにタグを追加してUIDを管理できます。メッセージ送信時�
     - デフォルトでは設定された期間に応じて自動的に最適化されたタイプでグラフを表示します。
 3. メッセージ統計では統計イベントキー、プッシュタイプで検索できます。
 
+<a id="token-setting"></a>
+
 ## 設定
 
 プッシュサービスを設定できます。
 
 コンソールで**Notification > Push > 設定**をクリックします。
+
+<a id="position-setting-of-ad-phrase"></a>
 
 ### 広告表示文言位置設定
 
@@ -413,6 +495,8 @@ UIDにタグを追加してUIDを管理できます。メッセージ送信時�
 - 内容(body)
     - 内容に'(広告)'、連絡先、受信同意撤回方法が表示されます。
 - 機能を設定すると、実際の反映まで数分かかることがあります。
+
+<a id="token-setting-2"></a>
 
 ### トークン設定
 
@@ -434,6 +518,8 @@ UIDにタグを追加してUIDを管理できます。メッセージ送信時�
 - 機能を設定すると、実際の反映まで数分かかることがあります。
 
 <span id="message-delivery-receipient"></span>
+<a id="collect-message-receiptcheck-data"></a>
+
 ### メッセージ受信/確認
 
 - メッセージの受信および確認、データ収集(Message Delivery Receipt)機能を有効にできます。
@@ -444,6 +530,8 @@ UIDにタグを追加してUIDを管理できます。メッセージ送信時�
 - 機能を設定すると、実際の反映まで数分かかることがあります。
 
 <span id="low-received-event-rates"></span>
+<a id="causes-for-low-indicators-of-message-receiving-data"></a>
+
 #### メッセージ受信データ指標が低い理由
 1. アプリのメッセージ通知を許可していない時
 ユーザーがアプリを初めて実行した時、OS(iOS、Android)レベル設定でメッセージ通知を許可していない場合、メッセージ受信イベントを収集できません。(2018年の平均通知許可比率iOS 43.9%、Android 91.1% <a href="https://www.accengage.com/press-release-accengage-releases-the-push-notification-benchmark-2018/" target="_blank">出典accengage</a>)
@@ -453,6 +541,8 @@ UIDにタグを追加してUIDを管理できます。メッセージ送信時�
 携帯電話の電源がオフ、節電モード、電波が届かない地域など、さまざまな理由でインターネット接続がない場合、メッセージの受信と受信イベントの収集ができません。
 4. 受信イベント収集失敗
 メッセージを受信しても、受信イベントを収集サーバーに転送する時、OSやネットワーク環境によって収集できない場合があります。
+
+<a id="log-message-delivery-history"></a>
 
 ### 送信履歴の保存
 - メッセージ送信履歴を指定したLog & Crash Searchに転送する機能です。
@@ -465,6 +555,8 @@ UIDにタグを追加してUIDを管理できます。メッセージ送信時�
      - **ERROR**：送信失敗履歴のみを残します。
 - 連携後、メッセージ送信履歴はコンソールの**Analytics > Log & Crash Search > ログ検索**で確認できます。
 - 送信されるメッセージ送信履歴は[Log & Crash Searchの料金ポリシー](https://toast.com/service/analytics/log_crash_search/#price)に従います。
+
+<a id="log-type-for-delivery-history"></a>
 
 #### 送信履歴のログ形式
 ##### Body
@@ -521,6 +613,8 @@ UIDにタグを追加してUIDを管理できます。メッセージ送信時�
     - AGENT_ERROR：Google、Apple、ADMサーバーへの通信が異常
     - UNKNOWN：内部で不明なエラーが発生
 
+<a id="settings-for-preventing-duplicate-messages"></a>
+
 ### 重複メッセージ防止設定
 - 同じメッセージを同じユーザーに重複リクエストする場合に送信を制限する機能です。
 - 重複判断基準はメッセージタイプ、内容(コンテンツ)、発信連絡先、受信同意設定ガイド、広告表示文言位置、トークンです。
@@ -529,11 +623,15 @@ UIDにタグを追加してUIDを管理できます。メッセージ送信時�
 - 設定タブ"重複メッセージ防止設定"で設定できます。
 - 機能を設定すると、実際の反映まで数分かかることがあります。
 
+<a id="reserve-message-for-acceptance-of-ad-opt-in"></a>
+
 ### 広告受信同意事実案内メッセージ予約
 - 広告メッセージの受信に同意してから満2年が経ったトークンに案内メッセージを送信する機能が追加されました。 
 - 毎月設定した日時に案内メッセージが対象トークンに送信されます。
 - 案内メッセージは受信同意事実と日時、受信同意設定の方法を必ず含める必要があります。
 - 広告性メッセージ受信同意日時識別子(###AD_AGREEMENT_DATE_TIME###)を本文に挿入すると、メッセージ送信時に該当トークンの同意日時に置換されます。
+
+<a id="guide-for-notice-of-personal-information-assignor"></a>
 
 ## 個人情報受託会社の告知案内
 
