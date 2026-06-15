@@ -1,9 +1,13 @@
+<!-- pre-align:aligned sig=9da95dce21b1 -->
+
 ## Notification > Push > Overview
 
 TOAST Cloud Push를 사용하면 다양한 전송 방법으로 메시지를 전송하고 결과를 조회할 수 있다.
 현지 시간에 맞춰 메시지를 예약 전송할 수도 있으며 메시지 전송 결과도 쉽게 확인할 수 있다.
 TOAST Cloud Push의 주요 기능은 다음과 같다.
 
+
+<a id="section-1"></a>
 
 ## 주요 기능
 
@@ -15,6 +19,8 @@ TOAST Cloud Push의 주요 기능은 다음과 같다.
 - 전송 결과 성공/실패 지표 제공
 - 태그 관리, 토큰 기반 메시지 발송
 - 메시지 수신 및 확인 데이터 수집, 통계 제공
+
+<a id="section-2"></a>
 
 ## 서비스 용어
 
