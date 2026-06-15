@@ -1,17 +1,29 @@
+<!-- pre-align:aligned sig=6099867ac7d2 -->
+
 ## Notification > Push > API v2.4ガイド
 
+<a id="overview-of-v24-api"></a>
+
 ### v2.4 API紹介
+
+<a id="add"></a>
 
 #### 追加
 - ｢統計｣APIを追加しました。
 
 
+<a id="basic-information"></a>
+
 ### 基本情報
+<a id="endpoint"></a>
+
 #### Endpoint
 ```
 API Endpoint: https://push.api.nhncloudservice.com
 メッセージ受信/確認したかどうかを収集Endpoint：https://collector-push.cloud.toast.com
 ```
+<a id="secret-key"></a>
+
 ### Secret Key
 - コンソールで確認可能です。
 - Secret Keyが必要なAPIを呼び出す時、ヘッダへ下記のように設定して呼び出す必要があります。
@@ -20,6 +32,8 @@ Header
 X-Secret-Key: [a-zA-Z0-9]{8}
 ```
 [CONSOLE] > [Notification] > [Push] > [URL & AppKey]で確認/作成できます。
+
+<a id="response"></a>
 
 #### Response
 
@@ -40,7 +54,11 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 }
 ```
 
+<a id="tokens"></a>
+
 ## トークン
+<a id="create"></a>
+
 ### 作成
 - クライアントで照会可能です。
 
@@ -131,7 +149,11 @@ curl -X POST \
 - トークンはセキュリティ的なイシュー、アプリアップデート、削除など、さまざまな理由で再発行されることがあります。頻繁に変更されることはないですが、受信率を高めるために、起動するたびに最新トークンを登録することを推奨します。
 - アプリ削除などでトークンが満了してもすぐにFCM、APNSサーバーに適用されないため、アプリ削除後にプッシュメッセージを送信した時、送信が成功することがあります。
 
+<a id="query"></a>
+
 ### 照会
+<a id="query-token-list"></a>
+
 #### トークンリスト照会
 ##### Method, URL
 
@@ -190,6 +212,8 @@ curl -X GET \
 
 ##### Description
 - ページ移動時、"cursorUid"、"cursorToken"全て必須です。設定した"cursorUid"、"cursorToken"の次の順番から照会します。
+
+<a id="query-tokens-by-token"></a>
 
 #### トークンでトークン照会
 - クライアントで照会可能です。
@@ -253,6 +277,8 @@ curl -X GET \
 | deviceId | -, String | デバイスID |
 | activatedDateTime | -, Datetime String | トークンの最終登録リクエスト日時 |
 
+<a id="query-tokens-by-user-id"></a>
+
 #### ユーザーIDでトークン照会
 - Secret Keyが必要なAPI。サーバーで呼び出す必要があります。
 ##### Method、URL
@@ -311,6 +337,8 @@ curl -X GET \
 ```
 
 
+<a id="query-invalid-tokens"></a>
+
 #### 有効ではないトークン照会
 ##### Method, URL, Headers
 ```
@@ -361,6 +389,8 @@ curl -X GET \
 ```
 
 
+<a id="delete"></a>
+
 ### 削除
 ##### Method, URL, Headers
 ```
@@ -396,7 +426,11 @@ curl -X DELETE \
 }
 ```
 
+<a id="messages"></a>
+
 ## メッセージ
+<a id="send"></a>
+
 ### 送信
 ※ APIで送信したプッシュメッセージはコンソールと単件、リスト照会APIで照会できません。 APIで送信したプッシュメッセージはLogging機能を有効にしてからログ照会APIを利用してください。
 ##### Method, URL, Headers
@@ -505,6 +539,8 @@ curl -X POST \
 - timeToLiveMinuteフィールドを設定すると、設定した時間以上に送信が遅延する場合は自動的に失敗処理されます。
 
 
+<a id="common-messages"></a>
+
 ### 共通メッセージ
 "content"に下記の表通りにメッセージを作成すると、各プッシュタイプに合わせてメッセージが作成され、送信されます。
 
@@ -538,9 +574,13 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
 |---|---|---|---|---|---|---|
 |customKey|	Android, <br/> iOS, <br/> Tencent|	Optional, <br/> Object, <br/> Array, <br/> String, <br/> Number|	data.customKey|	customKey|	custom_content.customKey| data.customKey|
 
+<a id="example-of-sending-messages"></a>
+
 ### メッセージ送信例
 
 - メッセージ送信APIのリクエスト本文(Request Body)のcontent.defaultは必須です。
+
+<a id="send-to-all"></a>
 
 #### 1. 全員に送信
 登録されたすべての対象にメッセージを送信する例です。
@@ -562,6 +602,8 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
 ```
 ##### Description
 - target.typeを'ALL'に設定すると、すべてのトークンへメッセージを送信します。
+
+<a id="send-to-particular-users"></a>
 
 #### 2. 特定ユーザーに送信
 ユーザーIDを入力して特定ユーザーにメッセージを送信する例です。
@@ -585,6 +627,8 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
 ##### Description
 - target.typeを'UID'に設定し、target.toにユーザーIDを設定して特定ユーザーへメッセージを送信します。
 
+<a id="send-to-users-of-particular-nation-or-push-type"></a>
+
 #### 3. 一部の国やプッシュタイプのユーザーに送信
 特定の国や端末(Android、iOS…)を使用するユーザーにのみメッセージを送信する例です。
 
@@ -607,6 +651,8 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
 ```
 ##### Description
 - target.countriesに国コードを、target.pushTypesにプッシュタイプを設定して、条件を満たすユーザーにメッセージを送信します。
+
+<a id="convert-messages-for-each-push-type"></a>
 
 #### 4. プッシュタイプ別メッセージ変換
 メッセージを送信する時、プッシュタイプごとにメッセージが変換されて送信されますが、変換されるルールを説明する例です。
@@ -682,6 +728,8 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
 - badge、consolidationKeyなどの特定プッシュタイプにのみ定義されている予約語は、他のプッシュタイプからは除外されます。
  例えばbadgeはAPNS(iOS)メッセージにのみ設定され、FCM、TENCENT、ADMには除外されます。
 
+<a id="ad-messages"></a>
+
 #### 5. 広告性メッセージ
 広告性メッセージの送信時にメッセージへ追加される広告文言例です。
 
@@ -747,6 +795,8 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
 - 広告性メッセージを送信するにはmessageTypeをAD(広告)に設定し、contactとremoveGuideに代表番号と受信同意撤回方法を入力する必要があります。
 - 各プッシュタイプでメッセージが送信される時、titleに広告表示文言と代表番号が、bodyに受信同意撤回方法が追加されて送信されます。
 - 広告性メッセージは、言語コードが韓国語(ko, ko-)のユーザーにのみ広告文言が追加されます。上の例のように海外ユーザー(日本語)には広告文言が追加されません。
+
+<a id="multiple-language-messages"></a>
 
 #### 6. 多言語メッセージ
 多様な言語でメッセージを送信する例です。
@@ -824,6 +874,8 @@ Reserved Wordは、メッセージ作成時にPlatformごとに適切な位置�
  リクエスト本文にcontent.koのみ入力されていますが、言語コードがko-KR(韓国語)のユーザーにもcontent.koの内容が送信されます。
 - customKeyはcontent.jaに定義されていないため、content.defaultの値で送信されます。共通する内容はcontent.defaultに入力できます。
 
+<a id="rich-messages"></a>
+
 #### 7. リッチメッセージ
 メッセージ送信時、'content'に'richMessage'フィールドを定義すると、リッチメッセージでメッセージを送信できます。
 共通メッセージ、広告性メッセージ、多言語メッセージと一緒に使用できます。
@@ -889,6 +941,8 @@ v1.7以上のSDKが適用された場所でのみ使用できます。
 | richMessage.group | Optional, Object | 複数のメッセージをグループ単位にまとめる機能。Androidでのみサポート |
 | richMessage.group.key | Required, String | グループのキー |
 | richMessage.group | Required, String | グループの説明 |
+
+<a id="messages-with-fcm-notification"></a>
 
 #### 8. FCM notificationフィールドを使用したメッセージ
 メッセージ送信時、'content'に'notification'フィールドを定義すると、FCM形式に合わせてメッセージを送信できます。
@@ -970,7 +1024,11 @@ v1.7以上のSDKが適用された場所でのみ使用できます。
 
 
 
+<a id="query-2"></a>
+
 ### 照会
+<a id="list"></a>
+
 #### リスト照会
 ※コンソールで送信したプッシュメッセージのみリスト照会APIで照会できます。 APIで送信したプッシュメッセージはLogging機能を有効にしてからログ照会APIを利用してください。
 ##### Method, URL, Headers
@@ -1063,6 +1121,8 @@ curl -X GET \
     - CANCEL_UNAUTHORIZED：証明書認証プロセスで失敗した状態です。証明書の状態を確認する必要があります。
     - CANCEL_UNKNOWN：内部エラーが発生した状態です。
 
+<a id="get"></a>
+
 #### 単件照会
 ※コンソールで送信したプッシュメッセージのみ、単件照会APIで照会できます。APIで送信したプッシュメッセージはLogging機能を有効にしてからログ照会APIを利用してください。
 ##### Method, URL, Headers
@@ -1123,6 +1183,8 @@ curl -X GET \
 }
 ```
 
+
+<a id="list-failed-messages"></a>
 
 #### 失敗したメッセージリスト照会
 送信に失敗したメッセージを照会できます。
@@ -1230,9 +1292,13 @@ curl -X GET \
 | tokens | - | 送信に失敗した受信者のuidとtoken |
 
 
+<a id="query-logs"></a>
+
 ### ログ照会
 - ログ照会APIは、Logging機能を有効にした状態でのみ呼び出せます。
 - Logging機能は、[Console] > [Notification] > [Push] > [Setting]タブで有効にできます。
+
+<a id="query-general-logs"></a>
 
 #### 一般ログ照会
 - 最大100個まで照会可能です。
@@ -1305,9 +1371,15 @@ curl -X GET \
 }
 ```
 
+<a id="scheduled-messages"></a>
+
 ## 予約メッセージ
 
+<a id="create-2"></a>
+
 ### 作成
+<a id="create-delivery-schedule-for-scheduled-messages"></a>
+
 #### 予約メッセージ送信スケジュールの作成
 ##### Method, URL, Headers
 ```
@@ -1398,6 +1470,8 @@ curl -X POST \
 | schedules | - | 日時(ISO 8601, e.g. YYYY-MM-DDThh:mm)、最大値：現在から60日(例：現在2024年6月1日の場合、2024年7月31日23時59分) |
 
 
+<a id="create-scheduled-messages"></a>
+
 #### 予約メッセージ作成
 ##### Method, URL, Headers
 ```
@@ -1486,7 +1560,11 @@ curl -X POST \
 | reservationIdString | String | 予約メッセージID文字列 |
 
 
+<a id="query-3"></a>
+
 ### 照会
+<a id="list-2"></a>
+
 #### リスト照会
 ##### Method, URL, Headers
 ```
@@ -1587,6 +1665,8 @@ curl -X GET \
 | totalCount | - | 登録された予約メッセージ総数 |
 
 
+<a id="get-2"></a>
+
 #### 単件照会
 ##### Method, URL, Headers
 ```
@@ -1607,6 +1687,8 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: '"${SECRET_KEY}"''
 ```
+
+<a id="response-body"></a>
 
 #### Response Body
 ```json
@@ -1660,6 +1742,8 @@ curl -X GET \
 | - | - | - |
 | updatedDateTime | DateTime String | 予約修正日時(ISO 8601) |
 
+
+<a id="query-scheduled-messages"></a>
 
 #### 送信された予約メッセージ照会
 ##### Method, URL, Headers
@@ -1727,7 +1811,11 @@ curl -X GET \
 | totalCount | - | 送信されたメッセージ総数 |
 
 
+<a id="modify"></a>
+
 ### 修正
+<a id="modify-scheduled-messages"></a>
+
 #### 予約メッセージの修正
 ##### Method, URL, Headers
 ```
@@ -1803,7 +1891,11 @@ curl -X PUT \
 ```
 
 
+<a id="delete-2"></a>
+
 ### 削除
+<a id="delete-scheduled-messages"></a>
+
 #### 予約メッセージの削除
 ##### Method, URL, Headers
 ```
@@ -1842,9 +1934,15 @@ curl -X DELETE \
 ```
 
 
+<a id="tags"></a>
+
 ## タグ
 
+<a id="create-3"></a>
+
 ### 作成
+<a id="create-tags"></a>
+
 #### タグの作成
 ##### Method, URL, Headers
 ```
@@ -1897,6 +1995,8 @@ curl -X POST \
 ##### Description
 - タグは最大2,048個まで作成できます。
 
+
+<a id="append-uids-to-tag"></a>
 
 #### タグにUID追加作成
 - タグにUIDを追加(append)すること。既存のUIDを追加するとUIDのタグは増えます。
@@ -1960,6 +2060,8 @@ curl -X POST \
 ```
 
 
+<a id="set-tag-list-on-uid"></a>
+
 #### UIDにタグリスト設定
 - UIDのタグを交換(replace)することです。既に設定されているタグは削除され、新しいタグに設定されます。
 ##### Method, URL, Headers
@@ -2005,7 +2107,11 @@ curl -X POST \
 }
 ```
 
+<a id="query-4"></a>
+
 ### 照会
+<a id="list-tags"></a>
+
 #### タグリスト照会
 ##### Method, URL, Headers
 ```
@@ -2056,6 +2162,8 @@ curl -X GET \
 | createdDateTime | Required, Date Time String | 作成日時(ISO 8601) |
 | updatedDateTime | Required, Date Time String | 修正日時(ISO 8601) |
 
+<a id="get-tags"></a>
+
 #### タグ単件照会
 ##### Method, URL, Headers
 ```
@@ -2092,6 +2200,8 @@ curl -X GET \
     }
 }
 ```
+
+<a id="list-uids-of-tag"></a>
 
 #### タグのUIDリスト照会
 - タグがついているUIDリストを照会します。
@@ -2160,6 +2270,8 @@ curl -X GET \
 | createdDateTime | Required, Date Time String | 作成日時(ISO 8601) |
 
 
+<a id="query-uids"></a>
+
 #### UID照会
 - UIDを照会します。
 - トークン登録時、Contact(連絡先)が登録されます。
@@ -2212,7 +2324,11 @@ curl -X GET \
 ```
 
 
+<a id="modify-2"></a>
+
 ### 修正
+<a id="modify-tags"></a>
+
 #### タグの修正
 ##### Method, URL, Headers
 ```
@@ -2250,7 +2366,11 @@ curl -X PUT \
 ```
 
 
+<a id="delete-3"></a>
+
 ### 削除
+<a id="delete-tags"></a>
+
 #### タグの削除
 ##### Method, URL, Headers
 ```
@@ -2282,6 +2402,8 @@ curl -X DELETE \
 }
 ```
 
+
+<a id="delete-uids"></a>
 
 #### UID削除
 - UIDを削除するとContact、Tokenも一緒に削除されます。
@@ -2321,6 +2443,8 @@ curl -X DELETE \
 ```
 
 
+<a id="delete-uids-of-tag"></a>
+
 #### タグのUID削除
 - TagとUIDの関係のみ削除します。
 - Contact、Tokenは削除されません。
@@ -2354,9 +2478,15 @@ curl -X DELETE \
 }
 ```
 
+<a id="uids"></a>
+
 ## UID
 
+<a id="create-4"></a>
+
 ### 作成
+
+<a id="add-tags"></a>
 
 #### タグの追加
 - UIDにタグIDでタグを追加します。
@@ -2396,7 +2526,11 @@ curl -X POST \
 ```
 
 
+<a id="query-5"></a>
+
 ### 照会
+
+<a id="query-tag-ids-of-uid"></a>
 
 #### UIDのタグID照会
 - UIDのタグIDを照会します。
@@ -2432,7 +2566,11 @@ curl -X GET \
 ```
 
 
+<a id="modify-3"></a>
+
 ### 修正
+<a id="modify-tags-of-uid"></a>
+
 #### UIDのタグ修正
 - UIDにタグIDでタグを修正します。
 - Secret Keyが必要ない。アプリで呼び出し可能です。
@@ -2470,6 +2608,8 @@ curl -X PUT \
 }
 ```
 
+
+<a id="delete-tags-2"></a>
 
 ### タグの削除
 - UIDのタグIDを照会します。
@@ -2509,7 +2649,11 @@ curl -X DELETE \
 
 
 <span id="stats-api"></span>
+<a id="statistics"></a>
+
 ## 統計
+<a id="query-statistics"></a>
+
 ### 統計照会
 - 統計イベントキーを基準に統計を照会できます。
 
@@ -2528,6 +2672,10 @@ Content-Type: application/json;charset=UTF-8
 | extra1s | Optional、String Array | eventCategoryがMESSAGEの場合、プッシュタイプでフィルタリング可能。 FCM、APNS、APNS_SANDBOX、APNS_VOIP、APNS_SANDBOXVOIP、ADM、TENCENT |
 | messageId | Optional, String | メッセージID |
 | statsIds | Optional, String Array | 統計イベントキーID |
+
+##### Request Body
+
+<!-- TODO: translate body -->
 
 ##### cURL
 ```
@@ -2558,6 +2706,12 @@ https://push.api.nhncloudservice.com/push/v2.4/appkeys/'"${APP_KEY}"'/stats?even
 }
 ```
 
+<a id="query-statistics-total"></a>
+
+### 統計合計照会
+
+<!-- TODO: translate body -->
+
 ##### cURL
 ```
 curl -X GET \
@@ -2565,6 +2719,14 @@ curl -X GET \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'X-Secret-Key: '"${SECRET_KEY}"''
 ```
+
+##### Request Body
+
+<!-- TODO: translate body -->
+
+##### cURL
+
+<!-- TODO: translate body -->
 
 ##### Response Body
 ```
