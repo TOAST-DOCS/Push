@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=a9a842d152aa -->
+
 ## Notification > Push > Client SDK Developer's Guide
 이전 버전보기: <select onchange="location.href=this.value">
 <option value="/ko/Notification/Push/ko/Client%20SDK%20Guide">v1.4</option>
@@ -5,9 +7,13 @@
 
 TOAST Cloud Push SDK를 적용하면 모바일 어플리케이션과 토스트 클라우드 푸시를 쉽게 연동할 수 있다.
 
+<a id="sdk-download"></a>
+
 ## 푸시 SDK Download
 
 SDK는 [SDK 다운로드 페이지] > [Notification > Push]에서 받을 수 있다.
+
+<a id="tencent-sdk-download"></a>
 
 ## 텐센트(TENCENT) 푸시 SDK Download
 
@@ -18,9 +24,13 @@ TENCENT 푸시 SDK와 통합하는 방법에 대해 설명한다.
 
 가이드는 TENCENT(Xg Push) 2.47 버전 기준으로 작성되었다.
 
+<a id="section-1"></a>
+
 ## 토큰 등록
 
 기기 식별을 위한 Token을 서버에 등록하는 과정이다. 등록이 성공하면 해당 기기에서 푸시 메시지를 수신할 수 있다.
+
+<a id="ios-apns"></a>
 
 ### iOS, APNS
 
@@ -55,6 +65,8 @@ TENCENT 푸시 SDK와 통합하는 방법에 대해 설명한다.
 ...
 @end
 ```
+
+<a id="android-gcm"></a>
 
 ### Android, GCM
 
@@ -185,6 +197,8 @@ dependencies {
 }
 ```
 
+<a id="android-tencent"></a>
+
 ### Android, TENCENT
 
 **AndroidManifest.xml**  
@@ -243,6 +257,8 @@ dependencies {
 ACCESS ID, ACCESS KEY 발급은 [Developer's Guide]를 참고한다.  
 
 
+<a id="options"></a>
+
 ### Options
 
 options는 플랫폼에따라 Dictionary 또는 Map, 또는 그에 준하는 Key/Value Collection으로 정의된다. 각의 Key/Value는 다음과 같다.
@@ -261,7 +277,11 @@ options는 플랫폼에따라 Dictionary 또는 Map, 또는 그에 준하는 Key
 |KEY_ACCESS_ID(accessId)|	string|	TENCENT를 사용하기 위해 필요하다. <br/> [[Tencent 푸시 서비스 대시보드](http://xg.qq.com/xg/ctr_index/login?go_to_url=http%3A%2F%2Fxg.qq.com%2Fxg%2Fapps%2Fctr_app%2Findex)]에서 확인할 수 있다.|	Android(TENCENT)|
 |KEY_ACCESS_KEY <br/> (accessKey)|	string|	TENCENT를 사용하기 위해 필요하다. <br/> [[Tencent 푸시 서비스 대시보드](http://xg.qq.com/xg/ctr_index/login?go_to_url=http%3A%2F%2Fxg.qq.com%2Fxg%2Fapps%2Fctr_app%2Findex)]에서 확인할 수 있다.|	Android(TENCENT)|
 
+<a id="section-2"></a>
+
 ## 푸시 메시지 수신
+
+<a id="android-gcm-2"></a>
 
 ### Android, GCM
 
@@ -307,6 +327,8 @@ PushSdk$GcmListener를 YourGcmListener로 수정한다.
     </service>
     ...
 ```
+
+<a id="android-tencent-2"></a>
 
 ### Android, TENCENT
 
@@ -357,6 +379,8 @@ PushSdk$XgListener 부분을 위에서 작성한 커스텀 클래스로 변경�
 	...
 ```
 
+<a id="section-3"></a>
+
 ## 토큰 조회
 
 APPKEY, UID, options로 등록된 Token을 조회할 수 있다.
@@ -377,6 +401,8 @@ APPKEY, UID, options로 등록된 Token을 조회할 수 있다.
 }
 ```
 
+<a id="ios-apns-2"></a>
+
 ### iOS, APNS
 
 **pushsdk.m**
@@ -396,6 +422,8 @@ NSDictionary* options = @{kTCPushKeyServerUrl : @"https://push.api.nhncloudservi
 	} options:options];
 ......
 ```
+
+<a id="android-gcm-tencent"></a>
 
 ### Android, GCM, TENCENT
 
@@ -419,6 +447,8 @@ NSDictionary* options = @{kTCPushKeyServerUrl : @"https://push.api.nhncloudservi
         }, options);
     }
 ```
+
+<a id="section-4"></a>
 
 ## 오류 처리
 
