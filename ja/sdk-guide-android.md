@@ -1,25 +1,43 @@
+<!-- pre-align:aligned sig=d72cb9e8819a -->
+
 ## Notification > Push > Android SDK Guide
 With TOAST Cloud Push SDK, mobile applications and TOAST Cloud Push can be easily integrated.
+
+<a id="main-features"></a>
 
 ## Main Features
 * Register notification tokens to OS
 * Receive and display notification messages
 * Receive messages and collect application execution indicators through them
 
+<a id="downloads"></a>
+
 ## Downloads
 Download file to click **Android SDK (AAR)** under **Notification > Push** from [TOAST Document](http://docs.toast.com/ko/Download/).
 
+<a id="supporting-environment"></a>
+
 ## Supporting Environment
+<a id="version"></a>
+
 #### Version
 * 15 (4.0.3) or higher API level
+
+<a id="supportive-platforms"></a>
 
 #### Supportive Platforms
 * Google Cloud Messaging, or GCM
 * Tencent Mobile Push, or Tencent
 * Amazon Device Messaging, or ADM
 
+<a id="project-settings"></a>
+
 ## Common Project Setting  
+<a id="common-setting-jcenter"></a>
+
 ### Common Setting (JCenter)
+<a id="add-dependency"></a>
+
 #### Add dependency
 * Add dependency to build.gradle
 ```groovy
@@ -28,6 +46,8 @@ dependencies {
     // compile 'com.toast.android:pushsdk:1.7.0' // (Gradle < 3.4)
 }
 ```
+
+<a id="when-occuping-duplicatation-of-android-support-library"></a>
 
 #### When occuping duplicatation of Android Support Library.
 * Exclude Support library
@@ -39,8 +59,12 @@ dependencies {
 }
 ```
 
+<a id="common-setting-manual"></a>
+
 ### Common Setting (Manual)
 * Download SDK and configure manually, when you don't use, or can't use JCenter.
+
+<a id="download-and-add-dependency"></a>
 
 #### Download and Add dependency
 * Download and Add SDK (AAR)
@@ -55,8 +79,12 @@ dependencies {
 }
 ```
 
-## For GCM   
-### Project Setting  
+<a id="gcm-settings"></a>
+
+### For GCM   
+<a id="project-setting"></a>
+
+#### Project Setting  
 * Add GCM SDK to build.gradle
     * Add the following to dependencies
 ```groovy
@@ -65,7 +93,9 @@ dependencies {
 }
 ```
 
-### Modify AndroidManifest.xml   
+<a id="modify-androidmanifestxml"></a>
+
+#### Modify AndroidManifest.xml   
 * Change all parts of '[YOUR_PACKAGE_NAME]' below to default application package name.  
 
 ```xml
@@ -95,8 +125,12 @@ dependencies {
 </manifest>
 ```
 
-## For Tencent  
-### Project Setting  
+<a id="tencent-settings"></a>
+
+### For Tencent  
+<a id="project-setting-2"></a>
+
+#### Project Setting  
 This guide has been written for Tencent SDK 3.2.3.
 
 * Download Tencent SDK from Tencent SDK download page, [腾讯移动推送 | 信鸽](http://xg.qq.com/xg/ctr_index/download).
@@ -123,7 +157,9 @@ dependencies {
 }
 ```
 
-### Modify AndroidManifest.xml
+<a id="modify-androidmanifestxml-2"></a>
+
+#### Modify AndroidManifest.xml
 * Change all part of '[YOUR_PACKAGE_NAME]' below to default application package name.
 
 ```xml
@@ -182,8 +218,12 @@ dependencies {
 </manifest>
 ```
 
-## For ADM
-### Project Setting
+<a id="adm-settings"></a>
+
+### For ADM
+<a id="project-setting-3"></a>
+
+#### Project Setting
 * Amazon Device Messaging, or ADM, is available on Fire OS 2 or newer devices.
 * Download Amazon Device Messaging SDK from below:
   - [Download Amazon Developer SDKs](https://developer.amazon.com/sdk-download).
@@ -195,15 +235,17 @@ dependencies {
 }
 ```
 
-### Modify AndroidManifest.xml
+<a id="modify-androidmanifestxml-3"></a>
+
+#### Modify AndroidManifest.xml
 * Change all parts of '[YOUR_PACKAGE_NAME]' below to default application package name.
 
-#### Add Namespace
+##### Add Namespace
 ```xml
 <manifest xmlns:amazon="http://schemas.amazon.com/apk/res/android">
 ```
 
-#### Add Authorities
+##### Add Authorities
 ```xml
 <permission
     android:name="[YOUR_PACKAGE_NAME].permission.RECEIVE_ADM_MESSAGE"
@@ -212,7 +254,7 @@ dependencies {
 <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
 ```
 
-#### Add Handler and Receiver
+##### Add Handler and Receiver
 - Enter Handler class of user writing for [YOUR_HANDLER_CLASS].
 - Enter Receiver class of user writing for [YOUR_RECEIVER_CLASS].
     - Implement Handler and Receiver, in reference of the below:
@@ -234,7 +276,9 @@ dependencies {
 </receiver>
 ```
 
-### Implement Handler and Receiver
+<a id="implement-handler-and-receiver"></a>
+
+#### Implement Handler and Receiver
 - When a notification requires title and body only, default Handler and Receiver can be used.
     - Default Handler : com.toast.android.pushsdk.listener.DefaultPushSdkADMHandler
     - Default Receiver : com.toast.android.pushsdk.listener.DefaultPushSdkADMReceiver
@@ -262,7 +306,11 @@ public class CustomADMReceiver extends ADMMessageReceiver {
 }
 ```
 
+<a id="sdk-guide"></a>
+
 ## SDK Guide
+<a id="define-pushparams"></a>
+
 ### Define PushParams
 * Refers to an object required to register and query tokens.
 * Can be created through the PushParams.Builder class.
@@ -280,6 +328,8 @@ public class CustomADMReceiver extends ADMMessageReceiver {
 | isNotificationAgreement | Consent to display notifications               | Optional | False                |
 | isAdAgreement           | Consent to display ad notifications            | Optional | False                |
 | isNightAdAgreement      | Consent to display night-time ad notifications | Optional | False                |
+
+<a id="create-pushparams"></a>
 
 #### Create PushParams
 * Refers to an object required to register and query tokens.
@@ -308,7 +358,9 @@ builder.setLanguage("ko"); // Selected value
 PushParams pushParams = builder.build();
 ```
 
-#### Register Tokens
+<a id="register-tokens"></a>
+
+### Register Tokens
 * Create tokens depending on the push type and register to servers
 * Example  
 ```java
@@ -329,6 +381,8 @@ PushSdk.register(pushParams, new PushRegisterCallback() {
 >
 > Tencent requires WRITE_SETTINGS authority, for which API level 23 (6.0) displays a dialogue box. Even if authority is allowed in the dialogue box, ERROR_PERMISSION_REQUIRED is returned as callback. In this case, call a token registration again and it is normally registered.  
 
+<a id="query-token-information"></a>
+
 ### Query Token Information
 * Token information saved in the current server is returned as callback under the PushQueryResult object.
 * Example
@@ -347,14 +401,20 @@ PushSdk.query(pushParams, new PushQueryCallback() {
 });
 ```
 
-### Enable Debug Logs
+<a id="enable-debug-logs"></a>
+
+#### Enable Debug Logs
 * Push SDK provides a method enabling debug logs of SDK.
 * <span style="color:#f47141">Must enable debug logs only during development: remove or set false, for a release</span>.
 ```java
 PushSdk.setDebug(true);
 ```
 
+<a id="collect-indicators-gcm-only"></a>
+
 ### Collect Indicators (GCM Only)
+<a id="received"></a>
+
 #### Received  
 * Automatically collect Received Indicators, when using default receiver provided by SDK.  
 * Add the following method to receiver to collect indicators, when user implements the receiver.
@@ -368,6 +428,8 @@ public static class CustomPushReceiver extends GcmListenerService {
     }
 }
 ```
+
+<a id="opened"></a>
 
 #### Opened
 * Refers to an execution through notifications on the notification bar.
@@ -403,6 +465,8 @@ public static class CustomPushReceiver extends GcmListenerService {
 }
 ```
 
+<a id="error-codes"></a>
+
 ### Error Codes
 * Error codes are defined as @IntDef in the annotation of com.toast.android.pushsdk.annotations.PushResultCode.  
 
@@ -416,13 +480,21 @@ public static class CustomPushReceiver extends GcmListenerService {
 | ERROR_PERMISSION_REQUIRED | Authority is required (only for Tencent)           |
 | ERROR_PARSE_JSON_FAIL     | Server response has not been parsed.               |
 
+<a id="rich-message-guide"></a>
+
 ## Rich Message Guide
 - This is guide for rich message feature
+
+<a id="what-is-rich-message"></a>
 
 ### What is Rich Message ?
 - You can notify notifications with title, body, and rich message to users.
 
+<a id="support-features-and-specification"></a>
+
 ### Support features and specification
+<a id="button"></a>
+
 #### Button
 - Dismiss : Dismiss current notification.
 - Open Application : Open your application.
@@ -437,25 +509,35 @@ public static class CustomPushReceiver extends GcmListenerService {
 
 > For button feature, you create a notification using *NotificationConverter class*
 
+<a id="media"></a>
+
 #### Media
 - Image : Add image to notification (Support to internal, external images)
     - Recommend images with a 2 : 1 aspect ratio.
     - Images in different proportions can be exposed with clipping.
 - Others : Not support other media(Video, Sounds, etc.)
 
+<a id="large-icon"></a>
+
 #### Large icon
 - Add large icon to notification (Support to internal, external images)
     - Recommend 1 : 1 aspect ratio.
     - Images in different ratios are forced to change to 1 : 1, which can expose different images than you expect.
+
+<a id="group"></a>
 
 #### Group
 - Gather notifications with same key
     - Only above API level 24 (Android 7.0)
     - If you convert a notification using NotificationConverter, the reply button is invisiable in a notification under Android 7.0
 
+<a id="receive-rich-messages-and-notify"></a>
+
 ### Receive rich messages and notify
 - If you use default receiver provided by SDK, you can receive and notify notifications without configuration, and additonal codes.
 - If you implement custom receiver, Check *ToastPushMessage class, and NotificationReceiver class*.
+
+<a id="define-toastpushmessage"></a>
 
 ### Define ToastPushMessage
 - Integration data structure for providers of push, GCM, Tencent, ADM.
@@ -482,6 +564,8 @@ class RichMessage {
     List<ButtonInfo> buttons;
 }
 ```
+
+<a id="using-notificationconverter"></a>
 
 ### Using NotificationConverter
 - Provide NotificationConverter for converting ToastPushMesage to Android Notification.
@@ -514,9 +598,13 @@ converter.convert(context, new NotificationConverter.ConvertCallback() {
 });
 ```
 
+<a id="register-replylistener"></a>
+
 ### Register ReplyListener
 * Once you receive user input through the Reply button, the app will have to process user input.
      * As a messenger, for example, you need to send user input to the messenger server.
+
+<a id="implementing-a-reply-listener"></a>
 
 #### Implementing a Reply Listener
 * For reply processing, you must implement the listener by inheriting from the ReplyActionListener interface.
@@ -545,6 +633,8 @@ public class ReplyHandler implements ReplyActionListener {
     }
 }
 ```
+
+<a id="register-replylistener-2"></a>
 
 #### Register ReplyListener
 * You can register ReplyListener using **PushSdk.setReplyActionListenerClass** method.
