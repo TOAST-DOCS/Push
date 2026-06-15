@@ -1,8 +1,14 @@
+<!-- pre-align:aligned sig=3b84e6e956f0 -->
+
 ## Notification > Push > API v1.3ガイド
+
+<a id="api-test"></a>
 
 ### APIテスト
 
 [CONSOLE] > [Notification] > [Push] > [APIs]タブで行えます。
+
+<a id="secret-key"></a>
 
 ### Secret Key
 
@@ -12,6 +18,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ```
 
 [CONSOLE] > [Notification] > [Push] > [URL & AppKey]で作成できます。
+
+<a id="response"></a>
 
 ### Response
 
@@ -64,6 +72,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | false | 40014 | Client Error. Wrong message type. Check contact or removeGuide. |
 | false | 40015 | Client Error. Wrong reservationDays. |
 | false | 50001 ～ 50501 | Internal Error. Please report this. 'http://cloud.toast.com/support/qaa'. |
+
+<a id="tokens"></a>
 
 ### トークン
 
@@ -133,6 +143,8 @@ Content-Type: application/json;charset=UTF-8
 - ネットワーク状態が良くないか、複数の理由によるレスポンス遅延が発生することがある。モバイルアプリケーション起動への影響を最小化するためにTimeoutを短く設定し、起動するたびにトークンを登録することを推奨する。
 - トークンはセキュリティ的なイシュー、アプリアップデート、削除など、さまざまな理由で再発行されることがある。頻繁に変更されることはないが、受信率を高めるため、起動するたびに最新トークンを登録することを推奨する。
 - アプリ削除などでトークンが満了してもすぐにGCM、APNSサーバーに適用されず、アプリ削除後にプッシュメッセージを送信した時、送信が成功することがある。
+
+<a id="query"></a>
 
 #### トークン照会
 
@@ -205,8 +217,12 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 - Secret Keyが必要なAPIで、サーバーで呼び出される必要があります。
 
+<a id="messages"></a>
+
 ### メッセージ
 ※ APIで送信したプッシュメッセージはコンソールとメッセージ照会APIで照会できません。
+
+<a id="send"></a>
 
 #### メッセージ送信
 
@@ -344,6 +360,8 @@ Request Body
 }
 ```
 
+<a id="common-messages"></a>
+
 #### 共通メッセージ
 
 API v1.3から共通メッセージ形式をサポートする。 "content"に下記表の通りにメッセージを作成すると、各プッシュタイプに合わせてメッセージが作成され、送信される。
@@ -478,6 +496,8 @@ Request Body
 }
 ```
 
+<a id="query-2"></a>
+
 #### メッセージ照会
 ※コンソールで送信したプッシュメッセージのみメッセージ照会APIで照会できます。
 
@@ -542,7 +562,11 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 - CANCEL_UNAUTHORIZED：証明書の認証プロセスで失敗した状態。証明書の状態を確認する必要がある。
 - CANCEL_UNKNOWN：内部エラーが発生した状態。
 
+<a id="feedbacks"></a>
+
 ### フィードバック
+
+<a id="check"></a>
 
 #### フィードバックの確認
 
