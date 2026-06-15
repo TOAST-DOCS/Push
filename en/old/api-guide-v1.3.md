@@ -1,8 +1,14 @@
+<!-- pre-align:aligned sig=7ad128a41143 -->
+
 ## Notification > Push > API v1.3 Guide
+
+<a id="api"></a>
 
 ### API 테스트
 
 [CONSOLE] > [Notification] > [Push] > [APIs] 탭에서 할 수 있다.
+
+<a id="secret-key"></a>
 
 ### Secret Key
 
@@ -12,6 +18,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ```
 
 [CONSOLE] > [Notification] > [Push] > [URL & AppKey] 에서 생성할 수 있다.
+
+<a id="response"></a>
 
 ### Response
 
@@ -64,6 +72,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | false | 40014 | Client Error. Wrong message type. Check contact or removeGuide. |
 | false | 40015 | Client Error. Wrong reservationDays. |
 | false | 50001 ~ 50501 | Internal Error. Please report this. 'http://cloud.toast.com/support/qaa'. |
+
+<a id="section-1"></a>
 
 ### 토큰
 
@@ -133,6 +143,8 @@ Content-Type: application/json;charset=UTF-8
 - 네트워크 상태가 좋지 않거나 여러 이유로 인한 응답 지연이 발생할 수 있다. 모바일 어플리케이션 구동에 영향을 최소화 하기위해 Timeout을 짧게 설정하고, 구동될 때 마다 토큰을 등록하는 것이 좋다.
 - 토큰은 보안적인 이슈, 앱 업데이트, 삭제 등 여러가지 이유로 재발급될 수 있다. 자주 변경되는 것은 아니지만, 수신율을 높이기 위해 구동될 때 마다 최신 토큰을 등록하는 것이 좋다.
 - 앱 삭제 등으로 토큰이 만료되어도 바로 GCM, APNS 서버에 적용되지 않아, 앱 삭제 후 푸시 메시지를 발송했을 때 발송이 성공할 수 있다.
+
+<a id="section-1-1"></a>
 
 #### 토큰 조회
 
@@ -205,7 +217,11 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 - Secret Key가 필요한 API이며, 서버에서 호출되어야 한다.
 
+<a id="section-2"></a>
+
 ### 메시지
+
+<a id="section-2-1"></a>
 
 #### 메시지 발송
 
@@ -343,6 +359,8 @@ Request Body
 }
 ```
 
+<a id="section-2-2"></a>
+
 #### 공통 메시지
 
 API v1.3 부터 공통 메시지 형식을 지원 한다. "content"에 아래 표대로 메시지를 작성하면, 각 푸시 타입에 맞게 메시지가 생성되어 발송된다.
@@ -477,6 +495,8 @@ Request Body
 }
 ```
 
+<a id="section-2-3"></a>
+
 #### 메시지 조회
 
 [Method, URL]
@@ -540,7 +560,11 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 - CANCEL_UNAUTHORIZED: 인증서 인증 과정에서 실패한 상태다. 인증서 상태를 확인해야 한다.
 - CANCEL_UNKNOWN: 내부 오류가 발생한 상태다.
 
+<a id="section-3"></a>
+
 ### 피드백
+
+<a id="section-3-1"></a>
 
 #### 피드백 확인
 
