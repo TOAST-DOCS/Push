@@ -1,9 +1,15 @@
+<!-- pre-align:aligned sig=f219e22308eb -->
+
 ## Notification > Push > SDK v1.4 사용 가이드
 TOAST Cloud Push SDK를 적용하면 모바일 애플리케이션과 TOAST Cloud Push를 쉽게 연동할 수 있다.
+
+<a id="sdk-download"></a>
 
 ## 푸시 SDK Download
 
 SDK를 다운로드하려면 메뉴에서 [Downloads > Latest Version]을 클릭한 후, 왼쪽 메뉴에서 [Notification > Push]를 클릭한다.
+
+<a id="tencent-sdk-download"></a>
 
 ## 텐센트(TENCENT) 푸시 SDK Download
 
@@ -14,9 +20,13 @@ TENCENT 푸시 SDK와 통합하는 방법에 대해 설명한다.
 
 가이드는 TENCENT(Xg Push) 3.2.3 버전 기준으로 작성되었다.
 
+<a id="section-1"></a>
+
 ## 토큰 등록
 
 기기 식별을 위한 토큰(Token)을 서버에 등록하는 과정이다. 등록이 성공하면 해당 기기에서 푸시 메시지를 수신할 수 있다.
+
+<a id="ios-apns"></a>
 
 ### iOS, APNS
 
@@ -51,6 +61,8 @@ TENCENT 푸시 SDK와 통합하는 방법에 대해 설명한다.
 ...
 @end
 ```
+
+<a id="android-gcm"></a>
 
 ### Android, GCM
 
@@ -180,6 +192,8 @@ dependencies {
 }
 ```
 
+<a id="android-tencent"></a>
+
 ### Android, TENCENT
 
 **AndroidManifest.xml**
@@ -251,6 +265,8 @@ dependencies {
 ACCESS ID, ACCESS KEY 발급은 [Developer's Guide]를 참고한다.
 
 
+<a id="options"></a>
+
 ### Options
 
 options는 플랫폼에 따라 Dictionary나 Map, 또는 그에 준하는 Key/Value Collection으로 정의된다. 각각의 Key/Value는 다음과 같다.
@@ -269,9 +285,15 @@ options는 플랫폼에 따라 Dictionary나 Map, 또는 그에 준하는 Key/Va
 |KEY_ACCESS_ID(accessId)|	string|	TENCENT를 사용하기 위해 필요하다. <br/> [[Tencent 푸시 서비스 대시보드](http://xg.qq.com/xg/ctr_index/login?go_to_url=http%3A%2F%2Fxg.qq.com%2Fxg%2Fapps%2Fctr_app%2Findex)]에서 확인할 수 있다.|	Android(TENCENT)|
 |KEY_ACCESS_KEY <br/> (accessKey)|	string|	TENCENT를 사용하기 위해 필요하다. <br/> [[Tencent 푸시 서비스 대시보드](http://xg.qq.com/xg/ctr_index/login?go_to_url=http%3A%2F%2Fxg.qq.com%2Fxg%2Fapps%2Fctr_app%2Findex)]에서 확인할 수 있다.|	Android(TENCENT)|
 
+<a id="section-2"></a>
+
 ## 푸시 메시지 수신
 
+<a id="android-common"></a>
+
 ### Android, Common
+
+<a id="notification-channel"></a>
 
 #### Notification Channel
 
@@ -282,6 +304,8 @@ targetSdkVersion이 26 이상일 경우, 안드로이드 8.0 이상의 기기에
 커스텀 리시버를 사용하거나, 기본 리시버를 상속했지만 super 메소드를 호출하지 않는 경우는 아래 공식 가이드를 참고해서 Notification Channel을 반드시 적용해야 합니다.
 
 * [Notification Channel 공식 가이드](https://developer.android.com/training/notify-user/channels)
+
+<a id="android-gcm-2"></a>
 
 ### Android, GCM
 
@@ -327,6 +351,8 @@ PushSdk$GcmListener를 YourGcmListener로 수정한다.
     </service>
     ...
 ```
+
+<a id="android-tencent-2"></a>
 
 ### Android, TENCENT
 
@@ -401,6 +427,8 @@ PushSdk$XgListener 부분을 위에서 작성한 커스텀 클래스로 변경�
 	...
 ```
 
+<a id="section-3"></a>
+
 ## 토큰 조회
 
 APPKEY, UID, options로 등록된 Token을 조회할 수 있다.
@@ -422,6 +450,8 @@ APPKEY, UID, options로 등록된 Token을 조회할 수 있다.
 
 > 광고 푸시 관련 필드(isAdAgreement, isNightAdAgreement)는 토큰 등록시 language가 한글이었을 경우에만 반환한다.
 
+<a id="ios-apns-2"></a>
+
 ### iOS, APNS
 
 **pushsdk.m**
@@ -441,6 +471,8 @@ NSDictionary* options = @{kTCPushKeyServerUrl : @"https://push.api.nhncloudservi
 	} options:options];
 ......
 ```
+
+<a id="android-gcm-tencent"></a>
 
 ### Android, GCM, TENCENT
 
@@ -476,9 +508,13 @@ NSDictionary* options = @{kTCPushKeyServerUrl : @"https://push.api.nhncloudservi
     }
 ```
 
+<a id="section-4"></a>
+
 ## 수신 및 오픈 여부 적용
 - 클라이언트에서 푸시 수신 및 확인 여부 등에 대한 정보를 서버에 전송할 수 있다.
 - 지표는 웹 콘솔을 통해서 볼 수 있다.
+
+<a id="android-gcm-3"></a>
 
 ### Android, GCM
 
@@ -539,8 +575,12 @@ public class YourGcmListener extends PushSdk.GcmListener {
 }
 ```
 
+<a id="ios"></a>
+
 ### iOS
 - iOS의 수신 및 오픈 여부는 iOS 10 이상에서만 동작하며, UserNotification 프레임워크의 Notification Service Extension을 이용한다.
+
+<a id="notification-service-extension"></a>
 
 #### Notification Service Extension 을 이용한 수신 여부 적용
 - 현재 프로젝트에 Notification Service Extension 타겟을 추가한다.
@@ -587,6 +627,8 @@ public class YourGcmListener extends PushSdk.GcmListener {
 @end
 ```
 
+<a id="usernotification"></a>
+
 #### UserNotification 프레임워크를 이용한 오픈 여부 적용
 - 자신의 AppDelegate에 UNUserNotificationCenterDelegate 딜리게이트를 적용한다.
 - 그리고 AppDelegate 구현에 **(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:** 메소드를 추가한다.
@@ -622,6 +664,8 @@ public class YourGcmListener extends PushSdk.GcmListener {
 }
 @end
 ```
+
+<a id="section-5"></a>
 
 ## 오류 처리
 
