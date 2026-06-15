@@ -1,13 +1,23 @@
+<!-- pre-align:aligned sig=4571e59c4c24 -->
+
 ## Notification> Push > Release Notes
 
+<a id="june-25-2024"></a>
+
 ### June 25, 2024
+<a id="console-api"></a>
+
 #### [Console, API]
 ##### Feature Updates
 * Changed the maximum available period for scheduled delivery
     * Changed the maximum available date for scheduled delivery to be up to 60 days from now 
     * The change applies to the console and all versions of the APIs.
 
+<a id="february-27-2024"></a>
+
 ### February 27, 2024
+<a id="console"></a>
+
 #### [Console]
 ##### Added Features
 * Added FCM Service Account Credential Authentication
@@ -16,7 +26,11 @@
         * Go to <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/console-guide/#_1">Console Guide</a>
     * After you enroll for **Service Account Credential**, FCM messages are sent via the FCM HTTP V1 API. To continue sending with FCM after June 20, 2024, you must register **Service Account Credential**in the console.
 
+<a id="october-31-2023"></a>
+
 ### October 31, 2023.
+<a id="console-2"></a>
+
 #### [Console]
 ##### Feature Updates
 * Added a SecretKey when setting up the Logging feature
@@ -24,13 +38,21 @@
     * If you are already using the feature before October 31, 2023, SecretKey input is not required as transition is scheduled.
 
 
+<a id="march-14-2023"></a>
+
 ### March 14, 2023
+<a id="api"></a>
+
 #### [API]
 ##### Added Features
 * Added the Query Token List API
     * Added API to query token lists (v2.4).
 
+<a id="december-13-2022"></a>
+
 ### December 13, 2022
+<a id="api-2"></a>
+
 #### [API]
 ##### Added Features
 * Added a paging feature when viewing general logs
@@ -38,19 +60,31 @@
 ##### Updates
 * Changed the maximum limit from 1000 to 100 when viewing failed messages
 
+<a id="may-10-2022"></a>
+
 ### May 10, 2022
+<a id="api-3"></a>
+
 #### [API]
 ##### Bug Fixes
 * Fixed an issue where an error occurred if there was no `X-SECRET-KEY` header when calling v2.2 API
     * Fixed the issue so that API authentication can be done with `X-User-Access-Key-ID` and `X-Secret-Access-Key` headers.
 
+<a id="march-29-2022"></a>
+
 ### March 29, 2022
+<a id="console-3"></a>
+
 #### [Console]
 ##### Added Features
 * Added a feature to provide a compressed file after splitting the file if the number of tokens exceeds 1 million when using the token file download
     * When downloading stored tokens as a file using the **Token File Download** feature in the **Token** tab, a feature to provide a compressed file after splitting the file if the number of tokens exceeds 1 million has been added.
 
+<a id="february-15-2022"></a>
+
 ### February 15, 2022
+<a id="console-4"></a>
+
 #### [Console]
 ##### Added Features
 * Added a token file download feature
@@ -61,7 +95,11 @@
 * Fixed an error where duplicate authentication failure notification emails were sent
     * Fixed an error where, when authentication failed when sending a push message, duplicate notification emails were sent
 
+<a id="january-11-2022"></a>
+
 ### January 11, 2022
+<a id="api-4"></a>
+
 #### [API]
 ##### Added Features
 * Added a receipt/confirmation feature to the Amazon Device Messaging (ADM) push type
@@ -70,12 +108,18 @@
 * Fixed an error where a failure to send an iOS message with FCM was handled as a success
     * Fixed an error where, when sending a message after setting an incorrect APNS certificate to Firebase, it was handled as a success.
 
+<a id="october-26-2021"></a>
+
 ### October 26, 2021
+<a id="console-5"></a>
+
 #### [Console]
 ##### Added Features
 * Added a pop-up for modifying token date and time
     * Added a pop-up that allows you to modify the date and time of the registered token.
     * It can be used to change the consent date and time of the token in order to test features such as reserving the advertisement opt-in notification message.
+
+<a id="api-5"></a>
 
 #### [API]
 ##### Added Features
@@ -87,8 +131,14 @@
 * Fixed a query condition processing error in v2.4 scheduled message query API
     * Fixed an error where the 'from' and 'to' query conditions were not processed in the v2.4 scheduled message query API.
 
+<a id="july-27-2021"></a>
+
 ### July 27, 2021
+<a id="console-6"></a>
+
 ### [Console]
+<a id="added-features"></a>
+
 #### Added Features
 * Added the feature of reserving a guide message for the ad opt-in acceptance
     * Added a feature of sending a guide message to tokens that have reached two years since their last acceptance of ad opt-in. 
@@ -97,32 +147,54 @@
     * If you place the temporary replacer for opting in to receive advertisement messages (###AD_AGREEMENT_DATE_TIME###) in the body, when sending a message, its time will be replaced with the opt-in acceptance time of the token.
     * This can be set in **Reserve Message for Acceptance of Ad Opt-in** under the **Settings** tab.
 
+<a id="december-29-2020"></a>
+
 ### December 29, 2020
+<a id="api-6"></a>
+
 ### [API]
 * Added v2.4 Statistics Total API
      * Added a Total API to sum up the retrieved statistical data.
         <a href="https://docs.toast.com/en/Notification/Push/en/api-guide/#stats-total-api" target="_blank">Go to</a>
 
+<a id="june-9-2020"></a>
+
 ### June 9, 2020
+<a id="console-7"></a>
+
 ### [Console]
+<a id="added-features-2"></a>
+
 #### Added Features 
 * Added APNS JWT Authentication
     * Added JWT as method of authentication for sending APNS push messages. You can register Key ID, Team ID, Topic, or Encryption Key required to authenticate JWT on the **Certificate** tab of console.
     * With the registration of APNS JWT certificate information, registered certificate is deleted. 
     * <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_token-based_connection_to_apns" target="_blank">Go to Apple Developer Guide</a>
 
+<a id="doc"></a>
+
 ### [Doc]
+<a id="added-guide"></a>
+
 #### Added Guide
 * Added a guide for **Getting Authentication Information for APNS JWT**
     * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#get-apns-jwt" target="_blank">Direct link</a>
 
 
+<a id="march-24-2020"></a>
+
 ### March 24, 2020
+<a id="console-8"></a>
+
 ### [Console]
+<a id="added-features-3"></a>
+
 #### Added Features
 * Updated Statistics
     * Added the **Statistics Event Key Management** tab. You can add a new statistics event key on console and set it up for message delivery. With messages sent, statistical data are collected as of configured statistics event key, and then you can search from the new statistics tab. 
         * <a href="https://docs.toast.com/en/Notification/Push/en/console-guide/#stats-event-key" target="_blank">Direct Link</a>
+
+<a id="api-7"></a>
 
 ### [API]
 * Added v2.4 API
@@ -132,7 +204,43 @@
    * Added the multi-tenant feature allowing a token to be shared by many UIDs. You may attach '#tenant=Tenant_Information' at the end of a token for a token registration. Even if many UIDs share a same token, the token can be maintained if it has different tenant information.  
 
 
+<a id="january-21-2020"></a>
+
+### January 21, 2020
+
+<!-- TODO: translate body -->
+
+<a id="doc-2"></a>
+
+#### [Doc]
+
+<!-- TODO: translate body -->
+
+##### Added Guide
+
+<!-- TODO: translate body -->
+
+<a id="december-24-2019"></a>
+
+### December 24, 2019
+
+<!-- TODO: translate body -->
+
+<a id="console-9"></a>
+
+#### [Console]
+
+<!-- TODO: translate body -->
+
+##### Added Features
+
+<!-- TODO: translate body -->
+
+<a id="october-29-2019"></a>
+
 ### October 29, 2019
+<a id="api-8"></a>
+
 #### [API]
 ##### Added Features 
 * Added Badge Attribute for Android  
@@ -151,12 +259,18 @@
     * Actions (e.g. URL or Scheme) to be executed by the click of a push message can be defined at 'content.default.clickAction'. 
     With TOAST SDK, action is executed automatically.  
 
+<a id="september-24-2019"></a>
+
 ### September 24, 2019 
+<a id="api-9"></a>
+
 #### [API]
 ##### Bug Fixes 
 * Fixed delivery error of iOS rich messages 
     * Fixed error in which image is not properly displayed on iOS if a rich message is delivered while Receive/Confirm Messages is not enabled.  
 
+
+<a id="console-10"></a>
 
 #### [Console]
 ##### Added Features 
@@ -167,17 +281,27 @@
         *  <a href="https://firebase.google.com/docs/cloud-messaging/http-server-ref" target="_blank">Go to FCM Guide</a>
     * By using attributes such as 'notification', 'content_available', or 'mutual_content', messages can be sent to iOS apps via FCM. 
 
+<a id="may-28-2019"></a>
+
 ### May 28, 2019 
+<a id="api-10"></a>
+
 #### [API]
 * Improved Receive/Confirm Message data collection performance
     * We have improved message receiving/confirmation data collection performance.
 
+<a id="march-26-2019"></a>
+
 ### March 26, 2019 
+<a id="api-11"></a>
+
 #### [API]
 ##### Bug Fixes
 * Fixed an error where the from (to, to) setting does not apply in the invalid token lookup API
     * Invalid token lookup API, there was an error that ignores the settings unless both from and to are set.
     * Fixed to apply period setting even if only one of from and to is set.
+
+<a id="console-11"></a>
 
 #### [Console]
 ##### Added Features
@@ -187,12 +311,18 @@
     * Duplicate criterion is message type, content (content), outgoing contact, reception agreement setting guide, advertisement display position, token.
     * Settings tab "Duplicate message prevention settings" can be set.
 
+<a id="february-26-2019"></a>
+
 ### February 26, 2019 
+<a id="api-12"></a>
+
 #### [API]
 ##### Added Features
 * Added v2.3 API
     * Added Token Delete API. Can be called without Secret Key.
     * Added new push type 'FCM'. You must use 'FCM' instead of 'GCM' when making API calls.
+
+<a id="console-12"></a>
 
 #### [Console]
 ##### Bug Fixes
@@ -204,13 +334,21 @@ Fix broken, typo, link errors
 ##### Added Features
 * User console added.
 
+<a id="december-18-2018"></a>
+
 ### December 18, 2018
+<a id="api-13"></a>
+
 #### [API]
 ##### Bug Fixes
 * Fixed an error that invalid VoIP token was not deleted normally.
     * Fixed an error that prevents APNS_VOIP, APNS_SANDBOXVOIP token from being deleted when sending a message.
 
+<a id="october-30-2018"></a>
+
 ### October 30, 2018 
+<a id="console-13"></a>
+
 #### [Console]
 ##### Added Features
 * Rich message feature added to message sending page
@@ -226,12 +364,16 @@ Fix broken, typo, link errors
     * There was an error displaying the time in UTC when searching for tokens. Corrected to display in your browser's local time.
 
 
+<a id="api-14"></a>
+
 #### [API]
 ##### Added Features
 * Rich message feature added to message dispatch API
     * Added the ability to display buttons, media (images, movies, sounds) in push messages.
          * <a href="https://docs.toast.com/en/Notification/Push/en/api-guide/#7" target="_blank">Go to API Guide </a>
     * Available in v2.0 message delivery APIs and in apps with the latest SDKs.
+
+<a id="sdk"></a>
 
 #### [SDK]
 ##### Android
@@ -258,7 +400,11 @@ Fix broken, typo, link errors
     * As an example, if you look up data by 10:11, there is an error that the data of 11 minutes 59 seconds is missing.
     In this case, we improved to include 59 seconds.
 
+<a id="august-28-2018"></a>
+
 ### August 28, 2018 
+<a id="api-15"></a>
+
 #### [API]
 ##### Added Features
 * Added Logging API
@@ -279,11 +425,17 @@ Fix broken, typo, link errors
 * Improved error in statistics API timeout in some projects
     * There was a timeout error in some projects. Fixed timeout not to occur through optimization.
 
+<a id="july-24-2018"></a>
+
 ### July 24, 2018 
+<a id="api-16"></a>
+
 #### [API]
 ##### Updates
 * Improved response message
     * Improved to better understand the cause of failure in header.resultMessage of Response Body by adding more details.
+
+<a id="sdk-2"></a>
 
 #### [SDK]
 ##### Android
@@ -295,7 +447,11 @@ Fix broken, typo, link errors
 
 <br>
 
+<a id="june-26-2018"></a>
+
 ### June 26, 2018 
+<a id="console-14"></a>
+
 #### [Console]
 ##### Added Features
 * Add Amazon Device Messaging (ADM) push type
@@ -303,6 +459,8 @@ Fix broken, typo, link errors
     * You can register your app on the Amazon developer site, get a Client ID, Client Secret, and register it.
      <a href="https://docs.toast.com/en/Notification/Push/en/console-guide/#adm-client-id-client-secret" target="_blank"> ADM Guide Shortcut </ a>
 
+
+<a id="api-17"></a>
 
 #### [API]
 ##### Added Features
@@ -315,6 +473,8 @@ Fix broken, typo, link errors
 * Fixed an error that duplicate reception when using local time function when sending reservation message
     * Fixed an error sending a reservation message in a non-existent time zone when using the local time feature.
 
+<a id="sdk-3"></a>
+
 #### [SDK]
 ##### Android
 * Apply latest Tencent SDK (3.2.3)
@@ -326,11 +486,17 @@ Automate message check indicator collection and transmission
 
 <br>
 
+<a id="may-29-2018"></a>
+
 ### May 29, 2018 
+<a id="console-15"></a>
+
 #### [Console]
 ##### Updates
 * Add message ID
     * Added message ID to the details part of popup when selecting message.
+
+<a id="api-18"></a>
 
 #### [API]
 ##### Added Features
@@ -340,3 +506,517 @@ Automate message check indicator collection and transmission
 
 ##### Updates
 * Advertising
+##### Bug Fixes
+
+<!-- TODO: translate body -->
+
+<a id="sdk-4"></a>
+
+#### [SDK]
+
+<!-- TODO: translate body -->
+
+##### Android
+
+<!-- TODO: translate body -->
+
+<a id="02"></a>
+
+### 02
+
+<!-- TODO: translate body -->
+
+<a id="sdk-5"></a>
+
+#### [SDK]
+
+<!-- TODO: translate body -->
+
+##### Android
+
+<!-- TODO: translate body -->
+
+##### iOS
+
+<!-- TODO: translate body -->
+
+<a id="24"></a>
+
+### 24
+
+<!-- TODO: translate body -->
+
+<a id="console-16"></a>
+
+#### [Console]
+
+<!-- TODO: translate body -->
+
+##### Added Features
+
+<!-- TODO: translate body -->
+
+##### Updates
+
+<!-- TODO: translate body -->
+
+<a id="api-19"></a>
+
+#### [API]
+
+<!-- TODO: translate body -->
+
+##### Added Features
+
+<!-- TODO: translate body -->
+
+<a id="etc"></a>
+
+#### [ETC]
+
+<!-- TODO: translate body -->
+
+##### Bug Fixes
+
+<!-- TODO: translate body -->
+
+<a id="22"></a>
+
+### 22
+
+<!-- TODO: translate body -->
+
+<a id="console-17"></a>
+
+#### [Console]
+
+<!-- TODO: translate body -->
+
+##### Updates
+
+<!-- TODO: translate body -->
+
+<a id="api-20"></a>
+
+#### [API]
+
+<!-- TODO: translate body -->
+
+##### Added Features
+
+<!-- TODO: translate body -->
+
+##### Bug Fixes
+
+<!-- TODO: translate body -->
+
+<a id="22-2"></a>
+
+### 22
+
+<!-- TODO: translate body -->
+
+<a id="console-18"></a>
+
+#### [Console]
+
+<!-- TODO: translate body -->
+
+##### Added Features
+
+<!-- TODO: translate body -->
+
+##### Updates
+
+<!-- TODO: translate body -->
+
+<a id="api-21"></a>
+
+#### [API]
+
+<!-- TODO: translate body -->
+
+##### Added Features
+
+<!-- TODO: translate body -->
+
+##### Updates
+
+<!-- TODO: translate body -->
+
+##### Bug Fixes
+
+<!-- TODO: translate body -->
+
+<a id="etc-2"></a>
+
+#### [ETC]
+
+<!-- TODO: translate body -->
+
+##### Updates
+
+<!-- TODO: translate body -->
+
+<a id="12"></a>
+
+### 12
+
+<!-- TODO: translate body -->
+
+<a id="api-22"></a>
+
+#### [API]
+
+<!-- TODO: translate body -->
+
+##### Bug Fixes
+
+<!-- TODO: translate body -->
+
+<a id="etc-3"></a>
+
+#### [ETC]
+
+<!-- TODO: translate body -->
+
+##### Updates
+
+<!-- TODO: translate body -->
+
+<a id="23"></a>
+
+### 23
+
+<!-- TODO: translate body -->
+
+<a id="console-19"></a>
+
+#### [Console]
+
+<!-- TODO: translate body -->
+
+##### Added Features
+
+<!-- TODO: translate body -->
+
+##### Bug Fixes
+
+<!-- TODO: translate body -->
+
+<a id="api-23"></a>
+
+#### [API]
+
+<!-- TODO: translate body -->
+
+##### Updates
+
+<!-- TODO: translate body -->
+
+<a id="etc-4"></a>
+
+#### [ETC]
+
+<!-- TODO: translate body -->
+
+##### Bug Fixes
+
+<!-- TODO: translate body -->
+
+<a id="21"></a>
+
+### 21
+
+<!-- TODO: translate body -->
+
+<a id="console-20"></a>
+
+#### [Console]
+
+<!-- TODO: translate body -->
+
+##### Bug Fixes
+
+<!-- TODO: translate body -->
+
+<a id="api-24"></a>
+
+#### [API]
+
+<!-- TODO: translate body -->
+
+##### Updates
+
+<!-- TODO: translate body -->
+
+<a id="24-2"></a>
+
+### 24
+
+<!-- TODO: translate body -->
+
+<a id="console-21"></a>
+
+#### [Console]
+
+<!-- TODO: translate body -->
+
+##### Added Features
+
+<!-- TODO: translate body -->
+
+##### Updates
+
+<!-- TODO: translate body -->
+
+<a id="api-25"></a>
+
+#### [API]
+
+<!-- TODO: translate body -->
+
+##### Updates
+
+<!-- TODO: translate body -->
+
+##### Bug Fixes
+
+<!-- TODO: translate body -->
+
+<a id="sdk-6"></a>
+
+#### [SDK]
+
+<!-- TODO: translate body -->
+
+##### Android
+
+<!-- TODO: translate body -->
+
+##### iOS
+
+<!-- TODO: translate body -->
+
+<a id="20"></a>
+
+### 20
+
+<!-- TODO: translate body -->
+
+<a id="api-26"></a>
+
+#### [API]
+
+<!-- TODO: translate body -->
+
+##### Added Features
+
+<!-- TODO: translate body -->
+
+##### Bug Fixes
+
+<!-- TODO: translate body -->
+
+<a id="25"></a>
+
+### 25
+
+<!-- TODO: translate body -->
+
+<a id="sdk-7"></a>
+
+#### [SDK]
+
+<!-- TODO: translate body -->
+
+##### Android
+
+<!-- TODO: translate body -->
+
+##### iOS
+
+<!-- TODO: translate body -->
+
+<a id="25-2"></a>
+
+### 25
+
+<!-- TODO: translate body -->
+
+<a id="console-22"></a>
+
+#### [Console]
+
+<!-- TODO: translate body -->
+
+##### Added Features
+
+<!-- TODO: translate body -->
+
+<a id="api-27"></a>
+
+#### [API]
+
+<!-- TODO: translate body -->
+
+<a id="23-2"></a>
+
+### 23
+
+<!-- TODO: translate body -->
+
+<a id="api-28"></a>
+
+#### [API]
+
+<!-- TODO: translate body -->
+
+##### Bug Fixes
+
+<!-- TODO: translate body -->
+
+<a id="sdk-8"></a>
+
+#### [SDK]
+
+<!-- TODO: translate body -->
+
+##### Android
+
+<!-- TODO: translate body -->
+
+##### iOS
+
+<!-- TODO: translate body -->
+
+<a id="19"></a>
+
+### 19
+
+<!-- TODO: translate body -->
+
+<a id="api-29"></a>
+
+#### [API]
+
+<!-- TODO: translate body -->
+
+##### Added Features
+
+<!-- TODO: translate body -->
+
+<a id="etc-5"></a>
+
+#### [ETC]
+
+<!-- TODO: translate body -->
+
+##### Updates
+
+<!-- TODO: translate body -->
+
+<a id="22-3"></a>
+
+### 22
+
+<!-- TODO: translate body -->
+
+<a id="api-30"></a>
+
+#### [API]
+
+<!-- TODO: translate body -->
+
+##### Bug Fixes
+
+<!-- TODO: translate body -->
+
+<a id="24-3"></a>
+
+### 24
+
+<!-- TODO: translate body -->
+
+<a id="sdk-9"></a>
+
+#### [SDK]
+
+<!-- TODO: translate body -->
+
+##### Android
+
+<!-- TODO: translate body -->
+
+##### iOS
+
+<!-- TODO: translate body -->
+
+<a id="06"></a>
+
+### 06
+
+<!-- TODO: translate body -->
+
+<a id="api-31"></a>
+
+#### [API]
+
+<!-- TODO: translate body -->
+
+##### Updates
+
+<!-- TODO: translate body -->
+
+<a id="29"></a>
+
+### 29
+
+<!-- TODO: translate body -->
+
+<a id="console-23"></a>
+
+#### [Console]
+
+<!-- TODO: translate body -->
+
+##### Updates
+
+<!-- TODO: translate body -->
+
+<a id="api-32"></a>
+
+#### [API]
+
+<!-- TODO: translate body -->
+
+##### Bug Fixes
+
+<!-- TODO: translate body -->
+
+<a id="etc-6"></a>
+
+#### [ETC]
+
+<!-- TODO: translate body -->
+
+##### Policy Updates
+
+<!-- TODO: translate body -->
+
+<a id="18"></a>
+
+### 18
+
+<!-- TODO: translate body -->
+
+<a id="console-24"></a>
+
+#### [Console]
+
+<!-- TODO: translate body -->
+
+##### Bug Fixes
+
+<!-- TODO: translate body -->
+
