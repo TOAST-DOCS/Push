@@ -1,25 +1,43 @@
+<!-- pre-align:aligned sig=d72cb9e8819a -->
+
 ## Notification > Push > Android SDK 가이드
 Push SDK를 적용하면 모바일 애플리케이션과 Push를 쉽게 연동할 수 있습니다.
+
+<a id="main-features"></a>
 
 ## 주요 기능
 * OS에 알림 토큰 등록
 * 알림 메시지 수신 및 표시
 * 메시지 수신 및 수신된 메시지를 통한 애플리케이션 실행 지표 수집
 
+<a id="downloads"></a>
+
 ## 다운로드
 [TOAST Document](http://docs.toast.com/ko/Download/)에서 **Notification > Push** 아래의 **Android SDK (AAR)**을 클릭해 파일을 다운로드합니다.
 
+<a id="supporting-environment"></a>
+
 ## 지원 환경
+<a id="version"></a>
+
 #### 버전
 * API 레벨 15(4.0.3) 이상
+
+<a id="supportive-platforms"></a>
 
 #### 지원 플랫폼
 * Google Cloud Messaging(이하 GCM)
 * Tencent Mobile Push(이하 Tencent)
 * Amazon Device Messaging(이하 ADM)
 
+<a id="project-settings"></a>
+
 ## 프로젝트 설정
+<a id="common-setting-jcenter"></a>
+
 ### 공통 설정 (JCenter)
+<a id="add-dependency"></a>
+
 #### 의존성 추가
 * 아래처럼 SDK의 의존을 추가합니다.
 ```groovy
@@ -28,6 +46,8 @@ dependencies {
     // compile 'com.toast.android:pushsdk:1.7.0' // (Gradle < 3.4)
 }
 ```
+
+<a id="when-occuping-duplicatation-of-android-support-library"></a>
 
 #### Android Support 라이브러리 중복이 발생할 경우
 * 아래와 같이 SDK에서 Support 라이브러리를 제외합니다.
@@ -39,8 +59,12 @@ dependencies {
 }
 ```
 
+<a id="common-setting-manual"></a>
+
 ### 공통 설정 (Manual)
 * JCenter를 이용하지 않거나 이용할 수 없는 경우, SDK를 다운로드해서 수동으로 설정해줍니다.
+
+<a id="download-and-add-dependency"></a>
 
 #### 다운로드 및 의존성 추가
 * SDK(AAR) 다운로드 및 추가
@@ -55,7 +79,11 @@ dependencies {
 }
 ```
 
+<a id="gcm-settings"></a>
+
 ### GCM 설정
+<a id="project-setting"></a>
+
 #### 프로젝트 설정
 * build.gradle에 GCM SDK 추가
     * dependencies에 다음과 같이 추가합니다.
@@ -64,6 +92,8 @@ dependencies {
     compile 'com.google.android.gms:play-services-gcm:11.0.0'
 }
 ```
+
+<a id="modify-androidmanifestxml"></a>
 
 #### AndroidManifest.xml 수정
 * 아래에 '[YOUR_PACKAGE_NAME]'으로 되어 있는 모든 부분을 애플리케이션 기본 페키지 네임으로 변경합니다.
@@ -95,7 +125,11 @@ dependencies {
 </manifest>
 ```
 
+<a id="tencent-settings"></a>
+
 ### Tencent 설정
+<a id="project-setting-2"></a>
+
 #### 프로젝트 설정
 가이드는 Tencent SDK 3.2.3을 기준으로 작성되었습니다.
 
@@ -122,6 +156,8 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 ```
+
+<a id="modify-androidmanifestxml-2"></a>
 
 #### AndroidManifest.xml 수정
 * 아래에 '[YOUR_PACKAGE_NAME]'으로 되어 있는 모든 부분을 애플리케이션 기본 페키지 네임으로 변경합니다.
@@ -182,7 +218,11 @@ dependencies {
 </manifest>
 ```
 
+<a id="adm-settings"></a>
+
 ### ADM 설정
+<a id="project-setting-3"></a>
+
 #### 프로젝트 설정
 * Amazon Device Messaging(이하 ADM)은 Fire OS 2세대 이상의 기기에서 사용할 수 있습니다.
 * [Amazon Developer SDKs 다운로드 페이지](https://developer.amazon.com/sdk-download)에서 Amazon Device Messaging SDK를 다운로드합니다.
@@ -193,6 +233,8 @@ dependencies {
     compileOnly files('libs/amazon-device-messaging-1.0.1.jar')
 }
 ```
+
+<a id="modify-androidmanifestxml-3"></a>
 
 #### AndroidManifest.xml 수정
 * 아래에 '[YOUR_PACKAGE_NAME]'으로 되어 있는 모든 부분을 애플리케이션 기본 페키지 네임으로 변경합니다.
@@ -233,6 +275,8 @@ dependencies {
 </receiver>
 ```
 
+<a id="implement-handler-and-receiver"></a>
+
 #### Handler 및 Receiver 구현
 - 수신한 Push 데이터를 이용해서 추가 작업이 필요없을 경우, 기본 Handler와 Receiver를 사용하셔도 됩니다.
     - 기본 Handler : com.toast.android.pushsdk.listener.DefaultPushSdkADMHandler
@@ -261,7 +305,11 @@ public class CustomADMReceiver extends ADMMessageReceiver {
 }
 ```
 
+<a id="sdk-guide"></a>
+
 ## SDK 사용 가이드
+<a id="define-pushparams"></a>
+
 ### PushParams 정의
 * PushParams 객체는 토큰 등록 및 조회를 위해서 필요한 객체입니다.
 * PushParams.Builder 클래스를 통해서 객체를 생성할 수 있습니다.
@@ -279,6 +327,8 @@ public class CustomADMReceiver extends ADMMessageReceiver {
 | isNotificationAgreement | 알림 표시 동의 여부                  | 선택      | false            |
 | isAdAgreement           | 광고성 정보 알림 표시 동의 여부      | 선택      | false            |
 | isNightAdAgreement      | 야간 광고성 정보 알림 표시 동의 여부 | 선택      | false            |
+
+<a id="create-pushparams"></a>
 
 #### PushParams 객체 생성
 * PushParams 객체는 PushParams.Builder 클래스를 통해서 생성할 수 있습니다.
@@ -306,6 +356,8 @@ builder.setLanguage("ko"); // 선택값
 PushParams pushParams = builder.build();
 ```
 
+<a id="register-tokens"></a>
+
 ### 토큰 등록
 * 푸시 타입에 따라 토큰을 생성해서 서버에 토큰을 등록합니다.
 * 예제 코드
@@ -330,6 +382,8 @@ PushSdk.register(pushParams, new PushRegisterCallback() {
 > 이 경우, 다시 토큰 등록을 호출해야합니다. 사용자가 WRITE_SETTINGS 권한을 허용했다면 정상적으로 토큰이 등록됩니다. 
 > 사용자가 WRITE_SETTINGS 권한을 허용하지 않았다면 계속해서 ERROR_PERMISSION_REQUIRED 오류가 반환됩니다.
 
+<a id="query-token-information"></a>
+
 ### 토큰 정보 조회
 * 현재 서버에 저장된 토큰 정보가 PushQueryResult 객체에 담겨 콜백으로 반환됩니다.
 * 예제 코드
@@ -348,6 +402,8 @@ PushSdk.query(pushParams, new PushQueryCallback() {
 });
 ```
 
+<a id="enable-debug-logs"></a>
+
 #### 디버그 로그 활성화
 * Push SDK는 SDK의 디버그 로그를 활성화하는 메서드를 제공합니다.
 * <span style="color:#f47141">반드시 개발 중에만 디버그 로그를 활성화해야 합니다. 릴리스할 때는 제거하거나 false로 설정해야 합니다.</span>
@@ -355,7 +411,11 @@ PushSdk.query(pushParams, new PushQueryCallback() {
 PushSdk.setDebug(true);
 ```
 
+<a id="collect-indicators-gcm-only"></a>
+
 ### 지표 수집 (GCM Only)
+<a id="received"></a>
+
 #### 수신(Received) 지표
 * SDK에서 제공하는 기본 리시버를 사용하는 경우, 수신 지표가 자동으로 수집됩니다.
 * 사용자가 직접 리시버를 구현하는 경우, 수신 지표 수집을 위해서 아래 메서드를 리시버에 추가해야 합니다.
@@ -369,6 +429,8 @@ public static class CustomPushReceiver extends GcmListenerService {
     }
 }
 ```
+
+<a id="opened"></a>
 
 #### 실행(Opened) 지표
 * 알림 영역의 알림을 통해서 실행했을 경우를 실행 지표라고 합니다.
@@ -404,6 +466,8 @@ public static class CustomPushReceiver extends GcmListenerService {
 }
 ```
 
+<a id="error-codes"></a>
+
 ### 오류 코드
 * 오류 코드는 com.toast.android.pushsdk.annotations.PushResultCode 어노테이션에 @IntDef 로 정의되어있습니다.
 
@@ -417,13 +481,21 @@ public static class CustomPushReceiver extends GcmListenerService {
 | ERROR_PERMISSION_REQUIRED | 권한이 필요한 경우(Tencent만 해당) |
 | ERROR_PARSE_JSON_FAIL     | 서버 응답을 파싱하지 못한 경우       |
 
+<a id="rich-message-guide"></a>
+
 ## 리치 메시지 사용 가이드
 - 리치 메시지 기능을 위한 SDK 사용 가이드입니다.
+
+<a id="what-is-rich-message"></a>
 
 ### 리치 메시지란?
 - 제목, 본문과 함께 다양하고 풍부한 메시지를 수신할 수 있습니다.
 
+<a id="support-features-and-specification"></a>
+
 ### 지원하는 리치 메시지 기능 및 스펙
+<a id="button"></a>
+
 #### 버튼
 * 알림 제거 : 현재 알림을 제거합니다.
 * 앱 열기 : 앱을 실행합니다.
@@ -438,25 +510,35 @@ public static class CustomPushReceiver extends GcmListenerService {
 
 > 버튼 기능을 사용하기 위해서는 *NotificationConverter 클래스* 를 이용해서 알림을 생성해야 합니다.
 
+<a id="media"></a>
+
 #### 미디어
 * 이미지 : 알림에 이미지를 추가합니다. (내부, 외부 이미지 모두 지원)
     * 이미지는 가로와 세로 비율이 2:1인 이미지를 권장합니다. 
     * 다른 비율의 이미지는 잘린채로 노출될 수 있습니다.
 * 그 외 : 그 외의 미디어(동영상, 소리 등)는 지원하지 않습니다.
 
+<a id="large-icon"></a>
+
 #### 큰 아이콘
 * 알림에 큰 아이콘을 추가합니다. (내부, 외부 이미지 모두 지원)
     * 큰 아이콘의 이미지는 1:1 비율을 권장합니다. 
     * 다른 비율의 이미지는 강제로 비율이 1:1로 변경되기 때문에 기대와 다른 이미지가 노출될 수 있습니다.
+
+<a id="group"></a>
 
 #### 그룹
 * 같은 키의 알림들을 하나로 묶습니다.
     * 안드로이드 7.0(API 레벨 24) 이상에서만 사용가능합니다.
     * NotificationConverter를 통해 변환된 알림일 경우, 안드로이드 7.0 미만 기기에서는 그룹이 무시된채로 알림이 노출됩니다.
 
+<a id="receive-rich-messages-and-notify"></a>
+
 ### 리치 메시지 수신 및 알림 등록
 - Push SDK에서 제공하는 기본 리시버들을 그대로 사용 중이라면 별도의 처리없이 리치 메시지를 수신 및 알림으로 등록이 가능합니다.
 - 별도의 리시버를 구현해서 사용 중이라면 *ToastPushMessage 클래스와 NotificationConverter 클래스* 를 확인해주세요.
+
+<a id="define-toastpushmessage"></a>
 
 ### ToastPushMessage 정의
 - Push 제공자(GCM, Tencent, ADM 등)별로 서로 다른 데이터 타입을 통합한 데이터 구조입니다.
@@ -483,6 +565,8 @@ class RichMessage {
     List<ButtonInfo> buttons;
 }
 ```
+
+<a id="using-notificationconverter"></a>
 
 ### NotificationConverter 사용하기
 - ToastPushMessage 객체를 좀 더 편하게 알림(Notification) 객체로 변환할 수 있도록 NotificationConverter를 제공합니다.
@@ -514,9 +598,13 @@ converter.convert(context, new NotificationConverter.ConvertCallback() {
 });
 ```
 
+<a id="register-replylistener"></a>
+
 ### 답장 리스너 구현 및 등록
 * 답장 버튼을 통해서 사용자의 입력을 받으면 앱은 사용자 입력에 대한 처리를 해야합니다.
     * 메신저로 예를 들면, 메신저 서버로 사용자 입력을 전송해야 합니다.
+
+<a id="implementing-a-reply-listener"></a>
 
 #### 답장 리스너 구현
 * 답장 처리를 위해서 ReplyActionListener 인터페이스를 상속받아서 리스너를 구현해야합니다.
@@ -545,6 +633,8 @@ public class ReplyHandler implements ReplyActionListener {
     }
 }
 ```
+
+<a id="register-replylistener-2"></a>
 
 #### 답장 리스너 등록
 * 구현된 리스너의 클래스를 **PushSdk.setReplyActionListenerClass** 메소드를 통해서 등록해야 합니다.
