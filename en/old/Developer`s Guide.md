@@ -1,11 +1,17 @@
-## Notification > Push > Developer's Guide > v2.0 API Reference
+<!-- pre-align:aligned sig=0f1c97d48546 -->
+
+<a id="notification-push-developers-guide-v20-api-reference"></a>
+## Notification > Push > Developer's Guide > v2.0 API Reference { #notification-push-developers-guide-v20-api-reference }
 이전 버전보기: <select onchange="location.href=this.value">
 <option selected value="/en/Notification/Push/en/Developer%60s%20Guide">API v2.0</option>
 <option value="/en/Notification/Push/en/Developer%60s%20Guide%20v1.3">API v1.3</option></select>
 
-## API 소개
-### v2.0 API 소개
+<a id="api"></a>
+## API 소개 { #api }
+<a id="v20-api"></a>
+### v2.0 API 소개 { #v20-api }
 
+<a id="v20-api-1"></a>
 #### 추가
 - 상세한 resultMessage를 응답한다. API 호출 실패시, 문제가 되는 필드나 값을 리턴한다.
     - e.g. 잘 못된 메시지 아이디로 조회했을 경우, 다음과 같이 messageId 필드와 값을 resultMessage에 포함 시켜준다.
@@ -24,9 +30,11 @@
 - v2.0 메시지 수신, 확인 통계 조회 API가 추가되었다.
 - v2.0 유효하지 않는 토큰 API에서 페이징(PageIndex, PageSize), 기간(from, to), 메시지 아이로 조회할 수 있게되었다.
 
+<a id="v20-api-2"></a>
 #### 수정
 - v1.3 피드백 API의 URI가 '/push/v1.3/appkey/{appkey}/feedback'에서 '/push/v2.0/appkeys/{appkey}/invalid-tokens'으로 변경되었다.
 
+<a id="v20-api-3"></a>
 #### 삭제
 - v2.0 메시지 발송 API로 발송된 메시지는 발송 내역을 남기지 않는다. Console에서 발송하는 메시지는 내역을 남긴다.    
 2017년 6월 추가 예정인 'Log&Crash Search' 연동 기능이 추가되면, 사용자의 'Log&Crash Search'에 메시지 발송 내역을 남길 수 있다.
@@ -36,13 +44,16 @@
     - 메시지 발송 API, target.type에서 'CHANNEL' 타입 삭제
     - 채널 API 삭제
 
-### 기본 정보
+<a id="api-1"></a>
+### 기본 정보 { #api-1 }
+<a id="api-1-endpoint"></a>
 #### Endpoint
 ```
 API Endpoint: https://push.api.nhncloudservice.com
 메시지 수신/확인 여부 수집 Endpoint: https://collector-push.cloud.toast.com
 ```
 
+<a id="api-1-secret-key"></a>
 #### Secret Key
 - 콘솔에서 확인 가능하다.
 - Secret Key가 필요한 API를 호출할 때, 해더에 아래와 같이 설정해서 호출해야 한다.
@@ -53,6 +64,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 [Console] > [Notification] > [Push] > [URL & AppKey] 에서 생성할 수 있다.
 
+<a id="api-1-response"></a>
 #### Response
 
 ##### Response HTTP Status Code
@@ -91,8 +103,10 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | false | 400 | Client Error. 태그 API에서 발생한 클라이언트 오류다  |
 | false | 500 | Internal Error. 태그 API에서 발생한 내부 오류다 |
 
-## 토큰
-### 생성
+<a id="section-1"></a>
+## 토큰 { #section-1 }
+<a id="section-1-1"></a>
+### 생성 { #section-1-1 }
 - 클라이언트에서 조회 가능하다.
 
 ##### Method, URL
@@ -160,7 +174,9 @@ Content-Type: application/json;charset=UTF-8
 - 토큰은 보안적인 이슈, 앱 업데이트, 삭제 등 여러가지 이유로 재발급될 수 있다. 자주 변경되는 것은 아니지만, 수신율을 높이기 위해 구동될 때 마다 최신 토큰을 등록하는 것이 좋다.
 - 앱 삭제 등으로 토큰이 만료되어도 바로 GCM, APNS 서버에 적용되지 않아, 앱 삭제 후 푸시 메시지를 발송했을 때 발송이 성공할 수 있다.
 
-### 조회
+<a id="section-1-2"></a>
+### 조회 { #section-1-2 }
+<a id="section-1-2-1"></a>
 #### 토큰과 푸시 입으로 토큰 조회
 - 클라이언트에서 조회 가능하다.
 ##### Method, URL
@@ -207,6 +223,7 @@ Content-Type: application/json;charset=UTF-8
 | adAgreementDateTime | -, DateTime String | 홍보성 푸시 메시지 수신 동의 일시 |
 | nightAdAgreementDateTime | -, DateTime String | 야간 홍보성 푸시 메시지 수신 동의 일시 |
 
+<a id="section-1-2-2"></a>
 #### 사용자 아이디로 토큰 조회
 - Secret Key가 필요한 API이며, 서버에서 호출되어야 한다.
 ##### Method, URL
@@ -248,6 +265,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 }
 ```
 
+<a id="section-1-2-3"></a>
 #### 유효하지 않는 토큰 조회
 ##### Method, URL, Headers
 ```
@@ -289,6 +307,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ```
 
 
+<a id="section-1-2-api"></a>
 #### 토큰 속성 통계 조회 API
 ##### Method, URL, Headers
 ```
@@ -360,6 +379,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | languages.XX | String | ISO 639-1, ISO 639-2, iOS(language code + script code), 8 글자 |
 | timezoneIds.XX | String | Area/Name. IANA time zone database |
 
+<a id="section-1-2-4"></a>
 #### 토큰 등록 통계 조회
 ##### Method, URL, Headers
 ```
@@ -406,8 +426,10 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | registered | Number | 등록된 토큰 수 |
 | deleted | Number | 삭제된 토큰 수 |
 
-## 메시지
-### 발송
+<a id="section-2"></a>
+## 메시지 { #section-2 }
+<a id="section-2-1"></a>
+### 발송 { #section-2-1 }
 ##### Method, URL, Headers
 ```
 POST /push/v2.0/appkeys/{appkey}/messages
@@ -480,6 +502,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 "contact" 필드에 연락처를 입력해야 하며, "removeGuide" 필드에 수신 철회 방법에 대해 입력해야 한다.
 - timeToLive 필드를 설정하면, 설정한 시간 이상 발송이 지연되는 경우 자동으로 실패 처리된다.
 
+<a id="section-2-1-1"></a>
 #### 공통 메시지
 "content"에 아래 표대로 메시지를 작성하면, 각 푸시 타입에 맞게 메시지가 생성되어 발송된다.
 
@@ -593,7 +616,9 @@ Request Body
 	}
 }
 ```
-### 조회
+<a id="section-2-2"></a>
+### 조회 { #section-2-2 }
+<a id="section-2-2-1"></a>
 #### 목록 조회
 ##### Method, URL, Headers
 ```
@@ -674,6 +699,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
     - CANCEL_UNAUTHORIZED: 인증서 인증 과정에서 실패한 상태다. 인증서 상태를 확인해야 한다.
     - CANCEL_UNKNOWN: 내부 오류가 발생한 상태다.
 
+<a id="section-2-2-2"></a>
 #### 단건 조회
 ##### Method, URL, Headers
 ```
@@ -724,6 +750,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 }
 ```
 
+<a id="section-2-2-3"></a>
 #### 실패한 메시지 목록 조회
 발송에 실패한 메시지를 조회할 수 있다.
 단, 토큰이 존재하지 않는 경우(INVALID_TOKEN)는 발송 실패로 판단하지 않는다.
@@ -817,6 +844,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | payload | - | 기기에 발송된 실제 메시지 내용 |
 | tokens | - | 발송한 실패한 수신자의 uid와 token |
 
+<a id="section-2-2-4"></a>
 #### 메시지 수신, 확인 통계 조회
 메시지 수신, 확인 수집(Message Delivery Receipt) 기능을 화성화하고, v1.4 이상 SDK를 적용하면 발송한 메시지에 대해 수신, 확인 정보를 확인할 수 있다.
 수집된 정보를 통계 API로 조회할 수 있다. 기능은 [Console] > [Settings] 탭에서 활성화할 수 있다.
@@ -870,9 +898,12 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | received | Optional, Number | 기기에서 수신한 수 |
 | opened | Optional, Number | 기기에서 사용자가 클릭해 오픈한 수 |
 
-## 예약 메시지
+<a id="section-3"></a>
+## 예약 메시지 { #section-3 }
 
-### 생성
+<a id="section-3-1"></a>
+### 생성 { #section-3-1 }
+<a id="section-3-1-1"></a>
 #### 예약 메시지 발송 스케줄 생성
 ##### Method, URL, Headers
 ```
@@ -946,6 +977,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | - | - | - |
 | schedules | - | 일시 (ISO 8601, e.g. YYYY-MM-DDThh:mm) |
 
+<a id="section-3-1-2"></a>
 #### 예약 메시지 생성
 ##### Method, URL, Headers
 ```
@@ -1010,7 +1042,9 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | reservationId | Number | 예약 메시지 아이디 |
 | reservationIdString | String | 예약 메시지 아이디 문자열 |
 
-### 조회
+<a id="section-3-2"></a>
+### 조회 { #section-3-2 }
+<a id="section-3-2-1"></a>
 #### 목록 조회
 ##### Method, URL, Headers
 ```
@@ -1100,6 +1134,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | schedules.scheduleStatus | - | 'READY', 'SENDING', 'CANCELED', 'DONE' 예약 메시지 발송 스케줄 상태 |
 | totalCount | - | 등록된 전체 예약 메시지 수 |
 
+<a id="section-3-2-2"></a>
 #### 단건 조회
 ##### Method, URL, Headers
 ```
@@ -1113,6 +1148,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 없음
 ```
 
+<a id="section-3-2-response-body"></a>
 #### Response Body
 ```json
 {
@@ -1166,6 +1202,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | updatedDateTime | DateTime String | 예약 수정 일시(ISO 8601) |
 
 
+<a id="section-3-2-3"></a>
 #### 발송된 예약 메시지 조회
 ##### Method, URL, Headers
 ```
@@ -1224,7 +1261,9 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | totalCount | - | 발송된 전체 메시지  수 |
 
 
-### 수정
+<a id="section-3-3"></a>
+### 수정 { #section-3-3 }
+<a id="section-3-3-1"></a>
 #### 예약 메시지 수정
 ##### Method, URL, Headers
 ```
@@ -1272,7 +1311,9 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 }
 ```
 
-### 삭제
+<a id="section-3-4"></a>
+### 삭제 { #section-3-4 }
+<a id="section-3-4-1"></a>
 #### 예약 메시지 삭제
 ##### Method, URL, Headers
 ```
@@ -1302,9 +1343,12 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 }
 ```
 
-## 태그
+<a id="section-4"></a>
+## 태그 { #section-4 }
 
-### 생성
+<a id="section-4-1"></a>
+### 생성 { #section-4-1 }
+<a id="section-4-1-1"></a>
 #### 태그 생성
 ##### Method, URL, Headers
 ```
@@ -1343,6 +1387,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | tagId | Required, String | 생성된 태그 아이디, 길이 8 |
 
 
+<a id="section-4-1-uid"></a>
 #### 태그에 Uid 추가 생성
 - 태그에 Uid를 추가(Append)하는 것으로, 기존에 있던 Uid를 추가하면 Uid의 태그는 늘어난다.
 - 한 Uid의 최대 태그 수는 16개다.
@@ -1376,6 +1421,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 }
 ```
 
+<a id="section-4-1-section-4-1-uid"></a>
 #### Uid에 태그 목록 설정
 - Uid의 태그를 교체(Replace)하는 것으로, 기존에 설정된 태그는 삭제되고 새로운 태그로 설정된다.
 ##### Method, URL, Headers
@@ -1406,7 +1452,9 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 }
 ```
 
-### 조회
+<a id="section-4-2"></a>
+### 조회 { #section-4-2 }
+<a id="section-4-2-1"></a>
 #### 태그 목록 조회
 ##### Method, URL, Headers
 ```
@@ -1448,6 +1496,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | createdDateTime | Required, Date Time String | 생성 일시 (ISO 8601) |
 | updatedDateTime | Required, Date Time String | 수정 일시 (ISO 8601) |
 
+<a id="section-4-2-2"></a>
 #### 태그 단건 조회
 ##### Method, URL, Headers
 ```
@@ -1477,6 +1526,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 }
 ```
 
+<a id="section-4-2-uid"></a>
 #### 태그의 Uid 목록 조회
 - 태그가 달린 Uid 목록을 조회한다.
 
@@ -1535,6 +1585,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | contact | -, String | 토큰 |
 | createdDateTime | Required, Date Time String | 생성 일시 (ISO 8601) |
 
+<a id="section-4-2-section-4-2-uid"></a>
 #### Uid 조회
 - 태그에 등록된 Uid를 조회한다.
 - 토큰 등록시 Contact(연락처)가 등록된다.
@@ -1578,7 +1629,9 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 }
 ```
 
-### 수정
+<a id="section-4-3"></a>
+### 수정 { #section-4-3 }
+<a id="section-4-3-1"></a>
 #### 태그 수정
 ##### Method, URL, Headers
 ```
@@ -1604,7 +1657,9 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 }
 ```
 
-### 삭제
+<a id="section-4-4"></a>
+### 삭제 { #section-4-4 }
+<a id="section-4-4-1"></a>
 #### 태그 삭제
 ##### Method, URL, Headers
 ```
@@ -1628,6 +1683,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 }
 ```
 
+<a id="section-4-4-uid"></a>
 #### Uid 삭제
 - Uid 삭제시 Contact, Token도 같이 삭제된다.
 ##### Method, URL, Headers
@@ -1657,6 +1713,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 }
 ```
 
+<a id="section-4-4-section-4-4-uid"></a>
 #### 태그의 Uid 삭제
 - Tag와 Uid 관계만 삭제한다.
 - Contact, Token이 삭제되지는 않는다.

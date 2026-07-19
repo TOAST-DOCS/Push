@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=1d7524134f80 -->
+
 Notification &gt; Push &gt; Developer's Guide
 ---------------------------------------------
 
@@ -9,22 +11,28 @@ Click \[CONSOLE\] &gt; \[Notification\] &gt; \[Push\] &gt; \[Use Product\] butto
 CONSOLE Guide
 -------------
 
-### Manage Token
+<a id="manage-token"></a>
+### Manage Token { #manage-token }
 
+<a id="manage-token-register"></a>
 #### Register
 
 A token can be registered through Token registration API.
 
+<a id="manage-token-modify"></a>
 #### Modify
 
 If a new token is issued, it will automatically modify to a new token upon when sending a message. Or it can be modified through Token registration API.
 
+<a id="manage-token-delete"></a>
 #### Delete
 
 When sending a message, it will automatically delete any tokens that cannot be used if there is any. Deleted tokens can be obtained through feedback API.
 
-### Authentication Certificate Management
+<a id="authentication-certificate-management"></a>
+### Authentication Certificate Management { #authentication-certificate-management }
 
+<a id="authentication-certificate-management-create-and-bring-gcm-api-key"></a>
 #### Create And Bring GCM API Key
 
 -   Move to \[[Google Developer Console](https://console.developers.google.com/project)\]
@@ -39,12 +47,14 @@ When sending a message, it will automatically delete any tokens that cannot be u
 
 -   Select issued server type key &gt; Copy \[API Key\]
 
+<a id="authentication-certificate-management-register-gcm-api-key"></a>
 #### Register GCM API Key
 
 -   Click \[CONSOLE\] &gt; \[Notification\] &gt; \[Push\] &gt; \[Certificates\] tap
 
 -   Copy created GCM API Key from above and paste in \[GCM Push Credentials\] &gt; Click \[REGISTER\], registration is completed
 
+<a id="authentication-certificate-management-create-and-bring-apns-authentication"></a>
 #### Create And Bring APNS Authentication
 
 -   In Mac, run \[Keychain\]
@@ -69,6 +79,7 @@ When sending a message, it will automatically delete any tokens that cannot be u
 
 -   Enter password to protect the items sent then creating APNS certificate is now completed
 
+<a id="authentication-certificate-management-register-apns-authentication-certificate"></a>
 #### Register APNS authentication certificate
 
 -   Click \[CONSOLE\] &gt; \[Notification\] &gt; \[Push\] &gt; \[Certificates\] tab
@@ -79,6 +90,7 @@ When sending a message, it will automatically delete any tokens that cannot be u
 
 -   Click \[REGISTER\], registration completed
 
+<a id="authentication-certificate-management-join-tencent"></a>
 #### Join Tencent
 
 -   Connect to \[Tencent Push Service Homepage\].
@@ -97,6 +109,7 @@ When sending a message, it will automatically delete any tokens that cannot be u
 
 -   Confirm 'Activation Email' in the email account registered when joining, and process activation.
 
+<a id="authentication-certificate-management-register-tencent-application"></a>
 #### Register Tencent Application
 
 -   After login, connect to \[Tencent Push Service Dashboard\].
@@ -111,6 +124,7 @@ When sending a message, it will automatically delete any tokens that cannot be u
 
 -   Click 接入应用(create application).
 
+<a id="authentication-certificate-management-register-tencent-access-id-secret-key"></a>
 #### Register Tencent ACCESS ID, SECRET KEY
 
 -   After log in, connect to \[Tencent Push Service Dashboard\].
@@ -123,11 +137,13 @@ When sending a message, it will automatically delete any tokens that cannot be u
 
 -   Enter ACCESS ID, SECRET KEY in checked \[Tencent Credential\].
 
-### Manage channels
+<a id="manage-channels"></a>
+### Manage channels { #manage-channels }
 
 Click \[CONSOLE\] &gt; \[Notification\] &gt; \[Push\] &gt; \[Channels\] tab, and channels can be managed using \[ADD\], \[EDIT\] and \[DELETE\].
 
-### Send immediately
+<a id="send-immediately"></a>
+### Send immediately { #send-immediately }
 
 Click \[CONSOLE\] &gt; \[Notification\] &gt; \[Push\] &gt; \[Messages\] tap &gt; \[Send\] button, and you can send a push message immediately.
 
@@ -146,7 +162,8 @@ Immediate send form is composed as follows.
 | Message &gt; Editor Type       | SIMPLE, JSON There is two types. In case of JSON, the user can enter the message in person.                                                                    |
 | Message &gt; Message Type      | NOTIFICATION and AD types are available. In case of AD, it is only sent to users who agreed to advertising push messages.                                      |
 
-### Scheduled send
+<a id="scheduled-send"></a>
+### Scheduled send { #scheduled-send }
 
 Click \[CONSOLE\] &gt; \[Notification\] &gt; \[Push\] &gt; \[Reservations\] tab, manage scheduled send using the \[ADD\], \[EDIT\], \[DELETE\] buttons.
 
@@ -165,18 +182,21 @@ Scheduled send form is composed as follows.
 API Reference
 -------------
 
-### API test
+<a id="api-test"></a>
+### API test { #api-test }
 
 It can be done in \[CONSOLE\] &gt; \[Notification\] &gt; \[Push\] &gt; \[APIs\] tab.
 
-### Secret Key
+<a id="secret-key"></a>
+### Secret Key { #secret-key }
 
     Header
     X-Secret-Key: [a-zA-Z0-9]{8}
 
 It can be created in \[CONSOLE\] &gt; \[Notification\] &gt; \[Push\] &gt; \[URL & AppKey\].
 
-### Response
+<a id="response"></a>
+### Response { #response }
 
 \[Response HTTP Status Code\]
 
@@ -229,7 +249,8 @@ For detailed response result, refer to Header in Response Body.
 API v1.3 Reference
 ------------------
 
-### Token
+<a id="token"></a>
+### Token { #token }
 
 ##### Register token
 
@@ -296,6 +317,7 @@ API v1.3 Reference
 
 -   Delays may occur due to unstable network condition or various other reasons. To minimize the effect on mobile application operation, set Timeout short, and it is best to register token every time it is operated.
 
+<a id="token-look-up-token"></a>
 #### Look Up Token
 
 ###### a. Look up token using token and push type
@@ -359,8 +381,10 @@ API v1.3 Reference
 
 -   API requires Secret Key, and it must be called from the server.
 
-### Messages
+<a id="messages"></a>
+### Messages { #messages }
 
+<a id="messages-sending-messages"></a>
 #### Sending messages
 
 \[Method, URL\]
@@ -489,6 +513,7 @@ API v1.3 Reference
         "removeGuide" : "Notification withdrawal guide"
     }
 
+<a id="messages-common-messages"></a>
 #### Common messages
 
 Starting from API v1.3, common message format is supported. Make a message following the below table in "content", a message will be created and sent according to each push type.
@@ -598,6 +623,7 @@ Other user-customized Word will go into Custom Key/Value field as follows.
         }
     }
 
+<a id="messages-look-up-messages"></a>
 #### Look up messages
 
 \[Method, URL\]
@@ -657,8 +683,10 @@ Other user-customized Word will go into Custom Key/Value field as follows.
 
 -   CANCEL\_UNKNOWN: Internal error has occurred.
 
-### Feedback
+<a id="feedback"></a>
+### Feedback { #feedback }
 
+<a id="feedback-check-feedback"></a>
 #### Check feedback
 
 \[Method, URL\]

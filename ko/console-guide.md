@@ -1,4 +1,7 @@
-## Notification > Push > 콘솔 사용 가이드
+<!-- pre-align:aligned sig=40f966542a81 -->
+
+<a id="notification-push-console-guide"></a>
+## Notification > Push > 콘솔 사용 가이드 { #notification-push-console-guide }
 
 Push 서비스를 활용하려면 먼저 타사 푸시 알림 서비스 인증서를 등록해야합니다.
 
@@ -7,17 +10,20 @@ Push 서비스를 활용하려면 먼저 타사 푸시 알림 서비스 인증�
 - APNS - Apple Push Notification Service
 - ADM - Amazon Device Messaging
 
-## 인증서 관리
+<a id="certificate-management"></a>
+## 인증서 관리 { #certificate-management }
 
 인증서 관리를 하기 위하여 콘솔에서 **Notification > Push > 인증서**를 클릭합니다.
 
 
 <span id="get-fcm-service-account-credential"></span>
 
-### FCM Service Account Credential
+<a id="fcm-service-account-credential"></a>
+### FCM Service Account Credential { #fcm-service-account-credential }
 안드로이드 기기에 푸시 알림 메시지를 전송하기 위해서는 **Service Account Credential**이 필요합니다.
 **Service Account**(서비스 계정)는 일반적으로 Google Cloud와  A2A(Application to Application) 통신 시 사용하는 특별한 유형의 계정입니다.
 
+<a id="fcm-service-account-credential-import-the-fcm-service-account-credential-json-file"></a>
 #### FCM Service Account Credential JSON 파일 얻기
 1. [Google Firebase Console](https://console.firebase.google.com)에 접속합니다.
 2. 프로젝트 추가를 통해 새로운 프로젝트를 생성합니다.
@@ -26,6 +32,7 @@ Push 서비스를 활용하려면 먼저 타사 푸시 알림 서비스 인증�
 5. **서비스 계정**을 선택합니다.
 6. Firbase Admin SDK 항목에서 **새 비공개 키 생성**을 클릭해 새로운 **Service Account Credential** JSON 파일을 다운로드합니다.
 
+<a id="fcm-service-account-credential-register-fcm-service-account-credential-json-file"></a>
 #### FCM Service Account Credential JSON 파일 등록
 1. 콘솔에서 **Notification > Push > 인증서**를 클릭합니다.
 2. 다운로드 받은 JSON 파일을 열어 내용을 복사합니다.
@@ -33,9 +40,11 @@ Push 서비스를 활용하려면 먼저 타사 푸시 알림 서비스 인증�
 
 <span id="get-apns-jwt"></span>
 
-### APNS JWT 인증 정보 얻기
+<a id="get-authentication-information-for-apns-jwt"></a>
+### APNS JWT 인증 정보 얻기 { #get-authentication-information-for-apns-jwt }
 iOS 기기에 푸시 알림 메시지를 전송하기 위해서는 Apple Developer 사이트에서 발급 받은 암호 키와 키 ID(Key ID), 팀 ID(Team ID, App ID Prefix), 토픽(Topic)이 필요합니다.
 
+<a id="get-authentication-information-for-apns-jwt-getting-apns-encryption-key"></a>
 #### APNS 암호 키 얻기
 1. **Apple Developer 콘솔**에서 **Certificates, IDs & Profiles**로 이동합니다.
 2. **Keys** 선택합니다.
@@ -44,22 +53,27 @@ iOS 기기에 푸시 알림 메시지를 전송하기 위해서는 Apple Develop
 5. 내용 확인 후 **Register** 선택합니다.
 6. **Download** 선택해 암호 키 파일을 받습니다.
 
+<a id="get-authentication-information-for-apns-jwt-getting-key-id"></a>
 #### 키 ID 얻기
 1. **Apple Developer 콘솔**에서 **Certificates, IDs & Profiles**로 이동합니다.
 2. 발급 받은 키(Key)를 선택합니다.
 3. **View Key Details** 항목에서 확인할 수 있습니다.
 
+<a id="get-authentication-information-for-apns-jwt-getting-team-id"></a>
 #### 팀 ID 얻기
 1. **Apple Developer 콘솔**에서 **Certificates, IDs & Profiles**로 이동합니다.
 2. **Identifiers** 선택합니다.
 3. **Edit your App ID Configuration** 항목에서 확인할 수 있습니다.
 
+<a id="get-authentication-information-for-apns-jwt-topic"></a>
 #### 토픽
 JWT를 이용한 인증을 위해서는 토픽(Topic)이 필요한데, 토픽은 앱의 번들 아이디(Bundle ID)입니다.
 
-### APNS 인증서
+<a id="apns-certificate"></a>
+### APNS 인증서 { #apns-certificate }
 iOS 기기에 푸시 알림 메시지를 전송하기 위해서는 Apple Developer 사이트에서 발급받은 APNS 인증서가 필요합니다.
 
+<a id="apns-certificate-create-and-import-apns-certificate"></a>
 #### APNS 인증서 생성, 가져오기
 
 1. Mac에서 **키체인**을 실행합니다.
@@ -75,6 +89,7 @@ iOS 기기에 푸시 알림 메시지를 전송하기 위해서는 Apple Develop
 11. 저장 위치를 설정하고 **저장**을 클릭합니다(파일 형식: .p12).
 12. 보낸 항목을 보호하는 데 사용할 암호를 입력하면 APNS 인증서 생성이 완료됩니다.
 
+<a id="apns-certificate-register-apns-certificate"></a>
 #### APNS 인증서 등록
 
 1. 콘솔에서 **Notification > Push > 인증서**를 클릭합니다.
@@ -82,6 +97,7 @@ iOS 기기에 푸시 알림 메시지를 전송하기 위해서는 Apple Develop
 3. **비밀번호**에 인증서 비밀번호를 입력합니다.
 4. **등록**을 클릭합니다.
 
+<a id="apns-certificate-caution-for-apns"></a>
 #### APNS 주의 사항
 
 ##### APNS(Production), APNS_SANDBOX(Development) 차이
@@ -100,10 +116,12 @@ iOS 기기에 푸시 알림 메시지를 전송하기 위해서는 Apple Develop
 - 앱에서 푸시 메시지 수신을 거부했을 때  
 - 디바이스가 인터넷에 연결되어 있지 않을 때
 
-### ADM 자격 증명
+<a id="adm-credentials"></a>
+### ADM 자격 증명 { #adm-credentials }
 
 Kindle Fire 앱에 푸시 알림 메시지를 전송하기 위해서는 앱의 Client ID와 Client Secret이 필요합니다.
 
+<a id="adm-credentials-register-adm-application-and-profiles-acquire-client-id-and-client-secret"></a>
 #### ADM 애플리케이션 및 프로파일 등록(Client Id, Client Secret 획득)
 1. [ADM 개발자 콘솔](https://developer.amazon.com/home.html)에 접속합니다.
 2. 페이지 왼쪽 상단에서 **APP & SERVICES**를 클릭한 후, 하단에 **Add a New App** 버튼을 클릭합니다.
@@ -111,6 +129,7 @@ Kindle Fire 앱에 푸시 알림 메시지를 전송하기 위해서는 앱의 C
 4. 프로필 생성 완료 후, 중간 탭에 있는 **Security Profiles**을 클릭하고 **View Security Profile** 버튼을 클릭합니다.
 5. **General** 탭에서 Client ID와 Client Secret 값을 확인할 수 있습니다.
 
+<a id="adm-credentials-register-setting-information-for-adm-kindle-acquire-api-key"></a>
 #### ADM Kindle 설정 정보 등록(API key 획득)
 1. **Security Profiles** 탭을 클릭한 후 중간에 있는 **Android/Kindle Setting** 탭을 클릭합니다.
 2. App Key Name, Package, MD5 Signature, SHA256 Signature 정보를 입력합니다.
@@ -144,13 +163,15 @@ Kindle Fire 앱에 푸시 알림 메시지를 전송하기 위해서는 앱의 C
 - 등록 완료 후 **Show** 버튼을 클릭하면 API key 정보를 조회할 수 있습니다.
 
 
-## 메시지 전송
+<a id="message-delivery"></a>
+## 메시지 전송 { #message-delivery }
 
 인증서와 토큰을 정상적으로 등록한 후, 콘솔에서 **Notification > Push > 메시지**를 클릭하고 **추가** 버튼을 클릭합니다. 양식을 작성해 메시지를 즉시 전송할 수 있습니다.
 
 즉시 전송 양식 구성은 다음과 같습니다.
 
-### 대상
+<a id="target"></a>
+### 대상 { #target }
 
 | 이름                     | 내용                                       |
 | ---------------------- | ---------------------------------------- |
@@ -162,26 +183,30 @@ Kindle Fire 앱에 푸시 알림 메시지를 전송하기 위해서는 앱의 C
 | 국가 코드             | 국가 코드를 입력할 수 있습니다. 쉼표(',')를 구분자로 여러 개를 입력할 수 있습니다. |
 | 푸시 유형             | GCM, APNS, APNS Sandbox, ADM 복수로 선택할 수 있습니다. |
 
-### 옵션
+<a id="option"></a>
+### 옵션 { #option }
 
 | 이름                     | 내용                                       |
 | ---------------------- | ---------------------------------------- |
 | TTL(Time To Live) | 메시지 발송 유효 시간입니다. 설정한 시간 동안 발송이 지연되는 경우, 자동으로 실패 처리됩니다. 단위는 분입니다. 0이면 발송 지연으로 실패 처리되지 않습니다. |
 
-### 메시지
+<a id="message"></a>
+### 메시지 { #message }
 
 | 이름                     | 내용                                       |
 | ---------------------- | ---------------------------------------- |
 | 편집기 유형           | SIMPLE, JSON 두 가지 유형이 있습니다. JSON을 선택하면 직접 메시지를 작성할 수 있습니다. |
 | 메시지 유형           | NOTIFICATION, AD 두 가지 유형이 있습니다. AD 경우, 광고성 푸시 메시지 수신에 동의한 사용자에게만 메시지가 발송됩니다. |
 
-### 리치 메시지 작성
+<a id="rich-message"></a>
+### 리치 메시지 작성 { #rich-message }
 푸시 메시지에 버튼, 이미지 등을 넣어 다양한 형태로 푸시 메시지를 발송할 수 있습니다.
 입력한 메시지가 Android와 iOS 스마트폰 어떻게 보이는지 미리 확인할 수 있습니다.
 v1.7 이상 SDK가 적용된 곳에서만 사용할 수 있는 기능입니다.
 
 ![push_04_201812](https://static.toastoven.net/prod_push/12-10/push_04_201812.png)
 
+<a id="rich-message-button"></a>
 #### 1. 버튼
 
 |이름|내용|
@@ -206,6 +231,7 @@ v1.7 이상 SDK가 적용된 곳에서만 사용할 수 있는 기능입니다.
 - 닫기
     - 해당 알림을 닫습니다.
 
+<a id="rich-message-media"></a>
 #### 2. 미디어
 
 |이름|내용|
@@ -262,6 +288,7 @@ v1.7 이상 SDK가 적용된 곳에서만 사용할 수 있는 기능입니다.
 | 지원 형식 | 지원 안 함 | WaveAudio, MP3, MPEG4Audio |
 | 파일 크기 | 지원 안 함 | 5MB |
 
+<a id="rich-message-large-icon"></a>
 #### 3. 큰 아이콘
 Android에서만 제공하는 기능입니다. 알림에 큰 아이콘을 지정합니다. 파일 지정 방법은 미디어 파일 지정 방법과 동일합니다.
 
@@ -270,6 +297,7 @@ Android에서만 제공하는 기능입니다. 알림에 큰 아이콘을 지정
 | 위치 | 위치한 곳, 'REMOTE' 또는 'LOCAL' |
 | 주소 | 이미지가 위치한 주소, URL, URI 등이 될수 있습니다. |
 
+<a id="rich-message-group"></a>
 #### 4. 그룹
 Android에서만 제공하는 기능입니다. 알림에 그룹을 설정하고 그룹 키가 동일한 알림은 모아서 표현합니다.
 
@@ -278,6 +306,7 @@ Android에서만 제공하는 기능입니다. 알림에 그룹을 설정하고 
 | 키 | 그룹의 키 |
 | 설명 | 그룹에대한 설명 |
 
+<a id="rich-message-alert-sounds"></a>
 #### 5. 알림음
 | | Android | iOS |
 | - | - | - |
@@ -295,7 +324,8 @@ Android에서만 제공하는 기능입니다. 알림에 그룹을 설정하고 
     - 번들 리소스를 통해 접근하므로 확장자를 포함한 전체 파일명이 필요합니다.
 
 
-## 예약 전송
+<a id="scheduled-delivery"></a>
+## 예약 전송 { #scheduled-delivery }
 
 Push의 예약 전송 기능을 사용하면 원하는 시간에 메시지를 전송할 수 있습니다. 메시지를 예약 전송 하려면 콘솔에서 **Notification > Push > 예약**을 클릭합니다.
 
@@ -311,26 +341,30 @@ Push의 예약 전송 기능을 사용하면 원하는 시간에 메시지를 �
 | 종료일          | 메시지를 전송하는 마지막 날짜를 입력합니다. 달력에서 날짜를 선택할 수 있습니다. 형식은 'YYYY-MM-DD'입니다. |
 | 현지 시간        | true로 설정하면 현지 시간 기준으로 메시지를 전송합니다.        |
 
-### 토큰 조회
+<a id="check-token"></a>
+### 토큰 조회 { #check-token }
 
 푸시 유형을 선택 후 토큰을 입력해 조회 및 삭제가 가능합니다.
 토큰 삭제 기능은 현재 콘솔 API탭과 토큰 탭에서만 지원됩니다.
 
-### Public APIs
+<a id="public-apis"></a>
+### Public APIs { #public-apis }
 
 Public API에서 제공되는 API 호출입니다.
 토큰 생성, 메시지 전송, 피드백 조회 API 호출이 제공됩니다.
 API 버전을 선택하여 버전별로 요청 할 수 있습니다.
 자세한 API 가이드는 [API 가이드](./api-guide/) 에서 확인하실 수 있습니다.
 
-## 토큰
+<a id="tokens"></a>
+## 토큰 { #tokens }
 
 토큰을 특정 UID에 추가할 수 있습니다.
 UID, 토큰별로 검색할 수 있습니다.
 
 콘솔에서 **Notification > Push > 토큰**을 클릭합니다.
 
-### 토큰 추가
+<a id="add-token"></a>
+### 토큰 추가 { #add-token }
 
 ![push_11_201812](https://static.toastoven.net/prod_push/12-10/push_11_201812.png)
 
@@ -338,7 +372,8 @@ UID, 토큰별로 검색할 수 있습니다.
 2. 추가 모달창에서 UID 와 토큰을 입력합니다.
 3. 푸시유형 및 나머지 옵션을 확인 후 **확인** 버튼을 눌러 토큰을 추가합니다.
 
-### 토큰 검색
+<a id="search-tokens"></a>
+### 토큰 검색 { #search-tokens }
 
 **검색 유형**을 **TOKEN**으로 선택하면 나타나는 목록에서 원하는 푸시 유형을 선택하고 토큰을 검색할 수 있습니다.
 
@@ -346,7 +381,8 @@ UID, 토큰별로 검색할 수 있습니다.
 
 - **Details** 버튼 클릭 시 상세 항목을 확인할 수 있습니다.
 
-### UID 검색
+<a id="search-uids"></a>
+### UID 검색 { #search-uids }
 
 **검색 유형**을 **UID**로 선택하고 UID를 검색할 수 있습니다.
 
@@ -355,20 +391,23 @@ UID, 토큰별로 검색할 수 있습니다.
 - 일부만 일치되더라도 검색 결과에 나타납니다.
 - **Details** 버튼 클릭 시 상세 항목을 확인할 수 있습니다.
 
-## 태그
+<a id="tags"></a>
+## 태그 { #tags }
 
 UID에 태그를 추가해 UID를 관리할 수 있습니다. 메시지 발송 시 태그를 선택해 발송 대상을 지정할 수 있습니다. 태그는 Notification 서비스 전역으로 사용됩니다. 태그는 최대 2,048개까지 생성할 수 있습니다. 하나의 UID에 태그를 16개까지 추가할 수 있습니다.
 
 콘솔에서 **Notification > Push > 태그**를 클릭합니다.
 
-### 태그 추가
+<a id="add-tag"></a>
+### 태그 추가 { #add-tag }
 
 ![push_15_201812](https://static.toastoven.net/prod_push/12-10/push_15_201812.png)
 
 1. **추가** 버튼 클릭 후 태그 이름을 입력합니다.
 2. **확인** 버튼을 눌러 태그를 추가 합니다.
 
-### 태그가 붙은 UID 관리
+<a id="manage-uids-attached-on-tags"></a>
+### 태그가 붙은 UID 관리 { #manage-uids-attached-on-tags }
 태그를 클릭하면, 태그가 붙은 UID 목록을 확인할 수 있습니다.
 
 ![push_16_201812](https://static.toastoven.net/prod_push/12-10/push_16_201812.png)
@@ -379,12 +418,14 @@ UID에 태그를 추가해 UID를 관리할 수 있습니다. 메시지 발송 �
 
 <span id="stats-event-key"></span>
 
-## 통계 이벤트 키 관리
+<a id="statistics-event-key-management"></a>
+## 통계 이벤트 키 관리 { #statistics-event-key-management }
 **통계 이벤트 키 관리** 탭에서 통계 이벤트 키를 관리할 수 있습니다. 생성 시 이름, 설명, 이벤트 수집 기간을 설정할 수 있습니다. 이벤트 수집 기간을 설정하지 않으면 수집 기간은 무기한으로 설정됩니다. 생성된 통계 이벤트 키는 메시지 발송 시 설정할 수 있습니다. 통계 이벤트 키가 설정된 메시지들의 발송 결과는 **통계** 탭에서 통계 이벤트 키로 검색할 수 있습니다.
 
 <span id="stats"></span>
 
-## 통계
+<a id="statistics"></a>
+## 통계 { #statistics }
 최근 30일 내 수집된 메시지 수신/확인 데이터를 검색할 수 있습니다. 콘솔에서 **통계**를 선택합니다. 메시지, 토큰 등록이나 삭제에 대한 통계를 검색할 수 있습니다.
 
 1. 기간을 검색 조건으로 설정 할 수 있습니다.
@@ -393,13 +434,15 @@ UID에 태그를 추가해 UID를 관리할 수 있습니다. 메시지 발송 �
     - 기본은 설정된 기간에 따라 자동으로 최적화된 유형으로 그래프를 표시합니다.
 3. 메시지 통계에서는 통계 이벤트 키, 푸시 타입으로 검색할 수 있습니다.
 
-## 설정
+<a id="token-setting"></a>
+## 설정 { #token-setting }
 
 푸시 서비스를 설정할 수 있습니다.
 
 콘솔에서 **Notification > Push > 설정**을 클릭합니다.
 
-### 광고 표시 문구 위치 설정
+<a id="position-setting-of-ad-phrase"></a>
+### 광고 표시 문구 위치 설정 { #position-setting-of-ad-phrase }
 
 - 광고성 메시지 발송 시 표시되는 광고 표시 문구 위치를 설정할 수 있습니다.
 - 제목(title)
@@ -409,7 +452,8 @@ UID에 태그를 추가해 UID를 관리할 수 있습니다. 메시지 발송 �
     - 내용에 '(광고)', 연락처, 수신 동의 철회 방법이 표시됩니다.
 - 기능 설정 시 실제 반영까지 대략 수분이 걸릴 수 있습니다.
 
-### 토큰 설정
+<a id="token-setting-2"></a>
+### 토큰 설정 { #token-setting-2 }
 
 - 토큰 만료 기간 설정
     - 설정한 기간 동안 등록 요청이 없는 토큰들을 메시지 발송 대상에서 제외합니다.
@@ -429,7 +473,8 @@ UID에 태그를 추가해 UID를 관리할 수 있습니다. 메시지 발송 �
 - 기능 설정 시 실제 반영까지 대략 수분이 걸릴 수 있습니다.
 
 <span id="message-delivery-receipient"></span>
-### 메시지 수신/확인
+<a id="collect-message-receiptcheck-data"></a>
+### 메시지 수신/확인 { #collect-message-receiptcheck-data }
 
 - 메시지 수신 및 확인 데이터 수집(Message Delivery Receipt) 기능을 활성화할 수 있습니다.
 - 활성화된 기능 동작을 위해 클라이언트 SDK v1.4 이상이 적용되어야 합니다. 안드로이드는 SDK 적용만으로 기능이 동작합니다. iOS는 추가적인 처리가 필요합니다.
@@ -439,6 +484,7 @@ UID에 태그를 추가해 UID를 관리할 수 있습니다. 메시지 발송 �
 - 기능 설정 시 실제 반영까지 대략 수분이 걸릴 수 있습니다.
 
 <span id="low-received-event-rates"></span>
+<a id="collect-message-receiptcheck-data-causes-for-low-indicators-of-message-receiving-data"></a>
 #### 메시지 수신 데이터 지표가 낮은 이유
 1. 앱의 메시지 알림을 허용하지 않을 때
 사용자가 앱 최초 실행 시 OS(iOS, Android) 레벨 설정으로 메시지 알림을 허용하지 않으면, 메시지 수신 이벤트를 수집할 수 없습니다. (2018년 기준 평균 알림 허용 비율 iOS 43.9%, Android 91.1% <a href="https://www.accengage.com/press-release-accengage-releases-the-push-notification-benchmark-2018/" target="_blank">출처 accengage</a>)
@@ -449,7 +495,8 @@ UID에 태그를 추가해 UID를 관리할 수 있습니다. 메시지 발송 �
 4. 수신 이벤트 수집 실패
 실제로 메시지를 수신했지만, 수신 이벤트를 수집 서버로 전송할 때 OS나 네트워크 환경에 따라 수집하지 못할 수도 있습니다.
 
-### 발송 내역 저장
+<a id="log-message-delivery-history"></a>
+### 발송 내역 저장 { #log-message-delivery-history }
 - 메시지 발송 내역을 지정한 Log & Crash Search에 전송하는 기능입니다.
 - **AppKey**에는 사용하는 Log & Crash Search의 AppKey를 입력합니다.
 - **SecretKey**에는 사용하는 Log & Crash Search의 SecretKey를 입력합니다.
@@ -461,6 +508,7 @@ UID에 태그를 추가해 UID를 관리할 수 있습니다. 메시지 발송 �
 - 연동 후 메시지 발송 내역은 콘솔에서 **Analytics > Log & Crash Search > 로그 검색**에서 확인할 수 있습니다.
 - 전송되는 메시지 발송 내역은 [Log & Crash Search의 요금 정책](https://toast.com/service/analytics/log_crash_search/#price)을 따릅니다.
 
+<a id="log-message-delivery-history-log-type-for-delivery-history"></a>
 #### 발송 내역 로그 형식
 ##### Body
 ```
@@ -516,7 +564,8 @@ UID에 태그를 추가해 UID를 관리할 수 있습니다. 메시지 발송 �
     - AGENT_ERROR: Google, Apple, Amazon 서버로 통신이 비정상
     - UNKOWN: 내부에서 알 수 없는 오류 발생
 
-### 중복 메시지 방지 설정
+<a id="settings-for-preventing-duplicate-messages"></a>
+### 중복 메시지 방지 설정 { #settings-for-preventing-duplicate-messages }
 - 동일한 메시지를 동일한 사용자에게 중복 요청하는 경우 발송을 제한하는 기능입니다.
 - 중복 판단 기준은 메시지 타입, 내용(콘텐츠), 발신 연락처, 수신 동의 설정 가이드, 광고 표시 문구 위치, 토큰입니다.
 기준에 대항하는 값이 모두 같으면 중복으로 판단하고 메시지를 발송하지 않습니다.
@@ -524,13 +573,15 @@ UID에 태그를 추가해 UID를 관리할 수 있습니다. 메시지 발송 �
 - 설정 탭 "중복 메시지 방지 설정"에서 설정할 수 있습니다.
 - 기능 설정 시 실제 반영까지 대략 수분이 걸릴 수 있습니다.
 
-### 광고 수신 동의 사실 안내 메시지 예약
+<a id="reserve-message-for-acceptance-of-ad-opt-in"></a>
+### 광고 수신 동의 사실 안내 메시지 예약 { #reserve-message-for-acceptance-of-ad-opt-in }
 - 광고 메시지 수신을 동의한지 만 2년이 된 토큰들에 안내 메시지를 발송하는 기능이 추가되었습니다. 
 - 매달 설정한 일시에 안내 메시지가 대상 토큰들에 발송됩니다.
 - 안내 메시지는 수신 동의 사실과 일시, 수신 동의 설정에 대한 방법을 반드시 포함하고 있어야 합니다.
 - 광고성 메시지 수신 동의 일시 치환자(###AD_AGREEMENT_DATE_TIME###)를 본문에 넣으면 메시지 발송 시 해당 토큰의 동의 일시로 치환됩니다.
 
-## 개인정보 수탁사 고지 안내
+<a id="guide-for-notice-of-personal-information-assignor"></a>
+## 개인정보 수탁사 고지 안내 { #guide-for-notice-of-personal-information-assignor }
 
 '고객'이 NHN Cloud Push 상품을 이용할 때, '고객' - '당사' 간 개인정보 처리에 관한 업무 위수탁 관계가 발생하는 바 정보통신망법 및 개인정보보호법에 따라 위탁자인 '고객'은 개인정보처리방침을 통해 '당사'에 개인정보를 위탁한 현황(수탁자 및 업무의내용)을 공개하여야 합니다. 이에, '당사'에서는 '고객'이 NHN Cloud Push 서비스를 이용함에 있어 관련 법령을 준수하고, 위탁 현황 미공개로 인하여 과태료 등의 불이익을 받지 않도록 아래와 같이 가이드할 수 있습니다.
 

@@ -1,13 +1,18 @@
-## v1.3 API Reference
+<!-- pre-align:aligned sig=16a8e788e270 -->
+
+<a id="v13-api-reference"></a>
+## v1.3 API Reference { #v13-api-reference }
 이전 버전보기: <select onchange="location.href=this.value">
 <option value="/en/Notification/Push/en/Developer%60s%20Guide">API v2.0</option>
 <option selected value="/en/Notification/Push/en/Developer%60s%20Guide%20v1.3">API v1.3</option></select>
 
-### API 테스트
+<a id="api"></a>
+### API 테스트 { #api }
 
 [CONSOLE] > [Notification] > [Push] > [APIs] 탭에서 할 수 있다.
 
-### Secret Key
+<a id="secret-key"></a>
+### Secret Key { #secret-key }
 
 ```
 Header
@@ -16,7 +21,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 [CONSOLE] > [Notification] > [Push] > [URL & AppKey] 에서 생성할 수 있다.
 
-### Response
+<a id="response"></a>
+### Response { #response }
 
 [Response HTTP Status Code]  
 
@@ -68,7 +74,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | false | 40015 | Client Error. Wrong reservationDays. |
 | false | 50001 ~ 50501 | Internal Error. Please report this. 'http://cloud.toast.com/support/qaa'. |
 
-### 토큰
+<a id="v13-api-reference-1"></a>
+### 토큰 { #v13-api-reference-1 }
 
 ##### 토큰 등록
 
@@ -137,6 +144,7 @@ Content-Type: application/json;charset=UTF-8
 - 토큰은 보안적인 이슈, 앱 업데이트, 삭제 등 여러가지 이유로 재발급될 수 있다. 자주 변경되는 것은 아니지만, 수신율을 높이기 위해 구동될 때 마다 최신 토큰을 등록하는 것이 좋다.
 - 앱 삭제 등으로 토큰이 만료되어도 바로 GCM, APNS 서버에 적용되지 않아, 앱 삭제 후 푸시 메시지를 발송했을 때 발송이 성공할 수 있다.
 
+<a id="v13-api-reference-1-1"></a>
 #### 토큰 조회
 
 ###### a. 토큰과 푸시타입으로 토큰 조회
@@ -208,8 +216,10 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 - Secret Key가 필요한 API이며, 서버에서 호출되어야 한다.
 
-### 메시지
+<a id="v13-api-reference-2"></a>
+### 메시지 { #v13-api-reference-2 }
 
+<a id="v13-api-reference-2-1"></a>
 #### 메시지 발송
 
 [Method, URL]
@@ -346,6 +356,7 @@ Request Body
 }
 ```
 
+<a id="v13-api-reference-2-2"></a>
 #### 공통 메시지
 
 API v1.3 부터 공통 메시지 형식을 지원 한다. "content"에 아래 표대로 메시지를 작성하면, 각 푸시 타입에 맞게 메시지가 생성되어 발송된다.
@@ -457,6 +468,7 @@ Request Body
 }
 ```
 
+<a id="v13-api-reference-2-3"></a>
 #### 메시지 조회
 
 [Method, URL]
@@ -520,8 +532,10 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 - CANCEL_UNAUTHORIZED: 인증서 인증 과정에서 실패한 상태다. 인증서 상태를 확인해야 한다.
 - CANCEL_UNKNOWN: 내부 오류가 발생한 상태다.
 
-### 피드백
+<a id="v13-api-reference-3"></a>
+### 피드백 { #v13-api-reference-3 }
 
+<a id="v13-api-reference-3-1"></a>
 #### 피드백 확인
 
 [Method, URL]

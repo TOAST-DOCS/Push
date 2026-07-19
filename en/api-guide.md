@@ -1,17 +1,25 @@
-## Notification > Push > API v2.4 Guide
+<!-- pre-align:aligned sig=479d3552cba2 -->
 
-### Overview of v2.4 API
+<a id="notification-push-api-v24-guide"></a>
+## Notification > Push > API v2.4 Guide { #notification-push-api-v24-guide }
 
+<a id="overview-of-v24-api"></a>
+### Overview of v2.4 API { #overview-of-v24-api }
+
+<a id="overview-of-v24-api-add"></a>
 #### Add
 - Added 'Statistics' API. 
 
-### Basic Information 
+<a id="basic-information"></a>
+### Basic Information { #basic-information }
+<a id="basic-information-endpoint"></a>
 #### Endpoint
 ```
 API Endpoint: https://push.api.nhncloudservice.com
 Endpoint for collecting message delivery receipt/checking status: https://collector-push.cloud.toast.com
 ```
-### Secret Key
+<a id="secret-key"></a>
+### Secret Key { #secret-key }
 - Available on console. 
 - To call APIs requiring a secret key, configure the header as below: 
 ```
@@ -20,6 +28,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ```
 Go to [CONSOLE] > [Notification] > [Push] > [URL & AppKey] to check and create one.  
 
+<a id="secret-key-response"></a>
 #### Response
 
 ##### Response HTTP Status Code
@@ -39,8 +48,10 @@ See Header at the response body for response details.
 }
 ```
 
-## Tokens
-### Create
+<a id="tokens"></a>
+## Tokens { #tokens }
+<a id="create"></a>
+### Create { #create }
 - Can be queried from client. 
 
 ##### Method, URL
@@ -131,8 +142,10 @@ curl -X POST \
 - Tokens may be re-issued, on many accounts, including security issues, or app updates or deletion. Although they may not be frequently changed, it is recommended to register the most updated tokens whenever they are operated, so as to raise the receiving rate. 
 - Even if a token is expired due to app deletion, it is not immediately applied to GCM or APNS server, so push message delivery can be successful after app is deleted. 
 
-### Query
+<a id="query"></a>
+### Query { #query }
 
+<a id="query-token-list"></a>
 #### Query Token List
 ##### Method, URL
 
@@ -192,6 +205,7 @@ curl -X GET \
 ##### Description
 - When moving between pages, both "cursorUid" and "cursorToken" are required. The query begins after the set "cursorUid" and "cursorToken".
 
+<a id="query-tokens-by-token"></a>
 #### Query Tokens by Token
 - Can be queried from client. 
 ##### Method, URL
@@ -254,6 +268,7 @@ curl -X GET \
 | deviceId | -, String | Device ID |
 | activatedDateTime | -, Datetime String | Date and time of request for recent token registration |
 
+<a id="query-tokens-by-user-id"></a>
 #### Query Tokens by User ID
 - The API requires a secret key and must be called from a server.
 ##### Method, URL
@@ -310,6 +325,7 @@ curl -X GET \
 }
 ```
 
+<a id="query-invalid-tokens"></a>
 #### Query Invalid Tokens
 ##### Method, URL, Headers
 ```
@@ -359,7 +375,8 @@ curl -X GET \
 }
 ```
 
-### Delete 
+<a id="delete"></a>
+### Delete { #delete }
 ##### Method, URL, Headers
 ```
 DELETE /push/v2.4/appkeys/{appkey}/tokens/{token}?pushType={pushType}
@@ -394,8 +411,10 @@ curl -X DELETE \
 }
 ```
 
-## Messages
-### Send
+<a id="messages"></a>
+## Messages { #messages }
+<a id="send"></a>
+### Send { #send }
 ※ Push messages sent using the API cannot be retrieved in the console or by the Get or List API. For push messages sent using the API, use the Query Logs API after enabling the Logging function.
 ##### Method, URL, Headers
 ```
@@ -501,7 +520,8 @@ curl -X POST \
     Enter contact information in "contact", and how to withdraw receiving in "removeGuide".  
 - With the timeToLiveMinute setting, delivery delays beyond certain configured time shall be automatically processed as failure.  
 
-### Common Messages 
+<a id="common-messages"></a>
+### Common Messages { #common-messages }
 When messages are written for "content" as described in the below table, messages are created and delivered to suit for each push type. 
 
 |Reserved Word|	Platform|	Usage|	FCM|	APNS|	TENCENT| ADM |
@@ -534,10 +554,12 @@ Other user-defined words are included to Custom Key/Value as follows:
 |---|---|---|---|---|---|---|
 |customKey|	Android, <br/> iOS, <br/> Tencent|	Optional, <br/> Object, <br/> Array, <br/> String, <br/> Number|	data.customKey|	customKey|	custom_content.customKey| data.customKey|
 
-### Example of Sending Messages 
+<a id="example-of-sending-messages"></a>
+### Example of Sending Messages { #example-of-sending-messages }
 
 - content.default must be included at the request body of Send Messages API. 
 
+<a id="example-of-sending-messages-send-to-all"></a>
 #### 1. Send to All
 
 The example shows how to send messages to all registered targets.
@@ -560,6 +582,7 @@ The example shows how to send messages to all registered targets.
 ##### Description
 - If the target.type is 'ALL', messages are sent to all tokens. 
 
+<a id="example-of-sending-messages-send-to-particular-users"></a>
 #### 2. Send to Particular Users
 
 The example shows how to send messages to particular users by entering user IDs. 
@@ -583,6 +606,7 @@ The example shows how to send messages to particular users by entering user IDs.
 ##### Description
 - Set 'UID' for target.type and user ID for target.to, and send messages to such particular users. 
 
+<a id="example-of-sending-messages-send-to-users-of-particular-nation-or-push-type"></a>
 #### 3. Send to Users of Particular Nation or Push Type
 
 The example shows how to send messages to users of particular nation or device (e.g. Android or iOS) only.
@@ -607,6 +631,7 @@ The example shows how to send messages to users of particular nation or device (
 ##### Description
 - Set country code for target.countries, and push type for target.pushTypes, and send messages to users who satisfy such conditions. 
 
+<a id="example-of-sending-messages-convert-messages-for-each-push-type"></a>
 #### 4. Convert Messages for Each Push Type
 
 The example describes the conversion rule which is applied for each push type of messages to send. 
@@ -682,6 +707,7 @@ The example describes the conversion rule which is applied for each push type of
 - Reserved words, such as badge and consolidationKey, which are specified for particular push types only, are excluded from other push types. 
   For instance, badge is set for APNS (iOS) messages, while GCM, TENCENT, and ADM are excluded.  
 
+<a id="example-of-sending-messages-ad-messages"></a>
 #### 5. Ad Messages 
 The example regards to the ad phrase which is added to a message, for the delivery of ad messages. 
 
@@ -748,6 +774,7 @@ The example regards to the ad phrase which is added to a message, for the delive
 - When a message is delivered for each push time, title and body are added: ad phrase and contact for Title, and how to withdraw consent of receiving for Body. 
 - Ad messages display Ad Phrase for those users whose language code is Korean (ko, ko-) only. Other language users (e.g. Japanese) shall not find ad phrases. 
 
+<a id="example-of-sending-messages-multiple-language-messages"></a>
 #### 6.  Multiple-Language Messages
 
 The example describes how to send messages in multiple languages.
@@ -824,6 +851,7 @@ The example describes how to send messages in multiple languages.
 - If not a perfect match for a token language code, the best closest language shall be selected at the comparison of language codes. Although the request body contains content.ko only, those users whose language code is Korean (ko-KR), content. ko shall be delivered.  
 - Since customKey is not defined at content.ja, it shall be replaced by content.default. Common messages are available at content.default. 
 
+<a id="example-of-sending-messages-rich-messages"></a>
 #### 7. Rich Messages 
 
 When the 'richMessage' field is defined at 'content', rich messages can be delivered. 
@@ -893,6 +921,7 @@ v1.7 or higher SDKs are required.
 | richMessage.group.key | Required, String | Key of a group |
 | richMessage.group | Required, String | Description of a group |
 
+<a id="example-of-sending-messages-messages-with-fcm-notification"></a>
 #### 8. Messages with FCM Notification 
 With the 'notification' field defined in 'content', messages can be delivered to suit for the FCM type. 
 
@@ -971,7 +1000,9 @@ With the 'notification' field defined in 'content', messages can be delivered to
 }
 ```
 
-### Query
+<a id="messages-query"></a>
+### Query { #messages-query }
+<a id="messages-query-list"></a>
 #### List
 ※ Only the push messages sent using the console can be retrieved by the List API. For push messages sent using the API, use the Query Logs API after enabling the Logging function.
 ##### Method, URL, Headers
@@ -1064,6 +1095,7 @@ curl -X GET \
     - CANCEL_UNAUTHORIZED: Failed while authenticating certificate. Check certificate status. 
     - CANCEL_UNKNOWN: Error has occurred internally.
 
+<a id="messages-query-get"></a>
 #### Get
 ※ Only the push messages sent using the console can be retrieved by the Get API. For push messages sent using the API, use the Query Logs API after enabling the Logging function.
 ##### Method, URL, Headers
@@ -1125,6 +1157,7 @@ curl -X GET \
 ```
 
 
+<a id="messages-query-list-failed-messages"></a>
 #### List Failed Messages
 List messages that are failed in delivery. 
 However, if there is no token available (INVALID_TOKEN), it is not deemed as delivery failure. 
@@ -1166,10 +1199,9 @@ X-Secret-Key: [a-zA-Z0-9]{8}
         - AGENT_ERROR: Delivery failed due to internal errors of agent  
 - If header.resultCode is 40010 at the response body, reduce query period (from, to) and query again.
 
-#### Response Body
-```
-N/A
-```
+##### Request Body
+
+<!-- TODO: translate body -->
 
 ##### cURL
 ```
@@ -1231,10 +1263,12 @@ curl -X GET \
 | tokens | - | UID and token of recipients for failed delivery |
 
 
-### Query Logs 
+<a id="query-logs"></a>
+### Query Logs { #query-logs }
 - Query Logs API can be called only when Logging is enabled. 
 - Logging can be enabled on  [Console] > [Notification] > [Push] > [Setting]. 
 
+<a id="query-logs-query-general-logs"></a>
 #### Query General Logs 
 - Can query up to 100. 
 
@@ -1306,9 +1340,12 @@ curl -X GET \
 }
 ```
 
-## Scheduled Messages
+<a id="scheduled-messages"></a>
+## Scheduled Messages { #scheduled-messages }
 
-### Create
+<a id="scheduled-messages-create"></a>
+### Create { #scheduled-messages-create }
+<a id="scheduled-messages-create-create-delivery-schedule-for-scheduled-messages"></a>
 #### Create Delivery Schedule for Scheduled Messages
 ##### Method, URL, Headers
 ```
@@ -1399,6 +1436,7 @@ curl -X POST \
 | schedules | - | Date and time (ISO 8601, e.g. YYYY-MM-DDThh:mm), Maximum: 60 days from the current date (e.g. 31 July 2024 23:59 if the current date is 1 June 2024) |
 
 
+<a id="scheduled-messages-create-create-scheduled-messages"></a>
 #### Create Scheduled Messages 
 ##### Method, URL, Headers
 ```
@@ -1487,7 +1525,9 @@ curl -X POST \
 | reservationIdString | String | ID string for scheduled message |
 
 
-### Query
+<a id="scheduled-messages-query"></a>
+### Query { #scheduled-messages-query }
+<a id="scheduled-messages-query-list"></a>
 #### List
 ##### Method, URL, Headers
 ```
@@ -1587,6 +1627,7 @@ curl -X GET \
 | schedules.scheduleStatus | - | Status of scheduled message delivery: 'READY', 'SENDING', 'CANCELED', or 'DONE' |
 | totalCount | - | Total number of scheduled messages that are registered |
 
+<a id="scheduled-messages-query-get"></a>
 #### Get
 ##### Method, URL, Headers
 ```
@@ -1608,6 +1649,7 @@ curl -X GET \
 -H 'X-Secret-Key: '"${SECRET_KEY}"''
 ```
 
+<a id="scheduled-messages-query-response-body"></a>
 #### Response Body
 ```json
 {
@@ -1661,6 +1703,7 @@ curl -X GET \
 | updatedDateTime | DateTime String | Date and time of schedule modification (ISO 8601) |
 
 
+<a id="scheduled-messages-query-query-scheduled-messages"></a>
 #### Query Scheduled Messages 
 ##### Method, URL, Headers
 ```
@@ -1726,7 +1769,9 @@ curl -X GET \
 | - | - | - |
 | totalCount | - | Total number of delivered messages |
 
-### Modify
+<a id="modify"></a>
+### Modify { #modify }
+<a id="modify-scheduled-messages"></a>
 #### Modify Scheduled Messages 
 ##### Method, URL, Headers
 ```
@@ -1801,7 +1846,9 @@ curl -X PUT \
 }
 ```
 
-### Delete
+<a id="scheduled-messages-delete"></a>
+### Delete { #scheduled-messages-delete }
+<a id="scheduled-messages-delete-delete-scheduled-messages"></a>
 #### Delete Scheduled Messages 
 ##### Method, URL, Headers
 ```
@@ -1840,9 +1887,12 @@ curl -X DELETE \
 }
 ```
 
-## Tags
+<a id="tags"></a>
+## Tags { #tags }
 
-### Create
+<a id="tags-create"></a>
+### Create { #tags-create }
+<a id="tags-create-create-tags"></a>
 #### Create Tags
 ##### Method, URL, Headers
 ```
@@ -1894,6 +1944,7 @@ curl -X POST \
 ##### Description
 - You can create up to 2,048 tags.
 
+<a id="tags-create-append-uids-to-tag"></a>
 #### Append UIDs to Tag
 - Append UID to a tag: adding existing UIDs ends up with more tags of UID 
 - The maximum number of tags for a UID is 16.
@@ -1957,6 +2008,7 @@ curl -X POST \
 ```
 
 
+<a id="tags-create-set-tag-list-on-uid"></a>
 #### Set Tag List on Uid
 
 - By replacing tags of UID, existing tags are deleted and replaced by new tags. 
@@ -2004,7 +2056,9 @@ curl -X POST \
 }
 ```
 
-### Query
+<a id="tags-query"></a>
+### Query { #tags-query }
+<a id="tags-query-list-tags"></a>
 #### List Tags
 ##### Method, URL, Headers
 ```
@@ -2054,6 +2108,7 @@ curl -X GET \
 | createdDateTime | Required, Date Time String | Date and time of creation (ISO 8601) |
 | updatedDateTime | Required, Date Time String | Date and time of modification (ISO 8601) |
 
+<a id="tags-query-get-tags"></a>
 #### Get Tags
 ##### Method, URL, Headers
 ```
@@ -2091,6 +2146,7 @@ curl -X GET \
 }
 ```
 
+<a id="tags-query-list-uids-of-tag"></a>
 #### List UIDs of Tag
 - List tagged UIDs.
 
@@ -2157,6 +2213,7 @@ curl -X GET \
 | contact | -, String | Token |
 | createdDateTime | Required, Date Time String | Date and time of creation (ISO 8601) |
 
+<a id="tags-query-query-uids"></a>
 #### Query UIDs
 - Query UID.
 - Token is registered, along with contact.
@@ -2209,7 +2266,9 @@ curl -X GET \
 }
 ```
 
-### Modify
+<a id="tags-modify"></a>
+### Modify { #tags-modify }
+<a id="tags-modify-modify-tags"></a>
 #### Modify Tags
 ##### Method, URL, Headers
 ```
@@ -2246,7 +2305,9 @@ curl -X PUT \
 }
 ```
 
-### Delete
+<a id="tags-delete"></a>
+### Delete { #tags-delete }
+<a id="tags-delete-delete-tags"></a>
 #### Delete Tags
 ##### Method, URL, Headers
 ```
@@ -2279,6 +2340,7 @@ curl -X DELETE \
 ```
 
 
+<a id="tags-delete-delete-uids"></a>
 #### Delete UIDs
 - UIDs are deleted, along with contact and token. 
 
@@ -2317,6 +2379,7 @@ curl -X DELETE \
 }
 ```
 
+<a id="tags-delete-delete-uids-of-tag"></a>
 #### Delete UIDs of Tag
 - Delete tag-UID relation only. 
 - Contact or token is not deleted. 
@@ -2351,10 +2414,13 @@ curl -X DELETE \
 }
 ```
 
-## UIDs
+<a id="uids"></a>
+## UIDs { #uids }
 
-### Create
+<a id="uids-create"></a>
+### Create { #uids-create }
 
+<a id="uids-create-add-tags"></a>
 #### Add Tags
 - Add tags to UID with tag ID. 
 - No secret key is required: call is available from app. 
@@ -2394,8 +2460,10 @@ curl -X POST \
 ```
 
 
-### Query
+<a id="uids-query"></a>
+### Query { #uids-query }
 
+<a id="uids-query-query-tag-ids-of-uid"></a>
 #### Query Tag IDs of UID
 - Query tag IDs of UID. 
 - No secret key is required: call is available from app.
@@ -2430,7 +2498,9 @@ curl -X GET \
 ```
 
 
-### Modify 
+<a id="uids-modify"></a>
+### Modify { #uids-modify }
+<a id="uids-modify-modify-tags-of-uid"></a>
 #### Modify Tags of UID
 - Modify tags of UID with tag ID. 
 - No secret key is required: call is available from app.
@@ -2469,7 +2539,8 @@ curl -X PUT \
 ```
 
 
-### Delete Tags 
+<a id="delete-tags"></a>
+### Delete Tags { #delete-tags }
 - Query tag IDs of UID. 
 - No secret key is required: call is available from app.
 ##### Method, URL, Headers
@@ -2506,8 +2577,10 @@ curl -X DELETE \
 | tagIds | Required, String Array | Query String, tag ID to delete, delimited by comma (,) |
 
 <span id="stats-api"></span>
-## Statistics
-### Query Statistics
+<a id="statistics"></a>
+## Statistics { #statistics }
+<a id="query-statistics"></a>
+### Query Statistics { #query-statistics }
 - You can query statistics by statistics event key. 
 
 ##### Method, URL, Headers
@@ -2561,7 +2634,8 @@ curl -X GET \
 }
 ```
 
-### Query Statistics Total
+<a id="query-statistics-total"></a>
+### Query Statistics Total { #query-statistics-total }
 - A total API has been added to sum up the retrieved statistic data.
 
 ##### Method, URL, Headers
