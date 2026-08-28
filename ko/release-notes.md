@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=4b8f8603ee06 -->
+
 <a id="section-1"></a>
 ## Notification > Push > 릴리스 노트 { #section-1 }
 
