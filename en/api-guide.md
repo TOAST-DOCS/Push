@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=479d3552cba2 -->
+
 <a id="notification-push-api-v24-guide"></a>
 ## Notification > Push > API v2.4 Guide { #notification-push-api-v24-guide }
 
