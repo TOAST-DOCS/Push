@@ -1,13 +1,18 @@
-## Notification > Push > Release Notes
+<a id="section-1"></a>
+## Notification > Push > Release Notes { #section-1 }
 
-### 2024. 06. 25.
+<a id="section-1-1"></a>
+### 2024. 06. 25. { #section-1-1 }
+<a id="section-1-1-1"></a>
 #### [Console, API]
 ##### 機能修正
 * 予約送信の最大予約可能期間を変更
     * 予約送信の送信日を現在から最大60日まで設定できるように変更しました。
 	* コンソール及び全てのバージョンのAPIに同じように適用されます。
 
-### 2024. 02. 27.
+<a id="section-1-2"></a>
+### 2024. 02. 27. { #section-1-2 }
+<a id="section-1-2-1"></a>
 #### [Console]
 ##### 機能追加
 * FCM Service Account Credential認証追加
@@ -16,20 +21,26 @@
         * <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/console-guide/#_1">コンソール使用ガイド</a>
     * **Service Account Credential**を登録すると、FCM HTTP V1 APIを通じてFCMメッセージが送信されます。2024年6月20日以降も引き続きFCMで送信するためには、必ずコンソールで**Service Account Credential**を登録する必要があります。
 
-### 2023. 10. 31.
+<a id="section-1-3"></a>
+### 2023. 10. 31. { #section-1-3 }
+<a id="section-1-3-1"></a>
 #### [Console]
 ##### 機能変更
 * 送信履歴保存機能設定時にSecretKeyを追加
     * 2023年10月31日から送信履歴保存機能を有効にする際、Log&Crash SearchサービスのSecretKey入力が追加で必要です。
     * 2023年10月31日以前から機能を使用しているところは移行される予定ですので、SecretKeyの入力は必要ありません。
 
-### 2023. 03. 14.
+<a id="section-1-4"></a>
+### 2023. 03. 14. { #section-1-4 }
+<a id="section-1-4-1"></a>
 #### [API]
 ##### 機能追加
 * トークンリスト照会APIの追加
     * トークンリストを照会できるAPI(v2.4)が追加されました。 
 
-### 2022. 12. 13.
+<a id="section-1-5"></a>
+### 2022. 12. 13. { #section-1-5 }
+<a id="section-1-5-1"></a>
 #### [API]
 ##### 機能追加
 * 一般ログ照会時、ページング機能追加
@@ -37,19 +48,25 @@
 ##### 機能改善
 * 失敗したメッセージリスト照会時のlimit最大値を1000から100に変更
 
-### 2022. 05. 10.
+<a id="section-1-6"></a>
+### 2022. 05. 10. { #section-1-6 }
+<a id="section-1-6-1"></a>
 #### [API]
 ##### バグ修正
 * v2.2 API呼び出し時に`X-SECRET-KEY`ヘッダがない場合にエラーが発生していた問題を修正
     * `X-User-Access-Key-ID`、`X-Secret-Access-Key`ヘッダでAPI認証が行えるようにエラーを修正しました。
 
-### 2022. 03. 29.
+<a id="section-1-7"></a>
+### 2022. 03. 29. { #section-1-7 }
+<a id="section-1-7-1"></a>
 #### [Console]
 ##### 機能追加
 * トークンファイルをダウンロードする時、100万件を超える場合、ファイル分割後に圧縮されたファイルで提供する機能を追加
   * **トークン**タブで**トークンファイルダウンロード**機能を利用して保存されたトークンをファイルでダウンロードするとき、トークンの数が100万件を超える場合、ファイル分割後に圧縮されたファイルで提供する機能が追加されました。
 
-### 2022. 02. 15.
+<a id="section-1-8"></a>
+### 2022. 02. 15. { #section-1-8 }
+<a id="section-1-8-1"></a>
 #### [Console]
 ##### 機能追加
 * トークンファイルダウンロード機能の追加
@@ -60,7 +77,9 @@
 * 認証失敗案内メール重複送信エラーを修正
     * プッシュメッセージ送信時、認証に失敗した場合、案内メールが重複して送信されるエラーを修正しました
 
-### 2022. 01. 11.
+<a id="section-1-9"></a>
+### 2022. 01. 11. { #section-1-9 }
+<a id="section-1-9-1"></a>
 #### [API]
 ##### 機能追加
 * ADM(Amazon Device Messaging)プッシュタイプに受信/確認機能を追加
@@ -69,13 +88,16 @@
 * FCMでiOSメッセージの送信に失敗した時の成功処理エラーを修正
     * Firebaseに無効なAPNS証明書を設定した後、メッセージ送信時に成功として処理されるエラーを修正しました。
 
-### 2021. 10. 26.
+<a id="section-1-10"></a>
+### 2021. 10. 26. { #section-1-10 }
+<a id="section-1-10-1"></a>
 #### [Console]
 ##### 機能追加
 * トークン日時修正ポップアップ追加
     * 登録したトークンの日時を修正することができるポップアップが追加されました。
     * 広告受信同意事実案内メッセージ予約機能などをテストするためにトークンの同意日時を変更する時に使用できます。
 
+<a id="section-1-10-2"></a>
 #### [API]
 ##### 機能追加
 * 統計照会API送信失敗イベントのextra2フィールドに失敗原因が追加されました。
@@ -86,8 +108,11 @@
 * v2.4予約メッセージ照会APIで照会条件処理エラーを修正
     * v2.4予約メッセージ照会APIでfrom、to照会条件が処理されないエラーが修正されました。
 
-### 2021. 07. 27.
-### [Console]
+<a id="section-1-11"></a>
+### 2021. 07. 27. { #section-1-11 }
+<a id="section-1-12"></a>
+### [Console] { #section-1-12 }
+<a id="section-1-12-1"></a>
 #### 機能追加
 * 広告受信同意事実案内メッセージ予約機能
     * 広告メッセージの受信に同意してから満2年が経ったトークンに案内メッセージを送信する機能が追加されました。 
@@ -96,33 +121,44 @@
     * 広告性メッセージ受信同意日時識別子(###AD_AGREEMENT_DATE_TIME###)を本文に挿入すると、メッセージ送信時に該当トークンの同意日時に置換されます。
     * **設定**タブの**広告受信同意事実案内メッセージ予約**で設定できます。
 
-### 2020. 12. 29.
-### [API]
+<a id="section-1-13"></a>
+### 2020. 12. 29. { #section-1-13 }
+<a id="section-1-14"></a>
+### [API] { #section-1-14 }
 * v2.4統計合計API追加
     * 照会した統計データを合算することができる合計APIが追加されました。
         <a href="https://docs.toast.com/ja/Notification/Push/ja/api-guide/#stats-total-api" target="_blank">こちら</a>
 
-### 2020. 06. 09
-### [Console]
+<a id="section-1-15"></a>
+### 2020. 06. 09 { #section-1-15 }
+<a id="section-1-16"></a>
+### [Console] { #section-1-16 }
+<a id="section-1-16-1"></a>
 #### 機能追加
 * APNS JWT認証追加
     * APNSプッシュメッセージ送信時の認証方法にJWTを追加しました。コンソール**証明書**タブでJWT認証に必要なキーID、チームID、トピック、暗号化キーを登録できます。
     * APNS JWT認証情報を登録すると、登録された証明書は削除されます。
     * <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_token-based_connection_to_apns" target="_blank">Apple開発者ガイド</a>
 
-### [Doc]
+<a id="section-1-17"></a>
+### [Doc] { #section-1-17 }
+<a id="section-1-17-1"></a>
 #### ガイド追加
 * **APNS JWT認証情報取得**についてのガイドを追加
     * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#get-apns-jwt" target="_blank">リンク</a>
 
-### 2020. 03. 24
-### [Console]
+<a id="section-1-18"></a>
+### 2020. 03. 24 { #section-1-18 }
+<a id="section-1-19"></a>
+### [Console] { #section-1-19 }
+<a id="section-1-19-1"></a>
 #### 機能追加
 * 統計を改編しました。
     * **統計イベントキー管理** タブを追加しました。コンソールで新しい統計イベントキーを追加し、メッセージ送信時に設定できます。メッセージが送信されると設定した統計イベントキーを基準に統計データが蓄積され、新しい統計タブで検索できます。
         * <a href="https://docs.toast.com/ja/Notification/Push/ja/console-guide/#stats-event-key" target="_blank">リンク</a>
 
-### [API]
+<a id="section-1-20"></a>
+### [API] { #section-1-20 }
 * v2.4 API追加
     * 統計イベントキーで照会できる統計APIを追加しました。v2.3の統計関連APIは今後は提供しません。
         * <a href="https://docs.toast.com/ja/Notification/Push/ja/api-guide/#stats-api" target="_blank">リンク</a>
@@ -130,14 +166,32 @@
    * トークンを複数のUIDが所有できるようにするマルチテナント機能を追加しました。トークン登録時、トークンの末尾に｢#tenant=テナント_情報｣をつけることができます。複数のUIDが同じトークンを使用してもテナント情報が異なればトークンが維持されます。
    
 
-### 2019. 12. 24.
+<a id="section-1-21"></a>
+### 2020. 01. 21. { #section-1-21 }
+
+<!-- TODO: translate body -->
+
+<a id="section-1-21-1"></a>
+#### The source document contained no Korean content to translate (the `[Doc]` placeholder was empty), so the output file has been written as empty.
+
+<!-- TODO: translate body -->
+
+##### ガイド追加
+
+<!-- TODO: translate body -->
+
+<a id="section-1-22"></a>
+### 2019. 12. 24. { #section-1-22 }
+<a id="section-1-22-1"></a>
 #### [Console]
 ##### 機能追加
 * メッセージ送信ページにHTMLスタイル、メッセージクリックアクション、配置入力項目を追加
     * **HTMLスタイル**を使用すると、Android端末でタイトルと内容にHTMLを使用できます。iOS端末はサポートせず、HTMLが表示されません。**HTMLスタイル**を使用しない場合は、HTLMコードがそのままAndroid、iOSに表示されます。
     * **メッセージクリックアクション**を利用して、アプリで定義したスキーム(Scheme)やURLに移動できます。
 
-### 2019.10.29
+<a id="section-1-23"></a>
+### 2019.10.29 { #section-1-23 }
+<a id="section-1-23-1"></a>
 #### [API]
 ##### 機能追加
 
@@ -157,12 +211,15 @@
     * 'content.default.clickAction'に、プッシュメッセージをクリックした時に実行されるアクション(URL、Scheme)を定義できます。
     TOAST SDKを適用した場合、自動的にアクションが実行されます。
 
-### 2019.09.24
+<a id="section-1-24"></a>
+### 2019.09.24 { #section-1-24 }
+<a id="section-1-24-1"></a>
 #### [API]
 ##### バグ修正
 * iOSリッチメッセージ送信エラーを修正
     * メッセージ受信/確認機能を使用しない状態でリッチメッセージを送信すると、iOSでイメージが表示されないエラーを修正しました。
 
+<a id="section-1-24-2"></a>
 #### [Console]
 ##### 機能追加
 * トークンタブで、トークンリスト照会機能を追加
@@ -173,18 +230,23 @@
     * メッセージ送信時、'notification'、'content_available'、'mutual_content'プロパティを使用すると、FCMを通してiOSアプリにメッセージが送信されます。
 
 
-### 2019.05.28
+<a id="section-1-25"></a>
+### 2019.05.28 { #section-1-25 }
+<a id="section-1-25-1"></a>
 #### [API]
 * メッセージ受信/確認データ収集性能の改善
     * メッセージ受信/確認データを収集するサーバーの性能を改善しました。
 
-### 2019.03.26
+<a id="section-1-26"></a>
+### 2019.03.26 { #section-1-26 }
+<a id="section-1-26-1"></a>
 #### [API]
 ##### バグ修正
 * 無効なトークン照会APIで、期間(from, to)設定が適用されないバグを修正
     * 無効なトークン照会APIで、期間を設定した時、from, toのどちらも設定していない場合に、設定が無視されるバグがありました。
     * from, toの片方のみ設定しても期間設定が適用されるように修正しました。
 
+<a id="section-1-26-2"></a>
 #### [Console]
 ##### 機能追加
 * 重複メッセージ防止機能の追加
@@ -193,13 +255,16 @@
     * 重複判断基準はメッセージタイプ、内容(コンテンツ)、発信連絡先、受信同意設定ガイド、広告表示文言位置、トークンです。
     * [設定]タブの[重複メッセージ防止設定]で設定できます。
 
-### 2019.02.26
+<a id="section-1-27"></a>
+### 2019.02.26 { #section-1-27 }
+<a id="section-1-27-1"></a>
 #### [API]
 ##### 機能追加
 * v2.3 API追加
     * トークン削除APIを追加しました。Secret Keyなしで呼び出せます。
     * 新しいプッシュタイプ'FCM'を追加しました。API呼び出し時、'GCM'の代わりに'FCM'を使用する必要があります。
 
+<a id="section-1-27-2"></a>
 #### [Console]
 ##### バグ修正
 * ツールチップエラー、誤字、リンクエラーを修正
@@ -210,13 +275,17 @@
 ##### 機能追加
 * ユーザーコンソールを追加しました。
 
-### 2018.12.18
+<a id="section-1-28"></a>
+### 2018.12.18 { #section-1-28 }
+<a id="section-1-28-1"></a>
 #### [API]
 ##### バグ修正
 * 無効なVoIPトークンが正常に削除されないバグを修正
     * メッセージ送信時、無効なAPNS_VOIP、APNS_SANDBOXVOIPトークンが削除されないバグを修正しました。
 
-### 2018.10.30
+<a id="section-1-29"></a>
+### 2018.10.30 { #section-1-29 }
+<a id="section-1-29-1"></a>
 #### [Console]
 ##### 機能追加
 * メッセージ送信ページにリッチメッセージ機能を追加
@@ -231,6 +300,7 @@
 * トークン検索時、時間がUTCで表示されるバグを修正
     * トークン検索時、時間がUTCで表示されるバグがありました。ブラウザの現地時間で表示されるように修正しました。
 
+<a id="section-1-29-2"></a>
 #### [API]
 ##### 機能追加
 * メッセージ送信APIにリッチメッセージ機能を追加
@@ -238,6 +308,7 @@
          * <a href="https://docs.toast.com/ko/Notification/Push/ko/api-guide/#7" target="_blank">APIガイド</a>
     * v2.0メッセージ送信API以降と、最新SDKが適用されたアプリで使用できます。
 
+<a id="section-1-29-3"></a>
 #### [SDK]
 ##### Android
 * リッチメッセージ機能の追加
@@ -263,7 +334,9 @@
     * 例えば、10時11分までデータを照会すると、11分59秒のデータは漏れるバグがありました。
   この場合は、59秒まで含まれるように改善しました。
 
-### 2018.08.28
+<a id="section-1-30"></a>
+### 2018.08.28 { #section-1-30 }
+<a id="section-1-30-1"></a>
 #### [API]
 ##### 機能追加
 * Logging API追加
@@ -284,12 +357,15 @@
 * 一部プロジェクトで統計API Timeoutが発生するバグを改善
     * 一部プロジェクトで統計照会時にTimeoutが発生するバグがありましたが、最適化によりTimeoutが発生しなくなりました。
 
-### 2018.07.24
+<a id="section-1-31"></a>
+### 2018.07.24 { #section-1-31 }
+<a id="section-1-31-1"></a>
 #### [API]
 ##### 機能改善
 * レスポンスメッセージ改善
     * Response Bodyのheader.resultMessageに失敗原因の詳細を追加しました。
 
+<a id="section-1-31-2"></a>
 #### [SDK]
 ##### Android
 * Amazon Device Messagingサポート
@@ -300,7 +376,9 @@
 
 <br>
 
-### 2018.06.26
+<a id="section-1-32"></a>
+### 2018.06.26 { #section-1-32 }
+<a id="section-1-32-1"></a>
 #### [Console]
 ##### 機能追加
 * ADM(Amazon Device Messaging)プッシュタイプの追加
@@ -308,6 +386,7 @@
     * Amazon開発者サイトでアプリを登録し、Client ID、Client Secretを発行して登録後に送信できます。
      <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#adm-client-id-client-secret" target="_blank">ADMガイド</a>
 
+<a id="section-1-32-2"></a>
 #### [API]
 ##### 機能追加
 * ADM(Amazon Device Messaging)プッシュタイプの追加
@@ -319,6 +398,7 @@
 * 予約メッセージの送信時、現地時間機能を使用した場合、重複受信されるバグを修正
     * 現地時間機能を使用した場合、存在しない時間帯に予約メッセージを送信するバグを修正しました。
 
+<a id="section-1-32-3"></a>
 #### [SDK]
 ##### Android
 * 最新Tencent SDK適用(3.2.3)
@@ -330,12 +410,15 @@
 
 <br>
 
-### 2018.05.29
+<a id="section-1-33"></a>
+### 2018.05.29 { #section-1-33 }
+<a id="section-1-33-1"></a>
 #### [Console]
 ##### 機能改善
 * メッセージID追加
     * メッセージ選択時、ポップアップのDetails部分にメッセージIDを追加しました。
 
+<a id="section-1-33-2"></a>
 #### [API]
 ##### 機能追加
 * v2.1トークン照会APIの追加
@@ -362,13 +445,16 @@
 * 受信/確認統計API照会期間が無視されるバグを修正
     * メッセージIDと照会期間を同時に入力した場合、照会期間が無視されるバグを修正しました。
 
+<a id="section-1-33-3"></a>
 #### [SDK]
 ##### Android
 * SDKユーザビリティの改善
 
 <br>
 
-### 2018.05.02
+<a id="section-1-34"></a>
+### 2018.05.02 { #section-1-34 }
+<a id="section-1-34-1"></a>
 #### [SDK]
 ##### Android
 * トークン登録のバグを修正
@@ -381,7 +467,9 @@
 
 <br>
 
-### 2018.04.24
+<a id="section-1-35"></a>
+### 2018.04.24 { #section-1-35 }
+<a id="section-1-35-1"></a>
 #### [Console]
 ##### 機能追加
 * トークン管理設定機能の追加
@@ -401,6 +489,7 @@
 * エラーメッセージの日本語化
     * プッシュConsole内エラー発生時、表示されるメッセージを日本語化しました。
 
+<a id="section-1-35-2"></a>
 #### [API]
 ##### 機能追加
 * v2.0トークン登録API、deviceIdフィールドの追加
@@ -409,6 +498,7 @@
     * iOSはIDFV(identifierForVendor)、AndroidはAndroid IDの設定を推奨します。
     * Device IDを収集する機能が追加されたSDKは、5月2日に配布予定です。
 
+<a id="section-1-35-3"></a>
 #### [ETC]
 ##### バグ修正
 * [Mail]証明書終了案内メール内HTMLエラー
@@ -416,7 +506,9 @@
 
 <br>
 
-### 2018.03.22
+<a id="section-1-36"></a>
+### 2018.03.22 { #section-1-36 }
+<a id="section-1-36-1"></a>
 #### [Console]
 ##### 機能改善
 * サービスページ内にあったタブメニューをコンソールに移動
@@ -424,6 +516,7 @@
 * Uid照会時、トークンを最終登録順にソート
     * コンソールで、TokenタブでUid照会時、表示されるトークンの順序を最終登録順に変更しました。
 
+<a id="section-1-36-2"></a>
 #### [API]
 ##### 機能追加
 * Uid API追加
@@ -437,7 +530,9 @@
 
 <br>
 
-### 2018.02.22
+<a id="section-1-37"></a>
+### 2018.02.22 { #section-1-37 }
+<a id="section-1-37-1"></a>
 #### [Console]
 ##### 機能追加
 * iOS VoIP送信機能の追加
@@ -454,6 +549,7 @@
     * 広告性メッセージ送信時、広告性プッシュ受信同意撤回方法入力欄に記入例を追加しました。
     '例、メニュー > 設定 > 通知設定'
 
+<a id="section-1-37-2"></a>
 #### [API]
 ##### 機能追加
 * iOS VoIP送信機能の追加
@@ -478,6 +574,7 @@
     eventに設定できる値は次のとおりです。
     'SENT', 'SENT_FAILED', 'RECEIVED', 'OPENED'
 
+<a id="section-1-37-3"></a>
 #### [ETC]
 ##### 機能改善
 * 共通メッセージ送信改善
@@ -487,13 +584,16 @@
 
 <br>
 
-### 2017.12.12
+<a id="section-1-38"></a>
+### 2017.12.12 { #section-1-38 }
+<a id="section-1-38-1"></a>
 #### [API]
 ##### バグ修正
 * 現地時間で予約送信時、送信時間の計算が異常になるバグを修正
     * 予約送信で現地時間送信(isLocalTime = true)を使用する時、
  時間帯別送信時間計算ロジックのバグを修正しました。
 
+<a id="section-1-38-2"></a>
 #### [ETC]
 ##### 機能改善
 * セキュリティ脆弱性ライブラリアップデート
@@ -501,7 +601,9 @@
 
 <br>
 
-### 2017.11.23
+<a id="section-1-39"></a>
+### 2017.11.23 { #section-1-39 }
+<a id="section-1-39-1"></a>
 #### [Console]
 ##### 機能追加
 * Logging機能追加
@@ -516,6 +618,7 @@
 * ReservationタブでEdit、Deleteボタンのバグを修正
     * ReservationタブでEdit、Deleteボタンがクリックできない状態でクリックされるバグを修正しました。
 
+<a id="section-1-39-2"></a>
 #### [API]
 ##### 機能改善
 * v2.0失敗したメッセージ照会API Limitの追加
@@ -525,6 +628,7 @@
     * <a href="/ko/Notification/Push/ko/api-guide/#_15" target="_blank">API Reference</a>
         * メッセージ > 照会 > 失敗したメッセージリスト照会
 
+<a id="section-1-39-3"></a>
 #### [ETC]
 ##### バグ修正
 * [Mail]証明書終了案内メールの送信時、無効なアプリケーションキーが表示されるバグ
@@ -532,7 +636,9 @@
 
 <br>
 
-### 2017.09.21
+<a id="section-1-40"></a>
+### 2017.09.21 { #section-1-40 }
+<a id="section-1-40-1"></a>
 #### [Console]
 ##### バグ修正
 * Tag照会時、ソート基準がないバグを修正
@@ -540,13 +646,16 @@
 * 予約メッセージ登録時、曜日が3個以上選択されないバグを修正
     * 予約タイプを'EVERY_WEEK'に設定した時、曜日が3個以上選択されないバグを修正しました。
 
+<a id="section-1-40-2"></a>
 #### [API]
 ##### 機能改善
 * Tag登録時、名前にスペースを入力できないように修正
 
 <br>
 
-### 2017.08.24
+<a id="section-1-41"></a>
+### 2017.08.24 { #section-1-41 }
+<a id="section-1-41-1"></a>
 #### [Console]
 ##### 機能追加
 * Tagメッセージ送信追加
@@ -569,6 +678,7 @@
     * Tagメッセージ送信機能が追加され、CONSOLEからChannelメッセージ送信機能を削除しました。
     * 既存Channelメッセージ送信機能はv1.3メッセージ送信APIで利用できます。
 
+<a id="section-1-41-2"></a>
 #### [API]
 ##### 機能改善
 * 通知/広告性/夜間広告性プッシュメッセージ受信対象基準の改善
@@ -586,6 +696,7 @@
     * oldTokenにtokenと同じ値を設定してトークン登録APIを呼び出す場合、削除後に登録が省略されるバグを修正しました。
     * パッチ後、oldTokenとtokenが同じであれば削除せずにトークンをアップデートします。
 
+<a id="section-1-41-3"></a>
 #### [SDK]
 ##### Android
 * トークン登録機能の改善
@@ -596,7 +707,9 @@
 
 <br>
 
-### 2017.07.20
+<a id="section-1-42"></a>
+### 2017.07.20 { #section-1-42 }
+<a id="section-1-42-1"></a>
 #### [API]
 ##### 機能追加
 * タグ(Tag) APIの追加  
@@ -621,7 +734,9 @@
 
 <br>
 
-### 2017.05.25
+<a id="section-1-43"></a>
+### 2017.05.25 { #section-1-43 }
+<a id="section-1-43-1"></a>
 #### [SDK]
 ##### Android
 * SDKバージョン確認のためのAPIを追加
@@ -632,13 +747,16 @@
 
 <br>
 
-### 2017.04.25
+<a id="section-1-44"></a>
+### 2017.04.25 { #section-1-44 }
+<a id="section-1-44-1"></a>
 #### [Console]
 ##### 機能追加
 * Dashboard, Settingタブの追加
     * メッセージ受信、確認統計を確認できる[Dashboard]タブを追加しました。
     * メッセージ受信、確認データ収集機能を設定できる[Settings]タブを追加しました。
 
+<a id="section-1-44-2"></a>
 #### [API]
 ##### 機能追加
 * メッセージ受信、確認データ収集(Message Delivery Receipt)、統計照会機能の追加
@@ -656,12 +774,15 @@
 
 <br>
 
-### 2017.02.23
+<a id="section-1-45"></a>
+### 2017.02.23 { #section-1-45 }
+<a id="section-1-45-1"></a>
 #### [API]
 ##### バグ修正
 * 送信期間が1か月以上の予約メッセージが送信されないバグを修正
     * 2017年1月までに登録された予約メッセージのうち、送信終了日が2月以降の予約メッセージが送信されないバグを修正しました。
 
+<a id="section-1-45-2"></a>
 #### [SDK]
 ##### Android
 * ビルド時、Warning Logを削除
@@ -672,18 +793,23 @@
 
 <br>
 
-### 2017.01.19
+<a id="section-1-46"></a>
+### 2017.01.19 { #section-1-46 }
+<a id="section-1-46-1"></a>
 #### [API]
 ##### 機能の追加
 * メッセージ照会API Response BodyにcreatedDateTime(メッセージ作成時間)フィールドを追加
 
+<a id="section-1-46-2"></a>
 #### [ETC]
 ##### 機能改善
 * [Mail]証明書終了案内メールアカウントを変更(support@cloud.toast.com → noreply@cloud.toast.com)
 
 <br>
 
-### 2016.12.22
+<a id="section-1-47"></a>
+### 2016.12.22 { #section-1-47 }
+<a id="section-1-47-1"></a>
 #### [API]
 ##### バグ修正
 * [API]予約メッセージ登録から1か月過ぎた場合、送信されないバグを修正
@@ -693,7 +819,9 @@
 
 <br>
 
-### 2016.11.24
+<a id="section-1-48"></a>
+### 2016.11.24 { #section-1-48 }
+<a id="section-1-48-1"></a>
 #### [SDK]
 ##### Android
 * チャンネルデフォルト値を変更
@@ -706,31 +834,39 @@
 
 <br>
 
-### 2016.10.06
+<a id="section-1-49"></a>
+### 2016.10.06 { #section-1-49 }
+<a id="section-1-49-1"></a>
 #### [API]
 ##### 機能改善
 * MPS単位1,000個/秒から100個/秒に変更
 
 <br>
 
-### 2016.09.29
+<a id="section-1-50"></a>
+### 2016.09.29 { #section-1-50 }
+<a id="section-1-50-1"></a>
 #### [Console]
 ##### 機能改善
 * 証明書を削除せず、すぐに交換できるように修正
 * APNS Universal Certificate APNS_SANDBOX(Development)に登録できないバグを修正
 
+<a id="section-1-50-2"></a>
 #### [API]
 ##### バグ修正
 * UID基準トークン照会APIで、APNS_SANDBOXトークンが除外されるバグを修正
 * トークン登録APIで、Empty String("")が登録されるバグを修正
 
+<a id="section-1-50-3"></a>
 #### [ETC]
 ##### ポリシー変更
 * データ保管期間ポリシーを変更、過去30日まで保存(メッセージ、予約メッセージ、フィードバック)
 
 <br>
 
-### 2016.08.18
+<a id="section-1-51"></a>
+### 2016.08.18 { #section-1-51 }
+<a id="section-1-51-1"></a>
 #### [Console]
 ##### バグ修正
 * 予約メッセージ修正時、保存した内容と異なる曜日が表示されるバグを修正

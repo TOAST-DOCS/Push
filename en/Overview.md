@@ -1,10 +1,14 @@
-## Notification > Push > Overview
+<!-- pre-align:aligned sig=46be9b0f2bb7 -->
+
+<a id="notification-push-overview"></a>
+## Notification > Push > Overview { #notification-push-overview }
 
 Push helps to deliver messages in various methods and query results. You can schedule a message delivery in accordance with recipient's local time and easily track the result.
 
 Here are the main features of Push.    
 
-### Main Features
+<a id="main-features"></a>
+### Main Features { #main-features }
 
 - Deliver messages to Android OS (GCM, ADM) and iOS (APNS, Apple Push Notification Service) altogether
 - Manage tokens
@@ -15,33 +19,40 @@ Here are the main features of Push.
 - Manage tags, and deliver messages based on tokens
 - Collect data on receiving/confirming messages and provide statistics
 
-### Glossary
+<a id="glossary"></a>
+### Glossary { #glossary }
 
 | Term  | Description                                                  |
 | ----- | ------------------------------------------------------------ |
 | Token | An original identifier of a device where the application is installed |
 | Tag   | A system that classifies UID: many tags can be attached to each UID. |
 
-### Structure
+<a id="structure"></a>
+### Structure { #structure }
 
 Below shows the structure of Push Service.
 
 ![](http://static.toastoven.net/prod_push/21-05-03/overview_en.png)
 
+<a id="structure-console"></a>
 #### Console
 
 Provides many functions such as certificate management, API testing, and message delivery.
 
+<a id="structure-rest-apis"></a>
 #### REST APIs
 
 Call Public APIs to register/query tokens, deliver messages, and check feedback
 
+<a id="structure-client-sdk"></a>
 #### Client SDK
 
 Can easily register/query tokens and receive push messages
 
-### Functions
+<a id="functions"></a>
+### Functions { #functions }
 
+<a id="functions-save-consent-to-receive-notificationpromotional-push-messages-and-filter-automatically"></a>
 #### Save Consent to Receive Notification/Promotional Push Messages and Filter Automatically
 
 In accordance with Act on Promotion of Information and Communications Network Utilization and Information Protection, etc. (from Article 50 to 50-8), you're also required to enter consent to receive notification/promotional/night-time promotional push messages. Messages are automatically filtered based on such consent, when delivered.
@@ -50,15 +61,18 @@ In accordance with Act on Promotion of Information and Communications Network Ut
 
 [Check the Act](http://www.law.go.kr/lsEfInfoP.do?lsiSeq=123210#)
 
+<a id="functions-filter-by-country"></a>
 #### Filter by Country
 
 Required to enter a language code when registering a token. You can also specify a country to send messages to.
 
+<a id="functions-common-message-format"></a>
 #### Common Message Format
 
 When a message is written on a common format, it is adjusted to each device before delivered.
 Likewise, the ready-made common message format of a language code can be applied to any new messages for a corresponding language code and device.
 
+<a id="functions-deliver-advertising-messages"></a>
 #### Deliver Advertising Messages
 
 For advertising messages, it is obliged to specifically show in the push messages.  
@@ -67,39 +81,39 @@ When delivering an advertising message (advertisement), include contact informat
 Follow each device's language setting to decide whether to insert advertising messages.
 Only the devices configured in Korean (of which the language code starts with ko, or ko-KR) are required to insert advertising messages, in accordance with Act on Promotion of Information and Communications Network Utilization and Information Protection, etc.
 
+<a id="functions-deliver-scheduled-messages"></a>
 #### Deliver Scheduled Messages  
 
 Many types of scheduled message delivery are available, such as once, daily, weekly and monthly delivery.  
 
 You may also deliver on local time basis.
 
+<a id="functions-configure-time-to-live-ttl"></a>
 #### Configure Time to Live (TTL)   
 
 Your messages can be setup with Time-to-live, or TTL. When a message remains undelivered beyond TTL, it is processed as a failure.
 However, ‘0’ has no TTL and hence, deemed not as a failure due to delivery delay.  
 
+<a id="functions-monitor-in-real-time"></a>
 #### Monitor in Real-time  
 
 ![](http://static.toastoven.net/prod_push/img_03.png)
 
 You can check the status of message delivery in real time on **Messages**.  
 
+<a id="functions-provide-feedbacks"></a>
 #### Provide Feedbacks
 
 Deleted or invalid tokens are automatically deleted when a message is delivered. You can query deleted tokens, using feedback API.
 
+<a id="functions-manage-certificates"></a>
 #### Manage Certificates
 
 Certificates or API keys are managed by push type.
 
+<a id="functions-public-apis"></a>
 #### Public APIs
 
 Public APIs are available to register/query tokens, deliver messages and check feedbacks.
 You may test Public APIs on **APIs**.
 
-#### Enable Service
-
-Click **Console > Notification > Push > Enable**.
-
-- *Document Updates*
-  - *Added Deliver Advertising Messages  (Jan.25,2018)*

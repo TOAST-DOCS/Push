@@ -1,13 +1,18 @@
-## Notification > Push > 릴리스 노트
+<a id="section-1"></a>
+## Notification > Push > 릴리스 노트 { #section-1 }
 
-### 2024. 06. 25.
+<a id="section-1-1"></a>
+### 2024. 06. 25. { #section-1-1 }
+<a id="section-1-1-1"></a>
 #### [Console, API]
 ##### 기능 수정
 * 예약 발송 최대 예약 가능 기간 변경
     * 예약 발송의 발송 일시를 현재로부터 최대 60일까지 설정할 수 있도록 변경했습니다.
 	* 콘솔 및 모든 버전의 API에 동일하게 적용됩니다.
 
-### 2024. 02. 27.
+<a id="section-1-2"></a>
+### 2024. 02. 27. { #section-1-2 }
+<a id="section-1-2-1"></a>
 #### [Console]
 ##### 기능 추가
 * FCM Service Account Credential 인증 추가
@@ -16,20 +21,26 @@
         * <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/console-guide/#_1">콘솔 사용 가이드 바로 가기</a>
     * **Service Account Credential**을 등록하면 FCM HTTP V1 API를 통해 FCM 메시지가 발송됩니다. 2024년 6월 20일 이후에도 계속 FCM으로 발송을 위해서는 반드시 콘솔에서 **Service Account Credential**을 등록해야 합니다.
 
-### 2023. 10. 31.
+<a id="section-1-3"></a>
+### 2023. 10. 31. { #section-1-3 }
+<a id="section-1-3-1"></a>
 #### [Console]
 ##### 기능 변경
 * 발송 내역 저장 기능 설정 시 SecretKey 추가
     * 2023년 10월 31일부터 발송 내역 저장 기능 활성화 시 Log&Crash Search 서비스의 SecretKey 입력이 추가로 필요합니다.
     * 2023년 10월 31일 이전부터 기능을 사용 중인 곳은 전환될 예정이므로 SecretKey 입력이 필요하지 않습니다.
 
-### 2023. 03. 14.
+<a id="section-1-4"></a>
+### 2023. 03. 14. { #section-1-4 }
+<a id="section-1-4-1"></a>
 #### [API]
 ##### 기능 추가
 * 토큰 목록 조회 API 추가
     * 토큰 목록을 조회할 수 있는 API(v2.4)가 추가되었습니다. 
 
-### 2022. 12. 13.
+<a id="section-1-5"></a>
+### 2022. 12. 13. { #section-1-5 }
+<a id="section-1-5-1"></a>
 #### [API]
 ##### 기능 추가
 * 일반 로그 조회 시 페이징 기능 추가
@@ -37,19 +48,25 @@
 ##### 기능 개선
 * 실패한 메시지 목록 조회 시 limit 최댓값을 1000에서 100으로 변경
 
-### 2022. 05. 10.
+<a id="section-1-6"></a>
+### 2022. 05. 10. { #section-1-6 }
+<a id="section-1-6-1"></a>
 #### [API]
 ##### 버그 수정
 * v2.2 API 호출 시 `X-SECRET-KEY` 헤더가 없으면 오류가 발생하던 문제 수정
     * `X-User-Access-Key-ID`, `X-Secret-Access-Key` 헤더로 API 인증이 가능하도록 오류를 수정했습니다.
 
-### 2022. 03. 29.
+<a id="section-1-7"></a>
+### 2022. 03. 29. { #section-1-7 }
+<a id="section-1-7-1"></a>
 #### [Console]
 ##### 기능 추가
 * 토큰 파일 다운로드 시 100만 건이 넘으면 파일 분할 후 압축된 파일로 제공하는 기능 추가
     * **토큰** 탭에서 **토큰 파일 다운로드** 기능을 이용해 저장된 토큰들을 파일로 다운로드할 때 토큰 개수가 100만 건이 넘으면 파일 분할 후 압축된 파일로 제공하는 기능이 추가되었습니다.
 
-### 2022. 02. 15.
+<a id="section-1-8"></a>
+### 2022. 02. 15. { #section-1-8 }
+<a id="section-1-8-1"></a>
 #### [Console]
 ##### 기능 추가
 * 토큰 파일 다운로드 기능 추가
@@ -60,7 +77,9 @@
 * 인증 실패 안내 메일 중복 발송 오류 수정
     * 푸시 메시지 발송 시 인증에 실패하는 경우, 안내 메일이 중복으로 발송되는 오류를 수정했습니다
 
-### 2022. 01. 11.
+<a id="section-1-9"></a>
+### 2022. 01. 11. { #section-1-9 }
+<a id="section-1-9-1"></a>
 #### [API]
 ##### 기능 추가
 * ADM(Amazon Device Messaging) 푸시 타입에 수신/확인 기능 추가
@@ -69,13 +88,16 @@
 * FCM으로 iOS 메세지 발송 실패 시 성공 처리 오류 수정
     * Firebase에 올바르지 않은 APNS 인증서 설정 후 메세지 발송 시 성공으로 처리되는 오류가 수정되었습니다.
 
-### 2021. 10. 26.
+<a id="section-1-10"></a>
+### 2021. 10. 26. { #section-1-10 }
+<a id="section-1-10-1"></a>
 #### [Console]
 ##### 기능 추가
 * 토큰 일시 수정 팝업 추가
     * 등록한 토큰의 일시를 수정할 수 있는 팝업이 추가되었습니다.
     * 광고 수신 동의 사실 안내 메시지 예약 기능 등을 테스트하기 위해서 토큰의 동의 일시를 변경하는 데 사용할 수 있습니다.
 
+<a id="section-1-10-2"></a>
 #### [API]
 ##### 기능 추가
 * 통계 조회 API 발송 실패 이벤트의 'extra2' 필드에 실패 원인이 추가되었습니다.
@@ -86,8 +108,11 @@
 * v2.4 예약 메시지 조회 API에서 조회 조건 처리 오류 수정
     * v2.4 예약 메시지 조회 API에서 'from', 'to' 조회 조건이 처리되지 않는 오류가 수정되었습니다.
 
-### 2021. 07. 27.
-### [Console]
+<a id="section-1-11"></a>
+### 2021. 07. 27. { #section-1-11 }
+<a id="section-1-12"></a>
+### [Console] { #section-1-12 }
+<a id="section-1-12-1"></a>
 #### 기능 추가
 * 광고 수신 동의 사실 안내 메시지 예약 기능
     * 광고 메시지 수신을 동의한지 만 2년이 된 토큰들에 안내 메시지를 발송하는 기능이 추가되었습니다. 
@@ -96,54 +121,71 @@
     * 광고성 메시지 수신 동의 일시 치환자(###AD_AGREEMENT_DATE_TIME###)를 본문에 넣으면 메시지 발송 시 해당 토큰의 동의 일시로 치환됩니다.
     * **설정** 탭의 **광고 수신 동의 사실 안내 메시지 예약**에서 설정할 수 있습니다.
 
-### 2020. 12. 29
-### [API]
+<a id="section-1-13"></a>
+### 2020. 12. 29 { #section-1-13 }
+<a id="section-1-14"></a>
+### [API] { #section-1-14 }
 * v2.4 통계 합계 API 추가
     * 조회한 통계 데이터를 합산할 수 있는 합계 API가 추가되었습니다.
         <a href="https://docs.toast.com/ko/Notification/Push/ko/api-guide/#stats-total-api" target="_blank">바로 가기</a>
 
-### 2020. 06. 09
-### [Console]
+<a id="section-1-15"></a>
+### 2020. 06. 09 { #section-1-15 }
+<a id="section-1-16"></a>
+### [Console] { #section-1-16 }
+<a id="section-1-16-1"></a>
 #### 기능 추가
 * APNS JWT 인증 추가
     * APNS 푸시 메시지 발송 시 인증 수단으로 JWT가 추가되었습니다. 콘솔 **인증서** 탭에서 JWT 인증에 필요한 키 ID, 팀 ID, 토픽, 암호화 키를 등록할 수 있습니다.
     * APNS JWT 인증 정보를 등록하면 등록된 인증서는 삭제됩니다.
     * <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_token-based_connection_to_apns" target="_blank">Apple 개발자 가이드 바로 가기</a>
 
-### [Doc]
+<a id="section-1-17"></a>
+### [Doc] { #section-1-17 }
+<a id="section-1-17-1"></a>
 #### 가이드 추가
 * **APNS JWT 인증 정보 얻기**에 대한 가이드 추가
     * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#get-apns-jwt" target="_blank">바로 가기</a>
 
 
-### 2020. 03. 24
-### [Console]
+<a id="section-1-18"></a>
+### 2020. 03. 24 { #section-1-18 }
+<a id="section-1-19"></a>
+### [Console] { #section-1-19 }
+<a id="section-1-19-1"></a>
 #### 기능 추가
 * 통계가 개편되었습니다.
     * **통계 이벤트 키 관리** 탭이 추가되었습니다. 콘솔에서 새로운 통계 이벤트 키를 추가하고, 메시지 발송 시 설정할 수 있습니다. 메시지가 발송되면 설정한 통계 이벤트 키 기준으로 통계 데이터가 쌓이고, 새로운 통계 탭에서 검색할 수 있습니다.
         * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#stats-event-key" target="_blank">바로 가기</a>
 
-### [API]
+<a id="section-1-20"></a>
+### [API] { #section-1-20 }
 * v2.4 API 추가
     * 통계 이벤트 키로 조회할 수 있는 통계 API가 추가되었습니다. v2.3의 통계 관련 API는 더 이상 제공하지 않습니다.
         * <a href="https://docs.toast.com/ko/Notification/Push/ko/api-guide/#stats-api" target="_blank">바로 가기</a>
 * 토큰 멀티 테넌트 기능 추가
    * 토큰을 여러 UID가 소유할 수 있게 해주는 멀티 테넌트 기능이 추가되었습니다. 토큰 등록 시 토큰 끝에 '#tenant=테넌트_정보'를 붙일 수 있습니다. 여러 UID가 같은 토큰을 사용하더라도 테넌트 정보가 다르면 토큰이 유지됩니다.
 
-### 2020. 01. 21.
+<a id="section-1-21"></a>
+### 2020. 01. 21. { #section-1-21 }
+<a id="section-1-21-1"></a>
 #### [Doc]
 ##### 가이드 추가
 * **메시지 수신 데이터 지표가 낮은 이유**에 대한 가이드 추가
     * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#low-received-event-rates" target="_blank">바로 가기</a>
 
-### 2019. 12. 24.
+<a id="section-1-22"></a>
+### 2019. 12. 24. { #section-1-22 }
+<a id="section-1-22-1"></a>
 #### [Console]
 ##### 기능 추가
 * 메시지 발송 페이지에 HTML 스타일, 메시지 클릭 액션, 배치 입력 항목 추가
     * **HTML 스타일**을 사용하면, Android 기기에서 제목과 내용에 HTML을 사용할 수 있습니다. iOS 기기는 지원하지 않으며, HTML이 표시되지 않습니다. **HTML 스타일**을 사용하지 않는다면, HTLM 코드가 그대로 Android, iOS에 표시됩니다.
     * **메시지 클릭 액션**을 이용해 앱에서 정의한 스킴(Scheme)이나 URL로 이동할 수 있습니다.
 
-### 2019.10.29
+<a id="section-1-23"></a>
+### 2019.10.29 { #section-1-23 }
+<a id="section-1-23-1"></a>
 #### [API]
 ##### 기능 추가
 * Android 배지(badge) 속성 추가
@@ -162,12 +204,15 @@
     * 'content.default.clickAction'에 푸시 메시지 클릭 시 실행될 액션(URL, Scheme)을 정의할 수 있습니다.
     TOAST SDK를 적용하신 경우 자동으로 액션이 실행됩니다.
 
-### 2019.09.24
+<a id="section-1-24"></a>
+### 2019.09.24 { #section-1-24 }
+<a id="section-1-24-1"></a>
 #### [API]
 ##### 버그 수정
 * iOS 리치 메시지 발송 오류 수정
     * 메시지 수신/확인 기능을 사용하지 않는 상태에서 리치 메시지를 발송하면 iOS에서 이미지가 표시되지 않는 오류를 수정했습니다.
 
+<a id="section-1-24-2"></a>
 #### [Console]
 ##### 기능 추가
 * 토큰 탭에서 토큰 목록 조회 기능 추가
@@ -177,18 +222,23 @@
         *  <a href="https://firebase.google.com/docs/cloud-messaging/http-server-ref" target="_blank">FCM 가이드 바로가기</a>
     * 메시지 발송시 'notification', 'content_available', 'mutual_content' 속성을 사용하면 FCM을 통해 iOS 앱으로 메시지가 발송됩니다.
 
-### 2019.05.28
+<a id="section-1-25"></a>
+### 2019.05.28 { #section-1-25 }
+<a id="section-1-25-1"></a>
 #### [API]
 * 메시지 수신/확인 데이터 수집 성능 개선
     * 메시지 수신/확인 데이터 수집 성능을 개선했습니다.
 
-### 2019.03.26
+<a id="section-1-26"></a>
+### 2019.03.26 { #section-1-26 }
+<a id="section-1-26-1"></a>
 #### [API]
 ##### 버그 수정
 * 유효하지 않은 토큰 조회 API에서 기간(from, to) 설정이 적용되지 않는 오류 수정
     * 유효하지 않은 토큰 조회 API에서 기간 설정시 from, to 둘 다 설정하지 않으면 설정이 무시되는 오류가 있었습니다.
     * from, to 둘 중 하나만 설정해도 기간 설정이 적용되도록 수정했습니다.
 
+<a id="section-1-26-2"></a>
 #### [Console]
 ##### 기능 추가
 * 중복 메시지 방지 기능 추가
@@ -197,13 +247,16 @@
     * 중복 판단 기준은 메시지 타입, 내용(콘텐츠), 발신 연락처, 수신 동의 설정 가이드, 광고 표시 문구 위치, 토큰 입니다.
     * 설정 탭 "중복 메시지 방지 설정"에서 설정할 수 있습니다.
 
-### 2019.02.26
+<a id="section-1-27"></a>
+### 2019.02.26 { #section-1-27 }
+<a id="section-1-27-1"></a>
 #### [API]
 ##### 기능 추가
 * v2.3 API 추가
     * 토큰 삭제 API를 추가했습니다. Secret Key 없이 호출할 수 있습니다.
     * 새로운 푸시 타입 'FCM'을 추가했습니다. API 호출시 'GCM'대신 'FCM'을 사용해야 합니다.
 
+<a id="section-1-27-2"></a>
 #### [Console]
 ##### 버그 수정
 * 깨짐, 오타, 링크 오류 수정
@@ -214,13 +267,17 @@
 ##### 기능 추가
 * 유저 콘솔이 추가되었습니다.
 
-### 2018.12.18
+<a id="section-1-28"></a>
+### 2018.12.18 { #section-1-28 }
+<a id="section-1-28-1"></a>
 #### [API]
 ##### 버그 수정
 * 유효하지 않은 VoIP 토큰이 정상적으로 삭제되지 않는 오류 수정
     * 메시지 발송시 유효하지 않은 APNS_VOIP, APNS_SANDBOXVOIP 토큰이 삭제 안되는 오류를 수정했습니다.
 
-### 2018.10.30
+<a id="section-1-29"></a>
+### 2018.10.30 { #section-1-29 }
+<a id="section-1-29-1"></a>
 #### [Console]
 ##### 기능 추가
 * 메시지 발송 페이지에 리치 메시지 기능 추가
@@ -235,6 +292,7 @@
 * 토큰 검색시 시간이 UTC로 표시되는 오류 수정
     * 토큰 검색시 시간이 UTC로 표시되는 오류가 있었습니다. 브라우저의 현지 시간으로 표시되도록 수정했습니다.
 
+<a id="section-1-29-2"></a>
 #### [API]
 ##### 기능 추가
 * 메시지 발송 API에 리치 메시지 기능 추가
@@ -242,6 +300,7 @@
          * <a href="https://docs.toast.com/ko/Notification/Push/ko/api-guide/#7" target="_blank">API 가이드 바로가기</a>
     * v2.0 메시지 발송 API부터와 최신 SDK가 적용된 앱에서 사용할 수 있습니다.
 
+<a id="section-1-29-3"></a>
 #### [SDK]
 ##### Android
 * 리치 메시지 기능 추가
@@ -267,7 +326,9 @@
     * 예로, 10시 11분까지 데이터를 조회하면 11분 59초의 데이터는 누락이 되는 오류가 있었습니다.
     이런 경우 59초까지 포함되도록 개선했습니다.
 
-### 2018.08.28
+<a id="section-1-30"></a>
+### 2018.08.28 { #section-1-30 }
+<a id="section-1-30-1"></a>
 #### [API]
 ##### 기능 추가
 * Logging API 추가
@@ -288,12 +349,15 @@
 * 일부 프로젝트에서 통계 API Timeout 발생하는 오류 개선
     * 일부 프로젝트에서 통계 조회시 Timeout이 발생하는 오류가 있었습니다. 최적화를 통해 Timeout이 발생하지 않도록 수정했습니다.
 
-### 2018.07.24
+<a id="section-1-31"></a>
+### 2018.07.24 { #section-1-31 }
+<a id="section-1-31-1"></a>
 #### [API]
 ##### 기능 개선
 * 응답 메시지 개선
     * Response Body의 header.resultMessage에 실패 원인에대해 더 자세한 내용을 추가해 이해를 돕도록 개선했습니다.
 
+<a id="section-1-31-2"></a>
 #### [SDK]
 ##### Android
 * Amazon Device Messaging 지원
@@ -304,7 +368,9 @@
 
 <br>
 
-### 2018.06.26
+<a id="section-1-32"></a>
+### 2018.06.26 { #section-1-32 }
+<a id="section-1-32-1"></a>
 #### [Console]
 ##### 기능 추가
 * ADM(Amazon Device Messaging) 푸시 타입 추가
@@ -312,6 +378,7 @@
     * 아마존 개발자 사이트에서 앱을 등록하고 Client ID, Client Secret을 발급받아 등록 후 발송할 수 있습니다.
      <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#adm-client-id-client-secret" target="_blank">ADM 가이드 바로가기</a>
 
+<a id="section-1-32-2"></a>
 #### [API]
 ##### 기능 추가
 * ADM(Amazon Device Messaging) 푸시 타입 추가
@@ -323,6 +390,7 @@
 * 예약 메시지 발송시 현지 시간 기능을 사용할 경우, 중복 수신이 되는 오류 수정
     * 현지 시간 기능을 사용한 경우, 존재하지 않는 시간대로 예약 메시지를 발송하는 오류를 수정했습니다.
 
+<a id="section-1-32-3"></a>
 #### [SDK]
 ##### Android
 * 최신 Tencent SDK 적용 (3.2.3)
@@ -334,12 +402,15 @@
 
 <br>
 
-### 2018.05.29
+<a id="section-1-33"></a>
+### 2018.05.29 { #section-1-33 }
+<a id="section-1-33-1"></a>
 #### [Console]
 ##### 기능 개선
 * 메시지 아이디 추가
     * 메시지 선택시 팝업의 Details부분에 메시지 아이디를 추가했습니다.
 
+<a id="section-1-33-2"></a>
 #### [API]
 ##### 기능 추가
 * v2.1 토큰 조회 API 추가
@@ -366,13 +437,16 @@
 * 수신/확인 통계 API 조회 기간이 무시되는 오류 수정
     * 메시지 아이디와 조회 기간을 같이 입력할 경우, 조회 기간이 무시되는 오류를 수정했습니다.
 
+<a id="section-1-33-3"></a>
 #### [SDK]
 ##### Android
 * SDK 사용성 개선
 
 <br>
 
-### 2018.05.02
+<a id="section-1-34"></a>
+### 2018.05.02 { #section-1-34 }
+<a id="section-1-34-1"></a>
 #### [SDK]
 ##### Android
 * 토큰 등록 버그 수정
@@ -385,7 +459,9 @@
 
 <br>
 
-### 2018.04.24
+<a id="section-1-35"></a>
+### 2018.04.24 { #section-1-35 }
+<a id="section-1-35-1"></a>
 #### [Console]
 ##### 기능 추가
 * 토큰 관리 설정 기능 추가
@@ -405,6 +481,7 @@
 * 오류 메시지 한글화
     * 푸시 Console 내 오류 발생시 표시되는 메시지를 한글화했습니다.
 
+<a id="section-1-35-2"></a>
 #### [API]
 ##### 기능 추가
 * v2.0 토큰 등록 API, deviceId 필드 추가
@@ -413,6 +490,7 @@
     * iOS는 IDFV(identifierForVendor), Android는 Android ID를 설정하는 것을 권장합니다.
     * Device ID를 수집하는 기능이 추가된 SDK는 5월 2일에 배포 예정입니다.
 
+<a id="section-1-35-3"></a>
 #### [ETC]
 ##### 버그 수정
 * [Mail] 인증서 만료 안내 메일 내 HTML 오류
@@ -420,7 +498,9 @@
 
 <br>
 
-### 2018.03.22
+<a id="section-1-36"></a>
+### 2018.03.22 { #section-1-36 }
+<a id="section-1-36-1"></a>
 #### [Console]
 ##### 기능 개선
 * 상품 페이지 내에 있던 탭 메뉴, 콘솔로 이동
@@ -428,6 +508,7 @@
 * Uid 조회시 토큰을 최근 등록순으로 정렬
     * 콘솔에서 Token 탭에서 Uid 조회시 표시되는 토큰들의 순서를 최근 등록순으로 변경했습니다.
 
+<a id="section-1-36-2"></a>
 #### [API]
 ##### 기능 추가
 * Uid API 추가
@@ -441,7 +522,9 @@
 
 <br>
 
-### 2018.02.22
+<a id="section-1-37"></a>
+### 2018.02.22 { #section-1-37 }
+<a id="section-1-37-1"></a>
 #### [Console]
 ##### 기능 추가
 * iOS VoIP 발송 기능 추가
@@ -458,6 +541,7 @@
     * 광고성 메시지 발송시 광고성 푸시 수신 동의 철회 방법 입력란에 예시를 추가했습니다.
     '예, 메뉴 > 설정 > 알림 설정'
 
+<a id="section-1-37-2"></a>
 #### [API]
 ##### 기능 추가
 * iOS VoIP 발송 기능 추가
@@ -482,6 +566,7 @@
     event에 설정할 수 있는 값은 다음과 같습니다.
     'SENT', 'SENT_FAILED', 'RECEIVED', 'OPENED'
 
+<a id="section-1-37-3"></a>
 #### [ETC]
 ##### 기능 개선
 * 공통 메시지 발송 개선
@@ -491,13 +576,16 @@
 
 <br>
 
-### 2017.12.12
+<a id="section-1-38"></a>
+### 2017.12.12 { #section-1-38 }
+<a id="section-1-38-1"></a>
 #### [API]
 ##### 버그 수정
 * 현지 시간 예약 발송시 발송 시간이 잘 못 계산되는 오류 수정
     * 예약 발송에서 현지 시간 발송(isLocalTime = true)을 사용할 때,
     시간대별 발송 시간 계산 로직 오류를 수정했습니다.
 
+<a id="section-1-38-2"></a>
 #### [ETC]
 ##### 기능 개선
 * 보안 취약 라이브러리 업데이트
@@ -505,7 +593,9 @@
 
 <br>
 
-### 2017.11.23
+<a id="section-1-39"></a>
+### 2017.11.23 { #section-1-39 }
+<a id="section-1-39-1"></a>
 #### [Console]
 ##### 기능 추가
 * Logging 기능 추가
@@ -520,6 +610,7 @@
 * Reservation 탭에서 Edit, Delete 버튼 오류 수정
     * Reservation 탭에서 Edit, Delete 버튼이 클릭할 수 없는 상태에서 클릭되는 오류를 수정했습니다.
 
+<a id="section-1-39-2"></a>
 #### [API]
 ##### 기능 개선
 * v2.0 실패한 메지시 조회 API Limit 추가
@@ -529,6 +620,7 @@
     * <a href="/ko/Notification/Push/ko/api-guide/#_15" target="_blank">API Reference 바로 가기</a>
         * 메시지 > 조회 > 실패한 메시지 목록 조회
 
+<a id="section-1-39-3"></a>
 #### [ETC]
 ##### 버그 수정
 * [Mail] 인증서 만료 안내 메일 발송시 잘 못된 앱키가 표시되는 오류
@@ -536,7 +628,9 @@
 
 <br>
 
-### 2017.09.21
+<a id="section-1-40"></a>
+### 2017.09.21 { #section-1-40 }
+<a id="section-1-40-1"></a>
 #### [Console]
 ##### 버그 수정
 * Tag 조회시 정렬 기준이 없는 오류 수정
@@ -544,13 +638,16 @@
 * 예약 메시지 등록시 요일이 3개 이상 선택안되는 오류 수정
     * 예약 타입을 'EVERY_WEEK'으로 설정했을 때, 요일이 3 개 이상 선택안되는 오류를 수정했습니다.
 
+<a id="section-1-40-2"></a>
 #### [API]
 ##### 기능 개선
 * Tag 등록시 이름에 빈칸 허용하지 않도록 수정
 
 <br>
 
-### 2017.08.24
+<a id="section-1-41"></a>
+### 2017.08.24 { #section-1-41 }
+<a id="section-1-41-1"></a>
 #### [Console]
 ##### 기능 추가
 * Tag 메시지 발송 추가
@@ -573,6 +670,7 @@
     * Tag 메시지 발송 기능이 추가되면서 CONSOLE에서 Channel 메시지 발송 기능이 제외되었습니다.
     * 기존 Channel 메시지 발송 기능은 v1.3 메시지 발송 API로 이용할 수 있습니다.
 
+<a id="section-1-41-2"></a>
 #### [API]
 ##### 기능 개선
 * 알림/홍보성/야간홍보성 푸시 메시지 수신 대상 기준 개선
@@ -590,6 +688,7 @@
     * oldToken에 token과 같은 값을 설정해 토큰 등록 API를 호출할 경우, 삭제 후 등록이 생략되는 버그를 수정했습니다.
     * 패치 후, oldToken과 token이 같으면 삭제 없이 토큰을 업데이트 합니다.
 
+<a id="section-1-41-3"></a>
 #### [SDK]
 ##### Android
 * 토큰 등록 기능 개선
@@ -600,7 +699,9 @@
 
 <br>
 
-### 2017.07.20
+<a id="section-1-42"></a>
+### 2017.07.20 { #section-1-42 }
+<a id="section-1-42-1"></a>
 #### [API]
 ##### 기능 추가
 * 태그(Tag) API 추가     
@@ -625,7 +726,9 @@
 
 <br>
 
-### 2017.05.25
+<a id="section-1-43"></a>
+### 2017.05.25 { #section-1-43 }
+<a id="section-1-43-1"></a>
 #### [SDK]
 ##### Android
 * SDK 버전 확인을 위한 API 추가
@@ -636,13 +739,16 @@
 
 <br>
 
-### 2017.04.25
+<a id="section-1-44"></a>
+### 2017.04.25 { #section-1-44 }
+<a id="section-1-44-1"></a>
 #### [Console]
 ##### 기능 추가
 * Dashboard, Setting 탭 추가
     * 메시지 수신, 확인 통계를 확인할 수 있는 [Dashboar]d 탭이 추가되었습니다.
     * 메시지 수신, 확인 데이터 수집 기능을 설정할 수 있는 [Settings] 탭이 추가되었습니다.
 
+<a id="section-1-44-2"></a>
 #### [API]
 ##### 기능 추가
 * 메시지 수신, 확인 데이터 수집(Message Delivery Receipt), 통계 조회 기능 추가
@@ -660,12 +766,15 @@
 
 <br>
 
-### 2017.02.23
+<a id="section-1-45"></a>
+### 2017.02.23 { #section-1-45 }
+<a id="section-1-45-1"></a>
 #### [API]
 ##### 버그 수정
 * 발송 기간이 한 달 이상인 예약 메시지 발송 안되는 오류 수정
     * 2017년 1월까지 등록된 예약 메시지 중, 발송 종료일이 2월 이상인 예약 메시지가 발송안되는 오류를 수정했습니다.
 
+<a id="section-1-45-2"></a>
 #### [SDK]
 ##### Android
 * 빌드시 Warning Log 삭제
@@ -676,18 +785,23 @@
 
 <br>
 
-### 2017.01.19
+<a id="section-1-46"></a>
+### 2017.01.19 { #section-1-46 }
+<a id="section-1-46-1"></a>
 #### [API]
 ##### 기능 추가
 * 메시지 조회 API Response Body에 createdDateTime(메시지 생성 시간) 필드 추가
 
+<a id="section-1-46-2"></a>
 #### [ETC]
 ##### 기능 개선
 * [Mail] 인증서 만료 안내 메일 계정 변경 (support@cloud.toast.com -> noreply@cloud.toast.com)
 
 <br>
 
-### 2016.12.22
+<a id="section-1-47"></a>
+### 2016.12.22 { #section-1-47 }
+<a id="section-1-47-1"></a>
 #### [API]
 ##### 버그 수정
 * [API] 예약 메시지 등록이 한 달이 지났을 경우 발송 안되는 오류 수정
@@ -697,7 +811,9 @@
 
 <br>
 
-### 2016.11.24
+<a id="section-1-48"></a>
+### 2016.11.24 { #section-1-48 }
+<a id="section-1-48-1"></a>
 #### [SDK]
 ##### Android
 * 채널 기본값 변경
@@ -710,31 +826,39 @@
 
 <br>
 
-### 2016.10.06
+<a id="section-1-49"></a>
+### 2016.10.06 { #section-1-49 }
+<a id="section-1-49-1"></a>
 #### [API]
 ##### 기능 개선
 * MPS 단위 1,000개/초에서 100개/초로 변경
 
 <br>
 
-### 2016.09.29
+<a id="section-1-50"></a>
+### 2016.09.29 { #section-1-50 }
+<a id="section-1-50-1"></a>
 #### [Console]
 ##### 기능 개선
 * 인증서 삭제 없이 바로 교체할 수 있도록 수정
 * APNS Universal Certificate APNS_SANDBOX(Development)에 등록 안되는 오류 수정
 
+<a id="section-1-50-2"></a>
 #### [API]
 ##### 버그 수정
 * UID 기준 토큰 조회 API에서 APNS_SANDBOX 토큰이 제외되는 오류 수정
 * 토큰 등록 API에서 Empty String("")이 등록 되는 오류 수정
 
+<a id="section-1-50-3"></a>
 #### [ETC]
 ##### 정책 변경
 * 데이터 보관 기간 정책 변경, 최근 30 일까지 저장 (메시지, 예약 메시지, 피드백)
 
 <br>
 
-### 2016.08.18
+<a id="section-1-51"></a>
+### 2016.08.18 { #section-1-51 }
+<a id="section-1-51-1"></a>
 #### [Console]
 ##### 버그 수정
 * 예약 메시지 수정시 요일이 저장한 내용과 다르게 표시되는 오류 수정
