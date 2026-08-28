@@ -1199,7 +1199,14 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 ##### Request Body
 
-<!-- TODO: translate body -->
+```
+None
+```
+
+**Response Body**
+```
+N/A
+```
 
 ##### cURL
 ```

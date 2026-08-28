@@ -2601,6 +2601,12 @@ Content-Type: application/json;charset=UTF-8
 | messageId | Optional, String | メッセージID |
 | statsIds | Optional, String Array | 統計イベントキーID |
 
+##### Request Body
+
+```
+なし
+```
+
 ##### cURL
 ```
 curl -X GET \
@@ -2630,7 +2636,68 @@ https://push.api.nhncloudservice.com/push/v2.4/appkeys/'"${APP_KEY}"'/stats?even
 }
 ```
 
+<a id="query-statistics-total"></a>
+### 統計合計照会 { #query-statistics-total }
+
+- 照会した統計データを合算する合計 API が追加されました。
+
+##### Method, URL, Headers
+
+```
+GET /push/v2.4/appkeys/{appkey}/stats?eventCategory={eventCategory}&statisticsType={statisticsType}&timeUnit={timeUnit}&from={from}&to={to}&extra1s={extra1,}&messageId={messageId}&statsIds={statsId,}&statsCriteria={statsCriterion,}
+Content-Type: application/json;charset=UTF-8
+```
+| Field | Usage | Description |
+| - | - | - |
+| eventCategory | Required, String | イベントのカテゴリ。MESSAGE, TOKEN_REGISTRATION, TOKEN_LANGUAGE, TOKEN_COUNTRY, TOKEN_AGREEMENT |
+| statisticsType | Optional, String | 検索された統計データの表現形式。NORMAL（デフォルト値）、MINUTELY、HOURLY、DAILY、BY_DAY |
+| timeUnit | Optional, String | 統計データの時間単位。デフォルト値は照会期間によって決定。MINUTES、HOURS、DAYS |
+| from | Optional, DateTime String | 最近30日まで (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
+| to | Optional, DateTime String | 最近30日まで (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD, 2018-04-24T06:00:00.000%2B09:00) |
+| extra1s | Optional, String Array | eventCategory が MESSAGE の場合、プッシュタイプでフィルタリング可能。FCM, APNS, APNS_SANDBOX, APNS_VOIP, APNS_SANDBOXVOIP, ADM, TENCENT |
+| messageId | Optional, String | メッセージID |
+| statsIds | Optional, String Array | 統計イベントキーID |
+| statsCriteria | Optional, String Array | 合計時の統計基準。設定しない場合はデフォルト値で合計を計算。EVENT（デフォルト値）、EXTRA_1、EXTRA_2、EXTRA_3、TEMPLATE_ID |
+
+##### Request Body
+
+```
+なし
+```
+
 ##### cURL
+
+```
+curl -X GET \
+'https://push.api.nhncloudservice.com/push/v2.4/appkeys/'"${APP_KEY}"'/stats/total?eventCategory='"${EVENT_CATEGORY}" \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'X-Secret-Key: '"${SECRET_KEY}"''
+```
+
+##### Response Body
+
+```
+{
+	"header": {
+		"resultCode": 0,
+		"resultMessage": "success",
+		"isSuccessful": true
+	},
+	"total" : {
+        "SENT" : 120,
+        "SENT_FAILED" : 50,
+        "SENT": 0,
+        "OPENED": 0
+    }
+}
+```
+
+
+* *ドキュメント修正履歴*
+    * *(2020.03.24) 統計 API 追加*
+    * *(2020.12.29) 統計合計 API 追加*
+
+**cURL**
 ```
 curl -X GET \
 'https://push.api.nhncloudservice.com/push/v2.4/appkeys/'"${APP_KEY}"'/stats?eventCategory='"${EVENT_CATEGORY}" \
@@ -2638,7 +2705,7 @@ curl -X GET \
 -H 'X-Secret-Key: '"${SECRET_KEY}"''
 ```
 
-##### Response Body
+**Response Body**
 ```
 {
 	"header": {
