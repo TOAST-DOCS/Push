@@ -1,11 +1,9 @@
 <!-- machine_translated: true -->
 
 <a id="section-1"></a>
-
 ## Notification > Push > Release Notes { #section-1 }
 
 <a id="section-1-1"></a>
-
 ### 2024. 06. 25. { #section-1-1 }
 <a id="section-1-1-1"></a>
 #### [Console, API]
@@ -15,7 +13,6 @@
 	* コンソール及び全てのバージョンのAPIに同じように適用されます。
 
 <a id="section-1-2"></a>
-
 ### 2024. 02. 27. { #section-1-2 }
 <a id="section-1-2-1"></a>
 #### [Console]
@@ -27,7 +24,6 @@
     * **Service Account Credential**を登録すると、FCM HTTP V1 APIを通じてFCMメッセージが送信されます。2024年6月20日以降も引き続きFCMで送信するためには、必ずコンソールで**Service Account Credential**を登録する必要があります。
 
 <a id="section-1-3"></a>
-
 ### 2023. 10. 31. { #section-1-3 }
 <a id="section-1-3-1"></a>
 #### [Console]
@@ -37,7 +33,6 @@
     * 2023年10月31日以前から機能を使用しているところは移行される予定ですので、SecretKeyの入力は必要ありません。
 
 <a id="section-1-4"></a>
-
 ### 2023. 03. 14. { #section-1-4 }
 <a id="section-1-4-1"></a>
 #### [API]
@@ -46,7 +41,6 @@
     * トークンリストを照会できるAPI(v2.4)が追加されました。 
 
 <a id="section-1-5"></a>
-
 ### 2022. 12. 13. { #section-1-5 }
 <a id="section-1-5-1"></a>
 #### [API]
@@ -57,7 +51,6 @@
 * 失敗したメッセージリスト照会時のlimit最大値を1000から100に変更
 
 <a id="section-1-6"></a>
-
 ### 2022. 05. 10. { #section-1-6 }
 <a id="section-1-6-1"></a>
 #### [API]
@@ -66,7 +59,6 @@
     * `X-User-Access-Key-ID`、`X-Secret-Access-Key`ヘッダでAPI認証が行えるようにエラーを修正しました。
 
 <a id="section-1-7"></a>
-
 ### 2022. 03. 29. { #section-1-7 }
 <a id="section-1-7-1"></a>
 #### [Console]
@@ -75,7 +67,6 @@
   * **トークン**タブで**トークンファイルダウンロード**機能を利用して保存されたトークンをファイルでダウンロードするとき、トークンの数が100万件を超える場合、ファイル分割後に圧縮されたファイルで提供する機能が追加されました。
 
 <a id="section-1-8"></a>
-
 ### 2022. 02. 15. { #section-1-8 }
 <a id="section-1-8-1"></a>
 #### [Console]
@@ -89,7 +80,6 @@
     * プッシュメッセージ送信時、認証に失敗した場合、案内メールが重複して送信されるエラーを修正しました
 
 <a id="section-1-9"></a>
-
 ### 2022. 01. 11. { #section-1-9 }
 <a id="section-1-9-1"></a>
 #### [API]
@@ -101,7 +91,6 @@
     * Firebaseに無効なAPNS証明書を設定した後、メッセージ送信時に成功として処理されるエラーを修正しました。
 
 <a id="section-1-10"></a>
-
 ### 2021. 10. 26. { #section-1-10 }
 <a id="section-1-10-1"></a>
 #### [Console]
@@ -122,10 +111,8 @@
     * v2.4予約メッセージ照会APIでfrom、to照会条件が処理されないエラーが修正されました。
 
 <a id="section-1-11"></a>
-
 ### 2021. 07. 27. { #section-1-11 }
 <a id="section-1-12"></a>
-
 ### [Console] { #section-1-12 }
 <a id="section-1-12-1"></a>
 #### 機能追加
@@ -137,20 +124,16 @@
     * **設定**タブの**広告受信同意事実案内メッセージ予約**で設定できます。
 
 <a id="section-1-13"></a>
-
 ### 2020. 12. 29 { #section-1-13 }
 <a id="section-1-14"></a>
-
 ### [API] { #section-1-14 }
 * v2.4統計合計API追加
     * 照会した統計データを合算することができる合計APIが追加されました。
         <a href="https://docs.toast.com/ja/Notification/Push/ko/api-guide/#stats-total-api" target="_blank">こちら</a>
 
 <a id="section-1-15"></a>
-
 ### 2020. 06. 09 { #section-1-15 }
 <a id="section-1-16"></a>
-
 ### [Console] { #section-1-16 }
 <a id="section-1-16-1"></a>
 #### 機能追加
@@ -160,7 +143,6 @@
     * <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_token-based_connection_to_apns" target="_blank">Apple開発者ガイド</a>
 
 <a id="section-1-17"></a>
-
 ### [Doc] { #section-1-17 }
 <a id="section-1-17-1"></a>
 #### ガイド追加
@@ -169,10 +151,8 @@
 
 
 <a id="section-1-18"></a>
-
 ### 2020. 03. 24 { #section-1-18 }
 <a id="section-1-19"></a>
-
 ### [Console] { #section-1-19 }
 <a id="section-1-19-1"></a>
 #### 機能追加
@@ -181,7 +161,6 @@
         * <a href="https://docs.toast.com/ja/Notification/Push/ko/console-guide/#stats-event-key" target="_blank">リンク</a>
 
 <a id="section-1-20"></a>
-
 ### [API] { #section-1-20 }
 * v2.4 API追加
     * 統計イベントキーで照会できる統計APIを追加しました。v2.3の統計関連APIは今後は提供しません。
@@ -191,7 +170,6 @@
    
 
 <a id="section-1-21"></a>
-
 ### 2020. 01. 21. { #section-1-21 }
 <a id="section-1-21-1"></a>
 #### [Doc]
@@ -200,7 +178,6 @@
     * <a href="https://docs.toast.com/ja/Notification/Push/ko/console-guide/#low-received-event-rates" target="_blank">こちら</a>
 
 <a id="section-1-22"></a>
-
 ### 2019. 12. 24. { #section-1-22 }
 <a id="section-1-22-1"></a>
 #### [Console]
@@ -210,7 +187,6 @@
     * **メッセージクリックアクション**を利用して、アプリで定義したスキーム(Scheme)やURLに移動できます。
 
 <a id="section-1-23"></a>
-
 ### 2019.10.29 { #section-1-23 }
 <a id="section-1-23-1"></a>
 #### [API]
@@ -233,7 +209,6 @@
     TOAST SDKを適用した場合、自動的にアクションが実行されます。
 
 <a id="section-1-24"></a>
-
 ### 2019.09.24 { #section-1-24 }
 <a id="section-1-24-1"></a>
 #### [API]
@@ -252,7 +227,6 @@
     * メッセージ送信時、'notification'、'content_available'、'mutual_content'プロパティを使用すると、FCMを通してiOSアプリにメッセージが送信されます。
 
 <a id="section-1-25"></a>
-
 ### 2019.05.28 { #section-1-25 }
 <a id="section-1-25-1"></a>
 #### [API]
@@ -260,7 +234,6 @@
     * メッセージ受信/確認データを収集するサーバーの性能を改善しました。
 
 <a id="section-1-26"></a>
-
 ### 2019.03.26 { #section-1-26 }
 <a id="section-1-26-1"></a>
 #### [API]
@@ -279,7 +252,6 @@
     * [設定]タブの[重複メッセージ防止設定]で設定できます。
 
 <a id="section-1-27"></a>
-
 ### 2019.02.26 { #section-1-27 }
 <a id="section-1-27-1"></a>
 #### [API]
@@ -300,8 +272,6 @@
 * ユーザーコンソールを追加しました。
 
 <a id="section-1-28"></a>
-
-
 ### 2018.12.18 { #section-1-28 }
 <a id="section-1-28-1"></a>
 #### [API]
@@ -310,7 +280,6 @@
     * メッセージ送信時、無効なAPNS_VOIP、APNS_SANDBOXVOIPトークンが削除されないバグを修正しました。
 
 <a id="section-1-29"></a>
-
 ### 2018.10.30 { #section-1-29 }
 <a id="section-1-29-1"></a>
 #### [Console]
@@ -387,7 +356,6 @@
     * 一部プロジェクトで統計照会時にTimeoutが発生するバグがありましたが、最適化によりTimeoutが発生しなくなりました。
 
 <a id="section-1-31"></a>
-
 ### 2018.07.24 { #section-1-31 }
 <a id="section-1-31-1"></a>
 #### [API]
@@ -407,7 +375,6 @@
 <br>
 
 <a id="section-1-32"></a>
-
 ### 2018.06.26 { #section-1-32 }
 <a id="section-1-32-1"></a>
 #### [Console]
@@ -442,7 +409,6 @@
 <br>
 
 <a id="section-1-33"></a>
-
 ### 2018.05.29 { #section-1-33 }
 <a id="section-1-33-1"></a>
 #### [Console]
@@ -485,7 +451,6 @@
 <br>
 
 <a id="section-1-34"></a>
-
 ### 2018.05.02 { #section-1-34 }
 <a id="section-1-34-1"></a>
 #### [SDK]
@@ -501,7 +466,6 @@
 <br>
 
 <a id="section-1-35"></a>
-
 ### 2018.04.24 { #section-1-35 }
 <a id="section-1-35-1"></a>
 #### [Console]
@@ -541,7 +505,6 @@
 <br>
 
 <a id="section-1-36"></a>
-
 ### 2018.03.22 { #section-1-36 }
 <a id="section-1-36-1"></a>
 #### [Console]
@@ -566,7 +529,6 @@
 <br>
 
 <a id="section-1-37"></a>
-
 ### 2018.02.22 { #section-1-37 }
 <a id="section-1-37-1"></a>
 #### [Console]
@@ -621,7 +583,6 @@
 <br>
 
 <a id="section-1-38"></a>
-
 ### 2017.12.12 { #section-1-38 }
 <a id="section-1-38-1"></a>
 #### [API]
@@ -639,7 +600,6 @@
 <br>
 
 <a id="section-1-39"></a>
-
 ### 2017.11.23 { #section-1-39 }
 <a id="section-1-39-1"></a>
 #### [Console]
@@ -675,7 +635,6 @@
 <br>
 
 <a id="section-1-40"></a>
-
 ### 2017.09.21 { #section-1-40 }
 <a id="section-1-40-1"></a>
 #### [Console]
@@ -749,7 +708,6 @@
 <br>
 
 <a id="section-1-42"></a>
-
 ### 2017.07.20 { #section-1-42 }
 <a id="section-1-42-1"></a>
 #### [API]
@@ -777,7 +735,6 @@
 <br>
 
 <a id="section-1-43"></a>
-
 ### 2017.05.25 { #section-1-43 }
 <a id="section-1-43-1"></a>
 #### [SDK]
@@ -791,7 +748,6 @@
 <br>
 
 <a id="section-1-44"></a>
-
 ### 2017.04.25 { #section-1-44 }
 <a id="section-1-44-1"></a>
 #### [Console]
@@ -819,7 +775,6 @@
 <br>
 
 <a id="section-1-45"></a>
-
 ### 2017.02.23 { #section-1-45 }
 <a id="section-1-45-1"></a>
 #### [API]
@@ -839,7 +794,6 @@
 <br>
 
 <a id="section-1-46"></a>
-
 ### 2017.01.19 { #section-1-46 }
 <a id="section-1-46-1"></a>
 #### [API]
@@ -854,7 +808,6 @@
 <br>
 
 <a id="section-1-47"></a>
-
 ### 2016.12.22 { #section-1-47 }
 <a id="section-1-47-1"></a>
 #### [API]
@@ -867,7 +820,6 @@
 <br>
 
 <a id="section-1-48"></a>
-
 ### 2016.11.24 { #section-1-48 }
 <a id="section-1-48-1"></a>
 #### [SDK]
@@ -883,7 +835,6 @@
 <br>
 
 <a id="section-1-49"></a>
-
 ### 2016.10.06 { #section-1-49 }
 <a id="section-1-49-1"></a>
 #### [API]
@@ -893,7 +844,6 @@
 <br>
 
 <a id="section-1-50"></a>
-
 ### 2016.09.29 { #section-1-50 }
 <a id="section-1-50-1"></a>
 #### [Console]
@@ -915,7 +865,6 @@
 <br>
 
 <a id="section-1-51"></a>
-
 ### 2016.08.18 { #section-1-51 }
 <a id="section-1-51-1"></a>
 #### [Console]
