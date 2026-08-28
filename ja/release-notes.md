@@ -1,7 +1,11 @@
+<!-- machine_translated: true -->
+
 <a id="section-1"></a>
+
 ## Notification > Push > Release Notes { #section-1 }
 
 <a id="section-1-1"></a>
+
 ### 2024. 06. 25. { #section-1-1 }
 <a id="section-1-1-1"></a>
 #### [Console, API]
@@ -11,17 +15,19 @@
 	* コンソール及び全てのバージョンのAPIに同じように適用されます。
 
 <a id="section-1-2"></a>
+
 ### 2024. 02. 27. { #section-1-2 }
 <a id="section-1-2-1"></a>
 #### [Console]
 ##### 機能追加
 * FCM Service Account Credential認証追加
     * 2024年6月20日付でFCM Legacy APIがサービス終了予定です。 これに伴い、FCMメッセージ送信時にFCM HTTP(V1) APIを利用する必要があり、API認証には**Server Key**の代わりに**Service Account Credential**が必要です。
-        * <a href="https://firebase.google.com/docs/cloud-messaging/migrate-v1" target="_blank">FCMマイグレーションガイド</a>
-        * <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/console-guide/#_1">コンソール使用ガイド</a>
+        * <a href="https://firebase.google.com/docs/cloud-messaging/migrate-v1" target="_blank">FCM マイグレーションガイドはこちら</a>
+        * <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/console-guide/#_1">コンソール使用ガイドはこちら</a>
     * **Service Account Credential**を登録すると、FCM HTTP V1 APIを通じてFCMメッセージが送信されます。2024年6月20日以降も引き続きFCMで送信するためには、必ずコンソールで**Service Account Credential**を登録する必要があります。
 
 <a id="section-1-3"></a>
+
 ### 2023. 10. 31. { #section-1-3 }
 <a id="section-1-3-1"></a>
 #### [Console]
@@ -31,6 +37,7 @@
     * 2023年10月31日以前から機能を使用しているところは移行される予定ですので、SecretKeyの入力は必要ありません。
 
 <a id="section-1-4"></a>
+
 ### 2023. 03. 14. { #section-1-4 }
 <a id="section-1-4-1"></a>
 #### [API]
@@ -39,6 +46,7 @@
     * トークンリストを照会できるAPI(v2.4)が追加されました。 
 
 <a id="section-1-5"></a>
+
 ### 2022. 12. 13. { #section-1-5 }
 <a id="section-1-5-1"></a>
 #### [API]
@@ -49,6 +57,7 @@
 * 失敗したメッセージリスト照会時のlimit最大値を1000から100に変更
 
 <a id="section-1-6"></a>
+
 ### 2022. 05. 10. { #section-1-6 }
 <a id="section-1-6-1"></a>
 #### [API]
@@ -57,6 +66,7 @@
     * `X-User-Access-Key-ID`、`X-Secret-Access-Key`ヘッダでAPI認証が行えるようにエラーを修正しました。
 
 <a id="section-1-7"></a>
+
 ### 2022. 03. 29. { #section-1-7 }
 <a id="section-1-7-1"></a>
 #### [Console]
@@ -65,6 +75,7 @@
   * **トークン**タブで**トークンファイルダウンロード**機能を利用して保存されたトークンをファイルでダウンロードするとき、トークンの数が100万件を超える場合、ファイル分割後に圧縮されたファイルで提供する機能が追加されました。
 
 <a id="section-1-8"></a>
+
 ### 2022. 02. 15. { #section-1-8 }
 <a id="section-1-8-1"></a>
 #### [Console]
@@ -78,6 +89,7 @@
     * プッシュメッセージ送信時、認証に失敗した場合、案内メールが重複して送信されるエラーを修正しました
 
 <a id="section-1-9"></a>
+
 ### 2022. 01. 11. { #section-1-9 }
 <a id="section-1-9-1"></a>
 #### [API]
@@ -89,6 +101,7 @@
     * Firebaseに無効なAPNS証明書を設定した後、メッセージ送信時に成功として処理されるエラーを修正しました。
 
 <a id="section-1-10"></a>
+
 ### 2021. 10. 26. { #section-1-10 }
 <a id="section-1-10-1"></a>
 #### [Console]
@@ -109,29 +122,35 @@
     * v2.4予約メッセージ照会APIでfrom、to照会条件が処理されないエラーが修正されました。
 
 <a id="section-1-11"></a>
+
 ### 2021. 07. 27. { #section-1-11 }
 <a id="section-1-12"></a>
+
 ### [Console] { #section-1-12 }
 <a id="section-1-12-1"></a>
 #### 機能追加
 * 広告受信同意事実案内メッセージ予約機能
     * 広告メッセージの受信に同意してから満2年が経ったトークンに案内メッセージを送信する機能が追加されました。 
     * 毎月設定した日時に案内メッセージが対象トークンに送信されます。
-    * 毎月設定した日時に案内メッセージが対象トークンに送信されます。
+    * 案内メッセージには、受信同意の事実と日時、受信同意設定の方法を必ず含める必要があります。
     * 広告性メッセージ受信同意日時識別子(###AD_AGREEMENT_DATE_TIME###)を本文に挿入すると、メッセージ送信時に該当トークンの同意日時に置換されます。
     * **設定**タブの**広告受信同意事実案内メッセージ予約**で設定できます。
 
 <a id="section-1-13"></a>
-### 2020. 12. 29. { #section-1-13 }
+
+### 2020. 12. 29 { #section-1-13 }
 <a id="section-1-14"></a>
+
 ### [API] { #section-1-14 }
 * v2.4統計合計API追加
     * 照会した統計データを合算することができる合計APIが追加されました。
-        <a href="https://docs.toast.com/ja/Notification/Push/ja/api-guide/#stats-total-api" target="_blank">こちら</a>
+        <a href="https://docs.toast.com/ja/Notification/Push/ko/api-guide/#stats-total-api" target="_blank">こちら</a>
 
 <a id="section-1-15"></a>
+
 ### 2020. 06. 09 { #section-1-15 }
 <a id="section-1-16"></a>
+
 ### [Console] { #section-1-16 }
 <a id="section-1-16-1"></a>
 #### 機能追加
@@ -141,46 +160,47 @@
     * <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_token-based_connection_to_apns" target="_blank">Apple開発者ガイド</a>
 
 <a id="section-1-17"></a>
+
 ### [Doc] { #section-1-17 }
 <a id="section-1-17-1"></a>
 #### ガイド追加
 * **APNS JWT認証情報取得**についてのガイドを追加
     * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#get-apns-jwt" target="_blank">リンク</a>
 
+
 <a id="section-1-18"></a>
+
 ### 2020. 03. 24 { #section-1-18 }
 <a id="section-1-19"></a>
+
 ### [Console] { #section-1-19 }
 <a id="section-1-19-1"></a>
 #### 機能追加
 * 統計を改編しました。
     * **統計イベントキー管理** タブを追加しました。コンソールで新しい統計イベントキーを追加し、メッセージ送信時に設定できます。メッセージが送信されると設定した統計イベントキーを基準に統計データが蓄積され、新しい統計タブで検索できます。
-        * <a href="https://docs.toast.com/ja/Notification/Push/ja/console-guide/#stats-event-key" target="_blank">リンク</a>
+        * <a href="https://docs.toast.com/ja/Notification/Push/ko/console-guide/#stats-event-key" target="_blank">リンク</a>
 
 <a id="section-1-20"></a>
+
 ### [API] { #section-1-20 }
 * v2.4 API追加
     * 統計イベントキーで照会できる統計APIを追加しました。v2.3の統計関連APIは今後は提供しません。
-        * <a href="https://docs.toast.com/ja/Notification/Push/ja/api-guide/#stats-api" target="_blank">リンク</a>
+        * <a href="https://docs.toast.com/ja/Notification/Push/ko/api-guide/#stats-api" target="_blank">リンク</a>
 * トークンマルチテナント機能追加
    * トークンを複数のUIDが所有できるようにするマルチテナント機能を追加しました。トークン登録時、トークンの末尾に｢#tenant=テナント_情報｣をつけることができます。複数のUIDが同じトークンを使用してもテナント情報が異なればトークンが維持されます。
    
 
 <a id="section-1-21"></a>
+
 ### 2020. 01. 21. { #section-1-21 }
-
-<!-- TODO: translate body -->
-
 <a id="section-1-21-1"></a>
-#### The source document contained no Korean content to translate (the `[Doc]` placeholder was empty), so the output file has been written as empty.
-
-<!-- TODO: translate body -->
-
+#### [Doc]
 ##### ガイド追加
-
-<!-- TODO: translate body -->
+* **メッセージ受信データの指標が低い理由**についてのガイドを追加
+    * <a href="https://docs.toast.com/ja/Notification/Push/ko/console-guide/#low-received-event-rates" target="_blank">こちら</a>
 
 <a id="section-1-22"></a>
+
 ### 2019. 12. 24. { #section-1-22 }
 <a id="section-1-22-1"></a>
 #### [Console]
@@ -190,6 +210,7 @@
     * **メッセージクリックアクション**を利用して、アプリで定義したスキーム(Scheme)やURLに移動できます。
 
 <a id="section-1-23"></a>
+
 ### 2019.10.29 { #section-1-23 }
 <a id="section-1-23-1"></a>
 #### [API]
@@ -212,6 +233,7 @@
     TOAST SDKを適用した場合、自動的にアクションが実行されます。
 
 <a id="section-1-24"></a>
+
 ### 2019.09.24 { #section-1-24 }
 <a id="section-1-24-1"></a>
 #### [API]
@@ -226,11 +248,11 @@
     * トークンタブで、検索条件がなくてもトークンを照会できるように改善しました。
 * FCMを通してiOSにメッセージを送信する機能を追加
     * FCM SDKを使用するiOSアプリにメッセージを送信できます。
-        *  <a href="https://firebase.google.com/docs/cloud-messaging/http-server-ref" target="_blank">FCMガイド</a>
+        *  <a href="https://firebase.google.com/docs/cloud-messaging/http-server-ref" target="_blank">FCMガイドはこちら</a>
     * メッセージ送信時、'notification'、'content_available'、'mutual_content'プロパティを使用すると、FCMを通してiOSアプリにメッセージが送信されます。
 
-
 <a id="section-1-25"></a>
+
 ### 2019.05.28 { #section-1-25 }
 <a id="section-1-25-1"></a>
 #### [API]
@@ -238,6 +260,7 @@
     * メッセージ受信/確認データを収集するサーバーの性能を改善しました。
 
 <a id="section-1-26"></a>
+
 ### 2019.03.26 { #section-1-26 }
 <a id="section-1-26-1"></a>
 #### [API]
@@ -256,6 +279,7 @@
     * [設定]タブの[重複メッセージ防止設定]で設定できます。
 
 <a id="section-1-27"></a>
+
 ### 2019.02.26 { #section-1-27 }
 <a id="section-1-27-1"></a>
 #### [API]
@@ -276,6 +300,8 @@
 * ユーザーコンソールを追加しました。
 
 <a id="section-1-28"></a>
+
+
 ### 2018.12.18 { #section-1-28 }
 <a id="section-1-28-1"></a>
 #### [API]
@@ -284,13 +310,14 @@
     * メッセージ送信時、無効なAPNS_VOIP、APNS_SANDBOXVOIPトークンが削除されないバグを修正しました。
 
 <a id="section-1-29"></a>
+
 ### 2018.10.30 { #section-1-29 }
 <a id="section-1-29-1"></a>
 #### [Console]
 ##### 機能追加
 * メッセージ送信ページにリッチメッセージ機能を追加
     * メッセージ送信ページでリッチメッセージを送信できます。
-        * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#_3" target="_blank">コンソールガイド</a>
+        *  <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#_3" target="_blank">コンソールガイドへ</a>
     * プレビュー機能を提供し、Android、iOSでリッチメッセージがどのように表示されるかを確認できます。
 * 広告表示文言位置設定機能を追加
     * 広告メッセージであることを表す文言を、タイトルまたは内容部分に表示するかどうかを設定できる機能を追加しました。
@@ -305,7 +332,7 @@
 ##### 機能追加
 * メッセージ送信APIにリッチメッセージ機能を追加
     * プッシュメッセージにボタン、メディア(画像、動画、音声)を表示できる機能を追加しました。
-         * <a href="https://docs.toast.com/ko/Notification/Push/ko/api-guide/#7" target="_blank">APIガイド</a>
+         * <a href="https://docs.toast.com/ko/Notification/Push/ko/api-guide/#7" target="_blank">APIガイドへ</a>
     * v2.0メッセージ送信API以降と、最新SDKが適用されたアプリで使用できます。
 
 <a id="section-1-29-3"></a>
@@ -325,7 +352,7 @@
     * 初期化でカテゴリーを設定し、メッセージ内に本人のカテゴリー識別子に設定すると、該当カテゴリーのアクションを受信できます。
 * 指標収集方法の追加
     * アプリケーションのinfo.plistファイルに指標収集情報(AppKey)を入力して、初期化しなくても確認指標の収集が可能です。
-ｄｄっｓ
+    * ユーザーの Notification Service Extension の info.plist ファイルに指標収集情報(AppKey)を入力することで、受信指標を自動的に送信できます。(TCPushServiceExtension の拡張が必須)
 * トークン登録機能の改善
     * 初期化せずにトークン登録リクエストシステムトークンのみ登録され、発行されたトークンをサービスサーバーでAPIを通して自由に登録できます。
 
@@ -335,6 +362,8 @@
   この場合は、59秒まで含まれるように改善しました。
 
 <a id="section-1-30"></a>
+
+<a id="section-1-30"></a>
 ### 2018.08.28 { #section-1-30 }
 <a id="section-1-30-1"></a>
 #### [API]
@@ -342,11 +371,11 @@
 * Logging API追加
     * Consoleで有効にできるLogging機能で保存されたデータを照会するAPIを追加しました。
     * 一般照会、大量照会という2つのタイプのAPIを提供します。
-         * <a href="https://docs.toast.com/ko/Notification/Push/ko/api-guide/#_18" target="_blank">ログ照会</a>
+         * <a href="https://docs.toast.com/ko/Notification/Push/ko/api-guide/#_18" target="_blank">ログ照会はこちら</a>
 * v2.2 APIアップデート
     * Logging APIの追加により最新APIバージョンをv2.2にアップデートしました。
     * v2.2からAPI認証のために'APIセキュリティ設定'を利用します。
-         * <a href="https://toast.com/account/api_settings" target="_blank">APIセキュリティ設定</a>
+         * <a href="https://toast.com/account/api_settings" target="_blank">APIセキュリティ設定はこちら</a>
     * サポートするAPIバージョン：v1.3、v2.0、v2.1、v2.2
 
 ##### バグ修正
@@ -358,6 +387,7 @@
     * 一部プロジェクトで統計照会時にTimeoutが発生するバグがありましたが、最適化によりTimeoutが発生しなくなりました。
 
 <a id="section-1-31"></a>
+
 ### 2018.07.24 { #section-1-31 }
 <a id="section-1-31-1"></a>
 #### [API]
@@ -377,6 +407,7 @@
 <br>
 
 <a id="section-1-32"></a>
+
 ### 2018.06.26 { #section-1-32 }
 <a id="section-1-32-1"></a>
 #### [Console]
@@ -384,7 +415,7 @@
 * ADM(Amazon Device Messaging)プッシュタイプの追加
     * Amazonデバイス(Kindle Fire)へプッシュメッセージを送信できるように、ADMプッシュタイプを追加しました。
     * Amazon開発者サイトでアプリを登録し、Client ID、Client Secretを発行して登録後に送信できます。
-     <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#adm-client-id-client-secret" target="_blank">ADMガイド</a>
+     <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#adm-client-id-client-secret" target="_blank">ADMガイドはこちら</a>
 
 <a id="section-1-32-2"></a>
 #### [API]
@@ -411,6 +442,7 @@
 <br>
 
 <a id="section-1-33"></a>
+
 ### 2018.05.29 { #section-1-33 }
 <a id="section-1-33-1"></a>
 #### [Console]
@@ -432,13 +464,13 @@
     * 広告表示文言の位置が下記のように変更されます。
 
 ```
-既存の表示位置、'(広告)'と連絡先がbodyに表示される
-- title：タイトル
-- body：'(広告)' '連絡先'\n内容\n'受信同意撤回方法'
+従来の表示位置、'(広告)'と連絡先がすべてbodyに表示される
+- title: タイトル
+- body: '(広告)' '連絡先'\n内容\n'受信同意撤回方法'
 
 新しい表示位置、'(広告)'と連絡先がtitleに表示される
-- title：'(広告)'タイトル'連絡先'
-- body：内容\n'受信同意撤回方法'
+- title: '(広告)' タイトル '連絡先'
+- body: 内容\n'受信同意撤回方法'
 ```
 
 ##### バグ修正
@@ -453,6 +485,7 @@
 <br>
 
 <a id="section-1-34"></a>
+
 ### 2018.05.02 { #section-1-34 }
 <a id="section-1-34-1"></a>
 #### [SDK]
@@ -468,6 +501,7 @@
 <br>
 
 <a id="section-1-35"></a>
+
 ### 2018.04.24 { #section-1-35 }
 <a id="section-1-35-1"></a>
 #### [Console]
@@ -507,6 +541,7 @@
 <br>
 
 <a id="section-1-36"></a>
+
 ### 2018.03.22 { #section-1-36 }
 <a id="section-1-36-1"></a>
 #### [Console]
@@ -531,6 +566,7 @@
 <br>
 
 <a id="section-1-37"></a>
+
 ### 2018.02.22 { #section-1-37 }
 <a id="section-1-37-1"></a>
 #### [Console]
@@ -541,7 +577,7 @@
     * VoIP送信を行うためには、次のようなプロセスが必要です。
         1. VoIP証明書登録(VoIP専用証明書またはUniversal証明書登録可能)
         2. VoIPトークン登録およびプッシュメッセージ受信処理(トークンのプッシュタイプをAPNS_VOIPまたはAPNS_SANDBOXVOIPに設定)
-        <a href="https://developer.apple.com/library/content/documentation/Performance/Conceptual/EnergyGuide-iOS/OptimizeVoIP.html" target="_blank">Apple iOS Pushkitガイド</a>
+        <a href="https://developer.apple.com/library/content/documentation/Performance/Conceptual/EnergyGuide-iOS/OptimizeVoIP.html" target="_blank">Apple iOS Pushkitガイドはこちら</a>
         3. メッセージ送信時、プッシュタイプ'APNS_VOIP'または'APNS_SANDBOXVOIP'を選択
 
 ##### 機能改善
@@ -585,6 +621,7 @@
 <br>
 
 <a id="section-1-38"></a>
+
 ### 2017.12.12 { #section-1-38 }
 <a id="section-1-38-1"></a>
 #### [API]
@@ -597,20 +634,21 @@
 #### [ETC]
 ##### 機能改善
 * セキュリティ脆弱性ライブラリアップデート
-    * セキュリティ脆弱性が見つかったライブラリを、修正バージョンにアップデートしました。
+    * セキュリティ脆弱点が見つかったライブラリを、修正バージョンにアップデートしました。
 
 <br>
 
 <a id="section-1-39"></a>
+
 ### 2017.11.23 { #section-1-39 }
 <a id="section-1-39-1"></a>
 #### [Console]
 ##### 機能追加
 * Logging機能追加
     * メッセージ送信履歴をLog & Crash Searchに保存できる機能を追加しました。
- 使用しているLog & Crash Searchのアプリケーションキー(Appkey)をSettingタブLoggingに登録して機能を有効にできます。
+ 使用しているLog & Crash SearchのアプリケーションキーAppkeyをSettingタブLoggingに登録して機能を有効にできます。
     * 保存されたメッセージ送信履歴は、Log & Crash Searchページで確認できます。
-    * <a href="/ko/Notification/Push/ko/console-guide/#_9" target="_blank">メッセージ送信履歴保存説明</a>
+    * <a href="/ja/Notification/Push/ko/console-guide/#_9" target="_blank">メッセージ送信履歴保存説明</a>
 
 ##### バグ修正
 * 低解像度でポップアップがサービス使用方法に隠れるバグを修正
@@ -625,7 +663,7 @@
     * 今までは失敗したメッセージの照会時、結果全体をレスポンスしました。
  結果サイズが大きい場合、Response Timeoutが発生することがあったため、一度に最大1,000個までレスポンスできるように修正しました。
     * 結果が1,000個以上の場合、異常レスポンスを返します。異常レスポンスの場合、from, to期間をより短くして照会する必要があります。
-    * <a href="/ko/Notification/Push/ko/api-guide/#_15" target="_blank">API Reference</a>
+    * <a href="/ja/Notification/Push/ko/api-guide/#_15" target="_blank">API Reference</a>
         * メッセージ > 照会 > 失敗したメッセージリスト照会
 
 <a id="section-1-39-3"></a>
@@ -637,6 +675,7 @@
 <br>
 
 <a id="section-1-40"></a>
+
 ### 2017.09.21 { #section-1-40 }
 <a id="section-1-40-1"></a>
 #### [Console]
@@ -652,6 +691,8 @@
 * Tag登録時、名前にスペースを入力できないように修正
 
 <br>
+
+<a id="section-1-41"></a>
 
 <a id="section-1-41"></a>
 ### 2017.08.24 { #section-1-41 }
@@ -708,6 +749,7 @@
 <br>
 
 <a id="section-1-42"></a>
+
 ### 2017.07.20 { #section-1-42 }
 <a id="section-1-42-1"></a>
 #### [API]
@@ -718,11 +760,11 @@
     * メッセージ送信時、タグと条件を設定してメッセージを送信できます。   
 例、メッセージ送信時、target.typeを'TAG'、target.toを'男性、AND、30代'に設定すると、'男性'と'30代'タグがついたUidを対象にメッセージが送信されます。
     * APIが先に公開され、8月の定期メンテナンス後にCONSOLEでタグ機能を使用できます。
-    <a href="/ko/Notification/Push/ko/api-guide/#_13" target="_blank">API Reference</a>
+    <a href="/ja/Notification/Push/ko/api-guide/#_13" target="_blank">API Reference</a>
 * 失敗処理されたメッセージ照会APIの追加
     * メッセージ送信時、失敗したメッセージを照会できるAPIを追加しました。
   このAPIを利用して、送信が失敗した原因を確認できます。    
-    <a href="/ko/Notification/Push/ko/api-guide/#_15" target="_blank">API Reference</a>
+    <a href="/ja/Notification/Push/ko/api-guide/#_15" target="_blank">API Reference</a>
 
 ##### バグ修正
 * トークン修正時、新しいトークンが存在する時、既存トークンは削除されないバグを修正
@@ -735,6 +777,7 @@
 <br>
 
 <a id="section-1-43"></a>
+
 ### 2017.05.25 { #section-1-43 }
 <a id="section-1-43-1"></a>
 #### [SDK]
@@ -748,6 +791,7 @@
 <br>
 
 <a id="section-1-44"></a>
+
 ### 2017.04.25 { #section-1-44 }
 <a id="section-1-44-1"></a>
 #### [Console]
@@ -763,18 +807,19 @@
     * メッセージ送信後、端末に受信、ユーザーのメッセージ確認データを収集し、統計で照会できる機能を追加しました。
     * [CONSOLE] > [Settings]タブで有効にでき、v2.0 API Referenceで統計照会APIの説明を確認できます。
     * この機能は、v1.4以上のSDKが適用された場所でのみ使用できます。   
-    <a href="/ko/Notification/Push/ko/sdk-guide/#_4" target="_blank">SDK受信および開封したかどうかの適用ガイド</a>
+    <a href="/ja/Notification/Push/ko/sdk-guide/#_4" target="_blank">SDK受信および開封したかどうかの適用ガイド</a>
 * v2.0 API追加
     * トークン統計APIを追加しました。
     * 予約メッセージAPIを追加しました。
     * メッセージ受信、確認統計照会APIを追加しました。
     * v1.3フィードバックAPIは、v2.0無効なトークンAPIに変更しました。
     * レスポンスメッセージをより詳細に出力します。
-    <a href="/ko/Notification/Push/ko/api-guide" target="_blank">v2.0 API Reference</a>
+    <a href="/ja/Notification/Push/ko/api-guide" target="_blank">v2.0 API Reference</a>
 
 <br>
 
 <a id="section-1-45"></a>
+
 ### 2017.02.23 { #section-1-45 }
 <a id="section-1-45-1"></a>
 #### [API]
@@ -794,6 +839,7 @@
 <br>
 
 <a id="section-1-46"></a>
+
 ### 2017.01.19 { #section-1-46 }
 <a id="section-1-46-1"></a>
 #### [API]
@@ -808,6 +854,7 @@
 <br>
 
 <a id="section-1-47"></a>
+
 ### 2016.12.22 { #section-1-47 }
 <a id="section-1-47-1"></a>
 #### [API]
@@ -820,6 +867,7 @@
 <br>
 
 <a id="section-1-48"></a>
+
 ### 2016.11.24 { #section-1-48 }
 <a id="section-1-48-1"></a>
 #### [SDK]
@@ -835,6 +883,7 @@
 <br>
 
 <a id="section-1-49"></a>
+
 ### 2016.10.06 { #section-1-49 }
 <a id="section-1-49-1"></a>
 #### [API]
@@ -844,6 +893,7 @@
 <br>
 
 <a id="section-1-50"></a>
+
 ### 2016.09.29 { #section-1-50 }
 <a id="section-1-50-1"></a>
 #### [Console]
@@ -865,6 +915,7 @@
 <br>
 
 <a id="section-1-51"></a>
+
 ### 2016.08.18 { #section-1-51 }
 <a id="section-1-51-1"></a>
 #### [Console]
