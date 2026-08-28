@@ -281,8 +281,6 @@ Fix broken, typo, link errors
     * Fixed an error that prevents APNS_VOIP, APNS_SANDBOXVOIP token from being deleted when sending a message.
 
 <a id="section-1-29"></a>
-
-<a id="section-1-29"></a>
 ### October 30, 2018 { #section-1-29 }
 <a id="section-1-29-1"></a>
 #### [Console]
@@ -410,8 +408,6 @@ Fix broken, typo, link errors
 * Automate message check indicator collection and transmission
 
 <br>
-
-<a id="section-1-33"></a>
 
 <a id="section-1-33"></a>
 ### May 29, 2018 { #section-1-33 }
