@@ -1,11 +1,9 @@
 <!-- machine_translated: true -->
 
 <a id="section-1"></a>
-
 ## Notification> Push > Release Notes { #section-1 }
 
 <a id="section-1-1"></a>
-
 ### June 25, 2024 { #section-1-1 }
 <a id="section-1-1-1"></a>
 #### [Console, API]
@@ -15,7 +13,6 @@
     * The change applies to the console and all versions of the APIs.
 
 <a id="section-1-2"></a>
-
 ### February 27, 2024 { #section-1-2 }
 <a id="section-1-2-1"></a>
 #### [Console]
@@ -27,7 +24,6 @@
     * After you enroll for **Service Account Credential**, FCM messages are sent via the FCM HTTP V1 API. To continue sending with FCM after June 20, 2024, you must register **Service Account Credential**in the console.
 
 <a id="section-1-3"></a>
-
 ### October 31, 2023. { #section-1-3 }
 <a id="section-1-3-1"></a>
 #### [Console]
@@ -37,7 +33,6 @@
     * If you are already using the feature before October 31, 2023, SecretKey input is not required as transition is scheduled.
 
 <a id="section-1-4"></a>
-
 ### March 14, 2023 { #section-1-4 }
 <a id="section-1-4-1"></a>
 #### [API]
@@ -46,7 +41,6 @@
     * Added API to query token lists (v2.4).
 
 <a id="section-1-5"></a>
-
 ### December 13, 2022 { #section-1-5 }
 <a id="section-1-5-1"></a>
 #### [API]
@@ -57,7 +51,6 @@
 * Changed the maximum limit from 1000 to 100 when viewing failed messages
 
 <a id="section-1-6"></a>
-
 ### May 10, 2022 { #section-1-6 }
 <a id="section-1-6-1"></a>
 #### [API]
@@ -66,7 +59,6 @@
     * Fixed the issue so that API authentication can be done with `X-User-Access-Key-ID` and `X-Secret-Access-Key` headers.
 
 <a id="section-1-7"></a>
-
 ### March 29, 2022 { #section-1-7 }
 <a id="section-1-7-1"></a>
 #### [Console]
@@ -75,7 +67,6 @@
     * When downloading stored tokens as a file using the **Token File Download** feature in the **Token** tab, a feature to provide a compressed file after splitting the file if the number of tokens exceeds 1 million has been added.
 
 <a id="section-1-8"></a>
-
 ### February 15, 2022 { #section-1-8 }
 <a id="section-1-8-1"></a>
 #### [Console]
@@ -89,7 +80,6 @@
     * Fixed an error where, when authentication failed when sending a push message, duplicate notification emails were sent
 
 <a id="section-1-9"></a>
-
 ### January 11, 2022 { #section-1-9 }
 <a id="section-1-9-1"></a>
 #### [API]
@@ -101,7 +91,6 @@
     * Fixed an error where, when sending a message after setting an incorrect APNS certificate to Firebase, it was handled as a success.
 
 <a id="section-1-10"></a>
-
 ### October 26, 2021 { #section-1-10 }
 <a id="section-1-10-1"></a>
 #### [Console]
@@ -122,10 +111,8 @@
     * Fixed an error where the 'from' and 'to' query conditions were not processed in the v2.4 scheduled message query API.
 
 <a id="section-1-11"></a>
-
 ### July 27, 2021 { #section-1-11 }
 <a id="section-1-12"></a>
-
 ### [Console] { #section-1-12 }
 <a id="section-1-12-1"></a>
 #### Added Features
@@ -137,20 +124,16 @@
     * This can be set in **Reserve Message for Acceptance of Ad Opt-in** under the **Settings** tab.
 
 <a id="section-1-13"></a>
-
 ### December 29, 2020 { #section-1-13 }
 <a id="section-1-14"></a>
-
 ### [API] { #section-1-14 }
 * Added v2.4 Statistics Total API
      * Added a Total API to sum up the retrieved statistical data.
         <a href="https://docs.toast.com/en/Notification/Push/ko/api-guide/#stats-total-api" target="_blank">Go to</a>
 
 <a id="section-1-15"></a>
-
 ### June 9, 2020 { #section-1-15 }
 <a id="section-1-16"></a>
-
 ### [Console] { #section-1-16 }
 <a id="section-1-16-1"></a>
 #### Added Features 
@@ -160,7 +143,6 @@
     * <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_token-based_connection_to_apns" target="_blank">Go to Apple Developer Guide</a>
 
 <a id="section-1-17"></a>
-
 ### [Doc] { #section-1-17 }
 <a id="section-1-17-1"></a>
 #### Added Guide
@@ -169,10 +151,8 @@
 
 
 <a id="section-1-18"></a>
-
 ### March 24, 2020 { #section-1-18 }
 <a id="section-1-19"></a>
-
 ### [Console] { #section-1-19 }
 <a id="section-1-19-1"></a>
 #### Added Features
@@ -181,7 +161,6 @@
         * <a href="https://docs.toast.com/en/Notification/Push/ko/console-guide/#stats-event-key" target="_blank">Direct Link</a>
 
 <a id="section-1-20"></a>
-
 ### [API] { #section-1-20 }
 * Added v2.4 API
     * Added a statistics API to query with statistics event key. Statistics APIs of v2.3 are no longer provided. 
@@ -190,7 +169,6 @@
    * Added the multi-tenant feature allowing a token to be shared by many UIDs. You may attach '#tenant=Tenant_Information' at the end of a token for a token registration. Even if many UIDs share a same token, the token can be maintained if it has different tenant information.  
 
 <a id="section-1-21"></a>
-
 ### January 21, 2020 { #section-1-21 }
 <a id="section-1-21-1"></a>
 #### [Doc]
@@ -199,7 +177,6 @@
     * <a href="https://docs.toast.com/en/Notification/Push/ko/console-guide/#low-received-event-rates" target="_blank">Direct link</a>
 
 <a id="section-1-22"></a>
-
 ### December 24, 2019 { #section-1-22 }
 <a id="section-1-22-1"></a>
 #### [Console]
@@ -209,7 +186,6 @@
     * You can use **Message Click Action** to navigate to a scheme or URL defined in the app.
 
 <a id="section-1-23"></a>
-
 ### October 29, 2019 { #section-1-23 }
 <a id="section-1-23-1"></a>
 #### [API]
@@ -231,7 +207,6 @@
     With TOAST SDK, action is executed automatically.  
 
 <a id="section-1-24"></a>
-
 ### September 24, 2019 { #section-1-24 }
 <a id="section-1-24-1"></a>
 #### [API]
@@ -251,7 +226,6 @@
     * By using attributes such as 'notification', 'content_available', or 'mutual_content', messages can be sent to iOS apps via FCM. 
 
 <a id="section-1-25"></a>
-
 ### May 28, 2019 { #section-1-25 }
 <a id="section-1-25-1"></a>
 #### [API]
@@ -259,7 +233,6 @@
     * We have improved message receiving/confirmation data collection performance.
 
 <a id="section-1-26"></a>
-
 ### March 26, 2019 { #section-1-26 }
 <a id="section-1-26-1"></a>
 #### [API]
@@ -278,7 +251,6 @@
     * Settings tab "Duplicate message prevention settings" can be set.
 
 <a id="section-1-27"></a>
-
 ### February 26, 2019 { #section-1-27 }
 <a id="section-1-27-1"></a>
 #### [API]
@@ -299,8 +271,6 @@ Fix broken, typo, link errors
 * User console added.
 
 <a id="section-1-28"></a>
-
-
 ### December 18, 2018 { #section-1-28 }
 <a id="section-1-28-1"></a>
 #### [API]
@@ -363,7 +333,6 @@ Fix broken, typo, link errors
     In this case, we improved to include 59 seconds.
 
 <a id="section-1-30"></a>
-
 ### August 28, 2018 { #section-1-30 }
 <a id="section-1-30-1"></a>
 #### [API]
@@ -387,7 +356,6 @@ Fix broken, typo, link errors
     * There was a timeout error in some projects. Fixed timeout not to occur through optimization.
 
 <a id="section-1-31"></a>
-
 ### July 24, 2018 { #section-1-31 }
 <a id="section-1-31-1"></a>
 #### [API]
@@ -407,7 +375,6 @@ Fix broken, typo, link errors
 <br>
 
 <a id="section-1-32"></a>
-
 ### June 26, 2018 { #section-1-32 }
 <a id="section-1-32-1"></a>
 #### [Console]
@@ -486,7 +453,6 @@ New display position, where "(ad)" and the contact information are displayed in 
 <br>
 
 <a id="section-1-34"></a>
-
 ### May 2, 2018 { #section-1-34 }
 <a id="section-1-34-1"></a>
 #### [SDK]
@@ -502,7 +468,6 @@ New display position, where "(ad)" and the contact information are displayed in 
 <br>
 
 <a id="section-1-35"></a>
-
 ### April 24, 2018 { #section-1-35 }
 <a id="section-1-35-1"></a>
 #### [Console]
@@ -542,7 +507,6 @@ New display position, where "(ad)" and the contact information are displayed in 
 <br>
 
 <a id="section-1-36"></a>
-
 ### March 22, 2018 { #section-1-36 }
 <a id="section-1-36-1"></a>
 #### [Console]
@@ -567,7 +531,6 @@ New display position, where "(ad)" and the contact information are displayed in 
 <br>
 
 <a id="section-1-37"></a>
-
 ### February 22, 2018 { #section-1-37 }
 <a id="section-1-37-1"></a>
 #### [Console]
@@ -622,7 +585,6 @@ New display position, where "(ad)" and the contact information are displayed in 
 <br>
 
 <a id="section-1-38"></a>
-
 ### December 12, 2017 { #section-1-38 }
 <a id="section-1-38-1"></a>
 #### [API]
@@ -640,7 +602,6 @@ New display position, where "(ad)" and the contact information are displayed in 
 <br>
 
 <a id="section-1-39"></a>
-
 ### November 23, 2017 { #section-1-39 }
 <a id="section-1-39-1"></a>
 #### [Console]
@@ -676,7 +637,6 @@ New display position, where "(ad)" and the contact information are displayed in 
 <br>
 
 <a id="section-1-40"></a>
-
 ### September 21, 2017 { #section-1-40 }
 <a id="section-1-40-1"></a>
 #### [Console]
@@ -694,7 +654,6 @@ New display position, where "(ad)" and the contact information are displayed in 
 <br>
 
 <a id="section-1-41"></a>
-
 ### 2017.08.24 { #section-1-41 }
 <a id="section-1-41-1"></a>
 #### [Console]
@@ -747,7 +706,6 @@ New display position, where "(ad)" and the contact information are displayed in 
 <br>
 
 <a id="section-1-42"></a>
-
 ### July 20, 2017 { #section-1-42 }
 <a id="section-1-42-1"></a>
 #### [API]
@@ -775,7 +733,6 @@ For example, if you set target.type to 'TAG' and target.to to 'Male, AND, 30s' w
 <br>
 
 <a id="section-1-43"></a>
-
 ### May 25, 2017 { #section-1-43 }
 <a id="section-1-43-1"></a>
 #### [SDK]
@@ -789,7 +746,6 @@ For example, if you set target.type to 'TAG' and target.to to 'Male, AND, 30s' w
 <br>
 
 <a id="section-1-44"></a>
-
 ### April 25, 2017 { #section-1-44 }
 <a id="section-1-44-1"></a>
 #### [Console]
@@ -817,7 +773,6 @@ For example, if you set target.type to 'TAG' and target.to to 'Male, AND, 30s' w
 <br>
 
 <a id="section-1-45"></a>
-
 ### February 23, 2017 { #section-1-45 }
 <a id="section-1-45-1"></a>
 #### [API]
@@ -837,7 +792,6 @@ For example, if you set target.type to 'TAG' and target.to to 'Male, AND, 30s' w
 <br>
 
 <a id="section-1-46"></a>
-
 ### January 19, 2017 { #section-1-46 }
 <a id="section-1-46-1"></a>
 #### [API]
@@ -852,7 +806,6 @@ For example, if you set target.type to 'TAG' and target.to to 'Male, AND, 30s' w
 <br>
 
 <a id="section-1-47"></a>
-
 ### December 22, 2016 { #section-1-47 }
 <a id="section-1-47-1"></a>
 #### [API]
@@ -865,7 +818,6 @@ For example, if you set target.type to 'TAG' and target.to to 'Male, AND, 30s' w
 <br>
 
 <a id="section-1-48"></a>
-
 ### November 24, 2016 { #section-1-48 }
 <a id="section-1-48-1"></a>
 #### [SDK]
@@ -881,7 +833,6 @@ For example, if you set target.type to 'TAG' and target.to to 'Male, AND, 30s' w
 <br>
 
 <a id="section-1-49"></a>
-
 ### October 6, 2016 { #section-1-49 }
 <a id="section-1-49-1"></a>
 #### [API]
@@ -891,7 +842,6 @@ For example, if you set target.type to 'TAG' and target.to to 'Male, AND, 30s' w
 <br>
 
 <a id="section-1-50"></a>
-
 ### September 29, 2016 { #section-1-50 }
 <a id="section-1-50-1"></a>
 #### [Console]
@@ -913,7 +863,6 @@ For example, if you set target.type to 'TAG' and target.to to 'Male, AND, 30s' w
 <br>
 
 <a id="section-1-51"></a>
-
 ### August 18, 2016 { #section-1-51 }
 <a id="section-1-51-1"></a>
 #### [Console]
