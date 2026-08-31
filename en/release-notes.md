@@ -149,7 +149,7 @@
 <a id="section-1-17-1"></a>
 #### Added Guide
 * Added a guide for **Getting Authentication Information for APNS JWT**
-    * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#get-apns-jwt" target="_blank">Direct link</a>
+    * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#get-authentication-information-for-apns-jwt" target="_blank">Direct link</a>
 
 
 <a id="section-1-18"></a>
@@ -160,13 +160,13 @@
 #### Added Features
 * Updated Statistics
     * Added the **Statistics Event Key Management** tab. You can add a new statistics event key on console and set it up for message delivery. With messages sent, statistical data are collected as of configured statistics event key, and then you can search from the new statistics tab. 
-        * <a href="https://docs.toast.com/en/Notification/Push/ko/console-guide/#stats-event-key" target="_blank">Direct Link</a>
+        * <a href="https://docs.toast.com/en/Notification/Push/ko/console-guide/#statistics-event-key-management" target="_blank">Direct Link</a>
 
 <a id="section-1-20"></a>
 ### [API] { #section-1-20 }
 * Added v2.4 API
     * Added a statistics API to query with statistics event key. Statistics APIs of v2.3 are no longer provided. 
-        * <a href="https://docs.toast.com/en/Notification/Push/ko/api-guide/#stats-api" target="_blank">Direct Link</a>
+        * <a href="https://docs.toast.com/en/Notification/Push/ko/api-guide/#statistics" target="_blank">Direct Link</a>
 * Added Multi-tenant Tokens 
    * Added the multi-tenant feature allowing a token to be shared by many UIDs. You may attach '#tenant=Tenant_Information' at the end of a token for a token registration. Even if many UIDs share a same token, the token can be maintained if it has different tenant information.  
 
@@ -176,7 +176,7 @@
 #### [Doc]
 ##### Added Guide
 * Added a guide for **Why Message Reception Data Metrics Are Low**
-    * <a href="https://docs.toast.com/en/Notification/Push/ko/console-guide/#low-received-event-rates" target="_blank">Direct link</a>
+    * <a href="https://docs.toast.com/en/Notification/Push/ko/console-guide/#collect-message-receiptcheck-data-causes-for-low-indicators-of-message-receiving-data" target="_blank">Direct link</a>
 
 <a id="section-1-22"></a>
 ### December 24, 2019 { #section-1-22 }

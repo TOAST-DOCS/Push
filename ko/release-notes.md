@@ -147,7 +147,7 @@
 <a id="section-1-17-1"></a>
 #### 가이드 추가
 * **APNS JWT 인증 정보 얻기**에 대한 가이드 추가
-    * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#get-apns-jwt" target="_blank">바로 가기</a>
+    * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#get-authentication-information-for-apns-jwt" target="_blank">바로 가기</a>
 
 
 <a id="section-1-18"></a>
@@ -158,13 +158,13 @@
 #### 기능 추가
 * 통계가 개편되었습니다.
     * **통계 이벤트 키 관리** 탭이 추가되었습니다. 콘솔에서 새로운 통계 이벤트 키를 추가하고, 메시지 발송 시 설정할 수 있습니다. 메시지가 발송되면 설정한 통계 이벤트 키 기준으로 통계 데이터가 쌓이고, 새로운 통계 탭에서 검색할 수 있습니다.
-        * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#stats-event-key" target="_blank">바로 가기</a>
+        * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#statistics-event-key-management" target="_blank">바로 가기</a>
 
 <a id="section-1-20"></a>
 ### [API] { #section-1-20 }
 * v2.4 API 추가
     * 통계 이벤트 키로 조회할 수 있는 통계 API가 추가되었습니다. v2.3의 통계 관련 API는 더 이상 제공하지 않습니다.
-        * <a href="https://docs.toast.com/ko/Notification/Push/ko/api-guide/#stats-api" target="_blank">바로 가기</a>
+        * <a href="https://docs.toast.com/ko/Notification/Push/ko/api-guide/#statistics" target="_blank">바로 가기</a>
 * 토큰 멀티 테넌트 기능 추가
    * 토큰을 여러 UID가 소유할 수 있게 해주는 멀티 테넌트 기능이 추가되었습니다. 토큰 등록 시 토큰 끝에 '#tenant=테넌트_정보'를 붙일 수 있습니다. 여러 UID가 같은 토큰을 사용하더라도 테넌트 정보가 다르면 토큰이 유지됩니다.
 
@@ -174,7 +174,7 @@
 #### [Doc]
 ##### 가이드 추가
 * **메시지 수신 데이터 지표가 낮은 이유**에 대한 가이드 추가
-    * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#low-received-event-rates" target="_blank">바로 가기</a>
+    * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#collect-message-receiptcheck-data-causes-for-low-indicators-of-message-receiving-data" target="_blank">바로 가기</a>
 
 <a id="section-1-22"></a>
 ### 2019. 12. 24. { #section-1-22 }
