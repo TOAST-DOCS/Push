@@ -2583,7 +2583,6 @@ curl -X DELETE \
 | - | - | - |
 | tagIds | Required, String Array | Query String, tag ID to delete, delimited by comma (,) |
 
-<span id="stats-api"></span>
 <a id="statistics"></a>
 ## Statistics { #statistics }
 <a id="query-statistics"></a>

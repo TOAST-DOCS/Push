@@ -2580,7 +2580,6 @@ curl -X DELETE \
 | tagIds | Required, String Array | Query String。削除するタグID。カンマ(,)で区切る |
 
 
-<span id="stats-api"></span>
 <a id="statistics"></a>
 ## 統計 { #statistics }
 <a id="query-statistics"></a>

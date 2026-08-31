@@ -2566,7 +2566,6 @@ curl -X DELETE \
 | - | - | - |
 | tagIds | Required, String Array | Query String, 삭제할 태그 아이디, 쉼표(,)로 구분 |
 
-<span id="stats-api"></span>
 <a id="statistics"></a>
 ## 통계 { #statistics }
 <a id="query-statistics"></a>

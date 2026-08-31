@@ -16,8 +16,6 @@ Push 서비스를 활용하려면 먼저 타사 푸시 알림 서비스 인증�
 인증서 관리를 하기 위하여 콘솔에서 **Notification > Push > 인증서**를 클릭합니다.
 
 
-<span id="get-fcm-service-account-credential"></span>
-
 <a id="fcm-service-account-credential"></a>
 ### FCM Service Account Credential { #fcm-service-account-credential }
 안드로이드 기기에 푸시 알림 메시지를 전송하기 위해서는 **Service Account Credential**이 필요합니다.
@@ -37,8 +35,6 @@ Push 서비스를 활용하려면 먼저 타사 푸시 알림 서비스 인증�
 1. 콘솔에서 **Notification > Push > 인증서**를 클릭합니다.
 2. 다운로드 받은 JSON 파일을 열어 내용을 복사합니다.
 3. 복사한 내용을 **FCM Service Account Credential** 항목에 붙여 넣고 **등록**을 클릭합니다.
-
-<span id="get-apns-jwt"></span>
 
 <a id="get-authentication-information-for-apns-jwt"></a>
 ### APNS JWT 인증 정보 얻기 { #get-authentication-information-for-apns-jwt }
@@ -416,13 +412,9 @@ UID에 태그를 추가해 UID를 관리할 수 있습니다. 메시지 발송 �
 2. UID를 입력 후 **확인** 버튼을 클릭합니다.
 	- UID는 한 번에 1,000개까지 추가할 수 있습니다.
 
-<span id="stats-event-key"></span>
-
 <a id="statistics-event-key-management"></a>
 ## 통계 이벤트 키 관리 { #statistics-event-key-management }
 **통계 이벤트 키 관리** 탭에서 통계 이벤트 키를 관리할 수 있습니다. 생성 시 이름, 설명, 이벤트 수집 기간을 설정할 수 있습니다. 이벤트 수집 기간을 설정하지 않으면 수집 기간은 무기한으로 설정됩니다. 생성된 통계 이벤트 키는 메시지 발송 시 설정할 수 있습니다. 통계 이벤트 키가 설정된 메시지들의 발송 결과는 **통계** 탭에서 통계 이벤트 키로 검색할 수 있습니다.
-
-<span id="stats"></span>
 
 <a id="statistics"></a>
 ## 통계 { #statistics }
@@ -472,7 +464,6 @@ UID에 태그를 추가해 UID를 관리할 수 있습니다. 메시지 발송 �
 
 - 기능 설정 시 실제 반영까지 대략 수분이 걸릴 수 있습니다.
 
-<span id="message-delivery-receipient"></span>
 <a id="collect-message-receiptcheck-data"></a>
 ### 메시지 수신/확인 { #collect-message-receiptcheck-data }
 
@@ -483,7 +474,6 @@ UID에 태그를 추가해 UID를 관리할 수 있습니다. 메시지 발송 �
 - 데이터의 수집 시간은 기기의 시간을 기준으로 합니다.
 - 기능 설정 시 실제 반영까지 대략 수분이 걸릴 수 있습니다.
 
-<span id="low-received-event-rates"></span>
 <a id="collect-message-receiptcheck-data-causes-for-low-indicators-of-message-receiving-data"></a>
 #### 메시지 수신 데이터 지표가 낮은 이유
 1. 앱의 메시지 알림을 허용하지 않을 때

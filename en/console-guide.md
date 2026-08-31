@@ -16,8 +16,6 @@ Currently, the supported push notification service certificates are as follows:
 To manage certificates, go to **Notification > Push > Certificates** from the menu.
 
 
-<span id="get-fcm-service-account-credential"></span>
-
 <a id="fcm-service-account-credential"></a>
 ### FCM Service Account Credential { #fcm-service-account-credential }
 To send push notification messages to an Android device, you need **Service Account Credential**.
@@ -37,8 +35,6 @@ A **Service Account** is a special type of account that is typically used for ap
 1. Go to **Notification > Push > Certificate** from the console.
 2. Open and copy the downloaded JSON file.
 3. Paste the copied content into the **FCM Service Account Credential** field and click **Register**.
-
-<span id="get-apns-jwt"></span>
 
 <a id="get-authentication-information-for-apns-jwt"></a>
 ### Get Authentication Information for APNS JWT { #get-authentication-information-for-apns-jwt }
@@ -419,13 +415,9 @@ Go to **Console > Notification > Push** > and click **Tag** tab.
 2. After entering the UID, click the **OK** button.
 	- Up to 1,000 UIDs can be added at a time.
 
-<span id="stats-event-key"></span>
-
 <a id="statistics-event-key-management"></a>
 ## Statistics Event Key Management { #statistics-event-key-management }
 Statistics event keys can be managed from the **Statistics Event Key Management** tab. You may set the name, description, and event collection period. Without configuring event collection period, the collection period is set as indefinite. Once created, a statistics event key can be setup for message delivery. Delivery results of messages to which a statistics event key is configured can be searched with the statistics event key from the **Statistics** tab. 
-
-<span id="stats"></span>
 
 <a id="statistics"></a>
 ## Statistics { #statistics }
@@ -475,7 +467,6 @@ Go to **Console > Notification > Push** > and click **Setting** to set Token Exp
 
 - After the feature is set, it may take several minutes until a feature is actually applied. 
 
-<span id="message-delivery-receipient"></span>
 <a id="collect-message-receiptcheck-data"></a>
 ### Collect Message Receipt/Check Data { #collect-message-receiptcheck-data }
 
@@ -486,7 +477,6 @@ Go to **Console > Notification > Push** > and click **Setting** to set Token Exp
 - Data collection time is based on the device time. 
 - After the feature is set, it may take several minutes until a feature is actually applied. 
 
-<span id="low-received-event-rates"></span>
 <a id="collect-message-receiptcheck-data-causes-for-low-indicators-of-message-receiving-data"></a>
 #### Causes for Low Indicators of Message Receiving Data    
 1. When message notification is not enabled on the app 

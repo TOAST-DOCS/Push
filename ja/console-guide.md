@@ -16,8 +16,6 @@ Pushサービスを活用するには、先に他社プッシュ通知サービ�
 証明書を管理するためにコンソールで**Notification > Push > 証明書**をクリックします。
 
 
-<span id="get-fcm-service-account-credential"></span>
-
 <a id="fcm-service-account-credential"></a>
 ### FCM Service Account Credential { #fcm-service-account-credential }
 Android端末にプッシュ通知メッセージを送信するためには**Service Account Credential**が必要です。
@@ -38,8 +36,6 @@ Android端末にプッシュ通知メッセージを送信するためには**Se
 1. コンソールで**Notification > Push > 証明書**をクリックします。
 2. ダウンロードしたJSONファイルを開いて内容をコピーします。
 2. コピーした内容を**FCM Service Account Credential**項目に貼り付けて**登録**をクリックします。
-
-<span id="get-apns-jwt"></span>
 
 <a id="get-authentication-information-for-apns-jwt"></a>
 ### APNS JWT認証情報の取得 { #get-authentication-information-for-apns-jwt }
@@ -421,13 +417,9 @@ UIDにタグを追加してUIDを管理できます。メッセージ送信時�
 2. UIDを入力して**確認**ボタンをクリックします。
 	- UIDは一度に1,000個まで追加できます。
 
-<span id="stats-event-key"></span>
-
 <a id="statistics-event-key-management"></a>
 ## 統計イベントキー管理 { #statistics-event-key-management }
 **統計イベントキー管理**タブで統計イベントキーを管理できます。作成時に名前、説明、イベント収集期間を設定できます。イベント収集期間を設定しなかった場合、収集期間は無期限に設定されます。作成された統計イベントキーはメッセージ送信時に設定できます。統計イベントキーが設定されたメッセージの送信結果は、**統計**タブにおいて統計イベントキーで検索できます。
-
-<span id="stats"></span>
 
 <a id="statistics"></a>
 ## 統計 { #statistics }
@@ -477,7 +469,6 @@ UIDにタグを追加してUIDを管理できます。メッセージ送信時�
 
 - 機能を設定すると、実際の反映まで数分かかることがあります。
 
-<span id="message-delivery-receipient"></span>
 <a id="collect-message-receiptcheck-data"></a>
 ### メッセージ受信/確認 { #collect-message-receiptcheck-data }
 
@@ -488,7 +479,6 @@ UIDにタグを追加してUIDを管理できます。メッセージ送信時�
 - データの収集時間は、端末の時間を基準にします。
 - 機能を設定すると、実際の反映まで数分かかることがあります。
 
-<span id="low-received-event-rates"></span>
 <a id="collect-message-receiptcheck-data-causes-for-low-indicators-of-message-receiving-data"></a>
 #### メッセージ受信データ指標が低い理由
 1. アプリのメッセージ通知を許可していない時
