@@ -9,10 +9,10 @@ With NHN Cloud Push SDK, easy and powerful notification service can be provided 
 ## Development Guide
 
 #### iOS
-* See [NHN Cloud Push iOS Guide](http://docs.toast.com/ko/TOAST/ko/toast-sdk/push-ios/).
+* See [NHN Cloud Push iOS Guide](/nhncloud-sdk/en/push-ios/).
 
 #### Android
-* See [NHN Cloud Push Android Guide](http://docs.toast.com/ko/TOAST/ko/toast-sdk/push-android/).
+* See [NHN Cloud Push Android Guide](/nhncloud-sdk/en/push-android/).
 
 
 #### Others
