@@ -1356,7 +1356,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 | Field | Usage | Description |
 | - | - | - |
-| appkey | Required, String | Path Variable, appkey issued on product use키 |
+| appkey | Required, String | Path Variable, appkey issued on product use |
 | pageIndex | Optional, Number | Default is 0 |
 | pageSize | Optional, Number | Default is 25; max is 100 |
 | from | Optional, DateTime String | Up to the latest 30 days (ISO 8601, e.g. YYYY-MM-DDThh:mm:ss.SSSTZD) |
