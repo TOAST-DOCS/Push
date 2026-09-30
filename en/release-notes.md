@@ -766,7 +766,7 @@ For example, if you set target.type to 'TAG' and target.to to 'Male, AND, 30s' w
     * Added a Message Receipt and Confirmation Statistics Query API.
     * The v1.3 Feedback API has been changed to the v2.0 Invalid Token API.
     * Response messages are now displayed in greater detail.
-    <a href="./api-guide/" target="_blank">Go to v2.0 API Reference</a>
+    <a href="../api-guide/" target="_blank">Go to v2.0 API Reference</a>
 
 <br>
 
