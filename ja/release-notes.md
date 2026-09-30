@@ -22,7 +22,7 @@
 * FCM Service Account Credential認証追加
     * 2024年6月20日付でFCM Legacy APIがサービス終了予定です。 これに伴い、FCMメッセージ送信時にFCM HTTP(V1) APIを利用する必要があり、API認証には**Server Key**の代わりに**Service Account Credential**が必要です。
         * <a href="https://firebase.google.com/docs/cloud-messaging/migrate-v1" target="_blank">FCM マイグレーションガイドはこちら</a>
-        * <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/console-guide/#_1">コンソール使用ガイドはこちら</a>
+        * <a href="./console-guide/#_1">コンソール使用ガイドはこちら</a>
     * **Service Account Credential**を登録すると、FCM HTTP V1 APIを通じてFCMメッセージが送信されます。2024年6月20日以降も引き続きFCMで送信するためには、必ずコンソールで**Service Account Credential**を登録する必要があります。
 
 <a id="section-1-3"></a>
@@ -768,7 +768,7 @@
     * メッセージ受信、確認統計照会APIを追加しました。
     * v1.3フィードバックAPIは、v2.0無効なトークンAPIに変更しました。
     * レスポンスメッセージをより詳細に出力します。
-    <a href="/ja/Notification/Push/ko/api-guide" target="_blank">v2.0 API Reference</a>
+    <a href="./api-guide/" target="_blank">v2.0 API Reference</a>
 
 <br>
 
