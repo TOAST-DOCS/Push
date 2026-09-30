@@ -22,7 +22,7 @@
 * FCM Service Account Credential認証追加
     * 2024年6月20日付でFCM Legacy APIがサービス終了予定です。 これに伴い、FCMメッセージ送信時にFCM HTTP(V1) APIを利用する必要があり、API認証には**Server Key**の代わりに**Service Account Credential**が必要です。
         * <a href="https://firebase.google.com/docs/cloud-messaging/migrate-v1" target="_blank">FCM マイグレーションガイドはこちら</a>
-        * <a href="../console-guide/#_1">コンソール使用ガイドはこちら</a>
+        * <a href="../console-guide/#certificate-management">コンソール使用ガイドはこちら</a>
     * **Service Account Credential**を登録すると、FCM HTTP V1 APIを通じてFCMメッセージが送信されます。2024年6月20日以降も引き続きFCMで送信するためには、必ずコンソールで**Service Account Credential**を登録する必要があります。
 
 <a id="section-1-3"></a>
@@ -623,7 +623,7 @@
     * 今までは失敗したメッセージの照会時、結果全体をレスポンスしました。
  結果サイズが大きい場合、Response Timeoutが発生することがあったため、一度に最大1,000個までレスポンスできるように修正しました。
     * 結果が1,000個以上の場合、異常レスポンスを返します。異常レスポンスの場合、from, to期間をより短くして照会する必要があります。
-    * <a href="../api-guide/#_15" target="_blank">API Reference</a>
+    * <a href="../api-guide/#messages-query-list-failed-messages" target="_blank">API Reference</a>
         * メッセージ > 照会 > 失敗したメッセージリスト照会
 
 <a id="section-1-39-3"></a>
@@ -716,11 +716,11 @@
     * メッセージ送信時、タグと条件を設定してメッセージを送信できます。   
 例、メッセージ送信時、target.typeを'TAG'、target.toを'男性、AND、30代'に設定すると、'男性'と'30代'タグがついたUidを対象にメッセージが送信されます。
     * APIが先に公開され、8月の定期メンテナンス後にCONSOLEでタグ機能を使用できます。
-    <a href="../api-guide/#_13" target="_blank">API Reference</a>
+    <a href="../api-guide/#send" target="_blank">API Reference</a>
 * 失敗処理されたメッセージ照会APIの追加
     * メッセージ送信時、失敗したメッセージを照会できるAPIを追加しました。
   このAPIを利用して、送信が失敗した原因を確認できます。    
-    <a href="../api-guide/#_15" target="_blank">API Reference</a>
+    <a href="../api-guide/#messages-query-list-failed-messages" target="_blank">API Reference</a>
 
 ##### バグ修正
 * トークン修正時、新しいトークンが存在する時、既存トークンは削除されないバグを修正

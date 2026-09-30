@@ -20,7 +20,7 @@
 * FCM Service Account Credential 인증 추가
     * 2024년 6월 20일부로 FCM Legacy API가 서비스 종료 예정입니다. 이에 따라, FCM 메시지 발송 시 FCM HTTP(V1) API를 이용해야 하며 API 인증에는 **Server Key** 대신 **Service Account Credential**이 필요합니다.
         * <a href="https://firebase.google.com/docs/cloud-messaging/migrate-v1" target="_blank">FCM 마이그레이션 가이드 바로 가기</a>
-        * <a href="../console-guide/#_1">콘솔 사용 가이드 바로 가기</a>
+        * <a href="../console-guide/#certificate-management">콘솔 사용 가이드 바로 가기</a>
     * **Service Account Credential**을 등록하면 FCM HTTP V1 API를 통해 FCM 메시지가 발송됩니다. 2024년 6월 20일 이후에도 계속 FCM으로 발송을 위해서는 반드시 콘솔에서 **Service Account Credential**을 등록해야 합니다.
 
 <a id="section-1-3"></a>
@@ -619,7 +619,7 @@
     * 기존에는 실패한 메시지 조회시 결과 전체를 응답했습니다.
     결과 크기가 큰경우, Response Timeout이 발생할 수 있어, 한 번에 최대 1,000개 까지 응답하도록 수정했습니다.
     * 결과가 1,000개 이상일 경우, 비정상 응답합니다. 비정상 응답일 경우, from, to 기간을 더 짧게 조회해야 합니다.
-    * <a href="../api-guide/#_15" target="_blank">API Reference 바로 가기</a>
+    * <a href="../api-guide/#messages-query-list-failed-messages" target="_blank">API Reference 바로 가기</a>
         * 메시지 > 조회 > 실패한 메시지 목록 조회
 
 <a id="section-1-39-3"></a>
@@ -712,11 +712,11 @@
     * 메시지 발송시 태그와 조건을 설정해 메시지를 발송할 수 있습니다.    
 예, 메시지 발송시 target.type을 'TAG', target.to를 '남자, AND, 30대'로 설정하면, '남자'와 '30대' 태그가 붙은 Uid를 대상으로 메시지가 발송됩니다.
     * API로 먼저 공개되며, 8월 정기 점검 후 CONSOLE에서 태그 기능을 사용하실 수 있습니다.
-    <a href="../api-guide/#_13" target="_blank">API Reference 바로 가기</a>
+    <a href="../api-guide/#send" target="_blank">API Reference 바로 가기</a>
 * 실패 처리된 메시지 조회 API 추가
     * 메시지 발송시 실패된 메시지를 조회할 수 있는 API가 추가되었습니다.
     이 API를 이용해 발송이 실패 원인에 대한 내용을 확인할 수 있습니다.     
-    <a href="../api-guide/#_15" target="_blank">API Reference 바로 가기</a>
+    <a href="../api-guide/#messages-query-list-failed-messages" target="_blank">API Reference 바로 가기</a>
 
 ##### 버그 수정
 * 토큰 수정시 새로운 토큰이 존재할 때, 기존 토큰은 삭제 안되는 오류 수정
