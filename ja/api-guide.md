@@ -509,6 +509,7 @@ curl -X POST \
 | timeToLiveMinute | Optional, Number | 単位は分です。範囲は1から60。基本値は10です。 |
 | provisionedResourceId | Optional, String | 割り当てられた専用リソース(provisioned Resource) IDです。お問い合わせsupport@cloud.toast.com |
 | adWordPosition | Optional、String | 'TITLE'、'BODY'広告表示文言位置。基本値は'TITLE'です。 |
+| statsId | Optional, String | 統計イベントキーです。統計照会時にキーを基準に検索できます。 |
 
 ##### Description
 - "target.type"に'UID'を設定した時、"target.to"に最大10,000個までUIDを設定できます。
@@ -906,13 +907,15 @@ v1.7以上のSDKが適用された場所でのみ使用できます。
 | richMessage.button.link | Required, String | ボタンを押した時に接続するリンク |
 | richMessage.button.hint | Required, String | ボタンについてのヒント |
 | richMessage.media | Optional, Object | リッチメッセージに追加されるメディア |
-| richMessage.media.sourceType | Required, String | メディアの位置、 REMOTE、LOCAL |
+| richMessage.media.sourceType | Optional, String | メディアの位置、 REMOTE、LOCAL |
 | richMessage.media.source | Required, String | メディアがある場所のアドレス |
-| richMessage.media.mediaType | Required、String | メディアのタイプ、 IMAGE、GIF、VEDIO、AUDIO。AndroidではIMAGEのみサポート |
+| richMessage.media.mediaType | Optional, String | メディアのタイプ、 IMAGE、GIF、VEDIO、AUDIO。AndroidではIMAGEのみサポート |
 | richMessage.media.extension | Required, String | メディアファイルの拡張子 |
 | richMessage.media.expandable | Required, Boolean | Androidでメディアをクリックした時、広げる機能を使用するかどうか |
+| richMessage.androidMedia | Optional, Object | Android 端末で使用されるメディア。形式は media と同じ |
+| richMessage.iosMedia | Optional, Object | iOS 端末で使用されるメディア。形式は media と同じ |
 | richMessage.largeIcon | Optional, Object | リッチメッセージに追加される大アイコン。Androidでのみサポート |
-| richMessage.largeIcon.sourceType | Required, String | 大アイコンの位置、 REMOTE、LOCAL |
+| richMessage.largeIcon.sourceType | Optional, String | 大アイコンの位置、 REMOTE、LOCAL |
 | richMessage.largeIcon.source | Required, String | メディアがある場所のアドレス |
 | richMessage.group | Optional, Object | 複数のメッセージをグループ単位にまとめる機能。Androidでのみサポート |
 | richMessage.group.key | Required, String | グループのキー |
@@ -2601,6 +2604,7 @@ Content-Type: application/json;charset=UTF-8
 | extra1s | Optional、String Array | eventCategoryがMESSAGEの場合、プッシュタイプでフィルタリング可能。 FCM、APNS、APNS_SANDBOX、APNS_VOIP、APNS_SANDBOXVOIP、ADM、TENCENT |
 | messageId | Optional, String | メッセージID |
 | statsIds | Optional, String Array | 統計イベントキーID |
+| statsCriteria	| Optional, String Array | 合計時の統計基準。設定しない場合はデフォルト値で合計を計算。EVENT(デフォルト値)、EXTRA_1、EXTRA_2、EXTRA_3、TEMPLATE_ID |
 
 ##### Request Body
 

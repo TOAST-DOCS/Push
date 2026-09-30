@@ -506,6 +506,7 @@ curl -X POST \
 | timeToLiveMinute | Optional, Number | By the minute: from 1 to 60. Default is 10. |
 | provisionedResourceId | Optional, String | ID for provisioned resource. <br />Contact support@cloud.toast.com for details. |
 | adWordPosition | Optional, String | Places where ad phrases, like 'TITLE' or 'BODY' are located: default is 'TITLE'. |
+| statsId | Optional, String | Statistical event key. You can search by key when querying Statistics. |
 
 ##### Description
 - If "target.type" is set with 'UID', up to 10,000 UIDs can be set for "target.to". 
