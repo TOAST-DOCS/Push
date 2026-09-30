@@ -1,4 +1,7 @@
-## Notification > Push > Console Guide
+<!-- pre-align:aligned sig=40f966542a81 -->
+
+<a id="notification-push-console-guide"></a>
+## Notification > Push > Console Guide { #notification-push-console-guide }
 
 To use the Push service, you need to register third-party push notification service certificates.
 
@@ -7,17 +10,18 @@ Currently, the supported push notification service certificates are as follows:
 - APNS - Apple Push Notification Service
 - ADM - Amazon Device Messaging
 
-## Certificate Management
+<a id="certificate-management"></a>
+## Certificate Management { #certificate-management }
 
 To manage certificates, go to **Notification > Push > Certificates** from the menu.
 
 
-<span id="get-fcm-service-account-credential"></span>
-
-### FCM Service Account Credential
+<a id="fcm-service-account-credential"></a>
+### FCM Service Account Credential { #fcm-service-account-credential }
 To send push notification messages to an Android device, you need **Service Account Credential**.
 A **Service Account** is a special type of account that is typically used for application-to-application (A2A) communication with Google Cloud.
 
+<a id="fcm-service-account-credential-import-the-fcm-service-account-credential-json-file"></a>
 #### Import the FCM Service Account Credential JSON File
 1. Sign in to [Google Firebase Console](https://console.firebase.google.com/).
 2. Add a project to create a new project.
@@ -26,16 +30,17 @@ A **Service Account** is a special type of account that is typically used for ap
 5. Select **Service Account**.
 6. In the Firbase Admin SDK topic, click **Generate new private key** to download a new **Service Account Credential** JSON file.
 
+<a id="fcm-service-account-credential-register-fcm-service-account-credential-json-file"></a>
 #### Register FCM Service Account Credential JSON File
 1. Go to **Notification > Push > Certificate** from the console.
 2. Open and copy the downloaded JSON file.
 3. Paste the copied content into the **FCM Service Account Credential** field and click **Register**.
 
-<span id="get-apns-jwt"></span>
-
-### Get Authentication Information for APNS JWT
+<a id="get-authentication-information-for-apns-jwt"></a>
+### Get Authentication Information for APNS JWT { #get-authentication-information-for-apns-jwt }
 To send push notification messages to an iOS device, you need encryption key, Key ID, Team ID (App ID Prefix) and Topic available from the Apple Developer's website. 
 
+<a id="get-authentication-information-for-apns-jwt-getting-apns-encryption-key"></a>
 #### Getting APNS Encryption Key
 1. Visit **Apple Developer's Console** and go to **Certificates, IDs & Profiles**.
 2. Select **Keys**.
@@ -44,23 +49,28 @@ To send push notification messages to an iOS device, you need encryption key, Ke
 5. Confirm and then select **Register**.
 6. Select **Download** to download encryption key files. 
 
+<a id="get-authentication-information-for-apns-jwt-getting-key-id"></a>
 #### Getting Key ID
 1. Visit **Apple Developer's Console** and go to **Certificates, IDs & Profiles**.
 2. Select the issued key. 
 3. Confirm it from **View Key Details**.
 
+<a id="get-authentication-information-for-apns-jwt-getting-team-id"></a>
 #### Getting Team ID
 1. Visit **Apple Developer's Console** and go to **Certificates, IDs & Profiles**.
 2. Select **Identifiers**.
 3. Confirm it from **Edit your App ID Configuration**.
 
+<a id="get-authentication-information-for-apns-jwt-topic"></a>
 #### Topic
 To authentication using JWT, you need a topic which refers to app's bundle ID. 
 
-### APNS Certificate
+<a id="apns-certificate"></a>
+### APNS Certificate { #apns-certificate }
 
 To send push notification to iOS devices, you need APNS certificate generated from Apple Developer website.
 
+<a id="apns-certificate-create-and-import-apns-certificate"></a>
 #### Create and Import APNS Certificate
 
 1. Run **Keychain Access** app on Mac.
@@ -76,6 +86,7 @@ To send push notification to iOS devices, you need APNS certificate generated fr
 11. Choose save location and press **Save** (file format: .p12).
 12. Enter password to protect exported items, and the certificate is ready.
 
+<a id="apns-certificate-register-apns-certificate"></a>
 #### Register APNS Certificate
 
 1. Click **Notification > Push > Certificates** on Console.
@@ -83,6 +94,7 @@ To send push notification to iOS devices, you need APNS certificate generated fr
 3. Enter certificate password at **Password** .
 4. Click **Register**.
 
+<a id="apns-certificate-caution-for-apns"></a>
 #### Caution for APNS
 
 ##### Differences between APNS (Production) and APNS_SANDBOX (Development)
@@ -102,10 +114,12 @@ To send push notification to iOS devices, you need APNS certificate generated fr
 - When a push message has been rejected by the application
 - When there’s no Internet access
 
-### ADM Credentials
+<a id="adm-credentials"></a>
+### ADM Credentials { #adm-credentials }
 
 To send push notification to Kindle Fire app, you need its Client ID and Client Secret.
 
+<a id="adm-credentials-register-adm-application-and-profiles-acquire-client-id-and-client-secret"></a>
 #### Register ADM Application and Profiles (Acquire Client Id and Client Secret)
 1. Go to [ADM Developer Console](https://developer.amazon.com/home.html).
 2. Click **APP & SERVICES** at the top left and choose **Add a New App** at the bottom.
@@ -113,6 +127,7 @@ To send push notification to Kindle Fire app, you need its Client ID and Client 
 4. When the profile is created, click **Security Profiles** in the middle and choose **View Security Profile**.
 5. Go to the **General** tab to check Client ID and Client Secret.
 
+<a id="adm-credentials-register-setting-information-for-adm-kindle-acquire-api-key"></a>
 #### Register Setting Information for ADM Kindle (Acquire API Key)
 1. Click **Security Profiles** and then **Android/Kindle Setting** in the middle.
 2. Enter information such as App Key Name, Package, MD5 Signature, and SHA256 Signature.
@@ -146,13 +161,15 @@ Version: 1
 - After registration is completed, click Show and query API key information.
 
 
-## Message Delivery
+<a id="message-delivery"></a>
+## Message Delivery { #message-delivery }
 
 After certificates and tokens are properly set, go to Console and click **Notification > Push > Messages > Add** and send immediate push messages.
 
 The following is the format for immediate delivery:
 
-### Target
+<a id="target"></a>
+### Target { #target }
 
 | Name                   | Description                                                  |
 | ---------------------- | ------------------------------------------------------------ |
@@ -164,26 +181,30 @@ The following is the format for immediate delivery:
 | Countries     | Enter country code: use comma (',') as delimiter to enter multiple country codes. |
 | Push Types    | You can choose multiple types among GCM, APNS, APNS Sandbox, and ADM. |
 
-### Option
+<a id="option"></a>
+### Option { #option }
 
 | Name                   | Description                                                  |
 | ---------------------- | ------------------------------------------------------------ |
 | Time To Live  | Refers to effective time for message delivery. If a delivery is delayed during the time set, it is automatically processed as a failure. It is set by minute. Setting it as '0' will not make the delivery to automatically fail. |
 
-### Message
+<a id="message"></a>
+### Message { #message }
 
 | Name                   | Description                                                  |
 | ---------------------- | ------------------------------------------------------------ |
 | Editor Type  | Two types: SIMPLE and JSON. In the case of JSON, you can type in your messages. |
 | Message Type | Two types: NOTIFICATION and AD. In the case of AD, the messages are delivered only to the users who agreed to receive advertising push messages. |
 
-### Rich Message
+<a id="rich-message"></a>
+### Rich Message { #rich-message }
 You can send push notifications with buttons, images, and various other things included.
 You can also preview how the message would look like in Android and iOS smartphones.
 You need SDK version 1.7 or above to use this feature.
 
 ![push_04_201812_en](https://static.toastoven.net/prod_push/12-10/push_04_201812_en.png)
 
+<a id="rich-message-button"></a>
 #### 1. Button
 
 |Name | Description |
@@ -208,6 +229,7 @@ You need SDK version 1.7 or above to use this feature.
 - Dismiss
     - Notification is dismissed. 
 
+<a id="rich-message-media"></a>
 #### 2. Media
 
 | Name | Description |
@@ -264,6 +286,7 @@ You need SDK version 1.7 or above to use this feature.
 | Supported Format | Not supported | WaveAudio, MP3, MPEG4Audio |
 | File Size | Not supported | 5MB |
 
+<a id="rich-message-large-icon"></a>
 #### 3. Large Icon
 This feature is only available on Android. A large icon is set for the notification. The file setting method is the same as the media file setting method.
 
@@ -272,6 +295,7 @@ This feature is only available on Android. A large icon is set for the notificat
 | Source  | Source of the icon image: Remote or Local |
 | Address | URL or URI of the icon image. |
 
+<a id="rich-message-group"></a>
 #### 4. Group
 This feature is only available on Android. Groups are set for notifications, and notifications with the same group key are represented in group.
 
@@ -280,6 +304,7 @@ This feature is only available on Android. Groups are set for notifications, and
 | Key | Group key |
 | Description | Group Description |
 
+<a id="rich-message-alert-sounds"></a>
 #### 5. Alert Sounds 
 | | Android | iOS |
 | - | - | - |
@@ -297,7 +322,8 @@ This feature is only available on Android. Groups are set for notifications, and
     - The entire file name is required, including extension, since access is made via bundle resources. 
 
 
-## Scheduled Delivery 
+<a id="scheduled-delivery"></a>
+## Scheduled Delivery { #scheduled-delivery }
 
 You can send push notification at the scheduled time. Go Console and click **Notification > Push > Reservation** to do so.
 
@@ -313,12 +339,14 @@ The following is the format for scheduled delivery:
 | End Date                                                | You can enter the last date to deliver messages in format of 'YYYY-MM-DD'. You can enter the date with calendar. |
 | Local Time                                              | When it is set 'true', the messages are delivered based on the local time. |
 
-### Check Token
+<a id="check-token"></a>
+### Check Token { #check-token }
 
 Choose push types and you can look up or delete a token. 
 Deleting a token is not supported in Public API for now, and is only available in **API** and **Token** tabs.
 
-### Public APIs
+<a id="public-apis"></a>
+### Public APIs { #public-apis }
 
 These are API calls provided in public API.
 You can add tokens, send messages, and get feedbacks through API calls.
@@ -326,14 +354,16 @@ You can choose which API version to use.
 For further detail, please refer to [API Guide](./api-guide/).
 
 
-## Tokens
+<a id="tokens"></a>
+## Tokens { #tokens }
 
 You can map the tokens on specific UIDs.
 You can search by UIDs or tokens.
 
 Go to **Console > Notification > Push** > and click **Token** tab.
 
-### Add Token
+<a id="add-token"></a>
+### Add Token { #add-token }
 
 ![push_11_201812_en](https://static.toastoven.net/prod_push/12-10/push_11_201812_en.png)
 
@@ -341,7 +371,8 @@ Go to **Console > Notification > Push** > and click **Token** tab.
 2. Enter 'UID' and 'Token' on the **Add Token** modal.
 3. Complete the rest of the form and click **Ok**.
 
-### Search Tokens
+<a id="search-tokens"></a>
+### Search Tokens { #search-tokens }
 
 Select **TOKEN** for **Search Type** and choose an appropriate push type to search tokens.
 
@@ -349,7 +380,8 @@ Select **TOKEN** for **Search Type** and choose an appropriate push type to sear
 
 - Click on **Details** button to see detailed information of the token.
 
-### Search UIDs
+<a id="search-uids"></a>
+### Search UIDs { #search-uids }
 
 Select **UID** for **Search Type** to search UIDs.
 
@@ -358,20 +390,23 @@ Select **UID** for **Search Type** to search UIDs.
 - Partial match will show up on the search result too.
 - Click on **Details** button to see detailed information of the token.
 
-## Tags
+<a id="tags"></a>
+## Tags { #tags }
 
 You can map multiple UIDs to tags. Tags are used globally in Notification service.
 
 Go to **Console > Notification > Push** > and click **Tag** tab.
 
-### Add Tag
+<a id="add-tag"></a>
+### Add Tag { #add-tag }
 
 ![push_15_201812_en](https://static.toastoven.net/prod_push/12-10/push_15_201812_en.png)
 
 1. Click **Add** and enter the name of the tag on **Add Tags** modal.
 2. Click **Ok** to add the token.
 
-### Manage UIDs attached on Tags
+<a id="manage-uids-attached-on-tags"></a>
+### Manage UIDs attached on Tags { #manage-uids-attached-on-tags }
  Click on the tag to check the list of UIDs attached to it.
 
 ![push_16_201812_en](https://static.toastoven.net/prod_push/12-10/push_16_201812_en.png)
@@ -380,14 +415,12 @@ Go to **Console > Notification > Push** > and click **Tag** tab.
 2. After entering the UID, click the **OK** button.
 	- Up to 1,000 UIDs can be added at a time.
 
-<span id="stats-event-key"></span>
-
-## Statistics Event Key Management 
+<a id="statistics-event-key-management"></a>
+## Statistics Event Key Management { #statistics-event-key-management }
 Statistics event keys can be managed from the **Statistics Event Key Management** tab. You may set the name, description, and event collection period. Without configuring event collection period, the collection period is set as indefinite. Once created, a statistics event key can be setup for message delivery. Delivery results of messages to which a statistics event key is configured can be searched with the statistics event key from the **Statistics** tab. 
 
-<span id="stats"></span>
-
-## Statistics
+<a id="statistics"></a>
+## Statistics { #statistics }
 You may search data on received/checked messages that are collected for the last 30 days. Select **Statistics** from the console, and you can search statistics on registration or deletion of a message or a token.   
 
 1. Set period as part of a search condition. 
@@ -396,13 +429,15 @@ You may search data on received/checked messages that are collected for the last
     - By default, graph is displayed in automatically optimized type for each period setting. 
 3. From message statistics, you can search by statistics event key or push type. 
 
-## Token Setting
+<a id="token-setting"></a>
+## Token Setting { #token-setting }
 
 You can configure Push service.
 
 Go to **Console > Notification > Push** > and click **Setting** to set Token Expiration Period and App Type. 
 
-### Position Setting of Ad Phrase
+<a id="position-setting-of-ad-phrase"></a>
+### Position Setting of Ad Phrase { #position-setting-of-ad-phrase }
 
 - You can configure the position of the Ad phrase displayed on the advertisement push notification. 
 - Title
@@ -412,7 +447,8 @@ Go to **Console > Notification > Push** > and click **Setting** to set Token Exp
     - '(Ad)' phrase, contact information, and unsubscription method will be displayed in the body.
 - After the feature is set, it may take several minutes until a feature is actually applied. 
 
-### Token Setting
+<a id="token-setting-2"></a>
+### Token Setting { #token-setting-2 }
 
 - Token Expiration Period
     - Exclude tokens that did not request registration during set period from the list of message delivery.
@@ -431,8 +467,8 @@ Go to **Console > Notification > Push** > and click **Setting** to set Token Exp
 
 - After the feature is set, it may take several minutes until a feature is actually applied. 
 
-<span id="message-delivery-receipient"></span>
-### Collect Message Receipt/Check Data
+<a id="collect-message-receiptcheck-data"></a>
+### Collect Message Receipt/Check Data { #collect-message-receiptcheck-data }
 
 - The Message Delivery Receipt feature can be enabled. 
 - SDK v1.4 or higher versions must be applied for the activated features to work. For Android, the feature works only by applying the SDK. For iOS, additional processing is required.
@@ -441,7 +477,7 @@ Go to **Console > Notification > Push** > and click **Setting** to set Token Exp
 - Data collection time is based on the device time. 
 - After the feature is set, it may take several minutes until a feature is actually applied. 
 
-<span id="low-received-event-rates"></span>
+<a id="collect-message-receiptcheck-data-causes-for-low-indicators-of-message-receiving-data"></a>
 #### Causes for Low Indicators of Message Receiving Data    
 1. When message notification is not enabled on the app 
 Unless the user enables message notifications with OS (iOS or Android) level setup on initial app execution, message receiving events cannot be collected. (The average rate of notification enabled, as of 2018, is 43.9% for iOS and 91.1% for Android. <a href="https://www.accengage.com/press-release-accengage-releases-the-push-notification-benchmark-2018/" target="_blank">source accengage</a>)
@@ -452,7 +488,8 @@ If it is not connected to the internet, due to various reasons, including phone 
 4. When it fails to collect receiving events 
 Even if a message has been received, it may not be properly collected depending on the OS or network environment when the receiving event is sent to server. 
 
-### Log Message Delivery History
+<a id="log-message-delivery-history"></a>
+### Log Message Delivery History { #log-message-delivery-history }
 - Send message delivery history to Log & Crash Search as specified.
 - **Appkey**: Enter Appkey from Log & Crash Search service.
 - **Secretkey**: Enter SecretKey from Log & Crash Search service.
@@ -464,6 +501,7 @@ Even if a message has been received, it may not be properly collected depending 
 - You can view the logs in **Analytics > Log & Crash Search > Log Search**.
 - Delivered message will follow the pricing from [Log & Crash Search](https://toast.com/service/analytics/log_crash_search/#price)
 
+<a id="log-message-delivery-history-log-type-for-delivery-history"></a>
 #### Log Type for Delivery History
 ##### Body
 ```
@@ -519,7 +557,8 @@ Even if a message has been received, it may not be properly collected depending 
     - AGENT_ERROR: Abnormal communication with Google, Apple, or Amazon server
     - UNKNOWN: Unknown internal error
 
-### Settings for preventing duplicate messages
+<a id="settings-for-preventing-duplicate-messages"></a>
+### Settings for preventing duplicate messages { #settings-for-preventing-duplicate-messages }
 - This is a feature that restricts sending the same message to the same user multiple times.
 - The decision of whether a message is duplicate or not is based on the message type, text (content), sender information, opt-in setup guide, ad display text location, and token.
   If all values against these criteria are the same, it is determined as a duplicate message and thus not sent.
@@ -527,13 +566,15 @@ Even if a message has been received, it may not be properly collected depending 
 - It can be set in "Settings for preventing duplicate messages" under the Settings tab.
 - It could take several minutes for the settings to be completely applied.
 
-### Reserve Message for Acceptance of Ad Opt-in
+<a id="reserve-message-for-acceptance-of-ad-opt-in"></a>
+### Reserve Message for Acceptance of Ad Opt-in { #reserve-message-for-acceptance-of-ad-opt-in }
 - Added a feature of sending a guide message to tokens that have reached two years since their last acceptance of ad opt-in. 
 - Every month at a specific time set by the user, a guide message will be sent to the target tokens.
 - The guide message must contain the information about the user's opt-in acceptance and the time of opt-in and how to set ad opt-in.
 - If you place the temporary replacer for opting in to receive advertisement messages (###AD_AGREEMENT_DATE_TIME###) in the body, when sending a message, its time will be replaced with the opt-in acceptance time of the token.
 
-## Guide for Notice of Personal Information Assignor
+<a id="guide-for-notice-of-personal-information-assignor"></a>
+## Guide for Notice of Personal Information Assignor { #guide-for-notice-of-personal-information-assignor }
 
 When the Customer uses NHN Cloud Push Service, assignment of personal information between the Customer and the Company arises, and the assignee, the Customer, is obliged to disclose the status (assignor and content of business) of his assignment of personal information to the Company, through the personal information handling policy, in accordance with Act on Promotion of Information and Communications Network Utilization and Information Protection. Accordingly, the Company may provide guidelines as below for the Customer, to abide by relevant regulations in the use of NHN Cloud Push Service and not to be adversely affected for not disclosing his assignment status:
 

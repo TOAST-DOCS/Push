@@ -1,10 +1,15 @@
-## Notification > Push > API v1.3 Guide
+<!-- pre-align:aligned sig=81a79d291543 -->
 
-### API Test
+<a id="notification-push-api-v13-guide"></a>
+## Notification > Push > API v1.3 Guide { #notification-push-api-v13-guide }
+
+<a id="api-test"></a>
+### API Test { #api-test }
 
 Available on [CONSOLE] > [Notification] > [Push] > [APIs].
 
-### Secret Key
+<a id="secret-key"></a>
+### Secret Key { #secret-key }
 
 ```
 Header
@@ -13,7 +18,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 Go to [CONSOLE] > [Notification] > [Push] > [URL & AppKey] to create one. 
 
-### Response
+<a id="response"></a>
+### Response { #response }
 
 [Response HTTP Status Code]  
 
@@ -65,7 +71,8 @@ See Header at the response body for response details.
 | false | 40015 | Client Error. Wrong reservationDays. |
 | false | 50001 ~ 50501 | Internal Error. Please report this. 'http://cloud.toast.com/support/qaa'. |
 
-### Tokens
+<a id="tokens"></a>
+### Tokens { #tokens }
 
 ##### Register
 
@@ -133,6 +140,7 @@ Content-Type: application/json;charset=UTF-8
 - Tokens may be re-issued, on many accounts, including security issues, or app updates or deletion. Although they may not be frequently changed, it is recommended to register the most updated tokens whenever they are operated, so as to raise the receiving rate.
 - Even if a token is expired due to app deletion, it is not immediately applied to GCM or APNS server, so push message delivery can be successful after app is deleted.
 
+<a id="tokens-query"></a>
 #### Query
 
 ###### a. Query Tokens by Token and Push Type
@@ -204,8 +212,10 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 - The API requires a secret key and must be called from a server.
 
-### Messages
+<a id="messages"></a>
+### Messages { #messages }
 
+<a id="messages-send"></a>
 #### Send 
 ※ Push messages sent using the API cannot be retrieved in the console or by the message query API.
 
@@ -341,6 +351,7 @@ Request Body
 }
 ```
 
+<a id="messages-common-messages"></a>
 #### Common Messages 
 
 Common message type is supported from API v1.3. When messages are written for "content" as described in the below table, messages are created and sent to suit for each push type.
@@ -475,6 +486,7 @@ Request Body
 }
 ```
 
+<a id="messages-query"></a>
 #### Query 
 ※ Only push messages sent using the console can be retrieved by the Query API.
 
@@ -541,8 +553,10 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 - CANCEL_UNAUTHORIZED: Failed while authenticating certificate. Check certificate status.
 - CANCEL_UNKNOWN: Error has occurred internally.
 
-### Feedbacks
+<a id="feedbacks"></a>
+### Feedbacks { #feedbacks }
 
+<a id="feedbacks-check"></a>
 #### Check 
 
 [Method, URL]

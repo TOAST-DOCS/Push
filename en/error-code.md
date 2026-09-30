@@ -1,4 +1,7 @@
-## Notification > Push > Error Codes
+<!-- pre-align:aligned sig=30a62ea8548d -->
+
+<a id="notification-push-error-codes"></a>
+## Notification > Push > Error Codes { #notification-push-error-codes }
 
 | isSuccessful | resultCode    | resultMessage                                                |
 | ------------ | ------------- | ------------------------------------------------------------ |

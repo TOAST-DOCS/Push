@@ -1,16 +1,24 @@
-## Notification > Push > API v2.4 Guide
-### v2.4 API 소개
+<!-- pre-align:aligned sig=479d3552cba2 -->
 
+<a id="notification-push-api-v24-guide"></a>
+## Notification > Push > API v2.4 Guide { #notification-push-api-v24-guide }
+<a id="overview-of-v24-api"></a>
+### v2.4 API 소개 { #overview-of-v24-api }
+
+<a id="overview-of-v24-api-add"></a>
 #### 추가
 - '통계' API가 추가되었습니다.
 
-### 기본 정보
+<a id="basic-information"></a>
+### 기본 정보 { #basic-information }
+<a id="basic-information-endpoint"></a>
 #### Endpoint
 ```
 API Endpoint: https://push.api.nhncloudservice.com
 메시지 수신/확인 여부 수집 Endpoint: https://collector-push.cloud.toast.com
 ```
-### Secret Key
+<a id="secret-key"></a>
+### Secret Key { #secret-key }
 - 콘솔에서 확인 가능합니다.
 - Secret Key가 필요한 API를 호출할 때, 해더에 아래와 같이 설정해서 호출해야 합니다.
 ```
@@ -19,6 +27,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 ```
 **CONSOLE > Notification > Push > URL & AppKey** 에서 확인/생성할 수 있습니다.
 
+<a id="secret-key-response"></a>
 #### Response
 
 ##### Response HTTP Status Code
@@ -38,8 +47,10 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 }
 ```
 
-## 토큰
-### 생성
+<a id="tokens"></a>
+## 토큰 { #tokens }
+<a id="create"></a>
+### 생성 { #create }
 - 클라이언트에서 조회 가능합니다.
 
 ##### Method, URL
@@ -129,8 +140,10 @@ curl -X POST \
 - 토큰은 보안적인 이슈, 앱 업데이트, 삭제 등 여러가지 이유로 재발급될 수 있습니다. 자주 변경되는 것은 아니지만, 수신율을 높이기 위해 구동될 때 마다 최신 토큰을 등록하는 것이 좋습니다.
 - 앱 삭제 등으로 토큰이 만료되어도 바로 FCM, APNS 서버에 적용되지 않아, 앱 삭제 후 푸시 메시지를 발송했을 때 발송이 성공할 수 있습니다.
 
-### 조회
+<a id="query"></a>
+### 조회 { #query }
 
+<a id="query-token-list"></a>
 #### 토큰 목록 조회
 ##### Method, URL
 
@@ -192,6 +205,7 @@ curl -X GET \
 
 
 
+<a id="query-tokens-by-token"></a>
 #### 토큰으로 토큰 조회
 - 클라이언트에서 조회 가능합니다.
 ##### Method, URL
@@ -254,6 +268,7 @@ curl -X GET \
 | deviceId | -, String | 디바이스 아이디 |
 | activatedDateTime | -, Datetime String | 토큰의 최근 등록 요청 일시 |
 
+<a id="query-tokens-by-user-id"></a>
 #### 사용자 아이디로 토큰 조회
 - Secret Key가 필요한 API이며, 서버에서 호출되어야 합니다.
 ##### Method, URL
@@ -311,6 +326,7 @@ curl -X GET \
 ```
 
 
+<a id="query-invalid-tokens"></a>
 #### 유효하지 않는 토큰 조회
 ##### Method, URL, Headers
 ```
@@ -361,7 +377,8 @@ curl -X GET \
 }
 ```
 
-### 삭제
+<a id="delete"></a>
+### 삭제 { #delete }
 ##### Method, URL, Headers
 ```
 DELETE /push/v2.4/appkeys/{appkey}/tokens/{token}?pushType={pushType}
@@ -396,8 +413,10 @@ curl -X DELETE \
 }
 ```
 
-## 메시지
-### 발송
+<a id="messages"></a>
+## 메시지 { #messages }
+<a id="send"></a>
+### 발송 { #send }
 ※ API로 발송한 푸시 메시지는 콘솔과 단건, 목록 조회 API에서 조회할 수 없습니다. API로 발송한 푸시 메시지는 Logging 기능을 활성화한 후 로그 조회 API를 이용해 주세요.
 ##### Method, URL, Headers
 ```
@@ -504,7 +523,8 @@ curl -X POST \
 "contact" 필드에 연락처를 입력해야 하며, "removeGuide" 필드에 수신 철회 방법에 대해 입력해야 합니다.
 - timeToLiveMinute 필드를 설정하면, 설정한 시간 이상 발송이 지연되는 경우 자동으로 실패 처리됩니다.
 
-### 공통 메시지
+<a id="common-messages"></a>
+### 공통 메시지 { #common-messages }
 "content"에 아래 표대로 메시지를 작성하면, 각 푸시 타입에 맞게 메시지가 생성되어 발송됩니다.
 
 |Reserved Word|	Platform|	Usage|	FCM|	APNS|	TENCENT| ADM |
@@ -537,10 +557,12 @@ Reserved Word는 메시지 생성 시 Platform별로 알맞는 위치에 설정�
 |---|---|---|---|---|---|---|
 |customKey|	Android, <br/> iOS, <br/> Tencent|	Optional, <br/> Object, <br/> Array, <br/> String, <br/> Number|	data.customKey|	customKey|	custom_content.customKey| data.customKey|
 
-### 메시지 발송 예제
+<a id="example-of-sending-messages"></a>
+### 메시지 발송 예제 { #example-of-sending-messages }
 
 - 메시지 발송 API의 요청 본문(Request Body)의 content.default은 필수입니다.
 
+<a id="example-of-sending-messages-send-to-all"></a>
 #### 1. 전체에게 발송
 등록된 모든 대상에게 메시지를 발송하는 예제입니다.
 
@@ -562,6 +584,7 @@ Reserved Word는 메시지 생성 시 Platform별로 알맞는 위치에 설정�
 ##### Description
 - target.type을 'ALL'로 설정하면, 모든 토큰에 메시지를 발송합니다.
 
+<a id="example-of-sending-messages-send-to-particular-users"></a>
 #### 2. 특정 사용자에게 발송
 사용자 아이디를 입력해 특정 사용자에게 메시지를 발송하는 예제입니다.
 
@@ -584,6 +607,7 @@ Reserved Word는 메시지 생성 시 Platform별로 알맞는 위치에 설정�
 ##### Description
 - target.type을 'UID'로 설정하고, target.to에 사용자 아이디를 설정해 특정 사용자에게 메시지를 발송합니다.
 
+<a id="example-of-sending-messages-send-to-users-of-particular-nation-or-push-type"></a>
 #### 3. 일부 국가나 푸시 타입의 사용자들에게 발송
 특정 국가나 기기(Android, iOS, ...)를 사용하는 사용자들에게만 메시지를 발송하는 예제입니다.
 
@@ -607,6 +631,7 @@ Reserved Word는 메시지 생성 시 Platform별로 알맞는 위치에 설정�
 ##### Description
 - target.countries에 국가 코드, target.pushTypes에 푸시 타입을 설정해 조건에 만족하는 사용자에게 메시지를 발송합니다.
 
+<a id="example-of-sending-messages-convert-messages-for-each-push-type"></a>
 #### 4. 푸시 타입별 메시지 변환
 메시지를 보내게되면 푸시 타입별로 메시지가 변환되어 발송되는데, 변환되는 규칙을 설명한 예제입니다.
 
@@ -681,6 +706,7 @@ Reserved Word는 메시지 생성 시 Platform별로 알맞는 위치에 설정�
 - badge, consolidationKey와 같이 특정 푸시 타입에만 정의된 예약어는 다른 푸시 타입에서는 제외됩니다.
 예로, badge는 APNS(iOS) 메시지에만 설정되며, FCM, TENCENT, ADM에는 제외됩니다.
 
+<a id="example-of-sending-messages-ad-messages"></a>
 #### 5. 광고성 메시지
 광고성 메시지로 발송하면 메시지 내용에 추가되는 광고 문구에대한 예제입니다.
 
@@ -747,6 +773,7 @@ Reserved Word는 메시지 생성 시 Platform별로 알맞는 위치에 설정�
 - 각 푸시 타입별로 메시지가 발송될때, title에 광고 표시 문구와 대표 번호가, body에 수신 동의 철회 방법이 추가되어 발송됩니다.
 - 광고성 메시지는 언어 코드가 한국어(ko, ko-)인 사용자들에게만 광고 문구가 추가됩니다. 위 예처럼 해외 사용자(일본어)들에게는 광고 문구가 추가되지 않습니다.
 
+<a id="example-of-sending-messages-multiple-language-messages"></a>
 #### 6. 다국어 메시지
 다양한 언어로 메시지를 발송하는 예제입니다.
 
@@ -823,6 +850,7 @@ Reserved Word는 메시지 생성 시 Platform별로 알맞는 위치에 설정�
 요청 본문에 content.ko만 입력되어 있지만, 언어 코드가 ko-KR(한국어)인 사용자에게도 content.ko의 내용이 발송됩니다.
 - customKey는 content.ja에 정의되어 있지 않기 때문에, content.default의 값으로 발송됩니다. 공통적인 내용은 content.default에 입력할 수 있습니다.
 
+<a id="example-of-sending-messages-rich-messages"></a>
 #### 7. 리치 메시지
 메시지 발송시 'content'에 'richMessage' 필드를 정의하면 리치 메시지로 메시지를 발송할 수 있습니다.
 공통 메시지, 광고성 메시지, 다국어 메시지와 함께 사용할 수 있습니다.
@@ -891,6 +919,7 @@ v1.7이상 SDK가 적용된 곳에서만 사용할 수 있습니다.
 | richMessage.group.key | Required, String | 그룹의 키 |
 | richMessage.group | Required, String | 그룹에대한 설명 |
 
+<a id="example-of-sending-messages-messages-with-fcm-notification"></a>
 #### 8. FCM notification 필드를 사용한 메시지
 메시지 발송시 'content'에 'notification' 필드를 정의하면 FCM 형식에 맞게 메시지를 발송할 수 있습니다.
 
@@ -971,7 +1000,9 @@ v1.7이상 SDK가 적용된 곳에서만 사용할 수 있습니다.
 
 
 
-### 조회
+<a id="messages-query"></a>
+### 조회 { #messages-query }
+<a id="messages-query-list"></a>
 #### 목록 조회
 ※ 콘솔로 발송한 푸시 메시지만 목록 조회 API로 조회할 수 있습니다. API로 발송한 푸시 메시지는 Logging 기능을 활성화한 후 로그 조회 API를 이용해 주세요.
 ##### Method, URL, Headers
@@ -1063,6 +1094,7 @@ curl -X GET \
     - CANCEL_UNAUTHORIZED: 인증서 인증 과정에서 실패한 상태입니다. 인증서 상태를 확인해야 합니다.
     - CANCEL_UNKNOWN: 내부 오류가 발생한 상태입니다.
 
+<a id="messages-query-get"></a>
 #### 단건 조회
 ※ 콘솔로 발송한 푸시 메시지만 단건 조회 API로 조회할 수 있습니다. API로 발송한 푸시 메시지는 Logging 기능을 활성화한 후 로그 조회 API를 이용해 주세요.
 ##### Method, URL, Headers
@@ -1123,6 +1155,7 @@ curl -X GET \
 }
 ```
 
+<a id="messages-query-list-failed-messages"></a>
 #### 실패한 메시지 목록 조회
 발송에 실패한 메시지를 조회할 수 있습니다.
 단, 토큰이 존재하지 않는 경우(INVALID_TOKEN)는 발송 실패로 판단하지 않습니다.
@@ -1228,10 +1261,12 @@ curl -X GET \
 | payload | - | 기기에 발송된 실제 메시지 내용 |
 | tokens | - | 발송한 실패한 수신자의 uid와 token |
 
-### 로그 조회
+<a id="query-logs"></a>
+### 로그 조회 { #query-logs }
 - 로그 조회 API는 Logging 기능을 활성화한 상태에서만 호출가능 하다.
 - Logging 기능은 **Console > Notification > Push > Setting** 탭에서 활성화 시킬 수 있습니다.
 
+<a id="query-logs-query-general-logs"></a>
 #### 일반 로그 조회
 - 최대 100개까지 조회 가능합니다.
 
@@ -1303,9 +1338,12 @@ curl -X GET \
 }
 ```
 
-## 예약 메시지
+<a id="scheduled-messages"></a>
+## 예약 메시지 { #scheduled-messages }
 
-### 생성
+<a id="scheduled-messages-create"></a>
+### 생성 { #scheduled-messages-create }
+<a id="scheduled-messages-create-create-delivery-schedule-for-scheduled-messages"></a>
 #### 예약 메시지 발송 스케줄 생성
 ##### Method, URL, Headers
 ```
@@ -1396,6 +1434,7 @@ curl -X POST \
 | schedules | - | 일시(ISO 8601, e.g. YYYY-MM-DDThh:mm), 최댓값: 현재로부터 60일(예: 현재 2024년 6월 1일인 경우 2024년 7월 31일 23시 59분) |
 
 
+<a id="scheduled-messages-create-create-scheduled-messages"></a>
 #### 예약 메시지 생성
 ##### Method, URL, Headers
 ```
@@ -1483,7 +1522,9 @@ curl -X POST \
 | reservationId | Number | 예약 메시지 아이디 |
 | reservationIdString | String | 예약 메시지 아이디 문자열 |
 
-### 조회
+<a id="scheduled-messages-query"></a>
+### 조회 { #scheduled-messages-query }
+<a id="scheduled-messages-query-list"></a>
 #### 목록 조회
 ##### Method, URL, Headers
 ```
@@ -1584,6 +1625,7 @@ curl -X GET \
 | totalCount | - | 등록된 전체 예약 메시지 수 |
 
 
+<a id="scheduled-messages-query-get"></a>
 #### 단건 조회
 ##### Method, URL, Headers
 ```
@@ -1605,6 +1647,7 @@ curl -X GET \
 -H 'X-Secret-Key: '"${SECRET_KEY}"''
 ```
 
+<a id="scheduled-messages-query-response-body"></a>
 #### Response Body
 ```json
 {
@@ -1657,6 +1700,7 @@ curl -X GET \
 | - | - | - |
 | updatedDateTime | DateTime String | 예약 수정 일시(ISO 8601) |
 
+<a id="scheduled-messages-query-query-scheduled-messages"></a>
 #### 발송된 예약 메시지 조회
 ##### Method, URL, Headers
 ```
@@ -1722,7 +1766,9 @@ curl -X GET \
 | - | - | - |
 | totalCount | - | 발송된 전체 메시지  수 |
 
-### 수정
+<a id="modify"></a>
+### 수정 { #modify }
+<a id="modify-scheduled-messages"></a>
 #### 예약 메시지 수정
 ##### Method, URL, Headers
 ```
@@ -1797,7 +1843,9 @@ curl -X PUT \
 }
 ```
 
-### 삭제
+<a id="scheduled-messages-delete"></a>
+### 삭제 { #scheduled-messages-delete }
+<a id="scheduled-messages-delete-delete-scheduled-messages"></a>
 #### 예약 메시지 삭제
 ##### Method, URL, Headers
 ```
@@ -1835,9 +1883,12 @@ curl -X DELETE \
 }
 ```
 
-## 태그
+<a id="tags"></a>
+## 태그 { #tags }
 
-### 생성
+<a id="tags-create"></a>
+### 생성 { #tags-create }
+<a id="tags-create-create-tags"></a>
 #### 태그 생성
 ##### Method, URL, Headers
 ```
@@ -1889,6 +1940,7 @@ curl -X POST \
 ##### Description
 - 태그는 최대 2,048개까지 생성할 수 있습니다.
 
+<a id="tags-create-append-uids-to-tag"></a>
 #### 태그에 UID 추가 생성
 - 태그에 UID를 추가(append)하는 것으로, 기존에 있던 UID를 추가하면 UID의 태그는 늘어납니다.
 - 한 UID에 태그를 16개까지 추가할 수 있습니다.
@@ -1952,6 +2004,7 @@ curl -X POST \
 ```
 
 
+<a id="tags-create-set-tag-list-on-uid"></a>
 #### UID에 태그 목록 설정
 - UID의 태그를 교체(Replace)하는 것으로, 기존에 설정된 태그는 삭제되고 새로운 태그로 설정됩니다.
 ##### Method, URL, Headers
@@ -1997,7 +2050,9 @@ curl -X POST \
 }
 ```
 
-### 조회
+<a id="tags-query"></a>
+### 조회 { #tags-query }
+<a id="tags-query-list-tags"></a>
 #### 태그 목록 조회
 ##### Method, URL, Headers
 ```
@@ -2047,6 +2102,7 @@ curl -X GET \
 | createdDateTime | Required, Date Time String | 생성 일시 (ISO 8601) |
 | updatedDateTime | Required, Date Time String | 수정 일시 (ISO 8601) |
 
+<a id="tags-query-get-tags"></a>
 #### 태그 단건 조회
 ##### Method, URL, Headers
 ```
@@ -2084,6 +2140,7 @@ curl -X GET \
 }
 ```
 
+<a id="tags-query-list-uids-of-tag"></a>
 #### 태그의 UID 목록 조회
 - 태그가 달린 UID 목록을 조회합니다.
 
@@ -2150,6 +2207,7 @@ curl -X GET \
 | contact | -, String | 토큰 |
 | createdDateTime | Required, Date Time String | 생성 일시 (ISO 8601) |
 
+<a id="tags-query-query-uids"></a>
 #### UID 조회
 - UID를 조회합니다.
 - 토큰 등록시 Contact(연락처)가 등록됩니다.
@@ -2202,7 +2260,9 @@ curl -X GET \
 }
 ```
 
-### 수정
+<a id="tags-modify"></a>
+### 수정 { #tags-modify }
+<a id="tags-modify-modify-tags"></a>
 #### 태그 수정
 ##### Method, URL, Headers
 ```
@@ -2239,7 +2299,9 @@ curl -X PUT \
 }
 ```
 
-### 삭제
+<a id="tags-delete"></a>
+### 삭제 { #tags-delete }
+<a id="tags-delete-delete-tags"></a>
 #### 태그 삭제
 ##### Method, URL, Headers
 ```
@@ -2272,6 +2334,7 @@ curl -X DELETE \
 ```
 
 
+<a id="tags-delete-delete-uids"></a>
 #### UID 삭제
 - UID 삭제시 Contact, Token도 같이 삭제됩니다.
 ##### Method, URL, Headers
@@ -2309,6 +2372,7 @@ curl -X DELETE \
 }
 ```
 
+<a id="tags-delete-delete-uids-of-tag"></a>
 #### 태그의 UID 삭제
 - Tag와 UID 관계만 삭제합니다.
 - Contact, Token이 삭제되지는 않습니다.
@@ -2342,10 +2406,13 @@ curl -X DELETE \
 }
 ```
 
-## UID
+<a id="uids"></a>
+## UID { #uids }
 
-### 생성
+<a id="uids-create"></a>
+### 생성 { #uids-create }
 
+<a id="uids-create-add-tags"></a>
 #### 태그 추가
 - UID에 태그 아이디로 태그를 추가합니다.
 - Secret Key가 필요없다. 앱에서 호출 가능합니다.
@@ -2384,8 +2451,10 @@ curl -X POST \
 ```
 
 
-### 조회
+<a id="uids-query"></a>
+### 조회 { #uids-query }
 
+<a id="uids-query-query-tag-ids-of-uid"></a>
 #### UID의 태그 아이디 조회
 - UID의 태그 아이디를 조회합니다.
 - Secret Key가 필요없다. 앱에서 호출 가능합니다.
@@ -2420,7 +2489,9 @@ curl -X GET \
 ```
 
 
-### 수정
+<a id="uids-modify"></a>
+### 수정 { #uids-modify }
+<a id="uids-modify-modify-tags-of-uid"></a>
 #### UID의 태그 수정
 - UID에 태그 아이디로 태그를 수정합니다.
 - Secret Key가 필요없다. 앱에서 호출 가능합니다.
@@ -2458,7 +2529,8 @@ curl -X PUT \
 }
 ```
 
-### 태그 삭제
+<a id="delete-tags"></a>
+### 태그 삭제 { #delete-tags }
 - UID의 태그 아이디를 조회합니다.
 - Secret Key가 필요없다. 앱에서 호출 가능합니다.
 ##### Method, URL, Headers
@@ -2494,9 +2566,10 @@ curl -X DELETE \
 | - | - | - |
 | tagIds | Required, String Array | Query String, 삭제할 태그 아이디, 쉼표(,)로 구분 |
 
-<span id="stats-api"></span>
-## 통계
-### 통계 조회
+<a id="statistics"></a>
+## 통계 { #statistics }
+<a id="query-statistics"></a>
+### 통계 조회 { #query-statistics }
 - 통계 이벤트 키를 기준으로 통계를 조회할 수 있습니다.
 
 ##### Method, URL, Headers
@@ -2550,7 +2623,8 @@ curl -X GET \
 }
 ```
 
-### 통계 합계 조회
+<a id="query-statistics-total"></a>
+### 통계 합계 조회 { #query-statistics-total }
 - 조회한 통계 데이터를 합산하는 합계 API가 추가되었습니다.
 
 ##### Method, URL, Headers

@@ -1,4 +1,7 @@
-## Notification > Push > 오류 코드
+<!-- pre-align:aligned sig=30a62ea8548d -->
+
+<a id="notification-push-error-codes"></a>
+## Notification > Push > 오류 코드 { #notification-push-error-codes }
 
 | isSuccessful | resultCode    | resultMessage                                                |
 | ------------ | ------------- | ------------------------------------------------------------ |

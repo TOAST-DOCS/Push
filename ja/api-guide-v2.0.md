@@ -1,7 +1,12 @@
-## Notification > Push > APIガイド
+<!-- pre-align:aligned sig=9a9a034d27e3 -->
 
-### v2.0 API紹介
+<a id="notification-push-api-guide"></a>
+## Notification > Push > APIガイド { #notification-push-api-guide }
 
+<a id="overview-of-v20-api"></a>
+### v2.0 API紹介 { #overview-of-v20-api }
+
+<a id="overview-of-v20-api-add"></a>
 #### 追加
 - 詳細なresultMessageを返します。APIの呼び出しに失敗した時は、問題になるフィールドや値を返します。
     - 例：無効なメッセージIDで照会した時、次のようにmessageIdフィールドと値がresultMessageに含まれます。
@@ -21,10 +26,12 @@
 - v2.0メッセージ受信、確認統計照会APIが追加されました。
 - v2.0有効ではないトークンAPIで、ページング(PageIndex, PageSize)、期間(from, to)、メッセージIDで照会できます。
 
+<a id="overview-of-v20-api-modify"></a>
 #### 修正
 - v1.3 Uidでトークン照会APIのURI '/push/v1.3/appkey/{appkey}/uids/{uid}/tokens'から'/push/v2.0/appkeys/{appkey}/tokens?uid={uid}'に変更されました。
 - v1.3フィードバックAPIのURIが'/push/v1.3/appkey/{appkey}/feedback'から'/push/v2.0/appkeys/{appkey}/invalid-tokens'に変更されました。
 
+<a id="overview-of-v20-api-delete"></a>
 #### 削除
 - v2.0メッセージ送信APIで送信されたメッセージは、送信履歴を残しません。コンソールから送信するメッセージは履歴を残します。
   2017年6月に追加予定の'Log&Crash Search'連携機能が追加されると、ユーザーの'Log&Crash Search'にメッセージ送信履歴を残すことができます。
@@ -34,13 +41,16 @@
     - メッセージ送信API、target.typeから'CHANNEL'タイプの削除
     - チャンネルAPIの削除
 
-### 基本情報
+<a id="basic-information"></a>
+### 基本情報 { #basic-information }
+<a id="basic-information-endpoint"></a>
 #### Endpoint
 ```
 API Endpoint: https://push.api.nhncloudservice.com
 メッセージ受信/確認したかどうかを収集Endpoint：https://collector-push.cloud.toast.com
 ```
 
+<a id="basic-information-secret-key"></a>
 #### Secret Key
 - コンソールで確認できます。
 - Secret Keyが必要なAPIを呼び出す時、ヘッダに下記のように設定して呼び出す必要があります。
@@ -51,6 +61,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 
 コンソールで**Notification > Push**をクリックして、右下にある**URL & AppKey**をクリックすると作成できます。
 
+<a id="basic-information-response"></a>
 #### Response
 
 ##### Response HTTP Status Code
@@ -89,8 +100,10 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 | false        | 400           | Client Error。タグAPIで発生したクライアントエラー。     |
 | false        | 500           | Internal Error。タグAPIで発生した内部エラー。      |
 
-## トークン
-### 作成
+<a id="tokens"></a>
+## トークン { #tokens }
+<a id="create"></a>
+### 作成 { #create }
 - クライアントで確認できます。
 
 ##### Method、URL
@@ -166,7 +179,9 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://push.api.
 - トークンはセキュリティ的なイシュー、アプリアップデート、削除など、さまざまな理由で再発行されることがあります。頻繁に変更されることはないですが、受信率を高めるには、起動するたびに最新トークンを登録することを推奨します。
 - アプリ削除などでトークンが満了してもすぐにGCM、APNSサーバーに適用されず、アプリ削除後にプッシュメッセージを送信した時、送信に成功することがあります。
 
-### 照会
+<a id="get"></a>
+### 照会 { #get }
+<a id="get-by-tokenpush-type"></a>
 #### トークンとプッシュタイプで照会
 - クライアントから照会できます。
 ##### Method, URL
@@ -218,6 +233,7 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/tokens/token?pushType=GCM
 ```
 
+<a id="get-by-user-id"></a>
 #### ユーザーIDで照会
 - Secret Keyが必要なAPIで、サーバーから呼び出す必要があります。
 ##### Method, URL
@@ -264,6 +280,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/tokens?uid=uid
 ```
 
+<a id="get-invalid-tokens"></a>
 #### 有効ではないトークン照会
 ##### Method, URL, Headers
 ```
@@ -310,6 +327,7 @@ curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: 
 ```
 
 
+<a id="get-token-property-statistics-api"></a>
 #### トークンプロパティ統計照会API
 
 **Fade-outしたAPIです。 v2.4以上のAPIをご利用ください。**
@@ -395,6 +413,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/statistics/token-properties
 ```
 
+<a id="get-register-token-statistics"></a>
 #### トークン登録統計照会
 
 **Fade-outしたAPIです。 v2.4以上のAPIをご利用ください。**
@@ -449,8 +468,10 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/statistics/token-registrations
 ```
 
-## メッセージ
-### 送信
+<a id="messages"></a>
+## メッセージ { #messages }
+<a id="send"></a>
+### 送信 { #send }
 ※ APIで送信したプッシュメッセージはコンソールと単件、リスト照会APIで照会できません。
 ##### Method, URL, Headers
 ```
@@ -529,7 +550,8 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/messages -d '{"target":{"type":"UID","to":["uid"]},"content":{"default":{"title":"title","body":"body","customKey1":"It is default"},"ko":{"title":"タイトル","body":"内容","customKey2":"韓国語です。"}},"messageType":"AD","contact":"1588-1588","removeGuide":"メニュー > 設定","timeToLiveMinute":1}'
 ```
 
-### 共通メッセージ
+<a id="common-messages"></a>
+### 共通メッセージ { #common-messages }
 "content"に下記の表通りにメッセージを作成すると、各プッシュタイプに合わせてメッセージが作成され、送信されます。
 
 | Reserved Word              | Platform                                 | Usage                      | GCM        | APNS                     | TENCENT              | ADM              |
@@ -559,10 +581,12 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key:
 | --------- | --------------------------------- | ---------------------------------------- | -------------- | --------- | ------------------------ | -------------- |
 | customKey | Android, <br/> iOS, <br/> Tencent | Optional, <br/> Object, <br/> Array, <br/> String, <br/> Number | data.customKey | customKey | custom_content.customKey | data.customKey |
 
-### メッセージ送信例
+<a id="example-of-message-delivery"></a>
+### メッセージ送信例 { #example-of-message-delivery }
 
 - メッセージ送信APIのリクエスト本文(Request Body)のcontent.defaultは必須です。
 
+<a id="example-of-message-delivery-send-to-all"></a>
 #### 1. 全員に送信
 登録されたすべての対象にメッセージを送信する例です。
 
@@ -584,6 +608,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key:
 ##### Description
 - target.typeを'ALL'に設定すると、すべてのトークンにメッセージを送信します。
 
+<a id="example-of-message-delivery-send-to-specific-users"></a>
 #### 2. 特定ユーザーに送信
 ユーザーIDを入力して特定ユーザーにメッセージを送信する例です。
 
@@ -606,6 +631,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key:
 ##### Description
 - target.typeを'UID'に設定し、target.toにユーザーIDを設定して、特定ユーザーにメッセージを送信します。
 
+<a id="example-of-message-delivery-send-to-particular-countries-or-push-type-users"></a>
 #### 3. 一部の国やプッシュタイプのユーザーに送信
 特定の国や端末(Android、iOS…)を使用するユーザーにのみメッセージを送信する例です。
 
@@ -629,6 +655,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key:
 ##### Description
 - target.countriesに国コードを、target.pushTypesにプッシュタイプを設定して、条件を満たすユーザーにメッセージを送信します。
 
+<a id="example-of-message-delivery-convert-messages-per-push-type"></a>
 #### 4. プッシュタイプ別メッセージ変換
 メッセージを送信する時、プッシュタイプごとにメッセージが変換されて送信されますが、変換されるルールを説明する例です。
 
@@ -703,6 +730,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key:
 - badge、consolidationKeyなどの特定プッシュタイプにのみ定義されている予約語は、他のプッシュタイプからは除外されます。
  例えばbadgeはAPNS(iOS)メッセージにのみ設定され、GCM、TENCENT、ADMでは除外されます。
 
+<a id="example-of-message-delivery-advertising-messages"></a>
 #### 5. 広告性メッセージ
 広告性メッセージで送信時にメッセージに追加される広告文言例です。
 
@@ -769,6 +797,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key:
 - 各プッシュタイプにメッセージが送信される時、titleに広告表示文言と代表番号が、bodyに受信同意撤回方法が追加されて送信されます。
 - 広告性メッセージは、言語コードが韓国語(ko, ko-)のユーザーにのみ追加されます。上の例のように海外ユーザー(日本語)には広告文言が追加されません。
 
+<a id="example-of-message-delivery-messages-in-multiple-languages"></a>
 #### 6. 多言語メッセージ
 多様な言語でメッセージを送信する例です。
 
@@ -845,6 +874,7 @@ curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key:
  リクエスト本文にcontent.koのみ入力されていますが、言語コードがko-KR(韓国語)のユーザーにもcontent.koの内容が送信されます。
 - customKeyはcontent.jaに定義されていないため、content.defaultの値で送信されます。共通する内容はcontent.defaultに入力できます。
 
+<a id="example-of-message-delivery-rich-messages"></a>
 #### 7. リッチメッセージ
 メッセージ送信時、'content'に'richMessage'フィールドを定義すると、リッチメッセージでメッセージを送信できます。
 共通メッセージ、広告性メッセージ、多言語メッセージと一緒に使用できます。
@@ -913,7 +943,9 @@ v1.7以上のSDKが適用された場所でのみ使用できます。
 | richMessage.group.key | Required, String | グループのキー |
 | richMessage.group | Required, String | グループの説明 |
 
-### 照会
+<a id="messages-get"></a>
+### 照会 { #messages-get }
+<a id="messages-get-list"></a>
 #### リスト照会
 ※コンソールで送信したプッシュメッセージのみリスト照会APIで照会できます。
 ##### Method, URL, Headers
@@ -1001,6 +1033,7 @@ curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: 
     - CANCEL_UNAUTHORIZED：証明書認証プロセスで失敗した状態です。証明書の状態を確認する必要があります。
     - CANCEL_UNKNOWN：内部エラーが発生した状態です。
 
+<a id="messages-get-get"></a>
 #### 単件照会
 ※コンソールで送信したプッシュメッセージのみ、単件照会APIで照会できます。
 ##### Method, URL, Headers
@@ -1057,6 +1090,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/messages/{messageId}
 ```
 
+<a id="messages-get-list-failed-messages"></a>
 #### 失敗したメッセージリスト照会
 送信に失敗したメッセージを照会できます。
 ただし、トークンがない場合、(INVALID_TOKEN)は送信失敗と判断しません。
@@ -1157,6 +1191,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/message-errors
 ```
 
+<a id="messages-get-get-message-deliveryreceipt-statistics"></a>
 #### メッセージ受信、確認統計照会
 
 **Fade-outしたAPIです。 v2.4以上のAPIをご利用ください。**
@@ -1219,9 +1254,12 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/statistics/message-delivery-receipts
 ```
 
-## 予約メッセージ
+<a id="scheduled-messages"></a>
+## 予約メッセージ { #scheduled-messages }
 
-### 作成
+<a id="scheduled-messages-create"></a>
+### 作成 { #scheduled-messages-create }
+<a id="scheduled-messages-create-create-schedule-for-delivery-of-scheduled-messages"></a>
 #### 予約メッセージ送信スケジュールの作成
 ##### Method, URL, Headers
 ```
@@ -1300,6 +1338,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/schedules -d '{"type":"EVERY_MONTH","fromDate":"2016-12-30","toDate":"2017-01-02","times":["12:00","17:00"],"days":[1,15],"daysOfWeek":["SUNDAY","MONDAY"]}'
 ```
 
+<a id="scheduled-messages-create-create-scheduled-messages"></a>
 #### 予約メッセージ作成
 ##### Method, URL, Headers
 ```
@@ -1369,7 +1408,9 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/reservations -d '{"schedules":["2016-12-30T12:40","2016-12-31T12:40"],"isLocalTime":false,"target":{"type":"UID","to":["uid"]},"content":{"default":{"title":"title","body":"body"}},"messageType":"AD","contact":"1588-1588","removeGuide":"メニュー > 設定","timeToLiveMinute":1}'
 ```
 
-### 照会
+<a id="scheduled-messages-get"></a>
+### 照会 { #scheduled-messages-get }
+<a id="scheduled-messages-get-list"></a>
 #### リスト照会
 ##### Method, URL, Headers
 ```
@@ -1464,6 +1505,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/reservations
 ```
 
+<a id="scheduled-messages-get-get"></a>
 #### 単件照会
 ##### Method, URL, Headers
 ```
@@ -1477,6 +1519,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 なし
 ```
 
+<a id="scheduled-messages-get-response-body"></a>
 #### Response Body
 ```json
 {
@@ -1534,6 +1577,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/reservations/{reservationId}
 ```
 
+<a id="scheduled-messages-get-list-delivered-scheduled-messages"></a>
 #### 送信された予約メッセージ照会
 ##### Method, URL, Headers
 ```
@@ -1596,7 +1640,9 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/reservations/{reservationId}/messages
 ```
 
-### 修正
+<a id="modify"></a>
+### 修正 { #modify }
+<a id="modify-scheduled-messages"></a>
 #### 予約メッセージの修正
 ##### Method, URL, Headers
 ```
@@ -1649,7 +1695,9 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X PUT -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/reservations/{reservationId} -d '{"schedules":["2018-12-30T12:40","2018-12-31T12:40"],"isLocalTime":false,"target":{"type":"UID","to":["uid"]},"content":{"default":{"title":"title","body":"body"}},"messageType":"AD","contact":"1588-1588","removeGuide":"メニュー > 設定","timeToLiveMinute":1}'
 ```
 
-### 削除
+<a id="delete"></a>
+### 削除 { #delete }
+<a id="delete-scheduled-messages"></a>
 #### 予約メッセージの削除
 ##### Method, URL, Headers
 ```
@@ -1684,9 +1732,12 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/reservations?reservationIds={reservationId,}
 ```
 
-## タグ
+<a id="tags"></a>
+## タグ { #tags }
 
-### 作成
+<a id="tags-create"></a>
+### 作成 { #tags-create }
+<a id="tags-create-create-tags"></a>
 #### タグの作成
 ##### Method, URL, Headers
 ```
@@ -1729,6 +1780,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/tags -d '{"tagName":"30"}'
 ```
 
+<a id="tags-create-create-additional-uids-to-a-tag"></a>
 #### タグにUID追加作成
 - タグにUIDを追加(append)すること。既存のUIDを追加するとUIDのタグは増えます。
 - 1つのUIDの最大タグ数は16個です。
@@ -1767,6 +1819,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/tags/{tagId}/uids -d '{"uids":["uid"]}'
 ```
 
+<a id="tags-create-set-a-tag-list-to-uid"></a>
 #### UIDにタグリスト設定
 - UIDのタグを交換(replace)することです。既に設定されているタグは削除され、新しいタグに設定されます。
 ##### Method, URL, Headers
@@ -1802,7 +1855,9 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/uids -d '{"uid":"uid","tagIds":["TAG_ID"]}'
 ```
 
-### 照会
+<a id="tags-get"></a>
+### 照会 { #tags-get }
+<a id="tags-get-list-tags"></a>
 #### タグリスト照会
 ##### Method, URL, Headers
 ```
@@ -1849,6 +1904,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/tags
 ```
 
+<a id="tags-get-get-a-tag"></a>
 #### タグ単件照会
 ##### Method, URL, Headers
 ```
@@ -1883,6 +1939,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/tags/{tagId}
 ```
 
+<a id="tags-get-list-uid-of-a-tag"></a>
 #### タグのUIDリスト照会
 - タグがついているUIDリストを照会します。
 
@@ -1946,6 +2003,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/tags/{tagId}/uids
 ```
 
+<a id="tags-get-get-uid"></a>
 #### UID照会
 - UIDを照会します。
 - トークン登録時、連絡先(contact)が登録されます。
@@ -1994,7 +2052,9 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/uids/uid
 ```
 
-### 修正
+<a id="tags-modify"></a>
+### 修正 { #tags-modify }
+<a id="tags-modify-modify-tags"></a>
 #### タグの修正
 ##### Method, URL, Headers
 ```
@@ -2025,7 +2085,9 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X PUT -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/tags/{tagId} -d '{"tagName":"33"}'
 ```
 
-### 削除
+<a id="tags-delete"></a>
+### 削除 { #tags-delete }
+<a id="tags-delete-delete-tags"></a>
 #### タグの削除
 ##### Method, URL, Headers
 ```
@@ -2054,6 +2116,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/tags/{tagId}
 ```
 
+<a id="tags-delete-delete-uids"></a>
 #### UID削除
 - UIDを削除すると、Contact、Tokenも一緒に削除されます。
 ##### Method, URL, Headers
@@ -2088,6 +2151,7 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/uids?uids=uid
 ```
 
+<a id="tags-delete-delete-uids-of-a-tag"></a>
 #### タグのUID削除
 - TagとUIDの関係のみ削除します。
 - Contact、Tokenは削除されません。
@@ -2118,10 +2182,13 @@ X-Secret-Key: [a-zA-Z0-9]{8}
 curl -X DELETE -H "Content-Type: application/json;charset=UTF-8" -H "X-Secret-Key: SECRET_KEY" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/tags/{tagId}/uids?uids=uid
 ```
 
-## UID
+<a id="uid"></a>
+## UID { #uid }
 
-### 作成
+<a id="uid-create"></a>
+### 作成 { #uid-create }
 
+<a id="uid-create-add-tags"></a>
 #### タグの追加
 - タグIDでUIDにタグを追加します。
 - Secret Keyが必要ありません。アプリで呼び出せます。
@@ -2152,8 +2219,10 @@ Content-Type: application/json;charset=UTF-8
 curl -X POST -H "Content-Type: application/json;charset=UTF-8" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/uids/uid/tag-ids -d '{"tagIds":["TAG_ID"]}'
 ```
 
-### 照会
+<a id="uid-get"></a>
+### 照会 { #uid-get }
 
+<a id="uid-get-get-tag-id-of-uid"></a>
 #### UIDのタグID照会
 - UIDのタグIDを照会します。
 - Secret Keyが必要ありません。アプリで呼び出せます。
@@ -2183,7 +2252,9 @@ Content-Type: application/json;charset=UTF-8
 curl -X GET -H "Content-Type: application/json;charset=UTF-8" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/uids/uid/tag-ids
 ```
 
-### 修正
+<a id="uid-modify"></a>
+### 修正 { #uid-modify }
+<a id="uid-modify-modify-tags-of-uid"></a>
 #### UIDのタグ修正
 - UIDにタグIDでタグを修正します。
 - Secret Keyが必要ありません。アプリで呼び出せます。
@@ -2214,7 +2285,8 @@ Content-Type: application/json;charset=UTF-8
 curl -X PUT -H "Content-Type: application/json;charset=UTF-8" https://push.api.nhncloudservice.com/push/v2.0/appkeys/{appkey}/uids/uid/tag-ids -d '{"tagIds":["TAG_ID"]}'
 ```
 
-### タグの削除
+<a id="delete-tags"></a>
+### タグの削除 { #delete-tags }
 - UIDのタグIDを照会します。
 - Secret Keyが必要ありません。アプリで呼び出せます。
 ##### Method, URL, Headers

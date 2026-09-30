@@ -1,11 +1,15 @@
-## Notification > Push > 概要
+<!-- pre-align:aligned sig=46be9b0f2bb7 -->
+
+<a id="notification-push-overview"></a>
+## Notification > Push > 概要 { #notification-push-overview }
 
 Pushを使用すると、多様な送信方法でメッセージを送信し、結果を検索できます。
 現地時間に合わせてメッセージを予約送信でき、メッセージ送信結果も簡単に確認できます。
 
 Pushの主な機能は次のとおりです。
 
-### 主な機能
+<a id="main-features"></a>
+### 主な機能 { #main-features }
 
 - Android OS(FCM、ADM)、iOS(APNS、Apple Push Notification Service)端末にメッセージを統合送信
 - トークン管理
@@ -16,32 +20,39 @@ Pushの主な機能は次のとおりです。
 - タグ管理、トークン基盤メッセージ送信
 - メッセージ受信および確認データ収集、統計の提供
 
-### サービス用語
+<a id="glossary"></a>
+### サービス用語 { #glossary }
 
 | 用語 | 説明                              |
 | --------- | --------------------------------------- |
 | トークン(token) | アプリケーションがインストールされた端末の固有識別子。                 |
 | タグ(tag)   | UIDを分類するシステム。UIDに複数のタグを付けることができる。 |
 
-### 構造
+<a id="structure"></a>
+### 構造 { #structure }
 
 以下はPushサービス構造です
 
 ![](http://static.toastoven.net/prod_push/21-05-03/overview_en.png)
 
+<a id="structure-console"></a>
 #### Console
 
 証明書の管理、 APIテスト、メッセージ送信など、すべての機能を使用できます。
 
+<a id="structure-rest-apis"></a>
 #### REST API
 
 トークン登録/照会、メッセージ送信、フィードバック確認など、Public APIを呼び出せます。
 
+<a id="structure-client-sdk"></a>
 #### client SDK
 トークン登録/照会およびプッシュメッセージ受信を手軽に使用できます。
 
-### 機能
+<a id="functions"></a>
+### 機能 { #functions }
 
+<a id="functions-save-consent-to-receive-notificationpromotional-push-messages-and-filter-automatically"></a>
 #### 通知/広告性プッシュメッセージの受信同意情報の保存および自動フィルタリング
 
 韓国情報通信網法の規定(第50条から第50条の8)に従い、トークン登録時に通知/広告性/夜間広告性プッシュメッセージの受信に関する同意有無も一緒に入力を受けます。メッセージ送信時、受信同意の有無を基準に自動的にフィルタリングします。
@@ -50,15 +61,18 @@ Pushの主な機能は次のとおりです。
 
 [法令リンク](http://www.law.go.kr/lsEfInfoP.do?lsiSeq=123210#)
 
+<a id="functions-filter-by-country"></a>
 #### 国フィルタリング
 
 トークン登録時に国コードの入力を受け、メッセージ送信時に送信する国を指定できます。
 
+<a id="functions-common-message-format"></a>
 #### 共通メッセージ形式
 
 一般メッセージでメッセージを作成すると、端末の種類に合わせたメッセージ形式で送信します。
 一般メッセージでメッセージを作成すると、入力されたメッセージの言語コードを読み取り、該当言語と受信端末に適切なメッセージ形式で送信します。
 
+<a id="functions-deliver-advertising-messages"></a>
 #### 広告性メッセージの送信
 
 広告性プッシュメッセージ表示の義務化に従っています。
@@ -66,30 +80,36 @@ Pushの主な機能は次のとおりです。
 広告表示文言を挿入するかどうかは、端末の言語設定に従います。
 言語が韓国語(ko, ko-KRなどkoで始まる言語コード)に設定されている端末のみ、韓国情報通信網法に従って、広告表示文言が挿入されて送信されます。
 
+<a id="functions-deliver-scheduled-messages"></a>
 #### 予約メッセージ送信
 
 1回、毎日、毎週、毎月など、多様な予約送信タイプを選択できます。
 現地時間に合わせて送信できます。
 
+<a id="functions-configure-time-to-live-ttl"></a>
 #### メッセージの有効期間を設定
 
 メッセージに有効期間(TTL)を設定できます。有効期間が過ぎると失敗処理されます。
 ただし0は有効期間がないものとして、送信遅延により失敗処理されません。
 
+<a id="functions-monitor-in-real-time"></a>
 #### リアルタイムモニタリング
 
 ![](http://static.toastoven.net/prod_push/img_03.png)
 
 **メッセージ**タブで、メッセージ送信状態をリアルタイムで確認できます。
 
+<a id="functions-provide-feedbacks"></a>
 #### フィードバックの提供
 
 削除されたトークンまたは無効なトークンは、メッセージ送信時に自動的に削除され、フィードバックAPIで削除されたトークンを照会できます。
 
+<a id="functions-manage-certificates"></a>
 #### 証明書の管理
 
 プッシュタイプごとに証明書またはAPI Keyを管理できます。
 
+<a id="functions-public-apis"></a>
 #### Public API
 
 トークン登録、照会、メッセージ送信、フィードバック確認APIを使用できます。
