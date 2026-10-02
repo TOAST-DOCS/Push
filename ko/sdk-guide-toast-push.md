@@ -9,10 +9,10 @@ NHN Cloud Push SDK를 적용하면 모바일 애플리케이션에서 쉽고 강
 ## 개발 가이드
 
 #### iOS
-* [NHN Cloud Push iOS 가이드](http://docs.toast.com/ko/TOAST/ko/toast-sdk/push-ios/)를 참고하십시오.
+* [NHN Cloud Push iOS 가이드](/nhncloud-sdk/ko/push-ios/)를 참고하십시오.
 
 #### Android
-* [NHN Cloud Push Android 가이드](http://docs.toast.com/ko/TOAST/ko/toast-sdk/push-android/)를 참고하십시오.
+* [NHN Cloud Push Android 가이드](/nhncloud-sdk/ko/push-android/)를 참고하십시오.
 
 
 #### 기타
