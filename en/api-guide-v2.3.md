@@ -1215,15 +1215,10 @@ X-Secret-Key: [a-zA-Z0-9]{8}
         - AGENT_ERROR: Delivery failed due to internal errors of agent  
 - If header.resultCode is 40010 at the response body, reduce query period (from, to) and query again.
 
-Response Body
-
+##### Request Body
 ```
 N/A
 ```
-
-##### Request Body
-
-<!-- TODO: translate body -->
 
 ##### Response Body
 ```
