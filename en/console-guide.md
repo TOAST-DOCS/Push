@@ -244,7 +244,7 @@ You need SDK version 1.7 or above to use this feature.
 - External 
     - Download media files for URL. 
     - Android
-        - To apply HTTP at Android Pie or higher version, <a href="http://docs.toast.com/en/TOAST/en/toast-sdk/push-android/#android-p">network-security-config</a> must be set. 
+        - To apply HTTP at Android Pie or higher version, <a href="https://docs.nhncloud.com/en/TOAST/en/toast-sdk/push-android/#android-p">network-security-config</a> must be set. 
     - iOS
         - To use HTTP for iOS 9 or higher version, ATS (App Transport Security) must be set within Info.plist. 
         - Fill in Extension with actual extension information of a media file (e.g. jpg, png, mp3, or wav) 
@@ -256,7 +256,7 @@ You need SDK version 1.7 or above to use this feature.
         - File name is used as resource identifier for Android, so same file name is not available even with different extension. 
         Supported image formats are png, jpg, and gif. (Currently, video or audio type media are not supported.)
     - iOS
-        - Must add resources first, to the <a href="http://docs.toast.com/en/TOAST/en/toast-sdk/push-ios/#notification-service-extension">Notification Service Extension</a> project which creates rich messages. 
+        - Must add resources first, to the <a href="https://docs.nhncloud.com/en/TOAST/en/toast-sdk/push-ios/#notification-service-extension">Notification Service Extension</a> project which creates rich messages. 
         - Add file or directory from XCode to 'NotificationServiceExtension' project. 
         - See if files have been well added at 'Build Phases > TARGETS'. 
         - The entire file name is required including extension, since access is made via bundle resources. 
@@ -472,7 +472,7 @@ Go to **Console > Notification > Push** > and click **Setting** to set Token Exp
 
 - The Message Delivery Receipt feature can be enabled. 
 - SDK v1.4 or higher versions must be applied for the activated features to work. For Android, the feature works only by applying the SDK. For iOS, additional processing is required.
-    - <a href="https://docs.toast.com/ko/TOAST/ko/toast-sdk/push-ios/#_19"  target="_blank">Go to iOS client SDK guide</a>
+    - <a href="https://docs.nhncloud.com/ko/TOAST/ko/toast-sdk/push-ios/#_19"  target="_blank">Go to iOS client SDK guide</a>
 - Collected data are available on the **Statistics** tab. 
 - Data collection time is based on the device time. 
 - After the feature is set, it may take several minutes until a feature is actually applied. 
