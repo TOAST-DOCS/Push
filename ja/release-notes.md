@@ -131,7 +131,7 @@
 ### [API] { #section-1-14 }
 * v2.4統計合計API追加
     * 照会した統計データを合算することができる合計APIが追加されました。
-        <a href="https://docs.toast.com/ja/Notification/Push/ko/api-guide/#stats-total-api" target="_blank">こちら</a>
+        <a href="https://docs.nhncloud.com/ja/Notification/Push/ko/api-guide/#stats-total-api" target="_blank">こちら</a>
 
 <a id="section-1-15"></a>
 ### 2020. 06. 09 { #section-1-15 }
@@ -160,13 +160,13 @@
 #### 機能追加
 * 統計を改編しました。
     * **統計イベントキー管理** タブを追加しました。コンソールで新しい統計イベントキーを追加し、メッセージ送信時に設定できます。メッセージが送信されると設定した統計イベントキーを基準に統計データが蓄積され、新しい統計タブで検索できます。
-        * <a href="https://docs.toast.com/ja/Notification/Push/ko/console-guide/#statistics-event-key-management" target="_blank">リンク</a>
+        * <a href="https://docs.nhncloud.com/ja/Notification/Push/ko/console-guide/#statistics-event-key-management" target="_blank">リンク</a>
 
 <a id="section-1-20"></a>
 ### [API] { #section-1-20 }
 * v2.4 API追加
     * 統計イベントキーで照会できる統計APIを追加しました。v2.3の統計関連APIは今後は提供しません。
-        * <a href="https://docs.toast.com/ja/Notification/Push/ko/api-guide/#statistics" target="_blank">リンク</a>
+        * <a href="https://docs.nhncloud.com/ja/Notification/Push/ko/api-guide/#statistics" target="_blank">リンク</a>
 * トークンマルチテナント機能追加
    * トークンを複数のUIDが所有できるようにするマルチテナント機能を追加しました。トークン登録時、トークンの末尾に｢#tenant=テナント_情報｣をつけることができます。複数のUIDが同じトークンを使用してもテナント情報が異なればトークンが維持されます。
    
@@ -177,7 +177,7 @@
 #### [Doc]
 ##### ガイド追加
 * **メッセージ受信データの指標が低い理由**についてのガイドを追加
-    * <a href="https://docs.toast.com/ja/Notification/Push/ko/console-guide/#collect-message-receiptcheck-data-causes-for-low-indicators-of-message-receiving-data" target="_blank">こちら</a>
+    * <a href="https://docs.nhncloud.com/ja/Notification/Push/ko/console-guide/#collect-message-receiptcheck-data-causes-for-low-indicators-of-message-receiving-data" target="_blank">こちら</a>
 
 <a id="section-1-22"></a>
 ### 2019. 12. 24. { #section-1-22 }

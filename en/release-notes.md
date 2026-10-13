@@ -131,7 +131,7 @@
 ### [API] { #section-1-14 }
 * Added v2.4 Statistics Total API
      * Added a Total API to sum up the retrieved statistical data.
-        <a href="https://docs.toast.com/en/Notification/Push/ko/api-guide/#stats-total-api" target="_blank">Go to</a>
+        <a href="https://docs.nhncloud.com/en/Notification/Push/ko/api-guide/#stats-total-api" target="_blank">Go to</a>
 
 <a id="section-1-15"></a>
 ### June 9, 2020 { #section-1-15 }
@@ -160,13 +160,13 @@
 #### Added Features
 * Updated Statistics
     * Added the **Statistics Event Key Management** tab. You can add a new statistics event key on console and set it up for message delivery. With messages sent, statistical data are collected as of configured statistics event key, and then you can search from the new statistics tab. 
-        * <a href="https://docs.toast.com/en/Notification/Push/ko/console-guide/#statistics-event-key-management" target="_blank">Direct Link</a>
+        * <a href="https://docs.nhncloud.com/en/Notification/Push/ko/console-guide/#statistics-event-key-management" target="_blank">Direct Link</a>
 
 <a id="section-1-20"></a>
 ### [API] { #section-1-20 }
 * Added v2.4 API
     * Added a statistics API to query with statistics event key. Statistics APIs of v2.3 are no longer provided. 
-        * <a href="https://docs.toast.com/en/Notification/Push/ko/api-guide/#statistics" target="_blank">Direct Link</a>
+        * <a href="https://docs.nhncloud.com/en/Notification/Push/ko/api-guide/#statistics" target="_blank">Direct Link</a>
 * Added Multi-tenant Tokens 
    * Added the multi-tenant feature allowing a token to be shared by many UIDs. You may attach '#tenant=Tenant_Information' at the end of a token for a token registration. Even if many UIDs share a same token, the token can be maintained if it has different tenant information.  
 
@@ -176,7 +176,7 @@
 #### [Doc]
 ##### Added Guide
 * Added a guide for **Why Message Reception Data Metrics Are Low**
-    * <a href="https://docs.toast.com/en/Notification/Push/ko/console-guide/#collect-message-receiptcheck-data-causes-for-low-indicators-of-message-receiving-data" target="_blank">Direct link</a>
+    * <a href="https://docs.nhncloud.com/en/Notification/Push/ko/console-guide/#collect-message-receiptcheck-data-causes-for-low-indicators-of-message-receiving-data" target="_blank">Direct link</a>
 
 <a id="section-1-22"></a>
 ### December 24, 2019 { #section-1-22 }
@@ -287,7 +287,7 @@ Fix broken, typo, link errors
 ##### Added Features
 * Rich message feature added to message sending page
     * You can send a rich message from the Send Message page.
-        * <a href="https://docs.toast.com/en/Notification/Push/ko/console-guide/#_3" target="_blank"> Go to Console Guide  </a>
+        * <a href="https://docs.nhncloud.com/en/Notification/Push/ko/console-guide/#_3" target="_blank"> Go to Console Guide  </a>
     * Provide preview functionality to see how rich messages are displayed on Android and iOS.
 * Added the ability to set the position of the advertisement marker
     * Added the ability to set whether to display the text that indicates that it is an advertising message in the title or content part.
@@ -303,7 +303,7 @@ Fix broken, typo, link errors
 ##### Added Features
 * Rich message feature added to message dispatch API
     * Added the ability to display buttons, media (images, movies, sounds) in push messages.
-         * <a href="https://docs.toast.com/en/Notification/Push/ko/api-guide/#7" target="_blank">Go to API Guide </a>
+         * <a href="https://docs.nhncloud.com/en/Notification/Push/ko/api-guide/#7" target="_blank">Go to API Guide </a>
     * Available in v2.0 message delivery APIs and in apps with the latest SDKs.
 
 <a id="section-1-29-3"></a>
@@ -340,7 +340,7 @@ Fix broken, typo, link errors
 * Added Logging API
     * Added API to inquire saved data with Logging function that can be activated in Console.
     * Provides two types of APIs: general query, bulk query.
-         * <a href="https://docs.toast.com/en/Notification/Push/ko/api-guide/#_18" target="_blank"> Go to Log view </a>
+         * <a href="https://docs.nhncloud.com/en/Notification/Push/ko/api-guide/#_18" target="_blank"> Go to Log view </a>
 * v2.2 API Update
     * Updated Logging API to update the latest API version to v2.2.
     * As of v2.2, API security setting is used for API authentication.
@@ -382,7 +382,7 @@ Fix broken, typo, link errors
 * Add Amazon Device Messaging (ADM) push type
     * Added ADM push type to send push messages to Amazon device (Kindle Fire).
     * You can register your app on the Amazon developer site, get a Client ID, Client Secret, and register it.
-     <a href="https://docs.toast.com/en/Notification/Push/ko/console-guide/#adm-client-id-client-secret" target="_blank"> ADM Guide Shortcut </ a>
+     <a href="https://docs.nhncloud.com/en/Notification/Push/ko/console-guide/#adm-client-id-client-secret" target="_blank"> ADM Guide Shortcut </ a>
 
 
 <a id="section-1-32-2"></a>

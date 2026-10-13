@@ -242,7 +242,7 @@ v1.7 이상 SDK가 적용된 곳에서만 사용할 수 있는 기능입니다.
 - 외부
     - 입력한 URL에 해당하는 미디어 파일을 다운로드하여 사용합니다.
     - Android
-        - Android Pie 이상에서 HTTP를 사용하려면 <a href="http://docs.toast.com/ko/TOAST/ko/toast-sdk/push-android/#android-p">network-security-config</a>를 설정해야 합니다.
+        - Android Pie 이상에서 HTTP를 사용하려면 <a href="https://docs.nhncloud.com/ko/TOAST/ko/toast-sdk/push-android/#android-p">network-security-config</a>를 설정해야 합니다.
     - iOS
         - iOS 9 이상에서 HTTP를 사용하려면 Info.plist 파일내에 ATS(App Trasport Secuirty)를 설정해야 합니다.
         - 실제 미디어 파일의 확장자 정보를 extension 항목에 입력해야 합니다. (예: jpg, png, mp4, wav, ...)
@@ -254,7 +254,7 @@ v1.7 이상 SDK가 적용된 곳에서만 사용할 수 있는 기능입니다.
         - Android에서는 파일 이름이 리소스의 식별자로 사용되기 때문에 확장자가 다르더라도 동일한 파일 이름을 사용할 수 없습니다.
         지원하는 이미지 포멧은 png, jpg, gif 입니다. (현재 비디오, 오디오 형식의 미디어는 지원하지 않습니다.)
     - iOS
-        - 리소스는 리치 메시지를 생성하는 <a href="http://docs.toast.com/ko/TOAST/ko/toast-sdk/push-ios/#notification-service-extension">Notificaiton Service Extension</a> 프로젝트에 미리 추가해야 합니다.
+        - 리소스는 리치 메시지를 생성하는 <a href="https://docs.nhncloud.com/ko/TOAST/ko/toast-sdk/push-ios/#notification-service-extension">Notificaiton Service Extension</a> 프로젝트에 미리 추가해야 합니다.
         - XCode에서 파일 혹은 디렉토리를 'NotificationServiceExtension' 프로젝트에 추가합니다.
         - 'Build Phases > TARGETS'에서 파일이 정상적으로 추가되었는지 확인합니다.
         - 번들 리소스를 통해 접근하므로 확장자를 포함한 전체 파일명이 필요합니다.
@@ -469,7 +469,7 @@ UID에 태그를 추가해 UID를 관리할 수 있습니다. 메시지 발송 �
 
 - 메시지 수신 및 확인 데이터 수집(Message Delivery Receipt) 기능을 활성화할 수 있습니다.
 - 활성화된 기능 동작을 위해 클라이언트 SDK v1.4 이상이 적용되어야 합니다. 안드로이드는 SDK 적용만으로 기능이 동작합니다. iOS는 추가적인 처리가 필요합니다.
-    - <a href="https://docs.toast.com/ko/TOAST/ko/toast-sdk/push-ios/#_19"  target="_blank">iOS 클라이언트 SDK 가이드 바로가기</a>
+    - <a href="https://docs.nhncloud.com/ko/TOAST/ko/toast-sdk/push-ios/#_19"  target="_blank">iOS 클라이언트 SDK 가이드 바로가기</a>
 - 수집된 데이터는 **통계** 탭에서 확인할 수 있습니다.
 - 데이터의 수집 시간은 기기의 시간을 기준으로 합니다.
 - 기능 설정 시 실제 반영까지 대략 수분이 걸릴 수 있습니다.
