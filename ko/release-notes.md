@@ -129,7 +129,7 @@
 ### [API] { #section-1-14 }
 * v2.4 통계 합계 API 추가
     * 조회한 통계 데이터를 합산할 수 있는 합계 API가 추가되었습니다.
-        <a href="https://docs.toast.com/ko/Notification/Push/ko/api-guide/#stats-total-api" target="_blank">바로 가기</a>
+        <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/api-guide/#stats-total-api" target="_blank">바로 가기</a>
 
 <a id="section-1-15"></a>
 ### 2020. 06. 09 { #section-1-15 }
@@ -147,7 +147,7 @@
 <a id="section-1-17-1"></a>
 #### 가이드 추가
 * **APNS JWT 인증 정보 얻기**에 대한 가이드 추가
-    * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#get-authentication-information-for-apns-jwt" target="_blank">바로 가기</a>
+    * <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/console-guide/#get-authentication-information-for-apns-jwt" target="_blank">바로 가기</a>
 
 
 <a id="section-1-18"></a>
@@ -158,13 +158,13 @@
 #### 기능 추가
 * 통계가 개편되었습니다.
     * **통계 이벤트 키 관리** 탭이 추가되었습니다. 콘솔에서 새로운 통계 이벤트 키를 추가하고, 메시지 발송 시 설정할 수 있습니다. 메시지가 발송되면 설정한 통계 이벤트 키 기준으로 통계 데이터가 쌓이고, 새로운 통계 탭에서 검색할 수 있습니다.
-        * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#statistics-event-key-management" target="_blank">바로 가기</a>
+        * <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/console-guide/#statistics-event-key-management" target="_blank">바로 가기</a>
 
 <a id="section-1-20"></a>
 ### [API] { #section-1-20 }
 * v2.4 API 추가
     * 통계 이벤트 키로 조회할 수 있는 통계 API가 추가되었습니다. v2.3의 통계 관련 API는 더 이상 제공하지 않습니다.
-        * <a href="https://docs.toast.com/ko/Notification/Push/ko/api-guide/#statistics" target="_blank">바로 가기</a>
+        * <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/api-guide/#statistics" target="_blank">바로 가기</a>
 * 토큰 멀티 테넌트 기능 추가
    * 토큰을 여러 UID가 소유할 수 있게 해주는 멀티 테넌트 기능이 추가되었습니다. 토큰 등록 시 토큰 끝에 '#tenant=테넌트_정보'를 붙일 수 있습니다. 여러 UID가 같은 토큰을 사용하더라도 테넌트 정보가 다르면 토큰이 유지됩니다.
 
@@ -174,7 +174,7 @@
 #### [Doc]
 ##### 가이드 추가
 * **메시지 수신 데이터 지표가 낮은 이유**에 대한 가이드 추가
-    * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#collect-message-receiptcheck-data-causes-for-low-indicators-of-message-receiving-data" target="_blank">바로 가기</a>
+    * <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/console-guide/#collect-message-receiptcheck-data-causes-for-low-indicators-of-message-receiving-data" target="_blank">바로 가기</a>
 
 <a id="section-1-22"></a>
 ### 2019. 12. 24. { #section-1-22 }
@@ -284,7 +284,7 @@
 ##### 기능 추가
 * 메시지 발송 페이지에 리치 메시지 기능 추가
     * 메시지 발송 페이지에서 리치 메시지를 발송할 수 있습니다.
-        * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#_3" target="_blank">콘솔 가이드 바로가기</a>
+        * <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/console-guide/#_3" target="_blank">콘솔 가이드 바로가기</a>
     * 미리 보기 기능을 제공해 Android, iOS에서 리치 메시지가 어떻게 표시될지 확인할 수 있습니다.
 * 광고 표시 문구 위치 설정 기능 추가
     * 광고 메시지임을 표시하는 문구를 제목 또는 내용 부분에 표시할지 설정할 수 있는 기능을 추가했습니다.
@@ -299,7 +299,7 @@
 ##### 기능 추가
 * 메시지 발송 API에 리치 메시지 기능 추가
     * 푸시 메시지에 버튼, 미디어(이미지, 동영상, 소리)를 표시할 수 있는 기능을 추가했습니다.
-         * <a href="https://docs.toast.com/ko/Notification/Push/ko/api-guide/#7" target="_blank">API 가이드 바로가기</a>
+         * <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/api-guide/#7" target="_blank">API 가이드 바로가기</a>
     * v2.0 메시지 발송 API부터와 최신 SDK가 적용된 앱에서 사용할 수 있습니다.
 
 <a id="section-1-29-3"></a>
@@ -336,7 +336,7 @@
 * Logging API 추가
     * Console에서 활설화할 수 있는 Logging 기능으로 저장된 데이터를 조회하는 API를 추가했습니다.
     * 일반 조회, 대량 조회, 두 가지 타입의 API를 제공합니다.
-         * <a href="https://docs.toast.com/ko/Notification/Push/ko/api-guide/#_18" target="_blank">로그 조회 바로가기</a>
+         * <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/api-guide/#_18" target="_blank">로그 조회 바로가기</a>
 * v2.2 API 업데이트
     * Logging API 추가로 최신 API 버전을 v2.2로 업데이트 했습니다.
     * v2.2부터 API 인증을 위해 'API 보안 설정'을 이용합니다.
@@ -378,7 +378,7 @@
 * ADM(Amazon Device Messaging) 푸시 타입 추가
     * 아마존 디바이스(Kindle Fire)로 푸시 메시지를 발송할 수 있게 ADM 푸시 타입을 추가했습니다.
     * 아마존 개발자 사이트에서 앱을 등록하고 Client ID, Client Secret을 발급받아 등록 후 발송할 수 있습니다.
-     <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#adm-client-id-client-secret" target="_blank">ADM 가이드 바로가기</a>
+     <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/console-guide/#adm-client-id-client-secret" target="_blank">ADM 가이드 바로가기</a>
 
 <a id="section-1-32-2"></a>
 #### [API]

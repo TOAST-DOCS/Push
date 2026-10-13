@@ -149,7 +149,7 @@
 <a id="section-1-17-1"></a>
 #### Added Guide
 * Added a guide for **Getting Authentication Information for APNS JWT**
-    * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#get-authentication-information-for-apns-jwt" target="_blank">Direct link</a>
+    * <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/console-guide/#get-authentication-information-for-apns-jwt" target="_blank">Direct link</a>
 
 
 <a id="section-1-18"></a>
