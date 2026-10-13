@@ -149,7 +149,7 @@
 <a id="section-1-17-1"></a>
 #### ガイド追加
 * **APNS JWT認証情報取得**についてのガイドを追加
-    * <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#get-authentication-information-for-apns-jwt" target="_blank">リンク</a>
+    * <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/console-guide/#get-authentication-information-for-apns-jwt" target="_blank">リンク</a>
 
 
 <a id="section-1-18"></a>
@@ -288,7 +288,7 @@
 ##### 機能追加
 * メッセージ送信ページにリッチメッセージ機能を追加
     * メッセージ送信ページでリッチメッセージを送信できます。
-        *  <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#_3" target="_blank">コンソールガイドへ</a>
+        *  <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/console-guide/#_3" target="_blank">コンソールガイドへ</a>
     * プレビュー機能を提供し、Android、iOSでリッチメッセージがどのように表示されるかを確認できます。
 * 広告表示文言位置設定機能を追加
     * 広告メッセージであることを表す文言を、タイトルまたは内容部分に表示するかどうかを設定できる機能を追加しました。
@@ -303,7 +303,7 @@
 ##### 機能追加
 * メッセージ送信APIにリッチメッセージ機能を追加
     * プッシュメッセージにボタン、メディア(画像、動画、音声)を表示できる機能を追加しました。
-         * <a href="https://docs.toast.com/ko/Notification/Push/ko/api-guide/#7" target="_blank">APIガイドへ</a>
+         * <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/api-guide/#7" target="_blank">APIガイドへ</a>
     * v2.0メッセージ送信API以降と、最新SDKが適用されたアプリで使用できます。
 
 <a id="section-1-29-3"></a>
@@ -340,7 +340,7 @@
 * Logging API追加
     * Consoleで有効にできるLogging機能で保存されたデータを照会するAPIを追加しました。
     * 一般照会、大量照会という2つのタイプのAPIを提供します。
-         * <a href="https://docs.toast.com/ko/Notification/Push/ko/api-guide/#_18" target="_blank">ログ照会はこちら</a>
+         * <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/api-guide/#_18" target="_blank">ログ照会はこちら</a>
 * v2.2 APIアップデート
     * Logging APIの追加により最新APIバージョンをv2.2にアップデートしました。
     * v2.2からAPI認証のために'APIセキュリティ設定'を利用します。
@@ -382,7 +382,7 @@
 * ADM(Amazon Device Messaging)プッシュタイプの追加
     * Amazonデバイス(Kindle Fire)へプッシュメッセージを送信できるように、ADMプッシュタイプを追加しました。
     * Amazon開発者サイトでアプリを登録し、Client ID、Client Secretを発行して登録後に送信できます。
-     <a href="https://docs.toast.com/ko/Notification/Push/ko/console-guide/#adm-client-id-client-secret" target="_blank">ADMガイドはこちら</a>
+     <a href="https://docs.nhncloud.com/ko/Notification/Push/ko/console-guide/#adm-client-id-client-secret" target="_blank">ADMガイドはこちら</a>
 
 <a id="section-1-32-2"></a>
 #### [API]
